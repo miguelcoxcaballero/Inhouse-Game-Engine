@@ -2,6 +2,17 @@
 
 Atlas interactivo con cartografía real de OpenStreetMap y una estética inspirada en GTA VI.
 
+## Descargar versión jugable
+
+**[Descargar Forja para Windows (última versión)](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/releases/latest/download/Forja-Windows.zip)** · [Todas las versiones](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/releases)
+
+Juego en mundo abierto con el motor Forja: ciudad procedural de Madrid y Valencia, personajes, coches, armas e inventario. Requiere Windows 10/11 de 64 bits y una GPU con DirectX 12.
+
+1. Descomprime `Forja-Windows.zip` en cualquier carpeta.
+2. Abre `Jugar.bat`. La primera vez descarga el contenido libre (unos 0,8-1 GB, con progreso en la consola); después arranca directamente.
+
+Controles: WASD mover · ratón mirar · Shift correr · Espacio saltar/freno de mano · F subir/bajar del coche · clic derecho apuntar · clic izquierdo disparar · R recargar · 1-6 armas · Tab inventario · V cámara · F10 ayuda · Esc soltar ratón/salir. Detalles en `LEEME.txt` dentro del ZIP. Cada etiqueta `v*` compila el ZIP con [GitHub Actions](.github/workflows/release.yml).
+
 ## Isla de 100 km² · editor actual
 
 **[Descargar el editor de 100 km²](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor-100km2.zip)** · [HTML](isla-v3/isla-levante-editor-100.html) · [Captura de Valencia](isla-v3/previews/valencia-100.png) · [Datos, instrucciones y límites](isla-v3/README.md).
