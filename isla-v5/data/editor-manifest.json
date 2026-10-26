@@ -1,0 +1,18 @@
+{
+  "base_id": "isla-levante-8a3ec1ed07b959fe",
+  "payload_sha256": "8a3ec1ed07b959fe5a03d5374163fa859d4707b5d3dca85466741ba4cffdfefc",
+  "editor_version": 1,
+  "coordinate_system": "LOCAL_METRES_FICTIONAL",
+  "html_sha256": "06ae093b64b4d6ad2c6896325af9adb438fc72cf29bbb16306eb208cf4e35058",
+  "html_bytes": 29340586,
+  "viewer_bytes": 29300578,
+  "features": 104887,
+  "zip_sha256": "5489a42be4bada35b91b6bbdf8ee224cef9c687f1bea949b83311f7f3307a09c",
+  "zip_bytes": 21656610,
+  "editor_city_bounds_m": [
+    -657.0106857961509,
+    -2549.6592286238447,
+    10114.439771220204,
+    8032.590510217473
+  ]
+}

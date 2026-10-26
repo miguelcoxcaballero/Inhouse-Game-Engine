@@ -13,7 +13,17 @@ Juego en mundo abierto con el motor Forja: ciudad procedural de Madrid y Valenci
 
 Controles: WASD mover · ratón mirar · Shift correr · Espacio saltar/freno de mano · F subir/bajar del coche · clic derecho apuntar · clic izquierdo disparar · R recargar · 1-6 armas · Tab inventario · V cámara · F10 ayuda · Esc soltar ratón/salir. Detalles en `LEEME.txt` dentro del ZIP. Cada etiqueta `v*` compila el ZIP con [GitHub Actions](.github/workflows/release.yml).
 
-## Isla de 300 km² · editor actual
+## Isla de 500 km² · editor actual
+
+**[Descargar el editor de 500 km²](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor-500km2.zip)** · [HTML](isla-v5/isla-levante-editor-500.html) · [Isla completa](isla-v5/previews/isla-500.png) · [Sur de Valencia](isla-v5/previews/sur-valencia-500.png) · [Datos e instrucciones](isla-v5/README.md).
+
+200 km² adicionales hacia el interior y 25.499 huellas suburbanas eliminadas para dar espacio a campo y montaña. La Albufera reduce su superficie a la mitad, de 24,31 a 12,15 km². Se recorta también la zona comercial e industrial de Alfafar donde está IKEA. Valencia, Alboraia y Port Saplaya conservan sus edificios a tamaño real; el aeropuerto mantiene la pista completa y Bonaire permanece.
+
+La isla contiene 43.738 edificios, 100 elementos arquitectónicos protegidos y unos 76 km de nuevas carreteras secundarias por las sierras. Los 18 destinos principales tienen recorridos comprobados. El editor permite dibujar calles, mover edificios en grupo y exportar las sugerencias. [Auditoría](isla-v5/data/audit.json) · [Recorte suburbano](isla-v5/data/rural-revision.json). El relieve y los enlaces entre zonas son de diseño; la navegación con sentidos únicos y cotas sigue pendiente.
+
+![Isla Levante · 500 km²](isla-v5/previews/isla-500.png)
+
+## Isla de 300 km² · versión anterior
 
 **[Descargar el editor de 300 km²](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor-300km2.zip)** · [HTML](isla-v4/isla-levante-editor-300.html) · [Captura de Valencia](isla-v4/previews/valencia-300.png) · [Isla completa](isla-v4/previews/isla-300.png) · [Datos, instrucciones y límites](isla-v4/README.md).
 
