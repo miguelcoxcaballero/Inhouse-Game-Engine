@@ -1,0 +1,15 @@
+{
+  "island_area_300": true,
+  "full_island_screen_bounds": {
+    "left": 468.04001920276215,
+    "top": 159.99999999986755,
+    "right": 1231.9599807971053,
+    "bottom": 1134.9999999998674
+  },
+  "mesh_toggle": true,
+  "avenue_relations_toggle": true,
+  "verified_routes": 18,
+  "route_toggle": true,
+  "building_inspector": true,
+  "errors": []
+}

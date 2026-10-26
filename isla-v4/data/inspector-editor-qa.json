@@ -1,0 +1,9 @@
+{
+  "offline_file_open": false,
+  "offline_file_limitation": "Managed Chromium blocks file navigation (ERR_BLOCKED_BY_ADMINISTRATOR). Embedded assets tested over localhost without external requests.",
+  "expanded_city_fits_initial_view": true,
+  "selection_updates_inspector": true,
+  "selected_osm": "way/135630267",
+  "comparison_rows": 5,
+  "avenue_layer_visible": "visible"
+}

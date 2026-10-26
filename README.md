@@ -2,7 +2,17 @@
 
 Atlas interactivo con cartografía real de OpenStreetMap y una estética inspirada en GTA VI.
 
-## Isla de 100 km² · editor actual
+## Isla de 300 km² · editor actual
+
+**[Descargar el editor de 300 km²](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor-300km2.zip)** · [HTML](isla-v4/isla-levante-editor-300.html) · [Captura de Valencia](isla-v4/previews/valencia-300.png) · [Isla completa](isla-v4/previews/isla-300.png) · [Datos, instrucciones y límites](isla-v4/README.md).
+
+Valencia conserva su geometría OSM a escala real: 49.859 huellas urbanas, calles, avenidas y posiciones relativas. La isla reúne 69.237 edificios. El aeropuerto se acerca 750 m conservando su pista completa de 2,92 km; la Albufera y sus pueblos se trasladan juntos 1,5 km hacia el norte. Los núcleos exteriores conservan sus edificios y calles locales a tamaño real. El editor permite dibujar calles, mover edificios en grupo y exportar sugerencias.
+
+Las conexiones se comprueban usando vértices compartidos de las calles, sin convertir automáticamente los cruces entre puentes en intersecciones. [Auditoría](isla-v4/data/audit.json) · [Recorridos](isla-v4/data/integration-review.json). El relieve es de diseño y el trazado histórico del F1 sigue pendiente de reconstrucción exacta.
+
+![Isla Levante · 300 km²](isla-v4/previews/isla-300.png)
+
+## Isla de 100 km² · versión anterior
 
 **[Descargar el editor de 100 km²](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor-100km2.zip)** · [HTML](isla-v3/isla-levante-editor-100.html) · [Captura de Valencia](isla-v3/previews/valencia-100.png) · [Datos, instrucciones y límites](isla-v3/README.md).
 
