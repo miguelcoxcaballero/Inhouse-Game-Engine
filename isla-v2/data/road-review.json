@@ -1,0 +1,41 @@
+{
+  "method": "Continuous OSM paths;12m simplification. Main corridors contract straights preferentially; V-30 moves the central valley up to450m north and A-3 shares the airport transform.",
+  "limitation": "Angles refer only to retained vertices AFTER simplification. Final bank offsets, bridges, lane widths, driving radii and grades are not certified.",
+  "corridors": [
+    {
+      "ref": "A-7",
+      "retained_turns": 42,
+      "max_turn_change_after_simplification_deg": 6.003296961262388e-13,
+      "reference_m": 18573.950520486473,
+      "compact_m": 3271.9913644491385
+    },
+    {
+      "ref": "V-30",
+      "retained_turns": 23,
+      "max_turn_change_after_simplification_deg": 23.860080198040873,
+      "reference_m": 14226.994318481715,
+      "compact_m": 5751.3227718057
+    },
+    {
+      "ref": "V-21",
+      "retained_turns": 13,
+      "max_turn_change_after_simplification_deg": 7.251664673736818e-13,
+      "reference_m": 8487.537757031309,
+      "compact_m": 1704.7273772989995
+    },
+    {
+      "ref": "A-3",
+      "retained_turns": 5,
+      "max_turn_change_after_simplification_deg": 4.4069160908560425,
+      "reference_m": 3762.2343286163023,
+      "compact_m": 3283.5668160429423
+    },
+    {
+      "ref": "CV-35",
+      "retained_turns": 137,
+      "max_turn_change_after_simplification_deg": 3.778498961578658e-12,
+      "reference_m": 62193.63073083378,
+      "compact_m": 1513.7170027850061
+    }
+  ]
+}

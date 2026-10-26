@@ -1,0 +1,15 @@
+# Aeropuerto y transición sur · revisión del26-10-2026
+
+La última petición amplía la ciudad aproximadamente un 25 % respecto al borrador de 5,406 km², recuperando manzanas y profundidad del borde occidental. Se mantienen huellas completas. El aeropuerto vuelve a ser mayor, con pista de 2,20 km, terminales1/2/Regional, plataformas, hangares y rodajes derivados de OSM. Comparar con la geometría de pista de 2,918 km del extracto; no confundir esa medición con distancias operativas publicadas.
+
+La [ficha de acceso de Aena](https://www.aena.es/es/valencia/como-llegar/coche.html) remite al itinerario por carretera. [Visit València](https://www.visitvalencia.com/planifica-tu-viaje-a-valencia/como-llegar/aeropuerto) identifica V-11 y conexión con A-3/V-30; [Turespaña](https://www.spain.info/es/avion/aeropuerto-valencia/) menciona N-220. Se conservaron las referencias y enlaces del extracto OSM, sin deducir de estas fichas el estado operativo de cada carril. La A-3 comparte la transformación del aeropuerto para que no atraviese su recinto. La N-220 se recorta antes de la sierra y se enlaza con el corredor de Manises/CV-370 de diseño. Accesos y giros requieren revisión de ingeniería.
+
+[Mercavalència](https://www.mercavalencia.es/es/info-practica/contacta-con-mercavalencia/) confirma el carácter logístico y mayorista del recinto. Su estudio municipal de integración paisajística de octubre2024 sitúa las relaciones con La Punta, Natzaret, Pinedo, Castellar-l’Oliveral, V-30 y nuevo cauce. La versión compacta incorpora muestras enteras del tejido OSM de Mercavalència, Sedaví, Alfafar, Catarroja, Castellar y Pinedo. No son municipios reproducidos íntegramente ni un estudio de densidad demográfica; se preserva el tamaño y trama de las piezas seleccionadas.
+
+La [documentación municipal de Devesa–Albufera](https://albufera.valencia.es/sites/default/files/preguntas.pdf) distingue espacios naturales protegidos y áreas agrícolas. El diseño conserva una transición con huerta, parcelas de marjal, laguna y costa, evitando rellenarla como un ensanche urbano. La franja de humedal dibujada es una interpretación del paisaje, no un límite legal del parque ni un inventario ecológico.
+
+Se retiraron las copias interiores de playas procedentes de sectores originales. Todas las playas de esta versión se construyen contra la línea de costa de la isla, con un paseo en el borde terrestre. Ver los controles numéricos en `data/revision-review.json` y `data/beach-review.json`.
+
+Fuentes web consultadas el26-10-2026; geometrías del extracto OSM2026-10-25T21:21:21Z. Las fechas de rastreo de buscadores no se tratan como fechas de publicación.
+
+El ajuste posterior acerca la ciudad 300 m a la costa y el tramo central del nuevo cauce hasta 450 m al norte, conservando sus extremos. Chelva baja 200 m y se desplaza 100 m al oeste, hacia una posición más interior. La CV-35 deja de usar como acceso principal el rodeo de la A-7: se compacta el corredor OSM continuo hasta Chelva y se introduce un viaducto sobre un brazo del embalse. Es una adaptación ficticia, no el itinerario geográfico real de la CV-35.

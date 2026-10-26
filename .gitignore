@@ -1,0 +1,16 @@
+# Local discarded island prototype and source extract caches
+isla-v1/
+isla-v2/data/osm-selection.json
+isla-v2/data/osm-nodes.json
+isla-v2/data/height.npy
+isla-v2/data/*log.txt
+isla-v2/research/*.html
+isla-v2/source/build_viewer.py
+**/__pycache__/
+*.osm.pbf
+
+isla-v2/data/isla-base.geojson
+isla-v2/data/*-base.npy
+isla-v2/data/*-base.json
+isla-v2/source/refine_ui.py
+isla-v2/source/quick_preview.cjs

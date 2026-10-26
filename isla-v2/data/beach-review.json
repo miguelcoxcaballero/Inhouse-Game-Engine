@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Port Saplaya",
+    "promenade_to_sand_m": 6.999999999999581,
+    "promenade_inside_island": true,
+    "beach_area_m2": 74517.70797201247,
+    "beach_to_coast_m": 0.0
+  },
+  {
+    "name": "Patacona / Malvarrosa",
+    "promenade_to_sand_m": 6.8568534555154885,
+    "promenade_inside_island": true,
+    "beach_area_m2": 205719.1843253212,
+    "beach_to_coast_m": 0.0
+  },
+  {
+    "name": "Cabanyal / Arenas",
+    "promenade_to_sand_m": 7.000000000000123,
+    "promenade_inside_island": true,
+    "beach_area_m2": 67307.05757942471,
+    "beach_to_coast_m": 0.0
+  },
+  {
+    "name": "Saler / Devesa",
+    "promenade_to_sand_m": 6.984963295282678,
+    "promenade_inside_island": true,
+    "beach_area_m2": 158901.6860557742,
+    "beach_to_coast_m": 0.0
+  },
+  {
+    "name": "Calpe",
+    "promenade_to_sand_m": 6.884508017374584,
+    "promenade_inside_island": true,
+    "beach_to_coast_m": 0.0,
+    "beach_area_m2": 126036.38947661623
+  }
+]

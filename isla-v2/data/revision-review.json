@@ -1,0 +1,71 @@
+{
+  "previous_city_envelope_km2": 5.406253563,
+  "current_city_envelope_km2": 6.754474322146992,
+  "city_area_ratio": 1.2493817101687785,
+  "selected_blocks": 440,
+  "airport_elevation_min_m": 18.0,
+  "airport_elevation_max_m": 18.0,
+  "airport_runway_m": 2200.000007949875,
+  "a3_runway_clearance_m": 509.36725514969163,
+  "independent_city_roads_inside_airport_m": 0.0,
+  "beaches": [
+    {
+      "name": "Port Saplaya",
+      "distance_to_sea_m": 0.0,
+      "area_m2": 74517.70797201247
+    },
+    {
+      "name": "Patacona / Malvarrosa",
+      "distance_to_sea_m": 0.0,
+      "area_m2": 205719.1843253212
+    },
+    {
+      "name": "Cabanyal / Arenas",
+      "distance_to_sea_m": 0.0,
+      "area_m2": 67307.05757942471
+    },
+    {
+      "name": "Saler / Devesa",
+      "distance_to_sea_m": 0.0,
+      "area_m2": 158901.6860557742
+    },
+    {
+      "name": "Calpe · frente litoral compacto",
+      "distance_to_sea_m": 0.0,
+      "area_m2": 126036.38947661623
+    }
+  ],
+  "southern_transition": [
+    {
+      "name": "Mercavalència · mercado y logística",
+      "whole_buildings_near_anchor": 20,
+      "nearest_main_network_m": 0.0
+    },
+    {
+      "name": "Sedaví · núcleo y borde industrial",
+      "whole_buildings_near_anchor": 432,
+      "nearest_main_network_m": 0.0
+    },
+    {
+      "name": "Alfafar · núcleo compacto",
+      "whole_buildings_near_anchor": 43,
+      "nearest_main_network_m": 0.0
+    },
+    {
+      "name": "Catarroja · acceso a la marjal",
+      "whole_buildings_near_anchor": 566,
+      "nearest_main_network_m": 0.0
+    },
+    {
+      "name": "Castellar · núcleo de huerta",
+      "whole_buildings_near_anchor": 10,
+      "nearest_main_network_m": 0.0
+    },
+    {
+      "name": "Pinedo · fachada del parque",
+      "whole_buildings_near_anchor": 6,
+      "nearest_main_network_m": 0.0
+    }
+  ],
+  "scope": "Geometry and terrain checks only; not airport certification, drivable lane navigation or resident recognition."
+}

@@ -1,0 +1,16 @@
+{
+  "area_km2": 49.00000000000004,
+  "budget_sum_km2": 49.00000000000004,
+  "area_under_50": true,
+  "valid_geometries": true,
+  "invalid": [],
+  "features_outside": [],
+  "landmarks_outside": [],
+  "transit_connected_stations": 30,
+  "transit_total_stations": 30,
+  "transit_all_connected": true,
+  "f1_closed": true,
+  "no_circular_city_patches": true,
+  "resident_validation": "pendiente",
+  "junction_geometry_review": "pendiente"
+}

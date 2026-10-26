@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-26",
+  "checks": {
+    "loaded": {
+      "area": 49.00000000000004,
+      "landmarks": 222,
+      "rendered": 44823
+    },
+    "airportButton": "Aeropuerto · Terminal 1",
+    "terrain": {
+      "active": true,
+      "pitch": 54,
+      "sampleHeight": 581.7193802315676,
+      "loadedElevationVerified": true
+    },
+    "search": [
+      "Alboraia · núcleo y mercado",
+      "Port Saplaya · marina",
+      "Aeropuerto · Terminal 1",
+      "Bonaire · edificio principal",
+      "Central nuclear de Cofrentes",
+      "Acueducto de Peña Cortada",
+      "La Playeta · cascadas y remanso",
+      "Penyal d’Ifac / Peñón de Ifach",
+      "Calpe · casco y pequeño frente marítimo",
+      "Serra de la Safor · montañas al sur de Gandia",
+      "Antiguo circuito de Fórmula 1",
+      "UPV · campus de Vera / Ágora",
+      "Universitat de València - Campus dels Tarongers",
+      "Nuevo cauce del Turia / Plan Sur",
+      "A-7 · corredor compacto",
+      "V-21 · corredor compacto",
+      "Embalse de Benagéber",
+      "Presa de Benagéber",
+      "Paseo marítimo · Port Saplaya",
+      "Aeropuerto · Terminal 1",
+      "V-11 · acceso del aeropuerto",
+      "N-220 · acceso del aeropuerto",
+      "Mercavalència · mercado y logística",
+      "Sedaví · núcleo y borde industrial",
+      "Alfafar · núcleo compacto",
+      "Catarroja · acceso a la marjal",
+      "Castellar · núcleo de huerta",
+      "Pinedo · fachada del parque"
+    ],
+    "transportVisible": true,
+    "route": "Aeroport [M-A] → Manises / Quart [M-A] → Mislata [M-A] → Av. del Cid [M-A] → Àngel Guimerà [M-A] → Xàtiva / Nord [C-I2] → El Saler · estación de diseño [C-I2] → Safor · estación de diseño [C-I2] → Calpe · estación de diseño · 7.93 km entre estaciones (aprox.; no tiempo de viaje).",
+    "blind": true,
+    "sectors": "visible",
+    "grid": true,
+    "clusterOff": true,
+    "measure": "Distancia en línea: 2.635 km. No representa un recorrido por calles.",
+    "drawing": 1,
+    "undo": true,
+    "mobile": {
+      "width": 390,
+      "scroll": 390
+    }
+  },
+  "errors": [],
+  "external": []
+}

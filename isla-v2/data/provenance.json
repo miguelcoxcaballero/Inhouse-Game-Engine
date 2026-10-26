@@ -1,0 +1,15 @@
+{
+  "source": "Geofabrik / OpenStreetMap",
+  "download_url": "https://download.geofabrik.de/europe/spain/valencia-latest.osm.pbf",
+  "snapshot_utc": "2026-10-25T21:21:21Z",
+  "consulted": "2026-10-26",
+  "bytes": 140860862,
+  "sha256": "8e2b0695ebdb619976f68bfa3a2c8909455b75c4935309797559f3151c3a8332",
+  "license": "ODbL 1.0",
+  "osm_attribution": "© OpenStreetMap contributors",
+  "derivative_database_license": "ODbL 1.0",
+  "maplibre": "5.6.2 / BSD-3-Clause",
+  "design_coordinate_system": "fictional local metres; not EPSG:4326",
+  "heightmap": "synthetic; uint16 decimetres",
+  "legacy_reference_area_note": "2642.606 km2 excludes southern additions, do not use as global compaction ratio"
+}
