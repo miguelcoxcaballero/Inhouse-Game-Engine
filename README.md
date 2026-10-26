@@ -2,7 +2,13 @@
 
 Atlas interactivo con cartografía real de OpenStreetMap y una estética inspirada en GTA VI.
 
-## Editor de sugerencias
+## Isla de 100 km² · editor actual
+
+**[Descargar el editor de 100 km²](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor-100km2.zip)** · [HTML](isla-v3/isla-levante-editor-100.html) · [Captura de Valencia](isla-v3/previews/valencia-100.png) · [Datos, instrucciones y límites](isla-v3/README.md).
+
+Más tejido OSM, 8.397 huellas urbanas a tamaño real, Ciutat Vella continua y 100 conjuntos arquitectónicos protegidos. Incluye malla de edificios y avenidas, comparación de distancias y orientación, y el Jardín del Turia como parque seco con sus puentes. La isla mide 100 km², incluidas aguas interiores. Los enlaces exteriores y el trazado histórico del F1 siguen en revisión.
+
+## Editor anterior · 49 km²
 
 [Descargar editor en ZIP](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor.zip) · [HTML del editor](isla-v2/isla-levante-editor.html) · [Instrucciones](isla-v2/EDITOR.md). Permite dibujar calles, seleccionar y arrastrar varios edificios y exportar una ficha JSON para revisar los cambios.
 

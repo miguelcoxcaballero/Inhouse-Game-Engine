@@ -1,0 +1,22 @@
+{
+  "base": "isla-levante-fc04a2fbaed3d2a3",
+  "buildings": 12205,
+  "multi_selection": 2,
+  "rectangle_selection": 65,
+  "group_translation_m": {
+    "east": 56.118171444209,
+    "north": -34.395008370624055
+  },
+  "footprints_preserved": true,
+  "undo_redo": true,
+  "streets": 2,
+  "point_vertices": 4,
+  "freehand": true,
+  "export_download": true,
+  "json_roundtrip": true,
+  "wrong_base_rejected": true,
+  "local_reload": true,
+  "mobile_no_overflow": true,
+  "external_requests": [],
+  "errors": []
+}

@@ -1,0 +1,20 @@
+const {chromium}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const root=path.resolve(__dirname,'..');
+(async()=>{
+ const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-dev-shm-usage']});
+ const page=await browser.newPage({viewport:{width:1700,height:1200}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:8768/isla-levante-100.html');await page.waitForFunction(()=>window.islandReady&&window.levanteMeshReview,null,{timeout:120000});
+ assert(Math.abs(await page.evaluate(()=>islandData.metrics.island_area_km2)-100)<1e-7);
+ await page.waitForFunction(()=>islandMap.areTilesLoaded(),null,{timeout:90000});await page.waitForTimeout(600);
+ await page.screenshot({path:path.join(root,'previews/isla-100.png')});
+ await page.evaluate(()=>{document.getElementById('blind').click();islandMap.jumpTo({center:[1250/111319.4908,1550/111319.4908],zoom:14.65,pitch:0,bearing:0,padding:{top:90,bottom:30,left:80,right:20}});});
+ await page.waitForFunction(()=>islandMap.areTilesLoaded(),null,{timeout:90000});await page.waitForTimeout(700);
+ await page.screenshot({path:path.join(root,'previews/valencia-100.png')});
+ await page.locator('#mesh-review summary').click();await page.locator('#mesh-show').check();await page.locator('#avenue-show').check();
+ await page.evaluate(()=>{const r=levanteMeshReview.rows.find(r=>r.building==='w135630267')||levanteMeshReview.rows[0];levanteMeshReview.inspect(r.building);islandMap.jumpTo({center:[r.compact_building_xy[0]/111319.4908,r.compact_building_xy[1]/111319.4908],zoom:16.3,pitch:0,bearing:0});});
+ await page.waitForFunction(()=>islandMap.areTilesLoaded(),null,{timeout:90000});await page.waitForTimeout(600);
+ assert((await page.locator('#mesh-relation').innerText()).includes('Distancia real'));assert.equal(await page.evaluate(()=>islandMap.getLayoutProperty('mesh-edges','visibility')),'visible');
+ await page.screenshot({path:path.join(root,'previews/malla-avenidas.png')});
+ assert.deepStrictEqual(errors,[]);fs.writeFileSync(path.join(root,'data/viewer-browser-qa.json'),JSON.stringify({island_area_100:true,mesh_toggle:true,avenue_relations_toggle:true,building_inspector:true,errors},null,2));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

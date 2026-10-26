@@ -1,0 +1,81 @@
+{
+  "UPV Vera": {
+    "scope": "Complete footprints strictly inside the geographic selection window; boundary-straddling buildings reported separately.",
+    "source_building_footprints": 178,
+    "retained_building_footprints": 178,
+    "missing": [],
+    "boundary_straddling_source_count": 15,
+    "boundary_straddling_omitted_ids": [
+      "w23389316",
+      "w36966630",
+      "w689485899",
+      "w689485906"
+    ]
+  },
+  "UV Blasco": {
+    "scope": "Complete footprints strictly inside the geographic selection window; boundary-straddling buildings reported separately.",
+    "source_building_footprints": 113,
+    "retained_building_footprints": 113,
+    "missing": [],
+    "boundary_straddling_source_count": 39,
+    "boundary_straddling_omitted_ids": [
+      "w10249532",
+      "w103189316",
+      "w1244162056",
+      "w1244563482",
+      "w1244563500",
+      "w149469772",
+      "w149469774",
+      "w149471068",
+      "w414020182",
+      "w414864610",
+      "w473587821",
+      "w506471392",
+      "w674912710",
+      "w675451832",
+      "w675598121",
+      "w675598124",
+      "w741642199",
+      "w743627470",
+      "w77805476",
+      "w789942318",
+      "w790203096",
+      "w804766882",
+      "w804766886"
+    ]
+  },
+  "UV Tarongers": {
+    "scope": "Complete footprints strictly inside the geographic selection window; boundary-straddling buildings reported separately.",
+    "source_building_footprints": 100,
+    "retained_building_footprints": 100,
+    "missing": [],
+    "boundary_straddling_source_count": 30,
+    "boundary_straddling_omitted_ids": [
+      "w1206401268",
+      "w23389311",
+      "w254149347",
+      "w255846673",
+      "w391550339",
+      "w411418781",
+      "w411418782",
+      "w413438633",
+      "w414528258",
+      "w681078196",
+      "w681078204",
+      "w681078208",
+      "w691306918"
+    ]
+  },
+  "Mercavalencia": {
+    "scope": "Complete footprints strictly inside the geographic selection window; boundary-straddling buildings reported separately.",
+    "source_building_footprints": 73,
+    "retained_building_footprints": 73,
+    "missing": [],
+    "boundary_straddling_source_count": 4,
+    "boundary_straddling_omitted_ids": [
+      "w688513863",
+      "w688513865",
+      "w787759685"
+    ]
+  }
+}

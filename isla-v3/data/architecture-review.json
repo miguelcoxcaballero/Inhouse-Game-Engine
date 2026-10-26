@@ -1,0 +1,2319 @@
+{
+  "requested_elements": 100,
+  "verified_footprints": 100,
+  "source_geometries": 151,
+  "scaled_footprints": 0,
+  "max_shape_error_m": 3.1587760507704397e-12,
+  "miguelete_moves_with_cathedral": true,
+  "miguelete_separate_geometry": true,
+  "miguelete_osm_height_m": 51.0,
+  "scope": "OSM plan footprints at 1:1; unmeasured heights remain previews.",
+  "elements": [
+    {
+      "index": 0,
+      "name": "Lonja de la Seda",
+      "source_ids": [
+        "w23377876"
+      ],
+      "source_area_m2": 1444.6925068683292,
+      "island_area_m2": 1444.6925068683292,
+      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23377876",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 1,
+      "name": "Catedral de Valencia",
+      "source_ids": [
+        "w135630267"
+      ],
+      "source_area_m2": 5945.246199352165,
+      "island_area_m2": 5945.246199352165,
+      "max_shape_error_m": 5.084229945850415e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w135630267",
+          "preview_m": 13.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 2,
+      "name": "Torres de Serranos",
+      "source_ids": [
+        "w9281502"
+      ],
+      "source_area_m2": 1193.1961611936658,
+      "island_area_m2": 1193.1961611936658,
+      "max_shape_error_m": 9.094947017729282e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w9281502",
+          "preview_m": 33.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 3,
+      "name": "Mercado Central",
+      "source_ids": [
+        "w5007139"
+      ],
+      "source_area_m2": 8058.109064226126,
+      "island_area_m2": 8058.109064226126,
+      "max_shape_error_m": 4.687428401686771e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w5007139",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 4,
+      "name": "Palau de les Arts Reina Sofía",
+      "source_ids": [
+        "w23433773"
+      ],
+      "source_area_m2": 9899.438784607457,
+      "island_area_m2": 9899.438784607457,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23433773",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 5,
+      "name": "Estación del Norte",
+      "source_ids": [
+        "w10153012"
+      ],
+      "source_area_m2": 5521.933184453235,
+      "island_area_m2": 5521.933184453235,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w10153012",
+          "preview_m": 15.15,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 6,
+      "name": "Torres de Quart",
+      "source_ids": [
+        "w13073736"
+      ],
+      "source_area_m2": 642.3932600968691,
+      "island_area_m2": 642.3932600968691,
+      "max_shape_error_m": 6.915300366811402e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w13073736",
+          "preview_m": 34.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 7,
+      "name": "Ayuntamiento de Valencia",
+      "source_ids": [
+        "r11174923"
+      ],
+      "source_area_m2": 5664.568701859339,
+      "island_area_m2": 5664.568701859339,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11174923",
+          "preview_m": 15.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 8,
+      "name": "Torre del Miguelete",
+      "source_ids": [
+        "w625039852"
+      ],
+      "source_area_m2": 171.42251489522843,
+      "island_area_m2": 171.42251489522843,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w625039852",
+          "preview_m": 51.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 9,
+      "name": "Museu de les Ciències Príncipe Felipe",
+      "source_ids": [
+        "r14693200"
+      ],
+      "source_area_m2": 18063.39938535506,
+      "island_area_m2": 18063.39938535506,
+      "max_shape_error_m": 1.6553053431563326e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r14693200",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 10,
+      "name": "L’Hemisfèric",
+      "source_ids": [
+        "w23433774"
+      ],
+      "source_area_m2": 3277.7904688295107,
+      "island_area_m2": 3277.7904688295107,
+      "max_shape_error_m": 7.190186943645084e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23433774",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 11,
+      "name": "Palacio del Marqués de Dos Aguas",
+      "source_ids": [
+        "w515082661"
+      ],
+      "source_area_m2": 1668.181766265142,
+      "island_area_m2": 1668.181766265142,
+      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w515082661",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 12,
+      "name": "Plaza de Toros",
+      "source_ids": [
+        "w515256276"
+      ],
+      "source_area_m2": 10653.464127765657,
+      "island_area_m2": 10653.464127765657,
+      "max_shape_error_m": 2.2914314707516465e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w515256276",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 13,
+      "name": "Palau de la Generalitat",
+      "source_ids": [
+        "r11137438"
+      ],
+      "source_area_m2": 991.8403137790008,
+      "island_area_m2": 991.8403137790008,
+      "max_shape_error_m": 6.915300366811402e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11137438",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 14,
+      "name": "Basílica de la Virgen de los Desamparados",
+      "source_ids": [
+        "w135630265"
+      ],
+      "source_area_m2": 983.1388433977112,
+      "island_area_m2": 983.1388433977112,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w135630265",
+          "preview_m": 13.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 15,
+      "name": "Mercado de Colón",
+      "source_ids": [
+        "w10120283"
+      ],
+      "source_area_m2": 2730.1463022515145,
+      "island_area_m2": 2730.1463022515145,
+      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w10120283",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 16,
+      "name": "Iglesia de Santa Catalina",
+      "source_ids": [
+        "w135638445",
+        "w165580724"
+      ],
+      "source_area_m2": 1675.3991675275108,
+      "island_area_m2": 1675.3991675275108,
+      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w135638445",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w165580724",
+          "preview_m": 45.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 17,
+      "name": "Estadio de Mestalla",
+      "source_ids": [
+        "w8082830"
+      ],
+      "source_area_m2": 28862.936302675396,
+      "island_area_m2": 28862.936302675396,
+      "max_shape_error_m": 1.1368683772161603e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w8082830",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 18,
+      "name": "Edificio de Correos",
+      "source_ids": [
+        "w513696236"
+      ],
+      "source_area_m2": 2360.7447971540028,
+      "island_area_m2": 2360.7447971540028,
+      "max_shape_error_m": 5.084229945850415e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w513696236",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 19,
+      "name": "Museo de Bellas Artes · San Pío V",
+      "source_ids": [
+        "r11026210"
+      ],
+      "source_area_m2": 7360.841918492424,
+      "island_area_m2": 7360.841918492424,
+      "max_shape_error_m": 1.365425777005875e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11026210",
+          "preview_m": 15.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 20,
+      "name": "Iglesia de San Nicolás",
+      "source_ids": [
+        "w514601809"
+      ],
+      "source_area_m2": 1207.0064549775282,
+      "island_area_m2": 1207.0064549775282,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w514601809",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 21,
+      "name": "Iglesia de los Santos Juanes",
+      "source_ids": [
+        "w183237709"
+      ],
+      "source_area_m2": 1806.698140852477,
+      "island_area_m2": 1806.698140852477,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w183237709",
+          "preview_m": 15.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 22,
+      "name": "Real Colegio del Patriarca",
+      "source_ids": [
+        "r18681030"
+      ],
+      "source_area_m2": 3176.2033319363118,
+      "island_area_m2": 3176.2033319363118,
+      "max_shape_error_m": 4.0990372275064023e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r18681030",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 23,
+      "name": "L’Àgora",
+      "source_ids": [
+        "w37523471"
+      ],
+      "source_area_m2": 4877.286872459887,
+      "island_area_m2": 4877.286872459887,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w37523471",
+          "preview_m": 86.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 24,
+      "name": "Monasterio de San Miguel de los Reyes",
+      "source_ids": [
+        "w150244048"
+      ],
+      "source_area_m2": 19157.274680609455,
+      "island_area_m2": 19157.274680609455,
+      "max_shape_error_m": 6.431098710768743e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w150244048",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 25,
+      "name": "L’Oceanogràfic",
+      "source_ids": [
+        "w23433776"
+      ],
+      "source_area_m2": 71287.55978971174,
+      "island_area_m2": 71287.55978971174,
+      "max_shape_error_m": 9.374856803373542e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23433776",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 26,
+      "name": "La Nau · Universitat",
+      "source_ids": [
+        "r11164787"
+      ],
+      "source_area_m2": 3611.6227102313355,
+      "island_area_m2": 3611.6227102313355,
+      "max_shape_error_m": 4.0990372275064023e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11164787",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 27,
+      "name": "Palau de Benicarló · Corts Valencianes",
+      "source_ids": [
+        "w1286369610",
+        "w23377877"
+      ],
+      "source_area_m2": 2967.1257201759868,
+      "island_area_m2": 2967.1257201759868,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w1286369610",
+          "preview_m": 12.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w23377877",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 28,
+      "name": "Convento de Santo Domingo",
+      "source_ids": [
+        "w515350925"
+      ],
+      "source_area_m2": 7550.011806260523,
+      "island_area_m2": 7550.011806260523,
+      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w515350925",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 29,
+      "name": "Teatro Principal",
+      "source_ids": [
+        "w23377878"
+      ],
+      "source_area_m2": 1867.4621282974877,
+      "island_area_m2": 1867.4621282974877,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23377878",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 30,
+      "name": "Palau de la Música",
+      "source_ids": [
+        "w23167750"
+      ],
+      "source_area_m2": 2616.246701776175,
+      "island_area_m2": 2616.246701776175,
+      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23167750",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 31,
+      "name": "Baños del Almirante",
+      "source_ids": [
+        "w218841695"
+      ],
+      "source_area_m2": 275.01808891706344,
+      "island_area_m2": 275.01808891706344,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w218841695",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 32,
+      "name": "Almudín",
+      "source_ids": [
+        "w227916537"
+      ],
+      "source_area_m2": 841.8877793110341,
+      "island_area_m2": 841.8877793110341,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w227916537",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 33,
+      "name": "Atarazanas del Grao",
+      "source_ids": [
+        "w512378878"
+      ],
+      "source_area_m2": 3397.4981018794174,
+      "island_area_m2": 3397.4981018794174,
+      "max_shape_error_m": 1.3830600733622803e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w512378878",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 34,
+      "name": "Palacio de Justicia · antigua Aduana",
+      "source_ids": [
+        "r18681032"
+      ],
+      "source_area_m2": 2811.662648444119,
+      "island_area_m2": 2811.662648444119,
+      "max_shape_error_m": 6.12222357532858e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r18681032",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 35,
+      "name": "Casa de los Dragones",
+      "source_ids": [
+        "w496338533"
+      ],
+      "source_area_m2": 564.3625152789251,
+      "island_area_m2": 564.3625152789251,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w496338533",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 36,
+      "name": "Palacio e Iglesia del Temple",
+      "source_ids": [
+        "r11177870",
+        "w813424045"
+      ],
+      "source_area_m2": 4225.149511922316,
+      "island_area_m2": 4225.149511922316,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11177870",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w813424045",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 37,
+      "name": "San Juan del Hospital",
+      "source_ids": [
+        "w514000994"
+      ],
+      "source_area_m2": 989.2569066140985,
+      "island_area_m2": 989.2569066140985,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w514000994",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 38,
+      "name": "Centre del Carme",
+      "source_ids": [
+        "r8082637"
+      ],
+      "source_area_m2": 4916.417536396388,
+      "island_area_m2": 4916.417536396388,
+      "max_shape_error_m": 2.2765771512355045e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r8082637",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 39,
+      "name": "Escuelas Pías",
+      "source_ids": [
+        "w770701568",
+        "w770701567"
+      ],
+      "source_area_m2": 5483.272261022753,
+      "island_area_m2": 5483.272261022753,
+      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w770701568",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w770701567",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 40,
+      "name": "Colegio del Arte Mayor de la Seda",
+      "source_ids": [
+        "w514894836"
+      ],
+      "source_area_m2": 850.2576603489551,
+      "island_area_m2": 850.2576603489551,
+      "max_shape_error_m": 4.687428401686771e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w514894836",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 41,
+      "name": "IVAM",
+      "source_ids": [
+        "w291006854"
+      ],
+      "source_area_m2": 4667.225904123278,
+      "island_area_m2": 4667.225904123278,
+      "max_shape_error_m": 9.374856803373542e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w291006854",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 42,
+      "name": "Palacio de la Exposición",
+      "source_ids": [
+        "w150277194"
+      ],
+      "source_area_m2": 1722.139059963165,
+      "island_area_m2": 1722.139059963165,
+      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w150277194",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 43,
+      "name": "Monasterio de la Trinidad",
+      "source_ids": [
+        "r11289994"
+      ],
+      "source_area_m2": 3449.8273720327766,
+      "island_area_m2": 3449.8273720327766,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11289994",
+          "preview_m": 15.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 44,
+      "name": "Iglesia de San Esteban",
+      "source_ids": [
+        "w279478350"
+      ],
+      "source_area_m2": 1168.6935778628665,
+      "island_area_m2": 1168.6935778628665,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w279478350",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 45,
+      "name": "La Beneficencia",
+      "source_ids": [
+        "r3865968"
+      ],
+      "source_area_m2": 5956.8067621925975,
+      "island_area_m2": 5956.8067621925975,
+      "max_shape_error_m": 1.1593828079623528e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r3865968",
+          "preview_m": 9.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 46,
+      "name": "Iglesia de San Martín",
+      "source_ids": [
+        "w661320825"
+      ],
+      "source_area_m2": 1294.0919965388998,
+      "island_area_m2": 1294.0919965388998,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w661320825",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 47,
+      "name": "Palacio de Valeriola · Hortensia Herrero",
+      "source_ids": [
+        "r11179029"
+      ],
+      "source_area_m2": 1069.421208836502,
+      "island_area_m2": 1069.421208836502,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11179029",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 48,
+      "name": "Edificio del Reloj · puerto",
+      "source_ids": [
+        "r21033515"
+      ],
+      "source_area_m2": 931.2912473497735,
+      "island_area_m2": 931.2912473497735,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r21033515",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 49,
+      "name": "Veles e Vents",
+      "source_ids": [
+        "w23509879"
+      ],
+      "source_area_m2": 3366.4189116601115,
+      "island_area_m2": 3366.4189116601115,
+      "max_shape_error_m": 1.016845989170083e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23509879",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 50,
+      "name": "Casas Chapa",
+      "source_ids": [
+        "w457343276",
+        "w457343278",
+        "w457343280",
+        "w457343282",
+        "w477950786",
+        "w477950785",
+        "w496335457",
+        "w496335460"
+      ],
+      "source_area_m2": 4068.882865162789,
+      "island_area_m2": 4068.882865162789,
+      "max_shape_error_m": 5.684341886080801e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w457343276",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w457343278",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w457343280",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w457343282",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w477950786",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w477950785",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        },
+        {
+          "id": "w496335457",
+          "preview_m": 15.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w496335460",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 51,
+      "name": "Fábrica de Tabacos",
+      "source_ids": [
+        "r9603911"
+      ],
+      "source_area_m2": 8753.269453562552,
+      "island_area_m2": 8753.269453562552,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r9603911",
+          "preview_m": 12.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 52,
+      "name": "Iglesia de San Agustín",
+      "source_ids": [
+        "w239784943"
+      ],
+      "source_area_m2": 1674.4645627034458,
+      "island_area_m2": 1674.4645627034458,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w239784943",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 53,
+      "name": "San Juan de la Cruz · San Andrés",
+      "source_ids": [
+        "w513977884"
+      ],
+      "source_area_m2": 1578.063144222297,
+      "island_area_m2": 1578.063144222297,
+      "max_shape_error_m": 4.0990372275064023e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w513977884",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 54,
+      "name": "Palacio del Almirante",
+      "source_ids": [
+        "w218841696"
+      ],
+      "source_area_m2": 1439.1515468547736,
+      "island_area_m2": 1439.1515468547736,
+      "max_shape_error_m": 5.084229945850415e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w218841696",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 55,
+      "name": "Ateneo Mercantil",
+      "source_ids": [
+        "w416210407"
+      ],
+      "source_area_m2": 1068.603320061964,
+      "island_area_m2": 1068.603320061964,
+      "max_shape_error_m": 6.821210263296962e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w416210407",
+          "preview_m": 30.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 56,
+      "name": "Roig Arena",
+      "source_ids": [
+        "w1014385791"
+      ],
+      "source_area_m2": 16030.318572128404,
+      "island_area_m2": 16030.318572128404,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w1014385791",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 57,
+      "name": "Santo Tomás y San Felipe Neri",
+      "source_ids": [
+        "w495038787"
+      ],
+      "source_area_m2": 1256.8701609174814,
+      "island_area_m2": 1256.8701609174814,
+      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w495038787",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 58,
+      "name": "Palacio del Marqués de Campo",
+      "source_ids": [
+        "r7286126"
+      ],
+      "source_area_m2": 1343.0648865412309,
+      "island_area_m2": 1343.0648865412309,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r7286126",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 59,
+      "name": "Edificio Rialto",
+      "source_ids": [
+        "w416210393"
+      ],
+      "source_area_m2": 713.7346721117465,
+      "island_area_m2": 713.7346721117465,
+      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w416210393",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 60,
+      "name": "Finca Roja",
+      "source_ids": [
+        "w1074266732"
+      ],
+      "source_area_m2": 10076.964467790709,
+      "island_area_m2": 10076.964467790709,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w1074266732",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 61,
+      "name": "Iglesia del Salvador",
+      "source_ids": [
+        "w493974568"
+      ],
+      "source_area_m2": 827.2634588784717,
+      "island_area_m2": 827.2634588784717,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w493974568",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 62,
+      "name": "San Miguel y San Sebastián",
+      "source_ids": [
+        "w497514270"
+      ],
+      "source_area_m2": 1413.637462864677,
+      "island_area_m2": 1413.637462864677,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w497514270",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 63,
+      "name": "Palacio de la Baylía",
+      "source_ids": [
+        "w1303164127"
+      ],
+      "source_area_m2": 814.032710392505,
+      "island_area_m2": 814.032710392505,
+      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w1303164127",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 64,
+      "name": "Palacio de Cervelló",
+      "source_ids": [
+        "w495233207"
+      ],
+      "source_area_m2": 1785.172780117804,
+      "island_area_m2": 1785.172780117804,
+      "max_shape_error_m": 4.687428401686771e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w495233207",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 65,
+      "name": "Banco de España",
+      "source_ids": [
+        "w416487480"
+      ],
+      "source_area_m2": 1587.3773192922745,
+      "island_area_m2": 1587.3773192922745,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w416487480",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 66,
+      "name": "L’Umbracle",
+      "source_ids": [
+        "w23433784"
+      ],
+      "source_area_m2": 9707.965335511743,
+      "island_area_m2": 9707.965335511743,
+      "max_shape_error_m": 5.084229945850415e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23433784",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 67,
+      "name": "Iglesia del Pilar",
+      "source_ids": [
+        "w15218699"
+      ],
+      "source_area_m2": 1202.902471143215,
+      "island_area_m2": 1202.902471143215,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w15218699",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 68,
+      "name": "Iglesia de la Compañía",
+      "source_ids": [
+        "w216891044"
+      ],
+      "source_area_m2": 1246.3320642732888,
+      "island_area_m2": 1246.3320642732888,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w216891044",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 69,
+      "name": "Torre de San Bartolomé",
+      "source_ids": [
+        "w807759872"
+      ],
+      "source_area_m2": 29.033858859808664,
+      "island_area_m2": 29.033858859808664,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w807759872",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 70,
+      "name": "Casa Vestuario",
+      "source_ids": [
+        "w624143436"
+      ],
+      "source_area_m2": 161.9406357239378,
+      "island_area_m2": 161.9406357239378,
+      "max_shape_error_m": 4.556346636343676e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w624143436",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 71,
+      "name": "Palacio de los Escrivà",
+      "source_ids": [
+        "r8216452"
+      ],
+      "source_area_m2": 534.4305757344323,
+      "island_area_m2": 534.4305757344323,
+      "max_shape_error_m": 4.547473508864641e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r8216452",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 72,
+      "name": "Palacio del Marqués de la Scala",
+      "source_ids": [
+        "r11270791"
+      ],
+      "source_area_m2": 1348.1087701593672,
+      "island_area_m2": 1348.1087701593672,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r11270791",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 73,
+      "name": "Palacete de Ayora",
+      "source_ids": [
+        "w23413021"
+      ],
+      "source_area_m2": 250.12221788405557,
+      "island_area_m2": 250.12221788405557,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23413021",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 74,
+      "name": "Banco de Valencia",
+      "source_ids": [
+        "w492626775"
+      ],
+      "source_area_m2": 881.3959500697764,
+      "island_area_m2": 881.3959500697764,
+      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w492626775",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 75,
+      "name": "Estadio Ciutat de València",
+      "source_ids": [
+        "r12211578"
+      ],
+      "source_area_m2": 15141.24733904239,
+      "island_area_m2": 15141.24733904239,
+      "max_shape_error_m": 3.1587760507704397e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r12211578",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 76,
+      "name": "Torre Hilton · Meliá",
+      "source_ids": [
+        "w23761819"
+      ],
+      "source_area_m2": 3775.360825547217,
+      "island_area_m2": 3775.360825547217,
+      "max_shape_error_m": 2.033691978340166e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23761819",
+          "preview_m": 117.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 77,
+      "name": "Torre de Francia",
+      "source_ids": [
+        "w298794518"
+      ],
+      "source_area_m2": 1106.8078523685883,
+      "island_area_m2": 1106.8078523685883,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w298794518",
+          "preview_m": 115.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 78,
+      "name": "Palacio de Congresos",
+      "source_ids": [
+        "w23761809"
+      ],
+      "source_area_m2": 8560.673573616179,
+      "island_area_m2": 8560.673573616179,
+      "max_shape_error_m": 1.2862197421537486e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w23761809",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 79,
+      "name": "Antiguo Hospital General · Biblioteca Pública",
+      "source_ids": [
+        "w15218692"
+      ],
+      "source_area_m2": 1780.819943854538,
+      "island_area_m2": 1780.819943854538,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w15218692",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 80,
+      "name": "San Vicente de la Roqueta",
+      "source_ids": [
+        "w686349139"
+      ],
+      "source_area_m2": 905.2756694744826,
+      "island_area_m2": 905.2756694744826,
+      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w686349139",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 81,
+      "name": "Iglesia de la Misericordia · Campanar",
+      "source_ids": [
+        "r7356910"
+      ],
+      "source_area_m2": 1020.0632980187805,
+      "island_area_m2": 1020.0632980187805,
+      "max_shape_error_m": 1.8749713606747085e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "r7356910",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 82,
+      "name": "Casa del Punt de Ganxo",
+      "source_ids": [
+        "w809242074"
+      ],
+      "source_area_m2": 315.0477869318609,
+      "island_area_m2": 315.0477869318609,
+      "max_shape_error_m": 6.431098710768743e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w809242074",
+          "preview_m": 15.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 83,
+      "name": "Palacio de Boïl d’Arenós",
+      "source_ids": [
+        "w495741186"
+      ],
+      "source_area_m2": 769.465127041786,
+      "island_area_m2": 769.465127041786,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w495741186",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 84,
+      "name": "Edificio Telefónica",
+      "source_ids": [
+        "w413044569"
+      ],
+      "source_area_m2": 482.5409499799761,
+      "island_area_m2": 482.5409499799761,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w413044569",
+          "preview_m": 24.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 85,
+      "name": "La Unión y el Fénix",
+      "source_ids": [
+        "w409877331"
+      ],
+      "source_area_m2": 890.7682986515057,
+      "island_area_m2": 890.7682986515057,
+      "max_shape_error_m": 5.084229945850415e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w409877331",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 86,
+      "name": "Centro Cultural Bancaja",
+      "source_ids": [
+        "w627769637"
+      ],
+      "source_area_m2": 2059.7639505527327,
+      "island_area_m2": 2059.7639505527327,
+      "max_shape_error_m": 3.429058924670487e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w627769637",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 87,
+      "name": "Hotel Reina Victoria",
+      "source_ids": [
+        "w416210411"
+      ],
+      "source_area_m2": 1045.8163528137002,
+      "island_area_m2": 1045.8163528137002,
+      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w416210411",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 88,
+      "name": "Bombas Gens",
+      "source_ids": [
+        "w1550827165"
+      ],
+      "source_area_m2": 6062.733712263216,
+      "island_area_m2": 6062.733712263216,
+      "max_shape_error_m": 4.687428401686771e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w1550827165",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 89,
+      "name": "Alquería del Moro",
+      "source_ids": [
+        "w1115796656"
+      ],
+      "source_area_m2": 430.3115329848452,
+      "island_area_m2": 430.3115329848452,
+      "max_shape_error_m": 9.094947017729282e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w1115796656",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 90,
+      "name": "Basílica de San Vicente Ferrer",
+      "source_ids": [
+        "w414889062"
+      ],
+      "source_area_m2": 2202.5346380302108,
+      "island_area_m2": 2202.5346380302108,
+      "max_shape_error_m": 5.684341886080801e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w414889062",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 91,
+      "name": "Palacio de Pineda",
+      "source_ids": [
+        "w493777443"
+      ],
+      "source_area_m2": 615.7350156949857,
+      "island_area_m2": 615.7350156949857,
+      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w493777443",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 92,
+      "name": "Edificio Ferrer",
+      "source_ids": [
+        "w496518123"
+      ],
+      "source_area_m2": 309.43181541323884,
+      "island_area_m2": 309.43181541323884,
+      "max_shape_error_m": 6.431098710768743e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w496518123",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 93,
+      "name": "Casa Ortega",
+      "source_ids": [
+        "w496729374"
+      ],
+      "source_area_m2": 331.4795315198894,
+      "island_area_m2": 331.4795315198894,
+      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w496729374",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 94,
+      "name": "Mercado de Ruzafa",
+      "source_ids": [
+        "w12403536"
+      ],
+      "source_area_m2": 4748.86796322199,
+      "island_area_m2": 4748.86796322199,
+      "max_shape_error_m": 6.431098710768743e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w12403536",
+          "preview_m": 3.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 95,
+      "name": "Mercado de Abastos",
+      "source_ids": [
+        "w243447549"
+      ],
+      "source_area_m2": 13964.449154189011,
+      "island_area_m2": 13964.449154189011,
+      "max_shape_error_m": 5.084229945850415e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w243447549",
+          "preview_m": 12.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 96,
+      "name": "Barracas de El Palmar",
+      "source_ids": [
+        "w491841988"
+      ],
+      "source_area_m2": 79.4619459284749,
+      "island_area_m2": 79.4619459284749,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w491841988",
+          "preview_m": 6,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 97,
+      "name": "Portal de la Valldigna",
+      "source_ids": [
+        "w515327993"
+      ],
+      "source_area_m2": 17.326973478749448,
+      "island_area_m2": 17.326973478749448,
+      "max_shape_error_m": 0.0,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w515327993",
+          "preview_m": 9.0,
+          "source": "Preview only; height not documented"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 98,
+      "name": "Lonja del Pescado del Cabanyal",
+      "source_ids": [
+        "w796340076",
+        "w796340077",
+        "w796340078",
+        "w796340079",
+        "w796340080",
+        "w796340081",
+        "w796340082",
+        "w796340083",
+        "w796340084",
+        "w796340085",
+        "w796340086",
+        "w796340087",
+        "w796340088",
+        "w796340089",
+        "w796340090",
+        "w796340091",
+        "w796340092",
+        "w796340093",
+        "w796340094",
+        "w796340095",
+        "w796340096",
+        "w796340097",
+        "w796340098",
+        "w796340099",
+        "w796340100",
+        "w796340101",
+        "w796340102",
+        "w796340103",
+        "w796340104",
+        "w796340105",
+        "w796340108",
+        "w796340109",
+        "w796340110",
+        "w796340111",
+        "w796340112",
+        "w796340113",
+        "w796340114",
+        "w796340115",
+        "w796340116",
+        "w796340117",
+        "w796340118"
+      ],
+      "source_area_m2": 2501.446397311077,
+      "island_area_m2": 2501.446397311077,
+      "max_shape_error_m": 1.016845989170083e-12,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w796340076",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340077",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340078",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340079",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340080",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340081",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340082",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340083",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340084",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340085",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340086",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340087",
+          "preview_m": 9.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340088",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340089",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340090",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340091",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340092",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340093",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340094",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340095",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340096",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340097",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340098",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340099",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340100",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340101",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340102",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340103",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340104",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340105",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340108",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340109",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340110",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340111",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340112",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340113",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340114",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340115",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340116",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340117",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        },
+        {
+          "id": "w796340118",
+          "preview_m": 6.0,
+          "source": "Estimate from OSM levels; not verified metres"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    },
+    {
+      "index": 99,
+      "name": "Estación Joaquín Sorolla",
+      "source_ids": [
+        "w554720470"
+      ],
+      "source_area_m2": 9686.319744299806,
+      "island_area_m2": 9686.319744299806,
+      "max_shape_error_m": 4.687428401686771e-13,
+      "max_width_height_error_m": 0,
+      "footprint_scale": 1,
+      "heights": [
+        {
+          "id": "w554720470",
+          "preview_m": 14.0,
+          "source": "OSM height"
+        }
+      ],
+      "status": "Full footprint and ensemble translation verified against OSM; heights separately qualified."
+    }
+  ]
+}

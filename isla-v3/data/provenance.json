@@ -1,0 +1,15 @@
+{
+  "source": "OpenStreetMap, original project extraction",
+  "osm_snapshot_utc": "2026-10-25T21:21:21Z",
+  "baseline_commit": "8b3b342702b3ef4b94c4dd55bfad1146d818b3cd",
+  "coordinate_system": "EPSG:25830 metres relative to projected (-0.377,39.4735); output is fictional local metres",
+  "license": "OpenStreetMap contributors, ODbL",
+  "sha256": {
+    "osm-urban-source.json.gz": "d8b434fbf7de038c7e6891383a7cd1d217cbbef74f15b743c212e3e6ef6904a3",
+    "source-coast.geojson.gz": "a61e51db8ec52c9d7cb26985a441b7c34829d6fc6cd3e60cc2a2a53c18b9d45e",
+    "baseline-49.json.gz": "d6baf831be05e061d99d86d0835f46576dd4d2675658b8f6c1df9e2aee2af908",
+    "isla-metros.geojson.gz": "f37369181146a1feffc4fa5e5755fb153c8a4b2d400d98183bbb9539ccf5d716",
+    "displacement-mesh.npz": "19de638719cdc60b5ac94137326c0c42923bd3ea90010fb5c8316b55ad37a864",
+    "guidance-mesh.npz": "adbcf7f93d7c74d3c7a05fe76517aa56760dc846c620e656a87f3a3162b53f04"
+  }
+}

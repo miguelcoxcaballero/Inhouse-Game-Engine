@@ -1,0 +1,24 @@
+{
+  "island_km2": 100.0,
+  "connected_island": true,
+  "city_building_footprints": 8397,
+  "previous_city_building_footprints": 1374,
+  "total_building_features": 12206,
+  "protected_entries_verified": 100,
+  "all_city_footprints_1_to_1": true,
+  "recognisable_ensembles_rigid": true,
+  "minimum_mesh_jacobian": 0.029650854916655738,
+  "old_turia_park_km2": 0.623815039488639,
+  "river_ribbon_inside_old_garden_m2": 0.0,
+  "osm_bridge_way_pieces": 588,
+  "airport_runway_m": 2200.000007949875,
+  "building_avenue_distance_error_median_m": 10.645978910504425,
+  "building_avenue_distance_error_p95_m": 50.30246740205892,
+  "local_side_changes_to_review": 3,
+  "limits": [
+    "Road connectivity is planar; driving restrictions, bridge elevations and external route completeness are not certified.",
+    "Local side flags at curved or short avenue segments require review; exported individually.",
+    "F1 is a connected harbour-street proposal, not the historical course.",
+    "Terrain and unmeasured extrusion heights are synthetic."
+  ]
+}

@@ -1,0 +1,7 @@
+__pycache__/
+data/height.npy
+data/isla-metros.geojson
+data/city-features.geojson
+data/city-features.geojson.gz
+data/building-mesh.geojson
+data/building-avenue-relations.json
