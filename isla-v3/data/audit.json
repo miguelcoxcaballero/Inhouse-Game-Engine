@@ -1,24 +1,345 @@
 {
-  "island_km2": 100.0,
+  "island_km2": 99.99999999999999,
   "connected_island": true,
-  "city_building_footprints": 8397,
+  "city_building_footprints": 14597,
   "previous_city_building_footprints": 1374,
-  "total_building_features": 12206,
+  "total_building_features": 18389,
   "protected_entries_verified": 100,
   "all_city_footprints_1_to_1": true,
   "recognisable_ensembles_rigid": true,
-  "minimum_mesh_jacobian": 0.029650854916655738,
-  "old_turia_park_km2": 0.623815039488639,
+  "minimum_mesh_jacobian": 0.0018185631595442283,
+  "old_turia_park_km2": 0.8737978128364235,
   "river_ribbon_inside_old_garden_m2": 0.0,
-  "osm_bridge_way_pieces": 588,
+  "osm_bridge_way_pieces": 592,
   "airport_runway_m": 2200.000007949875,
-  "building_avenue_distance_error_median_m": 10.645978910504425,
-  "building_avenue_distance_error_p95_m": 50.30246740205892,
-  "local_side_changes_to_review": 3,
+  "planned_closure_distance_error_median_m": 2.5579538487363607e-13,
+  "planned_closure_distance_error_p95_m": 1.0018652574217413e-12,
+  "local_side_changes_to_review": 1,
   "limits": [
-    "Road connectivity is planar; driving restrictions, bridge elevations and external route completeness are not certified.",
+    "Nine destination routes are verified on the planar road graph. Driving restrictions and bridge elevations are not certified.",
     "Local side flags at curved or short avenue segments require review; exported individually.",
     "F1 is a connected harbour-street proposal, not the historical course.",
     "Terrain and unmeasured extrusion heights are synthetic."
-  ]
+  ],
+  "verified_destination_routes": [
+    {
+      "destination": "Aeropuerto",
+      "connected": true,
+      "route_length_m": 6252.888511616123,
+      "direct_distance_m": 5293.4370042713535,
+      "detour_ratio": 1.1812530321170487,
+      "landmark_to_access_road_m": 49.86637912243067,
+      "access_to_graph_node_m": 0.225710031640958
+    },
+    {
+      "destination": "Bonaire",
+      "connected": true,
+      "route_length_m": 7154.466643227795,
+      "direct_distance_m": 6020.053376945475,
+      "detour_ratio": 1.1884390710930726,
+      "landmark_to_access_road_m": 0.5221368965929043,
+      "access_to_graph_node_m": 0.05631866463873558
+    },
+    {
+      "destination": "Chelva",
+      "connected": true,
+      "route_length_m": 7253.020969183974,
+      "direct_distance_m": 6109.602897473401,
+      "detour_ratio": 1.1871509639658295,
+      "landmark_to_access_road_m": 18.05717707106444,
+      "access_to_graph_node_m": 0.384612368132548
+    },
+    {
+      "destination": "Benagéber",
+      "connected": true,
+      "route_length_m": 7857.800699128137,
+      "direct_distance_m": 6348.190766243245,
+      "detour_ratio": 1.2378016018220974,
+      "landmark_to_access_road_m": 611.8311416924892,
+      "access_to_graph_node_m": 0.20951155657433107
+    },
+    {
+      "destination": "Cofrentes",
+      "connected": true,
+      "route_length_m": 6195.966805016643,
+      "direct_distance_m": 5619.184423176658,
+      "detour_ratio": 1.102645212970945,
+      "landmark_to_access_road_m": 41.093648817432246,
+      "access_to_graph_node_m": 0.4608592466486047
+    },
+    {
+      "destination": "Central nuclear",
+      "connected": true,
+      "route_length_m": 6908.1560682019235,
+      "direct_distance_m": 5807.545894820381,
+      "detour_ratio": 1.189513814150509,
+      "landmark_to_access_road_m": 188.64409705190937,
+      "access_to_graph_node_m": 0.21528581626991053
+    },
+    {
+      "destination": "El Saler",
+      "connected": true,
+      "route_length_m": 4222.258980574197,
+      "direct_distance_m": 3781.1269088396325,
+      "detour_ratio": 1.1166668250947285,
+      "landmark_to_access_road_m": 5.332355630322778,
+      "access_to_graph_node_m": 0.3323431943217656
+    },
+    {
+      "destination": "El Palmar",
+      "connected": true,
+      "route_length_m": 6172.671937465503,
+      "direct_distance_m": 5218.720647227775,
+      "detour_ratio": 1.182794089724744,
+      "landmark_to_access_road_m": 3.821297065047989,
+      "access_to_graph_node_m": 0.12274449002325127
+    },
+    {
+      "destination": "Calpe",
+      "connected": true,
+      "route_length_m": 7465.930103205258,
+      "direct_distance_m": 5859.232667056224,
+      "detour_ratio": 1.2742163568930718,
+      "landmark_to_access_road_m": 73.07794072067402,
+      "access_to_graph_node_m": 0.49401119602421273
+    }
+  ],
+  "whole_block_closure": {
+    "method": "Explicit whole-block strip deletion and street-aligned seam closure. Retained buildings and protected ensembles translate at 1:1.",
+    "frame_angle_degrees": 0.0,
+    "cuts": [
+      [
+        [
+          -2399.796745108906,
+          -2294.287361589291,
+          22.0
+        ],
+        [
+          -1545.0493846230675,
+          -1194.4188003552845,
+          22.0
+        ],
+        [
+          3098.705312176724,
+          3521.180527739809,
+          38.0
+        ],
+        [
+          3977.609630195792,
+          4327.0,
+          22.0
+        ]
+      ],
+      [
+        [
+          -3204.634827265306,
+          -2791.839953093693,
+          22.0
+        ],
+        [
+          -2569.9219164626825,
+          -2362.570529469887,
+          22.0
+        ],
+        [
+          988.694688458927,
+          1235.8348798016086,
+          22.0
+        ],
+        [
+          1432.1169828213751,
+          2191.1613772930577,
+          22.0
+        ],
+        [
+          2565.4245204525905,
+          2704.27774021402,
+          22.0
+        ],
+        [
+          3523.0,
+          3777.0,
+          22.0
+        ]
+      ]
+    ],
+    "closure_vector_slopes": [
+      -0.20071149896786458,
+      -0.20383289508540503,
+      -0.3432578045317698,
+      0.0
+    ],
+    "target_distance_factor": null,
+    "selected_ensembles": 2308,
+    "source_blocks": 4120,
+    "ordinary_blocks": 1286,
+    "protected_ensembles": 77,
+    "removed_complete_blocks": 930,
+    "closed_distance_u_m": 1124.0055531546914,
+    "closed_distance_v_m": 1887.184066740202,
+    "minimum_triangle_jacobian": 0.0018185631595442283,
+    "triangles": 234,
+    "blocks_removed_to_prevent_mesh_folding": 0
+  },
+  "avenue_geometry": {
+    "avenues": {
+      "Blasco Ibáñez · Valencia": {
+        "osm_way_ids": [
+          "w9272722",
+          "w9273696",
+          "w9281380",
+          "w9281403",
+          "w9281410",
+          "w10531088",
+          "w11181010",
+          "w12119250",
+          "w23397560",
+          "w23397561",
+          "w23413042",
+          "w30041934",
+          "w41057329",
+          "w41057330",
+          "w41057342",
+          "w41057343",
+          "w41058466",
+          "w61722238",
+          "w94118390",
+          "w94131881",
+          "w94131890",
+          "w94131891",
+          "w97443124",
+          "w97443130",
+          "w186704948",
+          "w186704949",
+          "w191188182",
+          "w191188197",
+          "w191199117",
+          "w191199126",
+          "w191199128",
+          "w217941236",
+          "w217941244",
+          "w641179716",
+          "w727173441",
+          "w770904177",
+          "w820275065",
+          "w820275066",
+          "w945189834",
+          "w1062362784",
+          "w1124834748",
+          "w1181450051",
+          "w1181450451",
+          "w1181450452",
+          "w1181450558",
+          "w1181450559",
+          "w1181450560",
+          "w1181450561",
+          "w1197060770",
+          "w1290970109",
+          "w1290970110",
+          "w1290970111",
+          "w1290970112",
+          "w1291718199"
+        ],
+        "source_length_sum_m": 5985.868798855177,
+        "previous": {
+          "length_sum_m": 5120.97942135982,
+          "tangent_error_median_degrees": 23.01121437565002,
+          "tangent_error_p95_degrees": 44.85325572978996,
+          "tangent_error_max_degrees": 47.893310081346726
+        },
+        "current": {
+          "length_sum_m": 5176.679073746775,
+          "tangent_error_median_degrees": 2.3273029699040727e-13,
+          "tangent_error_p95_degrees": 1.9139377026178894,
+          "tangent_error_max_degrees": 17.602223190911864
+        },
+        "scope": "OSM way lengths include parallel carriageways. Tangents use source segments >12 m after 2 m simplification; Valencia Blasco excludes homonymous avenues in neighbouring towns."
+      },
+      "Avenida del Cid": {
+        "osm_way_ids": [
+          "w9560334",
+          "w11676063",
+          "w11819179",
+          "w11936271",
+          "w12268690",
+          "w40008443",
+          "w40008444",
+          "w40008445",
+          "w40008446",
+          "w40008449",
+          "w40008462",
+          "w41056271",
+          "w41056273",
+          "w41396480",
+          "w41396483",
+          "w41396485",
+          "w41397532",
+          "w41397534",
+          "w191182719",
+          "w191182729",
+          "w212738034",
+          "w561325350",
+          "w625596130",
+          "w704615506",
+          "w737009878",
+          "w737100517",
+          "w737256879",
+          "w822911505",
+          "w1121679106",
+          "w1180067867",
+          "w1180067868",
+          "w1330420914",
+          "w1330420915",
+          "w1334489755",
+          "w1334489756",
+          "w1334489757",
+          "w1334489758",
+          "w1334489759",
+          "w1334489760",
+          "w1334490503",
+          "w1334490504",
+          "w1334490505",
+          "w1334490506",
+          "w1334490507",
+          "w1334490508",
+          "w1334490509",
+          "w1393798495",
+          "w1393798496",
+          "w1393798497",
+          "w1393798498",
+          "w1393798499",
+          "w1393798500",
+          "w1426732395",
+          "w1535694471",
+          "w1549097078",
+          "w1549097081",
+          "w1552946063",
+          "w1552946064",
+          "w1568593225",
+          "w1568593226",
+          "w1568593227",
+          "w1568593228"
+        ],
+        "source_length_sum_m": 6179.617564127755,
+        "previous": {
+          "length_sum_m": 5112.956299159762,
+          "tangent_error_median_degrees": 1.3786386043476013,
+          "tangent_error_p95_degrees": 8.248956391647443,
+          "tangent_error_max_degrees": 18.481789534201408
+        },
+        "current": {
+          "length_sum_m": 5503.629680603723,
+          "tangent_error_median_degrees": 1.3438879998485605e-13,
+          "tangent_error_p95_degrees": 0.7036847444941582,
+          "tangent_error_max_degrees": 1.7099178015756573
+        },
+        "scope": "OSM way lengths include parallel carriageways. Tangents use source segments >12 m after 2 m simplification; Valencia Blasco excludes homonymous avenues in neighbouring towns."
+      }
+    },
+    "removed_complete_blocks": 930,
+    "retained_building_centres_in_removed_blocks": 0,
+    "previous_urban_envelope_km2": 42.09025141230575,
+    "current_urban_envelope_km2": 38.076413972596924,
+    "urban_envelope_measure": "Convex hull of retained urban units, buffered 100 m in both versions."
+  }
 }

@@ -23,21 +23,22 @@ def add(g,k,**p):
 # The city shore comes from OSM. Only the unpopulated western outline varies to
 # meet the exact area budget; buildings, city blocks and the airport never scale.
 source_land=rel(json.load(gzip.open(D/'source-coast.geojson.gz')))
-city_land=mesh.geometry(source_land.intersection(box(-4900,-5600,5700,4800)))
+city_land=mesh.geometry(source_land.intersection(box(-4900,-5600,5700,8000)))
 # Replace the rectangular northern extraction edge with an island shore. The
 # released farmland area goes to the western mountains, keeping the budget fixed.
 from scipy.interpolate import PchipInterpolator
 nx=np.array([-10000,-3400,-2100,-800,600,2200,3300,4500,5000,5400,10000])
-ny=np.array([3900,3900,4200,4500,4750,5100,5600,5850,5650,5400,5400])
+ny=np.array([3900,4400,5550,5000,3800,3700,4200,5200,5100,4950,4900])
 xx=np.linspace(-10000,10000,401);yy=PchipInterpolator(nx,ny)(xx)
 northern_mask=Polygon([(-10000,-10000),(10000,-10000),*zip(xx[::-1],yy[::-1])])
 city_land=city_land.intersection(northern_mask)
 west=[(-6300,1500),(-5900,3500),(-4500,5000),(-2500,5700),(-1300,5200),(-1300,-2000),(-3000,-3100),(-4900,-2500),(-5800,-800)]
 south=Polygon([(-4400,-2200),(-1200,-1800),(3000,-2000),(3200,-3400),(2700,-4700),(2300,-5700),(1100,-6300),(0,-6000),(-1000,-6500),(-2400,-5300),(-3500,-3800)])
 airport_reserve=translate(shape(B['airport-layout.json']['footprint']),-2800,350).buffer(90)
+bonaire_reserve=unary_union([translate(shape(f['geometry']),-2200,-300) for f in B['isla-metros.geojson']['features'] if 'Bonaire' in f['properties'].get('name','') and f['properties']['kind'] in ['industrial','landmark-footprint']]).convex_hull.buffer(200)
 def outline(extra):
  w=Polygon([(x-extra*max(0,min(1,(-x-1300)/3500)),y) for x,y in west])
- merged=make_valid(unary_union([city_land,w,south,airport_reserve]).buffer(55).buffer(-55))
+ merged=make_valid(unary_union([city_land,w,south,airport_reserve,bonaire_reserve]).buffer(55).buffer(-55))
  main=max(parts(merged,'Polygon'),key=lambda p:p.area)
  return Polygon(main.exterior) # budget includes interior waters, as in V02
 lo,hi=-2000.,5000.
@@ -96,7 +97,7 @@ for f in B['isla-metros.geojson']['features']:
  else:ng=outside(g)
  if k in ['expressway','secondary-road','new-road']:
   if p.get('ref') in ['V-30','V-21']:continue
-  ng=ng.difference(city_land.buffer(-150))
+  ng=ng.difference(city_area.buffer(-80))
  if k=='building':
   if not coast.covers(ng):continue
   # Do not duplicate peripheral buildings already selected from the city source.
@@ -175,15 +176,7 @@ if failed:
  if not choices:raise RuntimeError('No connected harbour loop available')
  circuit=min(choices,key=lambda v:v[0])[1];add(circuit,'circuit',name='Antiguo F1 · propuesta sobre calles del puerto',source='Bucle cerrado sobre geometría viaria OSM; trazado histórico pendiente de reconstrucción')
  landmarks.append({'id':'design-f1-100','name':'Antiguo circuito de Fórmula 1 · propuesta', 'xy':list(circuit.interpolate(.2,normalized=True).coords[0]),'zone':'valencia','retention':'Bucle cerrado sobre calles del puerto. Propuesta de diseño; no réplica del trazado histórico.'})
-for f in regional:
- if f['properties']['kind'] not in ['expressway','secondary-road','new-road']:continue
- for ln in parts(shape(f['geometry']),'LineString'):
-  for p in [Point(ln.coords[0]),Point(ln.coords[-1])]:
-   gap=p.distance(urban)
-   if not 2<gap<450:continue
-   q=nearest_points(p,urban)[1];g=router.route(p,q)
-   if g is not None:add(g,'new-road',name='Enlace de transición a la ciudad',source='Conexión de diseño por espacio libre');attachments.append(g.length)
-print('REGIONAL seams',len(attachments),flush=True)
+# Exterior joins and path checks run in integrate_routes.py.
 for name,ll in [('Alboraia · núcleo y mercado',(-.3500,39.501)),('Port Saplaya · marina',(-.3205,39.5105)),('UV · campus Blasco Ibáñez',(-.3608,39.4795)),('UPV · campus de Vera',(-.3435,39.4814)),('Mercavalència · mercado y logística',(-.3509,39.4344))]:
  if not any(l['name']==name for l in landmarks):landmarks.append({'id':'place-'+str(len(landmarks)),'name':name,'xy':mesh.points([rel(mapping(Point(ll))).coords[0]])[0].tolist(),'zone':'valencia','retention':'Referencia OSM guiada por la malla urbana.'})
 for kind,name in [('designed-park','Jardín del Turia · antiguo cauce, parque seco'),('flood-bed','Nuevo cauce del Turia · rambla sur')]:
@@ -221,7 +214,7 @@ for h,segments in zip(cs.levels,cs.allsegs):
   if len(points)>3:add(LineString(points).simplify(7).intersection(coast),'contour',height=int(h))
 plt.close(fig)
 allbuild=[f for f in fs if f['properties']['kind']=='building'];citybuild=[f for f in allbuild if f['properties'].get('city')];blocks=[f for f in fs if f['properties']['kind']=='city-block'];bridges=[f for f in fs if f['properties']['kind']=='bridge']
-metrics={**B['metrics.json'],'island_area_km2':coast.area/1e6,'surface_budget_km2':{'Isla completa, incluidas aguas interiores':coast.area/1e6},'retained_blocks':len(blocks),'removed_blocks':review['source_blocks']-len(blocks),'city_buildings_final':len(citybuild),'city_buildings_after':len(citybuild),'city_buildings_selected':len(citybuild),'total_buildings':len(allbuild),'valencia_urban_envelope_km2':city_area.area/1e6,'valencia_urban_footprint_km2':unary_union([shape(f['geometry']) for f in citybuild]).area/1e6,'mesh':review,'bridge_features':len(bridges),'road_main_component_fraction':None,'notes':['100 km² includes inland waters.','Valencia mesh is orientation-checked; exterior road grade separation and navigation remain to be reviewed.','Old Turia bed is a dry urban park. New southern floodway is separate.','Building footprints are 1:1; heights without source measurements are previews.']}
+metrics={'source_blocks':review['source_blocks'],'city_buildings_before':review['all_source_building_mesh_nodes'],'airport_runway_m':next(shape(f['geometry']).length for f in fs if f['properties']['kind']=='airway' and f['properties'].get('aeroway')=='runway'),'f1_design_m':circuit.length,'island_area_km2':coast.area/1e6,'surface_budget_km2':{'Isla completa, incluidas aguas interiores':coast.area/1e6},'retained_blocks':review['ordinary_blocks'],'retained_ensembles':len(blocks),'removed_blocks':review['removed_complete_blocks'],'city_buildings_final':len(citybuild),'city_buildings_after':len(citybuild),'city_buildings_selected':len(citybuild),'total_buildings':len(allbuild),'valencia_urban_envelope_km2':city_area.area/1e6,'valencia_urban_footprint_km2':unary_union([shape(f['geometry']) for f in citybuild]).area/1e6,'mesh':review,'bridge_features':len(bridges),'road_main_component_fraction':None,'notes':['100 km² includes inland waters.','Valencia mesh is orientation-checked; exterior road grade separation and navigation remain to be reviewed.','Old Turia bed is a dry urban park. New southern floodway is separate.','Building footprints are 1:1; heights without source measurements are previews.']}
 pois=[]
 for f in citybuild:
  p=f['properties']

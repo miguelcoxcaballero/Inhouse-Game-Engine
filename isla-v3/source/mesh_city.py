@@ -195,7 +195,10 @@ def build_layout(lookup,buildings):
  return units,mesh,{'target_distance_factor':SCALE,'selected_ensembles':len(units),'source_blocks':total,'ordinary_blocks':sum(not u['mandatory'] for u in units),'protected_ensembles':len(mandatory),'blocks_removed_to_prevent_mesh_folding':removed,'minimum_triangle_jacobian':float(ratios.min()),'triangles':len(ratios)}
 
 def build():
- raw,lookup,buildings,roads,areas=load_source();units,mesh,review=build_layout(lookup,buildings)
+ raw,lookup,buildings,roads,areas=load_source()
+ from cut_layout import build_cut_layout,choose_streets
+ units,mesh,review=build_cut_layout(D,OLD,lookup,buildings,rel,Mesh,parts,feature,fc)
+ selected_roads,road_selection=choose_streets(roads,units);review.update(road_selection)
  fs=[];landmarks=[];placements=[];emitted=set();records=[];road_pairs=[];protected=[]
  def add(g,k,**p):
   if not g.is_empty:fs.append(feature(g,k,**p))
@@ -217,12 +220,14 @@ def build():
  # Every source street uses the same mesh, including its exact shared junctions.
  # The urban selection has no per-road clipping at an arbitrary district border.
  citywindow=box(-5000,-5600,5700,5000)
+ selection=shape(json.load(open(D/'urban-selection-source.geojson'))['features'][0]['geometry'])
  for o,g in roads:
+  if o['id'] not in selected_roads:continue
   if not citywindow.intersects(g):continue
   t=o['tags'];g=g.intersection(citywindow);ng=mesh.geometry(g);cls=t.get('highway',t.get('railway'));major=cls in ['primary','secondary','primary_link','secondary_link'] or any(x in t.get('name','') for x in ['Avinguda','Gran Via','Ronda','Bulevar'])
   kind='expressway' if cls in ['motorway','trunk','motorway_link','trunk_link'] else 'urban-arterial' if major else 'retained-road'
   if t.get('railway') and not t.get('highway'):kind='railway'
-  props=dict(name=t.get('name',''),id=o['id'],osm=osm(o['id']),roadclass=cls,city=True,layer=t.get('layer','0'),bridge=t.get('bridge','no'),tunnel=t.get('tunnel','no'),source='OSM · mismos nodos de cruce, curvas transformadas por malla común')
+  props=dict(name=t.get('name',''),ref=t.get('ref',''),id=o['id'],osm=osm(o['id']),roadclass=cls,city=True,layer=t.get('layer','0'),bridge=t.get('bridge','no'),tunnel=t.get('tunnel','no'),source='OSM · nodos de cruce compartidos; cortes explícitos de manzanas y cierre de franjas')
   add(ng,kind,**props)
   if major:road_pairs.append((o,g,ng))
   if t.get('bridge') not in [None,'no']:add(ng,'bridge',**props,bridge_evidence='OSM bridge tag')
@@ -241,6 +246,7 @@ def build():
   elif t.get('landuse')=='residential':kind='urban-area'
   elif t.get('landuse') in ['farmland','orchard','allotments','plant_nursery']:kind='agriculture'
   if kind:
+   if kind=='urban-area':g=g.intersection(selection)
    ng=mesh.geometry(g.intersection(citywindow));add(ng,kind,name=n,osm=osm(o['id']),city=True,source='OSM · superficie y borde guiados por la misma malla urbana')
    if kind=='designed-park':gardens.append(ng)
  if not river_sources:raise RuntimeError('No source Turia river geometry')
@@ -282,16 +288,17 @@ def build():
   nq=mesh.points([q.coords[0]])[0];na,nb=mesh.points([a.coords[0],b.coords[0]]);nv=nb-na;w=np.array(r['source'])-q.coords[0];nw=np.array(r['destination'])-nq
   source_side=float(np.cross(v,w));destination_side=float(np.cross(nv,nw));sd=np.linalg.norm(w);dd=np.linalg.norm(nw)
   angle=math.degrees(math.atan2(np.cross(w,nw),np.dot(w,nw))) if sd>.1 and dd>.1 else 0
-  relations.append({'building':r['id'],'ensemble':r['ensemble'],'avenue':o['tags'].get('name',''),'avenue_osm':osm(o['id']),'source_distance_m':float(sd),'compact_distance_to_corresponding_point_m':float(dd),'compact_nearest_distance_m':float(ng.distance(Point(r['destination']))),'target_distance_m':float(sd*SCALE),'distance_error_m':float(dd-sd*SCALE),'bearing_error_degrees':angle,'same_side':bool(source_side*destination_side>=0),'source_building_xy':r['source'],'source_avenue_xy':list(q.coords[0]),'compact_building_xy':r['destination'],'compact_avenue_xy':nq.tolist()})
+  planned=float(np.linalg.norm(mesh.points([r['source']])[0]-nq))
+  relations.append({'building':r['id'],'ensemble':r['ensemble'],'avenue':o['tags'].get('name',''),'avenue_osm':osm(o['id']),'source_distance_m':float(sd),'compact_distance_to_corresponding_point_m':float(dd),'compact_nearest_distance_m':float(ng.distance(Point(r['destination']))),'target_distance_m':planned,'distance_error_m':float(dd-planned),'bearing_error_degrees':angle,'same_side':bool(source_side*destination_side>=0),'source_building_xy':r['source'],'source_avenue_xy':list(q.coords[0]),'compact_building_xy':r['destination'],'compact_avenue_xy':nq.tolist()})
  # The original guidance graph includes ALL source buildings, including those
  # ultimately omitted, and avenue nodes in the same triangulation. Omitted-node
  # destinations are guidance only, not claims of a placed building.
  all_centres=np.array([[g.centroid.x,g.centroid.y] for o,g in buildings]);av=np.unique(np.round(np.array([v['source'] for v in avenue_points]),4),axis=0);all_nodes=np.r_[all_centres,av];guide=Delaunay(all_nodes)
  guide_edges=np.unique(np.sort(np.r_[guide.simplices[:,[0,1]],guide.simplices[:,[1,2]],guide.simplices[:,[2,0]]],axis=1),axis=0)
- np.savez_compressed(D/'guidance-mesh.npz',source=all_nodes,target=all_nodes*SCALE+OFFSET,destination=mesh.points(all_nodes),edges=guide_edges,retained=np.r_[[o['id'] in emitted for o,g in buildings],np.ones(len(av),bool)],node_kind=np.r_[np.zeros(len(buildings),np.uint8),np.ones(len(av),np.uint8)])
+ np.savez_compressed(D/'guidance-mesh.npz',source=all_nodes,target=mesh.points(all_nodes),destination=mesh.points(all_nodes),edges=guide_edges,retained=np.r_[[o['id'] in emitted for o,g in buildings],np.ones(len(av),bool)],node_kind=np.r_[np.zeros(len(buildings),np.uint8),np.ones(len(av),np.uint8)])
  (D/'guidance-building-ids.json.gz').write_bytes(gzip.compress(json.dumps([o['id'] for o,g in buildings]).encode(),mtime=0))
  nonrigid=[abs(f['properties']['bearing_error_degrees']) for f in mesh_edges if not f['properties']['rigid_group']]
- review.update({'city_buildings':len(records),'all_source_building_mesh_nodes':len(buildings),'combined_building_avenue_mesh_nodes':len(all_nodes),'combined_mesh_edges':len(guide_edges),'building_relation_edges':len(edges),'avenue_control_nodes':len(avenue_points),'building_avenue_relations':len(relations),'same_side_fraction':sum(r['same_side'] for r in relations)/len(relations),'side_changes_to_review':sum(not r['same_side'] for r in relations),'relation_bearing_error_median_degrees':float(np.median(angles)),'relation_bearing_error_p95_degrees':float(np.percentile(angles,95)),'inter_ensemble_bearing_error_p95_degrees':float(np.percentile(nonrigid,95)),'distance_ratio_median':float(np.median(ratios)),'max_building_shape_error_m':max(r['shape_error_m'] for r in records),'method':'Whole OSM blocks translated at 1:1; Delaunay building mesh + shared avenue nodes; full-size landmark ensembles bulge locally. Remove ordinary blocks rather than fold the displacement mesh.','scope':'Metric footprint and planar geometry checks. No certified heights, driving restrictions or hydraulic simulation. Signed side at a short OSM way endpoint needs manual interpretation.'})
+ review.update({'city_buildings':len(records),'all_source_building_mesh_nodes':len(buildings),'combined_building_avenue_mesh_nodes':len(all_nodes),'combined_mesh_edges':len(guide_edges),'building_relation_edges':len(edges),'avenue_control_nodes':len(avenue_points),'building_avenue_relations':len(relations),'same_side_fraction':sum(r['same_side'] for r in relations)/len(relations),'side_changes_to_review':sum(not r['same_side'] for r in relations),'relation_bearing_error_median_degrees':float(np.median(angles)),'relation_bearing_error_p95_degrees':float(np.percentile(angles,95)),'inter_ensemble_bearing_error_p95_degrees':float(np.percentile(nonrigid,95)),'distance_ratio_median':float(np.median(ratios)),'max_building_shape_error_m':max(r['shape_error_m'] for r in records),'method':'Explicit whole-block deletion and closure strips aligned with the crossing avenues; retained footprints translate at 1:1. The source street graph is pruned with access paths retained.','scope':'Metric footprint and planar geometry checks. No certified heights, driving restrictions or hydraulic simulation. Signed side at a short OSM way endpoint needs manual interpretation.'})
  for name,obj in [('city-mesh-review.json',review),('building-positions.json',records),('avenue-control-nodes.json',avenue_points),('building-avenue-relations.json',relations),('landmark-placement.json',placements),('river-bridges.json',bridges),('city-features.geojson',fc(fs)),('building-mesh.geojson',fc(mesh_edges)),('city-landmarks.json',landmarks)]:
   (D/name).write_text(json.dumps(obj,ensure_ascii=False,separators=(',',':')))
  np.savez_compressed(D/'displacement-mesh.npz',source=mesh.src,destination=mesh.dst)

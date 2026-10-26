@@ -1,11 +1,11 @@
 {
-  "base": "isla-levante-fc04a2fbaed3d2a3",
-  "buildings": 12205,
+  "base": "isla-levante-e288aed1b5d93f20",
+  "buildings": 18388,
   "multi_selection": 2,
-  "rectangle_selection": 65,
+  "rectangle_selection": 214,
   "group_translation_m": {
-    "east": 56.118171444209,
-    "north": -34.395008370624055
+    "east": 56.118116180538664,
+    "north": -34.3950082922006
   },
   "footprints_preserved": true,
   "undo_redo": true,

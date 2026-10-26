@@ -1,0 +1,77 @@
+{
+  "method": "Explicit whole-block strip deletion and street-aligned seam closure. Retained buildings and protected ensembles translate at 1:1.",
+  "frame_angle_degrees": 0.0,
+  "cuts": [
+    [
+      [
+        -2399.796745108906,
+        -2294.287361589291,
+        22.0
+      ],
+      [
+        -1545.0493846230675,
+        -1194.4188003552845,
+        22.0
+      ],
+      [
+        3098.705312176724,
+        3521.180527739809,
+        38.0
+      ],
+      [
+        3977.609630195792,
+        4327.0,
+        22.0
+      ]
+    ],
+    [
+      [
+        -3204.634827265306,
+        -2791.839953093693,
+        22.0
+      ],
+      [
+        -2569.9219164626825,
+        -2362.570529469887,
+        22.0
+      ],
+      [
+        988.694688458927,
+        1235.8348798016086,
+        22.0
+      ],
+      [
+        1432.1169828213751,
+        2191.1613772930577,
+        22.0
+      ],
+      [
+        2565.4245204525905,
+        2704.27774021402,
+        22.0
+      ],
+      [
+        3523.0,
+        3777.0,
+        22.0
+      ]
+    ]
+  ],
+  "closure_vector_slopes": [
+    -0.20071149896786458,
+    -0.20383289508540503,
+    -0.3432578045317698,
+    0.0
+  ],
+  "target_distance_factor": null,
+  "selected_ensembles": 2308,
+  "source_blocks": 4120,
+  "ordinary_blocks": 1286,
+  "protected_ensembles": 77,
+  "removed_complete_blocks": 930,
+  "closed_distance_u_m": 1124.0055531546914,
+  "closed_distance_v_m": 1887.184066740202,
+  "minimum_triangle_jacobian": 0.0018185631595442283,
+  "triangles": 234,
+  "blocks_removed_to_prevent_mesh_folding": 0
+}

@@ -3,7 +3,7 @@
   "verified_footprints": 100,
   "source_geometries": 151,
   "scaled_footprints": 0,
-  "max_shape_error_m": 3.1587760507704397e-12,
+  "max_shape_error_m": 4.343967969940149e-12,
   "miguelete_moves_with_cathedral": true,
   "miguelete_separate_geometry": true,
   "miguelete_osm_height_m": 51.0,
@@ -17,7 +17,7 @@
       ],
       "source_area_m2": 1444.6925068683292,
       "island_area_m2": 1444.6925068683292,
-      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_shape_error_m": 6.12222357532858e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -37,7 +37,7 @@
       ],
       "source_area_m2": 5945.246199352165,
       "island_area_m2": 5945.246199352165,
-      "max_shape_error_m": 5.084229945850415e-13,
+      "max_shape_error_m": 4.556346636343676e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -57,7 +57,7 @@
       ],
       "source_area_m2": 1193.1961611936658,
       "island_area_m2": 1193.1961611936658,
-      "max_shape_error_m": 9.094947017729282e-13,
+      "max_shape_error_m": 2.5421149729252077e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -77,7 +77,7 @@
       ],
       "source_area_m2": 8058.109064226126,
       "island_area_m2": 8058.109064226126,
-      "max_shape_error_m": 4.687428401686771e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -97,7 +97,7 @@
       ],
       "source_area_m2": 9899.438784607457,
       "island_area_m2": 9899.438784607457,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 1.016845989170083e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -117,7 +117,7 @@
       ],
       "source_area_m2": 5521.933184453235,
       "island_area_m2": 5521.933184453235,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 3.2155493553843715e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -137,7 +137,7 @@
       ],
       "source_area_m2": 642.3932600968691,
       "island_area_m2": 642.3932600968691,
-      "max_shape_error_m": 6.915300366811402e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -157,7 +157,7 @@
       ],
       "source_area_m2": 5664.568701859339,
       "island_area_m2": 5664.568701859339,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -177,7 +177,7 @@
       ],
       "source_area_m2": 171.42251489522843,
       "island_area_m2": 171.42251489522843,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 3.2155493553843715e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -197,7 +197,7 @@
       ],
       "source_area_m2": 18063.39938535506,
       "island_area_m2": 18063.39938535506,
-      "max_shape_error_m": 1.6553053431563326e-12,
+      "max_shape_error_m": 2.033691978340166e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -217,7 +217,7 @@
       ],
       "source_area_m2": 3277.7904688295107,
       "island_area_m2": 3277.7904688295107,
-      "max_shape_error_m": 7.190186943645084e-13,
+      "max_shape_error_m": 1.016845989170083e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -237,7 +237,7 @@
       ],
       "source_area_m2": 1668.181766265142,
       "island_area_m2": 1668.181766265142,
-      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_shape_error_m": 2.5421149729252077e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -257,7 +257,7 @@
       ],
       "source_area_m2": 10653.464127765657,
       "island_area_m2": 10653.464127765657,
-      "max_shape_error_m": 2.2914314707516465e-13,
+      "max_shape_error_m": 5.084229945850415e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -277,7 +277,7 @@
       ],
       "source_area_m2": 991.8403137790008,
       "island_area_m2": 991.8403137790008,
-      "max_shape_error_m": 6.915300366811402e-13,
+      "max_shape_error_m": 5.084229945850415e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -297,7 +297,7 @@
       ],
       "source_area_m2": 983.1388433977112,
       "island_area_m2": 983.1388433977112,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -317,7 +317,7 @@
       ],
       "source_area_m2": 2730.1463022515145,
       "island_area_m2": 2730.1463022515145,
-      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -338,7 +338,7 @@
       ],
       "source_area_m2": 1675.3991675275108,
       "island_area_m2": 1675.3991675275108,
-      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_shape_error_m": 5.684341886080801e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -363,7 +363,7 @@
       ],
       "source_area_m2": 28862.936302675396,
       "island_area_m2": 28862.936302675396,
-      "max_shape_error_m": 1.1368683772161603e-12,
+      "max_shape_error_m": 1.224444715065716e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -383,7 +383,7 @@
       ],
       "source_area_m2": 2360.7447971540028,
       "island_area_m2": 2360.7447971540028,
-      "max_shape_error_m": 5.084229945850415e-13,
+      "max_shape_error_m": 7.626344918775623e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -403,7 +403,7 @@
       ],
       "source_area_m2": 7360.841918492424,
       "island_area_m2": 7360.841918492424,
-      "max_shape_error_m": 1.365425777005875e-12,
+      "max_shape_error_m": 1.9057386696477137e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -423,7 +423,7 @@
       ],
       "source_area_m2": 1207.0064549775282,
       "island_area_m2": 1207.0064549775282,
-      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -443,7 +443,7 @@
       ],
       "source_area_m2": 1806.698140852477,
       "island_area_m2": 1806.698140852477,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -463,7 +463,7 @@
       ],
       "source_area_m2": 3176.2033319363118,
       "island_area_m2": 3176.2033319363118,
-      "max_shape_error_m": 4.0990372275064023e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -503,7 +503,7 @@
       ],
       "source_area_m2": 19157.274680609455,
       "island_area_m2": 19157.274680609455,
-      "max_shape_error_m": 6.431098710768743e-13,
+      "max_shape_error_m": 8.198074455012805e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -523,7 +523,7 @@
       ],
       "source_area_m2": 71287.55978971174,
       "island_area_m2": 71287.55978971174,
-      "max_shape_error_m": 9.374856803373542e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -543,7 +543,7 @@
       ],
       "source_area_m2": 3611.6227102313355,
       "island_area_m2": 3611.6227102313355,
-      "max_shape_error_m": 4.0990372275064023e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -564,7 +564,7 @@
       ],
       "source_area_m2": 2967.1257201759868,
       "island_area_m2": 2967.1257201759868,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 5.684341886080801e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -589,7 +589,7 @@
       ],
       "source_area_m2": 7550.011806260523,
       "island_area_m2": 7550.011806260523,
-      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -629,7 +629,7 @@
       ],
       "source_area_m2": 2616.246701776175,
       "island_area_m2": 2616.246701776175,
-      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_shape_error_m": 5.684341886080801e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -649,7 +649,7 @@
       ],
       "source_area_m2": 275.01808891706344,
       "island_area_m2": 275.01808891706344,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 4.687428401686771e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -669,7 +669,7 @@
       ],
       "source_area_m2": 841.8877793110341,
       "island_area_m2": 841.8877793110341,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 3.2155493553843715e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -689,7 +689,7 @@
       ],
       "source_area_m2": 3397.4981018794174,
       "island_area_m2": 3397.4981018794174,
-      "max_shape_error_m": 1.3830600733622803e-12,
+      "max_shape_error_m": 2.2737367544323206e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -709,7 +709,7 @@
       ],
       "source_area_m2": 2811.662648444119,
       "island_area_m2": 2811.662648444119,
-      "max_shape_error_m": 6.12222357532858e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -729,7 +729,7 @@
       ],
       "source_area_m2": 564.3625152789251,
       "island_area_m2": 564.3625152789251,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 2.5421149729252077e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -750,7 +750,7 @@
       ],
       "source_area_m2": 4225.149511922316,
       "island_area_m2": 4225.149511922316,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 7.626344918775623e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -795,7 +795,7 @@
       ],
       "source_area_m2": 4916.417536396388,
       "island_area_m2": 4916.417536396388,
-      "max_shape_error_m": 2.2765771512355045e-12,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -816,7 +816,7 @@
       ],
       "source_area_m2": 5483.272261022753,
       "island_area_m2": 5483.272261022753,
-      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -841,7 +841,7 @@
       ],
       "source_area_m2": 850.2576603489551,
       "island_area_m2": 850.2576603489551,
-      "max_shape_error_m": 4.687428401686771e-13,
+      "max_shape_error_m": 5.684341886080801e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -861,7 +861,7 @@
       ],
       "source_area_m2": 4667.225904123278,
       "island_area_m2": 4667.225904123278,
-      "max_shape_error_m": 9.374856803373542e-13,
+      "max_shape_error_m": 4.0990372275064023e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -881,7 +881,7 @@
       ],
       "source_area_m2": 1722.139059963165,
       "island_area_m2": 1722.139059963165,
-      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_shape_error_m": 1.1368683772161603e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -901,7 +901,7 @@
       ],
       "source_area_m2": 3449.8273720327766,
       "island_area_m2": 3449.8273720327766,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 1.3830600733622803e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -921,7 +921,7 @@
       ],
       "source_area_m2": 1168.6935778628665,
       "island_area_m2": 1168.6935778628665,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -941,7 +941,7 @@
       ],
       "source_area_m2": 5956.8067621925975,
       "island_area_m2": 5956.8067621925975,
-      "max_shape_error_m": 1.1593828079623528e-12,
+      "max_shape_error_m": 6.821210263296962e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -961,7 +961,7 @@
       ],
       "source_area_m2": 1294.0919965388998,
       "island_area_m2": 1294.0919965388998,
-      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_shape_error_m": 1.1457157353758233e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -981,7 +981,7 @@
       ],
       "source_area_m2": 1069.421208836502,
       "island_area_m2": 1069.421208836502,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 1.1368683772161603e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1001,7 +1001,7 @@
       ],
       "source_area_m2": 931.2912473497735,
       "island_area_m2": 931.2912473497735,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 1.8749713606747085e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1021,7 +1021,7 @@
       ],
       "source_area_m2": 3366.4189116601115,
       "island_area_m2": 3366.4189116601115,
-      "max_shape_error_m": 1.016845989170083e-12,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1048,7 +1048,7 @@
       ],
       "source_area_m2": 4068.882865162789,
       "island_area_m2": 4068.882865162789,
-      "max_shape_error_m": 5.684341886080801e-13,
+      "max_shape_error_m": 4.687428401686771e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1103,7 +1103,7 @@
       ],
       "source_area_m2": 8753.269453562552,
       "island_area_m2": 8753.269453562552,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1143,7 +1143,7 @@
       ],
       "source_area_m2": 1578.063144222297,
       "island_area_m2": 1578.063144222297,
-      "max_shape_error_m": 4.0990372275064023e-13,
+      "max_shape_error_m": 2.5421149729252077e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1163,7 +1163,7 @@
       ],
       "source_area_m2": 1439.1515468547736,
       "island_area_m2": 1439.1515468547736,
-      "max_shape_error_m": 5.084229945850415e-13,
+      "max_shape_error_m": 2.5421149729252077e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1183,7 +1183,7 @@
       ],
       "source_area_m2": 1068.603320061964,
       "island_area_m2": 1068.603320061964,
-      "max_shape_error_m": 6.821210263296962e-13,
+      "max_shape_error_m": 1.224444715065716e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1203,7 +1203,7 @@
       ],
       "source_area_m2": 16030.318572128404,
       "island_area_m2": 16030.318572128404,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 5.084229945850415e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1223,7 +1223,7 @@
       ],
       "source_area_m2": 1256.8701609174814,
       "island_area_m2": 1256.8701609174814,
-      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1243,7 +1243,7 @@
       ],
       "source_area_m2": 1343.0648865412309,
       "island_area_m2": 1343.0648865412309,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1263,7 +1263,7 @@
       ],
       "source_area_m2": 713.7346721117465,
       "island_area_m2": 713.7346721117465,
-      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_shape_error_m": 6.431098710768743e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1283,7 +1283,7 @@
       ],
       "source_area_m2": 10076.964467790709,
       "island_area_m2": 10076.964467790709,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1303,7 +1303,7 @@
       ],
       "source_area_m2": 827.2634588784717,
       "island_area_m2": 827.2634588784717,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 4.0990372275064023e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1323,7 +1323,7 @@
       ],
       "source_area_m2": 1413.637462864677,
       "island_area_m2": 1413.637462864677,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1343,7 +1343,7 @@
       ],
       "source_area_m2": 814.032710392505,
       "island_area_m2": 814.032710392505,
-      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_shape_error_m": 3.2155493553843715e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1363,7 +1363,7 @@
       ],
       "source_area_m2": 1785.172780117804,
       "island_area_m2": 1785.172780117804,
-      "max_shape_error_m": 4.687428401686771e-13,
+      "max_shape_error_m": 9.184434834456014e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1383,7 +1383,7 @@
       ],
       "source_area_m2": 1587.3773192922745,
       "island_area_m2": 1587.3773192922745,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 2.5421149729252077e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1403,7 +1403,7 @@
       ],
       "source_area_m2": 9707.965335511743,
       "island_area_m2": 9707.965335511743,
-      "max_shape_error_m": 5.084229945850415e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1423,7 +1423,7 @@
       ],
       "source_area_m2": 1202.902471143215,
       "island_area_m2": 1202.902471143215,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1443,7 +1443,7 @@
       ],
       "source_area_m2": 1246.3320642732888,
       "island_area_m2": 1246.3320642732888,
-      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1463,7 +1463,7 @@
       ],
       "source_area_m2": 29.033858859808664,
       "island_area_m2": 29.033858859808664,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 4.0990372275064023e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1483,7 +1483,7 @@
       ],
       "source_area_m2": 161.9406357239378,
       "island_area_m2": 161.9406357239378,
-      "max_shape_error_m": 4.556346636343676e-13,
+      "max_shape_error_m": 2.278173318171838e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1503,7 +1503,7 @@
       ],
       "source_area_m2": 534.4305757344323,
       "island_area_m2": 534.4305757344323,
-      "max_shape_error_m": 4.547473508864641e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1523,7 +1523,7 @@
       ],
       "source_area_m2": 1348.1087701593672,
       "island_area_m2": 1348.1087701593672,
-      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_shape_error_m": 6.844854043943255e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1543,7 +1543,7 @@
       ],
       "source_area_m2": 250.12221788405557,
       "island_area_m2": 250.12221788405557,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1563,7 +1563,7 @@
       ],
       "source_area_m2": 881.3959500697764,
       "island_area_m2": 881.3959500697764,
-      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_shape_error_m": 9.165725883006586e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1583,7 +1583,7 @@
       ],
       "source_area_m2": 15141.24733904239,
       "island_area_m2": 15141.24733904239,
-      "max_shape_error_m": 3.1587760507704397e-12,
+      "max_shape_error_m": 4.343967969940149e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1623,7 +1623,7 @@
       ],
       "source_area_m2": 1106.8078523685883,
       "island_area_m2": 1106.8078523685883,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 9.374856803373542e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1643,7 +1643,7 @@
       ],
       "source_area_m2": 8560.673573616179,
       "island_area_m2": 8560.673573616179,
-      "max_shape_error_m": 1.2862197421537486e-12,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1663,7 +1663,7 @@
       ],
       "source_area_m2": 1780.819943854538,
       "island_area_m2": 1780.819943854538,
-      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1683,7 +1683,7 @@
       ],
       "source_area_m2": 905.2756694744826,
       "island_area_m2": 905.2756694744826,
-      "max_shape_error_m": 3.2155493553843715e-13,
+      "max_shape_error_m": 2.5421149729252077e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1703,7 +1703,7 @@
       ],
       "source_area_m2": 1020.0632980187805,
       "island_area_m2": 1020.0632980187805,
-      "max_shape_error_m": 1.8749713606747085e-12,
+      "max_shape_error_m": 7.279509460923746e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1723,7 +1723,7 @@
       ],
       "source_area_m2": 315.0477869318609,
       "island_area_m2": 315.0477869318609,
-      "max_shape_error_m": 6.431098710768743e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1743,7 +1743,7 @@
       ],
       "source_area_m2": 769.465127041786,
       "island_area_m2": 769.465127041786,
-      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1763,7 +1763,7 @@
       ],
       "source_area_m2": 482.5409499799761,
       "island_area_m2": 482.5409499799761,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1783,7 +1783,7 @@
       ],
       "source_area_m2": 890.7682986515057,
       "island_area_m2": 890.7682986515057,
-      "max_shape_error_m": 5.084229945850415e-13,
+      "max_shape_error_m": 1.1506624801925828e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1803,7 +1803,7 @@
       ],
       "source_area_m2": 2059.7639505527327,
       "island_area_m2": 2059.7639505527327,
-      "max_shape_error_m": 3.429058924670487e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1823,7 +1823,7 @@
       ],
       "source_area_m2": 1045.8163528137002,
       "island_area_m2": 1045.8163528137002,
-      "max_shape_error_m": 1.1368683772161603e-13,
+      "max_shape_error_m": 4.547473508864641e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1843,7 +1843,7 @@
       ],
       "source_area_m2": 6062.733712263216,
       "island_area_m2": 6062.733712263216,
-      "max_shape_error_m": 4.687428401686771e-13,
+      "max_shape_error_m": 0.0,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1863,7 +1863,7 @@
       ],
       "source_area_m2": 430.3115329848452,
       "island_area_m2": 430.3115329848452,
-      "max_shape_error_m": 9.094947017729282e-13,
+      "max_shape_error_m": 9.374856803373542e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1883,7 +1883,7 @@
       ],
       "source_area_m2": 2202.5346380302108,
       "island_area_m2": 2202.5346380302108,
-      "max_shape_error_m": 5.684341886080801e-13,
+      "max_shape_error_m": 5.084229945850415e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1903,7 +1903,7 @@
       ],
       "source_area_m2": 615.7350156949857,
       "island_area_m2": 615.7350156949857,
-      "max_shape_error_m": 2.2737367544323206e-13,
+      "max_shape_error_m": 3.2155493553843715e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1923,7 +1923,7 @@
       ],
       "source_area_m2": 309.43181541323884,
       "island_area_m2": 309.43181541323884,
-      "max_shape_error_m": 6.431098710768743e-13,
+      "max_shape_error_m": 5.084229945850415e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1943,7 +1943,7 @@
       ],
       "source_area_m2": 331.4795315198894,
       "island_area_m2": 331.4795315198894,
-      "max_shape_error_m": 2.5421149729252077e-13,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1963,7 +1963,7 @@
       ],
       "source_area_m2": 4748.86796322199,
       "island_area_m2": 4748.86796322199,
-      "max_shape_error_m": 6.431098710768743e-13,
+      "max_shape_error_m": 6.821210263296962e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -1983,7 +1983,7 @@
       ],
       "source_area_m2": 13964.449154189011,
       "island_area_m2": 13964.449154189011,
-      "max_shape_error_m": 5.084229945850415e-13,
+      "max_shape_error_m": 4.687428401686771e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -2023,7 +2023,7 @@
       ],
       "source_area_m2": 17.326973478749448,
       "island_area_m2": 17.326973478749448,
-      "max_shape_error_m": 0.0,
+      "max_shape_error_m": 2.2737367544323206e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -2083,7 +2083,7 @@
       ],
       "source_area_m2": 2501.446397311077,
       "island_area_m2": 2501.446397311077,
-      "max_shape_error_m": 1.016845989170083e-12,
+      "max_shape_error_m": 2.729076160030173e-12,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [
@@ -2303,7 +2303,7 @@
       ],
       "source_area_m2": 9686.319744299806,
       "island_area_m2": 9686.319744299806,
-      "max_shape_error_m": 4.687428401686771e-13,
+      "max_shape_error_m": 7.190186943645084e-13,
       "max_width_height_error_m": 0,
       "footprint_scale": 1,
       "heights": [

@@ -2,6 +2,8 @@
   "island_area_100": true,
   "mesh_toggle": true,
   "avenue_relations_toggle": true,
+  "verified_routes": 9,
+  "route_toggle": true,
   "building_inspector": true,
   "errors": []
 }

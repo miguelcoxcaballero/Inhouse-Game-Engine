@@ -1,0 +1,641 @@
+{
+  "sites": [
+    {
+      "destination": "Aeropuerto",
+      "connected": true,
+      "route_length_m": 6252.888511616123,
+      "direct_distance_m": 5293.4370042713535,
+      "detour_ratio": 1.1812530321170487,
+      "landmark_to_access_road_m": 49.86637912243067,
+      "access_to_graph_node_m": 0.225710031640958
+    },
+    {
+      "destination": "Bonaire",
+      "connected": true,
+      "route_length_m": 7154.466643227795,
+      "direct_distance_m": 6020.053376945475,
+      "detour_ratio": 1.1884390710930726,
+      "landmark_to_access_road_m": 0.5221368965929043,
+      "access_to_graph_node_m": 0.05631866463873558
+    },
+    {
+      "destination": "Chelva",
+      "connected": true,
+      "route_length_m": 7253.020969183974,
+      "direct_distance_m": 6109.602897473401,
+      "detour_ratio": 1.1871509639658295,
+      "landmark_to_access_road_m": 18.05717707106444,
+      "access_to_graph_node_m": 0.384612368132548
+    },
+    {
+      "destination": "Benagéber",
+      "connected": true,
+      "route_length_m": 7857.800699128137,
+      "direct_distance_m": 6348.190766243245,
+      "detour_ratio": 1.2378016018220974,
+      "landmark_to_access_road_m": 611.8311416924892,
+      "access_to_graph_node_m": 0.20951155657433107
+    },
+    {
+      "destination": "Cofrentes",
+      "connected": true,
+      "route_length_m": 6195.966805016643,
+      "direct_distance_m": 5619.184423176658,
+      "detour_ratio": 1.102645212970945,
+      "landmark_to_access_road_m": 41.093648817432246,
+      "access_to_graph_node_m": 0.4608592466486047
+    },
+    {
+      "destination": "Central nuclear",
+      "connected": true,
+      "route_length_m": 6908.1560682019235,
+      "direct_distance_m": 5807.545894820381,
+      "detour_ratio": 1.189513814150509,
+      "landmark_to_access_road_m": 188.64409705190937,
+      "access_to_graph_node_m": 0.21528581626991053
+    },
+    {
+      "destination": "El Saler",
+      "connected": true,
+      "route_length_m": 4222.258980574197,
+      "direct_distance_m": 3781.1269088396325,
+      "detour_ratio": 1.1166668250947285,
+      "landmark_to_access_road_m": 5.332355630322778,
+      "access_to_graph_node_m": 0.3323431943217656
+    },
+    {
+      "destination": "El Palmar",
+      "connected": true,
+      "route_length_m": 6172.671937465503,
+      "direct_distance_m": 5218.720647227775,
+      "detour_ratio": 1.182794089724744,
+      "landmark_to_access_road_m": 3.821297065047989,
+      "access_to_graph_node_m": 0.12274449002325127
+    },
+    {
+      "destination": "Calpe",
+      "connected": true,
+      "route_length_m": 7465.930103205258,
+      "direct_distance_m": 5859.232667056224,
+      "detour_ratio": 1.2742163568930718,
+      "landmark_to_access_road_m": 73.07794072067402,
+      "access_to_graph_node_m": 0.49401119602421273
+    }
+  ],
+  "joins": [
+    {
+      "site": "Aeropuerto",
+      "gap_m": 251.47763320025103,
+      "length_m": 251.4776332002511,
+      "start": [
+        -3850.0,
+        1436.0
+      ],
+      "end": [
+        -3629.0,
+        1556.0
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 5.251073270466074,
+      "length_m": 5.251073270466075,
+      "start": [
+        3996.0,
+        -2336.0
+      ],
+      "end": [
+        3996.4754098360654,
+        -2330.7704918032787
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 18.0,
+      "length_m": 18.0,
+      "start": [
+        4318.0,
+        -2512.0
+      ],
+      "end": [
+        4336.0,
+        -2512.0
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 5.391266402679201,
+      "length_m": 5.3912664026790935,
+      "start": [
+        -3395.9506849315067,
+        -865.331506849315
+      ],
+      "end": [
+        -3392.0,
+        -869.0
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 0.993883734673619,
+      "length_m": 0.9938837346731794,
+      "start": [
+        4951.987804878048,
+        -713.109756097561
+      ],
+      "end": [
+        4951.0,
+        -713.0
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 52.11904400020393,
+      "length_m": 52.119044000203914,
+      "start": [
+        -3454.0,
+        -440.0
+      ],
+      "end": [
+        -3449.0543973282056,
+        -388.11613197044835
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 17.240828107899976,
+      "length_m": 17.240828107900235,
+      "start": [
+        835.0,
+        -5211.0
+      ],
+      "end": [
+        832.8615384615384,
+        -5193.892307692307
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 41.99056942686154,
+      "length_m": 41.990569426861406,
+      "start": [
+        3753.0,
+        -2118.0
+      ],
+      "end": [
+        3748.8217821782177,
+        -2159.7821782178216
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 7.0,
+      "length_m": 7.0,
+      "start": [
+        3289.0,
+        -844.0
+      ],
+      "end": [
+        3289.0,
+        -851.0
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 2.3539293971054818,
+      "length_m": 2.3539293971055226,
+      "start": [
+        2295.2131147540986,
+        2618.344262295082
+      ],
+      "end": [
+        2295.0,
+        2616.0
+      ]
+    },
+    {
+      "site": "Costura de red",
+      "gap_m": 10.44030650891055,
+      "length_m": 10.44030650891055,
+      "start": [
+        641.0,
+        2991.0
+      ],
+      "end": [
+        651.0,
+        2994.0
+      ]
+    }
+  ],
+  "orphaned_designed_fragments_removed": 41,
+  "planar_components_total": 102,
+  "main_drivable_length_km": 1045.5386430173821,
+  "main_component_fraction": 0.9929169462655947,
+  "remaining_components": [
+    {
+      "length_m": 750.9772618637626,
+      "distance_to_main_m": 176.24131184259835
+    },
+    {
+      "length_m": 446.60136381808127,
+      "distance_to_main_m": 0.3621429841700742
+    },
+    {
+      "length_m": 421.2743603239543,
+      "distance_to_main_m": 271.0903908293321
+    },
+    {
+      "length_m": 416.9548455462813,
+      "distance_to_main_m": 284.70335438838794
+    },
+    {
+      "length_m": 336.0351053301945,
+      "distance_to_main_m": 74.94350813622688
+    },
+    {
+      "length_m": 242.58301577325744,
+      "distance_to_main_m": 29.075673239785754
+    },
+    {
+      "length_m": 235.361403656959,
+      "distance_to_main_m": 1.0
+    },
+    {
+      "length_m": 224.97096592776919,
+      "distance_to_main_m": 50.44653069356101
+    },
+    {
+      "length_m": 187.0989697299657,
+      "distance_to_main_m": 6.701872450265123
+    },
+    {
+      "length_m": 183.94823306677216,
+      "distance_to_main_m": 1.0
+    },
+    {
+      "length_m": 169.92795547286372,
+      "distance_to_main_m": 115.33110217993355
+    },
+    {
+      "length_m": 168.67581381207825,
+      "distance_to_main_m": 20.164734760043956
+    },
+    {
+      "length_m": 162.45758796578997,
+      "distance_to_main_m": 85.38149682454625
+    },
+    {
+      "length_m": 160.3133107115575,
+      "distance_to_main_m": 61.19309871823211
+    },
+    {
+      "length_m": 153.72396072479268,
+      "distance_to_main_m": 9.838699100999074
+    },
+    {
+      "length_m": 144.39543901052758,
+      "distance_to_main_m": 20.024984394500787
+    },
+    {
+      "length_m": 142.37194050832022,
+      "distance_to_main_m": 10.0
+    },
+    {
+      "length_m": 139.72632912690685,
+      "distance_to_main_m": 43.068509977988995
+    },
+    {
+      "length_m": 127.5002875731688,
+      "distance_to_main_m": 17.029231527985953
+    },
+    {
+      "length_m": 124.18081296904369,
+      "distance_to_main_m": 32.7956811338159
+    },
+    {
+      "length_m": 120.61514630722968,
+      "distance_to_main_m": 31.611233335520158
+    },
+    {
+      "length_m": 117.6860229593982,
+      "distance_to_main_m": 186.50363684758815
+    },
+    {
+      "length_m": 114.39110362329401,
+      "distance_to_main_m": 24.328419595197715
+    },
+    {
+      "length_m": 97.41165576577282,
+      "distance_to_main_m": 6.0
+    },
+    {
+      "length_m": 97.300364141962,
+      "distance_to_main_m": 85.86617494683223
+    },
+    {
+      "length_m": 97.27360404464208,
+      "distance_to_main_m": 8.06225774829855
+    },
+    {
+      "length_m": 90.05393377853804,
+      "distance_to_main_m": 5.934320281653171
+    },
+    {
+      "length_m": 83.554479374592,
+      "distance_to_main_m": 52.839379254491625
+    },
+    {
+      "length_m": 71.3258658262542,
+      "distance_to_main_m": 18.268441505946253
+    },
+    {
+      "length_m": 66.91568723385157,
+      "distance_to_main_m": 102.07840124139877
+    },
+    {
+      "length_m": 66.83499640644654,
+      "distance_to_main_m": 99.02019995940222
+    },
+    {
+      "length_m": 61.50339792299618,
+      "distance_to_main_m": 104.38072349619766
+    },
+    {
+      "length_m": 58.872384249846434,
+      "distance_to_main_m": 93.23089616645332
+    },
+    {
+      "length_m": 58.06803247121595,
+      "distance_to_main_m": 86.76404785393545
+    },
+    {
+      "length_m": 57.08602349195735,
+      "distance_to_main_m": 21.213203435596427
+    },
+    {
+      "length_m": 54.44979051446012,
+      "distance_to_main_m": 8.458140811395934
+    },
+    {
+      "length_m": 53.9744722094141,
+      "distance_to_main_m": 1.393052066293985
+    },
+    {
+      "length_m": 51.52800577804719,
+      "distance_to_main_m": 154.0
+    },
+    {
+      "length_m": 48.534017081262945,
+      "distance_to_main_m": 29.614185789921695
+    },
+    {
+      "length_m": 47.95688912639787,
+      "distance_to_main_m": 9.486832980505138
+    },
+    {
+      "length_m": 46.35820819077223,
+      "distance_to_main_m": 79.63893931826128
+    },
+    {
+      "length_m": 43.22617300787186,
+      "distance_to_main_m": 48.26458938223026
+    },
+    {
+      "length_m": 39.891708276471014,
+      "distance_to_main_m": 363.0
+    },
+    {
+      "length_m": 39.0,
+      "distance_to_main_m": 31.064449134018133
+    },
+    {
+      "length_m": 38.09893988078921,
+      "distance_to_main_m": 38.48376280978771
+    },
+    {
+      "length_m": 36.95867618552539,
+      "distance_to_main_m": 11.0
+    },
+    {
+      "length_m": 36.744276390202174,
+      "distance_to_main_m": 45.78242860782692
+    },
+    {
+      "length_m": 36.66697513263726,
+      "distance_to_main_m": 11.287160847617969
+    },
+    {
+      "length_m": 35.356945876210915,
+      "distance_to_main_m": 35.73513677041127
+    },
+    {
+      "length_m": 33.5568374020208,
+      "distance_to_main_m": 43.414371955697945
+    },
+    {
+      "length_m": 31.063189074042725,
+      "distance_to_main_m": 66.64833081180653
+    },
+    {
+      "length_m": 31.021728866442675,
+      "distance_to_main_m": 7.514639799801099
+    },
+    {
+      "length_m": 29.75331062321876,
+      "distance_to_main_m": 18.23969313595901
+    },
+    {
+      "length_m": 27.2828686603395,
+      "distance_to_main_m": 28.460498941515414
+    },
+    {
+      "length_m": 26.52414968147007,
+      "distance_to_main_m": 105.92922165295089
+    },
+    {
+      "length_m": 25.504316925862227,
+      "distance_to_main_m": 120.81591430153087
+    },
+    {
+      "length_m": 23.511752528924887,
+      "distance_to_main_m": 36.83643681089523
+    },
+    {
+      "length_m": 22.597388952381316,
+      "distance_to_main_m": 105.11898020814318
+    },
+    {
+      "length_m": 21.586983440660976,
+      "distance_to_main_m": 68.89297046368624
+    },
+    {
+      "length_m": 21.37755832643195,
+      "distance_to_main_m": 9.219544457292887
+    },
+    {
+      "length_m": 20.37825031020934,
+      "distance_to_main_m": 20.37299250305197
+    },
+    {
+      "length_m": 19.71616670094452,
+      "distance_to_main_m": 4.0
+    },
+    {
+      "length_m": 18.35788788928555,
+      "distance_to_main_m": 129.83836104942176
+    },
+    {
+      "length_m": 18.35755975068582,
+      "distance_to_main_m": 5.299348502964674
+    },
+    {
+      "length_m": 17.204650534085253,
+      "distance_to_main_m": 1.455213750217998
+    },
+    {
+      "length_m": 17.14061409238508,
+      "distance_to_main_m": 27.455032754112896
+    },
+    {
+      "length_m": 16.1245154965971,
+      "distance_to_main_m": 23.769728648009426
+    },
+    {
+      "length_m": 15.325403217417506,
+      "distance_to_main_m": 23.058728043605523
+    },
+    {
+      "length_m": 13.153830342163694,
+      "distance_to_main_m": 3.3624220961891704
+    },
+    {
+      "length_m": 13.152946437965905,
+      "distance_to_main_m": 2.8284271247461903
+    },
+    {
+      "length_m": 12.082762530298218,
+      "distance_to_main_m": 208.47062143141417
+    },
+    {
+      "length_m": 12.059978486925228,
+      "distance_to_main_m": 41.036569057366385
+    },
+    {
+      "length_m": 11.16227766016838,
+      "distance_to_main_m": 13.892443989449804
+    },
+    {
+      "length_m": 11.0,
+      "distance_to_main_m": 105.0
+    },
+    {
+      "length_m": 10.770329614269007,
+      "distance_to_main_m": 131.46862743635836
+    },
+    {
+      "length_m": 10.198039027185569,
+      "distance_to_main_m": 25.45584412271571
+    },
+    {
+      "length_m": 10.0,
+      "distance_to_main_m": 134.05968819895114
+    },
+    {
+      "length_m": 9.055385138137417,
+      "distance_to_main_m": 11.313708498984761
+    },
+    {
+      "length_m": 8.246211251235321,
+      "distance_to_main_m": 91.7877987534291
+    },
+    {
+      "length_m": 8.07768723046357,
+      "distance_to_main_m": 49.92995093127971
+    },
+    {
+      "length_m": 7.708203932499369,
+      "distance_to_main_m": 20.615528128088304
+    },
+    {
+      "length_m": 7.615773105863909,
+      "distance_to_main_m": 146.4547711752676
+    },
+    {
+      "length_m": 6.47213595499958,
+      "distance_to_main_m": 135.0
+    },
+    {
+      "length_m": 6.4031242374328485,
+      "distance_to_main_m": 35.29432893783949
+    },
+    {
+      "length_m": 6.4031242374328485,
+      "distance_to_main_m": 35.87167298965749
+    },
+    {
+      "length_m": 6.324555320336759,
+      "distance_to_main_m": 383.7476386467201
+    },
+    {
+      "length_m": 6.082762530298219,
+      "distance_to_main_m": 106.06441616941325
+    },
+    {
+      "length_m": 6.0,
+      "distance_to_main_m": 15.570845176553364
+    },
+    {
+      "length_m": 5.0,
+      "distance_to_main_m": 0.836616499232507
+    },
+    {
+      "length_m": 4.47213595499958,
+      "distance_to_main_m": 41.84565477477216
+    },
+    {
+      "length_m": 3.1622776601683795,
+      "distance_to_main_m": 15.037208752252642
+    },
+    {
+      "length_m": 3.1622776601683795,
+      "distance_to_main_m": 32.71539847376609
+    },
+    {
+      "length_m": 3.1622776601683795,
+      "distance_to_main_m": 76.16429609731846
+    },
+    {
+      "length_m": 3.1622776601683795,
+      "distance_to_main_m": 59.80802621722272
+    },
+    {
+      "length_m": 2.414213562373095,
+      "distance_to_main_m": 10.770329614269007
+    },
+    {
+      "length_m": 2.0,
+      "distance_to_main_m": 1.0
+    },
+    {
+      "length_m": 2.0,
+      "distance_to_main_m": 29.62733852065114
+    },
+    {
+      "length_m": 1.4142135623730951,
+      "distance_to_main_m": 10.0
+    },
+    {
+      "length_m": 1.4142135623730951,
+      "distance_to_main_m": 14.422205101855956
+    },
+    {
+      "length_m": 1.0,
+      "distance_to_main_m": 3.3657227882938385
+    },
+    {
+      "length_m": 1.0,
+      "distance_to_main_m": 95.88013350011565
+    }
+  ],
+  "scope": "Shortest paths on the noded road graph, not decorative straight links. Planar connectivity; heights, restrictions and lanes need separate engineering."
+}

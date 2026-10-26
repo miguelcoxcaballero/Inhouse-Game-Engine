@@ -1,18 +1,18 @@
 {
-  "base_id": "isla-levante-fc04a2fbaed3d2a3",
-  "payload_sha256": "fc04a2fbaed3d2a3841d437f20334479fb1dd5a4061f2d3081c0c141b8760a42",
+  "base_id": "isla-levante-e288aed1b5d93f20",
+  "payload_sha256": "e288aed1b5d93f200f79e63a13dfab78c6c59af03e6efc33c446127c3a5dc32d",
   "editor_version": 1,
   "coordinate_system": "LOCAL_METRES_FICTIONAL",
-  "html_sha256": "1746102388c64954d907712d4dfda3f55855768712dbf4b74df511f5eb10dd51",
-  "html_bytes": 15842372,
-  "viewer_bytes": 15802365,
-  "features": 71748,
-  "zip_sha256": "b7a86733918e4e64013016f48093ccb8964daa0af1b413321792944af720f2ca",
-  "zip_bytes": 11447302,
+  "html_sha256": "144591bb1b17fde80aa1eda498684f8b116a1e04d069f753f97e7269d186db20",
+  "html_bytes": 16749346,
+  "viewer_bytes": 16709339,
+  "features": 56034,
+  "zip_sha256": "196871e83aab1af9e1c8086317871123fe71ff45421c0d4be00be481f9bdcabf",
+  "zip_bytes": 12132556,
   "editor_city_bounds_m": [
-    -2466.5938310030997,
-    -2437.561397590095,
-    4728.046856001369,
-    5532.752500103787
+    -1411.1882906738902,
+    -3111.068566318235,
+    5545.59517727087,
+    4711.0442007119245
   ]
 }
