@@ -1,5 +1,10 @@
 name: Release (versión jugable)
 
+# Builds whatever engine/ holds at the tagged commit and ships the sandbox's
+# default map. When a new map lands (e.g. the organic, sloped old town from
+# organic-layout) re-sync engine/ and tag/dispatch a new v* version: nothing
+# here names a map, so the release picks it up automatically.
+
 on:
   push:
     tags: ["v*"]
