@@ -2,6 +2,10 @@
 
 Atlas interactivo con cartografía real de OpenStreetMap y una estética inspirada en GTA VI.
 
+## Editor de sugerencias
+
+[Descargar editor en ZIP](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/levante-editor.zip) · [HTML del editor](isla-v2/isla-levante-editor.html) · [Instrucciones](isla-v2/EDITOR.md). Permite dibujar calles, seleccionar y arrastrar varios edificios y exportar una ficha JSON para revisar los cambios.
+
 ## Isla compactada · versión V02
 
 **[Ver captura actual](isla-v2/previews/revision-costa-chelva-cauce.png)** · **[Descargar isla interactiva en ZIP](https://github.com/miguelcoxcaballero/Inhouse-Game-Engine/raw/refs/heads/main/isla-levante-v2.zip)** · [Memoria y auditoría](isla-v2/PROPUESTA-Y-AUDITORIA.md)
