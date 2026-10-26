@@ -10,7 +10,7 @@ P=pathlib.Path(__file__).resolve().parents[1];D=P/'data';fs=json.load(open(D/'is
 fig=plt.figure(figsize=(17,13),facecolor='#0d1922');ax=fig.add_axes([.25,.06,.73,.88]);ax.set_facecolor('#102c38')
 terrain=json.load(open(D/'terrain.json'));ext=terrain['extent'];ax.imshow(Image.open(D/'relieve.png'),extent=[ext[0],ext[2],ext[1],ext[3]],zorder=1)
 styles={'coast':('#486153',.8,0),'urban-area':('#bdc2b6',.7,3),'forest':('#3e704e',.45,2),'flood-bank':('#899478',1,5),'flood-bed':('#b8b39a',1,5),'green':('#547959',.7,2),'agriculture':('#8d9671',.5,2),'designed-park':('#82a873',.9,5),'water':('#143c49',1,3),'lake':('#1a4856',1,3),'reservoir':('#1a4856',1,4),'river-water':('#367284',1,6),'beach':('#d4bc8d',1,7),'airfield':('#727c77',1,4),'industrial':('#87928a',.9,4),'rock':('#c8b58e',.55,3),'building':('#b9c2b4',.75,7),'landmark-footprint':('#efb7ac',.9,9)}
-lines={'expressway':('#f1c28a',1.1,9),'retained-road':('#b3c2ba',.3,7),'new-road':('#e8b479',.65,8),'secondary-road':('#e8d5ad',.7,8),'promenade':('#fff2d0',1,9),'airway':('#d4dcda',2,9),'bridge':('#fcdfb8',1.1,10),'trail':('#b8ce9a',.7,8),'circuit':('#ff7d9e',1.4,11),'regional':('#fbe48a',1.6,12),'metro':('#89d4e2',1,12),'transfer':('#ffffff',.8,12)}
+lines={'urban-arterial':('#f6d5a4',.9,9),'expressway':('#f1c28a',1.1,9),'retained-road':('#b3c2ba',.3,7),'new-road':('#e8b479',.65,8),'secondary-road':('#e8d5ad',.7,8),'promenade':('#fff2d0',1,9),'airway':('#d4dcda',2,9),'bridge':('#fcdfb8',1.1,10),'trail':('#b8ce9a',.7,8),'circuit':('#ff7d9e',1.4,11),'regional':('#fbe48a',1.6,12),'metro':('#89d4e2',1,12),'transfer':('#ffffff',.8,12)}
 def polys(g):
  if g.geom_type=='Polygon':yield g
  elif hasattr(g,'geoms'):
@@ -40,9 +40,9 @@ ax.set_xlim(-4100,3800);ax.set_ylim(-5500,4800);ax.set_aspect('equal');ax.set_xt
 for s in ax.spines.values():s.set_visible(False)
 fig.text(.04,.91,'INHOUSE / WORLD DESIGN',color='#d9af82',fontsize=10,weight='bold');fig.text(.04,.855,'ISLA\nLEVANTE',color='#f0eadb',fontsize=38,weight='bold',linespacing=.95,va='top')
 fig.text(.04,.75,'V02 · BORRADOR EN CURSO',color='#9fc9c5',fontsize=10,weight='bold');fig.text(.04,.68,'49 km²',color='#f0eadb',fontsize=37,weight='bold');fig.text(.04,.645,'Envolvente total, incluidas aguas',color='#adbdbd',fontsize=9)
-fig.text(.04,.60,'440 manzanas seleccionadas\nAeropuerto OSM · pista de 2,2 km\nPlayas · puerto · antiguo F1\nUniversidades y huerta\nChelva interior + Benagéber\nCentral de Cofrentes\nSafor · Calpe · Ifac',color='#d1dbd1',fontsize=11,linespacing=1.8,va='top')
+fig.text(.04,.60,f"{metrics['retained_blocks']} manzanas · escala 1:1\n100 conjuntos protegidos\nAeropuerto OSM · pista de 2,2 km\nPlayas · puerto · antiguo F1\nUniversidades y huerta\nChelva interior + Benagéber\nCentral de Cofrentes\nSafor · Calpe · Ifac",color='#d1dbd1',fontsize=11,linespacing=1.8,va='top')
 fig.text(.04,.325,'TRANSPORTE',color='#d9af82',fontsize=10,weight='bold');fig.text(.04,.285,'━  Metro / tranvía compactado\n┄  Cercanías ficticio de la isla',color='#a9d5dc',fontsize=10,linespacing=1.8,va='top')
-fig.text(.04,.19,'Aún por revisar:\nuniones de calles, giros y puentes;\nfidelidad del antiguo circuito;\nencaje de edificios en las costuras.',color='#b8c1bd',fontsize=10,linespacing=1.6,va='top')
+fig.text(.04,.19,'Aún por revisar:\nuniones de calles, giros y puentes;\nfidelidad del antiguo circuito;\nvalidación del diseño urbano.',color='#b8c1bd',fontsize=10,linespacing=1.6,va='top')
 fig.text(.04,.08,'Geometrías OSM + recomposición de diseño.\nRelieve sintético. No es cartografía real.\n© OpenStreetMap contributors · ODbL',color='#819a9f',fontsize=8,linespacing=1.6,va='top')
 ax.plot([-3300,-2300],[-4800,-4800],color='#e8debd',lw=2,zorder=40);ax.text(-2800,-4950,'1 km',ha='center',color='#e8debd',fontsize=9)
 fig.savefig(P/'previews/progreso-v2.png',dpi=140,facecolor=fig.get_facecolor());print(P/'previews/progreso-v2.png')

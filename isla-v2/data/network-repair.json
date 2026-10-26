@@ -1,0 +1,21 @@
+{
+  "connections_added": 215,
+  "designed_connectors_rerouted": [
+    "Valle / acceso central",
+    "Valle – Jalance",
+    "Saplaya – Alboraia",
+    "Mercavalència / puerto",
+    "Acceso a playa · Port Saplaya"
+  ],
+  "conflicting_design_connectors_trimmed": [
+    "Calpe – puerto – Ifac",
+    "Acceso Chelva",
+    "CV-400 · Sedaví / Alfafar / Catarroja",
+    "Castellar / huerta / Sedaví",
+    "Catarroja / puerto de la Albufera"
+  ],
+  "unresolved_components": 0,
+  "unresolved_length_m": 0,
+  "intact_buildings_removed": 0,
+  "scope": "Planar cartographic continuity, not lanes, grade separation or turn permissions."
+}

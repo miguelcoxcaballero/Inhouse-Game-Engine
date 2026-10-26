@@ -8,11 +8,11 @@ Atlas interactivo con cartografía real de OpenStreetMap y una estética inspira
 
 Una isla ficticia de **49 km²**, con València, Alboraia, Port Saplaya, aeropuerto, Bonaire, Chelva, Benagéber, Cofrentes y su central, Albufera, Safor, Calpe e Ifac. Incluye playas, puerto, antiguo F1, universidades, metro/tranvía compacto y dos líneas de Cercanías inventadas.
 
-València conserva 440 manzanas seleccionadas y ocupa 6,75km² de envolvente urbana, un 24,9 % más que el borrador anterior. La transición sur añade Mercavalència, Sedaví, Alfafar, Catarroja, Castellar y Pinedo, con huerta y marjal. El aeropuerto tiene pista de 2,20 km, terminales y rodajes OSM sobre una llanura, con accesos V-11/N-220 y A-3. Chelva queda en el interior, junto a Benagéber y 20 tramos secundarios/de montaña (31,7 km). Todas las playas se apoyan en la costa.
+València conserva **231 manzanas completas y los 100 elementos arquitectónicos solicitados a escala 1:1 en planta**. Los anillos y avenidas principales —Cid, Blasco Ibáñez, Grandes Vías y rondas— conservan la forma y los giros de sus trazados OSM, acortando las distancias. La ciudad ocupa unos 6,38 km² de envolvente viaria. Se eliminan manzanas secundarias para dar espacio a las piezas protegidas.
 
-La última revisión reemplaza los recortes de autovía por corredores OSM continuos y añade el nuevo cauce del Turia con la V-30. La UI propia incorpora herramientas flotantes, filtros, agrupación, medición y dibujo. Se conservan las curvas y los cruces como referencia, con menos manzanas; todavía requiere revisión fina de intersecciones y rasantes. [Comparación de vías rápidas](isla-v2/previews/vias-osm-comparacion.png).
+El Miguelete es independiente y permanece unido espacialmente a la Catedral. [Tabla de medidas de los 100 elementos](isla-v2/ESCALA-EDIFICIOS.csv) · [Auditoría 1:1](isla-v2/data/architecture-review.json) · [Comparación de avenidas y anillos](isla-v2/previews/avenidas-anillos-comparacion.png). Las alturas sin dato OSM siguen siendo aproximaciones de vista previa.
 
-El último ajuste acerca València 300 m a la costa y el centro del nuevo cauce hasta 450 m a la ciudad. Chelva baja 200 m y queda más al interior, con acceso directo por un corredor CV-35 de 1,51 km de diseño y un viaducto sobre un brazo de Benagéber.
+La red viaria representada forma un único conjunto en la comprobación plana; carriles, prioridades y cruces a distinto nivel aún requieren desarrollo. Se mantienen aeropuerto y accesos, costa y paseos, nuevo cauce/V-30, Chelva interior, Benagéber, Cofrentes y central, Albufera y transición sur, Safor/Calpe/Ifac, metro y Cercanías ficticio.
 
 [HTML autónomo](isla-v2/isla-levante-v2.html) · [Archivos y reproducción](isla-v2/README.md). GitHub muestra el HTML como código: descarga el ZIP y abre el HTML para usarlo. Los mapas reales anteriores siguen disponibles debajo.
 

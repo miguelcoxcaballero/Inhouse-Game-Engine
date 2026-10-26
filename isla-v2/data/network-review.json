@@ -1,68 +1,1025 @@
 {
-  "planar_component_count": 103,
-  "main_component_length_m": 323923.1703609293,
-  "total_drivable_line_length_m": 339063.8368647747,
-  "main_component_fraction": 0.9553456757764355,
+  "planar_component_count": 1,
+  "main_component_length_m": 334434.0574151429,
+  "total_drivable_line_length_m": 334434.0574151429,
+  "main_component_fraction": 1.0,
   "short_connections_added": [
     {
-      "gap_m": 2.93452976951212,
-      "added_m": 3.009745556120665
+      "gap_m": 0.894427190999916,
+      "added_m": 0.8944271909999667
     },
     {
-      "gap_m": 7.615773105863909,
-      "added_m": 7.814026435231467
+      "gap_m": 1.0,
+      "added_m": 1.0
     },
     {
-      "gap_m": 25.41170433050753,
-      "added_m": 26.063572552242544
+      "gap_m": 1.2394180766526903,
+      "added_m": 1.2394180766527119
+    },
+    {
+      "gap_m": 1.4976905298081187,
+      "added_m": 1.49769052980827
+    },
+    {
+      "gap_m": 1.9206924535072483,
+      "added_m": 1.9206924535072518
+    },
+    {
+      "gap_m": 2.23606797749979,
+      "added_m": 2.23606797749979
+    },
+    {
+      "gap_m": 2.7698734935235727,
+      "added_m": 2.7698734935235065
+    },
+    {
+      "gap_m": 2.8284271247461903,
+      "added_m": 2.8284271247461903
+    },
+    {
+      "gap_m": 2.931472921126498,
+      "added_m": 2.931472921126574
+    },
+    {
+      "gap_m": 3.0,
+      "added_m": 3.0
+    },
+    {
+      "gap_m": 2.23606797749979,
+      "added_m": 2.23606797749979
+    },
+    {
+      "gap_m": 2.23606797749979,
+      "added_m": 2.23606797749979
+    },
+    {
+      "gap_m": 3.0990321069650117,
+      "added_m": 3.099032106965019
+    },
+    {
+      "gap_m": 3.111269837220809,
+      "added_m": 3.111269837220737
+    },
+    {
+      "gap_m": 3.1614228750033737,
+      "added_m": 4.118438837901776
+    },
+    {
+      "gap_m": 1.4142135623730951,
+      "added_m": 1.4142135623730951
+    },
+    {
+      "gap_m": 3.1622776601683795,
+      "added_m": 3.1622776601683795
+    },
+    {
+      "gap_m": 3.1622776601683795,
+      "added_m": 3.1622776601683795
+    },
+    {
+      "gap_m": 3.1622776601683795,
+      "added_m": 3.1622776601683795
+    },
+    {
+      "gap_m": 3.8704690895873757,
+      "added_m": 3.8704690895872846
+    },
+    {
+      "gap_m": 4.0,
+      "added_m": 4.0
+    },
+    {
+      "gap_m": 4.0,
+      "added_m": 4.0
+    },
+    {
+      "gap_m": 4.123105625617661,
+      "added_m": 4.123105625617661
+    },
+    {
+      "gap_m": 4.073251921434472,
+      "added_m": 4.073251921434486
+    },
+    {
+      "gap_m": 4.287464628562722,
+      "added_m": 4.287464628562701
+    },
+    {
+      "gap_m": 4.427188724235731,
+      "added_m": 4.427188724235803
+    },
+    {
+      "gap_m": 4.437601569801833,
+      "added_m": 4.437601569801833
+    },
+    {
+      "gap_m": 4.47213595499958,
+      "added_m": 4.47213595499958
+    },
+    {
+      "gap_m": 4.47213595499958,
+      "added_m": 4.47213595499958
+    },
+    {
+      "gap_m": 4.633801782457663,
+      "added_m": 4.633801782457745
+    },
+    {
+      "gap_m": 4.919349550499538,
+      "added_m": 4.919349550499638
+    },
+    {
+      "gap_m": 4.919349550499538,
+      "added_m": 4.919349550499638
+    },
+    {
+      "gap_m": 4.992301766027062,
+      "added_m": 4.9923017660270625
+    },
+    {
+      "gap_m": 5.199469468957452,
+      "added_m": 5.1994694689574095
+    },
+    {
+      "gap_m": 4.626612432270073,
+      "added_m": 4.626612432270073
+    },
+    {
+      "gap_m": 5.2,
+      "added_m": 5.200000000000069
+    },
+    {
+      "gap_m": 4.0,
+      "added_m": 4.0
+    },
+    {
+      "gap_m": 5.385164807134504,
+      "added_m": 5.385164807134504
+    },
+    {
+      "gap_m": 5.589565568382148,
+      "added_m": 5.589565568382129
+    },
+    {
+      "gap_m": 6.260990336999412,
+      "added_m": 6.260990336999411
+    },
+    {
+      "gap_m": 6.325576059306061,
+      "added_m": 6.325576059306061
+    },
+    {
+      "gap_m": 6.542091664514381,
+      "added_m": 6.54209166451443
+    },
+    {
+      "gap_m": 6.685032174373867,
+      "added_m": 6.685032174373951
+    },
+    {
+      "gap_m": 7.211102550927978,
+      "added_m": 7.211102550927978
+    },
+    {
+      "gap_m": 7.280109889280518,
+      "added_m": 7.280109889280518
+    },
+    {
+      "gap_m": 7.9195959492893335,
+      "added_m": 7.919595949289252
+    },
+    {
+      "gap_m": 8.06225774829855,
+      "added_m": 8.06225774829855
+    },
+    {
+      "gap_m": 8.129157844557126,
+      "added_m": 8.129157844557152
+    },
+    {
+      "gap_m": 8.246211251235321,
+      "added_m": 8.246211251235321
+    },
+    {
+      "gap_m": 2.0,
+      "added_m": 2.0
+    },
+    {
+      "gap_m": 8.562401816625483,
+      "added_m": 8.562401816625474
+    },
+    {
+      "gap_m": 9.0,
+      "added_m": 9.0
+    },
+    {
+      "gap_m": 9.055385138137417,
+      "added_m": 9.055385138137417
+    },
+    {
+      "gap_m": 8.854377448471462,
+      "added_m": 8.854377448471533
+    },
+    {
+      "gap_m": 9.219544457292887,
+      "added_m": 9.219544457292887
+    },
+    {
+      "gap_m": 4.427188724235731,
+      "added_m": 4.427188724235803
+    },
+    {
+      "gap_m": 9.287487590439852,
+      "added_m": 9.287487590439875
+    },
+    {
+      "gap_m": 3.601470287992685,
+      "added_m": 3.6014702879926355
+    },
+    {
+      "gap_m": 9.351946541206758,
+      "added_m": 9.351946541206766
+    },
+    {
+      "gap_m": 10.0,
+      "added_m": 12.673490014819958
+    },
+    {
+      "gap_m": 10.0,
+      "added_m": 12.041594578792296
+    },
+    {
+      "gap_m": 10.242688307053893,
+      "added_m": 10.24268830705387
+    },
+    {
+      "gap_m": 10.285912696499032,
+      "added_m": 10.285912696499032
+    },
+    {
+      "gap_m": 10.336768377389758,
+      "added_m": 10.336768377389678
+    },
+    {
+      "gap_m": 11.094003924504582,
+      "added_m": 11.094003924504646
+    },
+    {
+      "gap_m": 11.313708498984761,
+      "added_m": 11.313708498984761
+    },
+    {
+      "gap_m": 11.371029215254005,
+      "added_m": 11.371029215253987
+    },
+    {
+      "gap_m": 12.935483472729858,
+      "added_m": 12.935483472729972
+    },
+    {
+      "gap_m": 13.892443989449804,
+      "added_m": 13.892443989449804
+    },
+    {
+      "gap_m": 13.92838827718412,
+      "added_m": 13.92838827718412
+    },
+    {
+      "gap_m": 14.223306191754089,
+      "added_m": 14.223306191754034
+    },
+    {
+      "gap_m": 14.576255112845484,
+      "added_m": 14.576255112845518
+    },
+    {
+      "gap_m": 3.1622776601683795,
+      "added_m": 3.1622776601683795
+    },
+    {
+      "gap_m": 15.264337522473747,
+      "added_m": 15.264337522473747
+    },
+    {
+      "gap_m": 15.620499351813308,
+      "added_m": 15.620499351813308
+    },
+    {
+      "gap_m": 15.764815627361644,
+      "added_m": 15.764815627361644
+    },
+    {
+      "gap_m": 16.275346062684942,
+      "added_m": 16.275346062684992
+    },
+    {
+      "gap_m": 16.421815310724558,
+      "added_m": 16.421815310724476
+    },
+    {
+      "gap_m": 16.62341234036616,
+      "added_m": 16.623412340366205
+    },
+    {
+      "gap_m": 2.8460498941515415,
+      "added_m": 2.846049894151577
+    },
+    {
+      "gap_m": 16.76305461424021,
+      "added_m": 16.76305461424021
+    },
+    {
+      "gap_m": 16.81211048094585,
+      "added_m": 16.81211048094588
+    },
+    {
+      "gap_m": 16.9330956924518,
+      "added_m": 16.9330956924518
+    },
+    {
+      "gap_m": 16.95352524841438,
+      "added_m": 16.95352524841439
+    },
+    {
+      "gap_m": 9.0,
+      "added_m": 9.0
+    },
+    {
+      "gap_m": 16.957833836489804,
+      "added_m": 16.957833836489794
+    },
+    {
+      "gap_m": 17.11724276862369,
+      "added_m": 17.11724276862369
+    },
+    {
+      "gap_m": 17.12607634874967,
+      "added_m": 17.12607634874966
+    },
+    {
+      "gap_m": 17.35224069304621,
+      "added_m": 17.352240693046213
+    },
+    {
+      "gap_m": 4.123105625617661,
+      "added_m": 4.123105625617661
+    },
+    {
+      "gap_m": 1.0,
+      "added_m": 1.0
+    },
+    {
+      "gap_m": 17.433964530939456,
+      "added_m": 17.433964530939583
+    },
+    {
+      "gap_m": 17.94151081205198,
+      "added_m": 17.94151081205206
+    },
+    {
+      "gap_m": 17.26267650163207,
+      "added_m": 17.26267650163207
+    },
+    {
+      "gap_m": 18.432707502761307,
+      "added_m": 18.4327075027613
+    },
+    {
+      "gap_m": 4.0,
+      "added_m": 4.0
+    },
+    {
+      "gap_m": 3.605551275463989,
+      "added_m": 3.605551275463989
+    },
+    {
+      "gap_m": 18.5675466597493,
+      "added_m": 18.567546659749347
+    },
+    {
+      "gap_m": 18.601075237738275,
+      "added_m": 18.601075237738275
+    },
+    {
+      "gap_m": 18.96066584577315,
+      "added_m": 28.653097563788805
+    },
+    {
+      "gap_m": 19.010504888450683,
+      "added_m": 19.01050488845073
+    },
+    {
+      "gap_m": 19.23018460649819,
+      "added_m": 19.23018460649823
+    },
+    {
+      "gap_m": 16.278820596099706,
+      "added_m": 16.278820596099706
+    },
+    {
+      "gap_m": 19.44912490151735,
+      "added_m": 19.449124901517454
+    },
+    {
+      "gap_m": 18.6148809586161,
+      "added_m": 18.61488095861612
+    },
+    {
+      "gap_m": 19.559917847362318,
+      "added_m": 19.55991784736234
+    },
+    {
+      "gap_m": 8.06225774829855,
+      "added_m": 8.06225774829855
+    },
+    {
+      "gap_m": 1.4142135623730951,
+      "added_m": 1.4142135623730951
+    },
+    {
+      "gap_m": 19.606121493043954,
+      "added_m": 19.606121493043915
+    },
+    {
+      "gap_m": 19.90157510228934,
+      "added_m": 19.901575102289314
+    },
+    {
+      "gap_m": 19.92234925906079,
+      "added_m": 19.922349259060933
+    },
+    {
+      "gap_m": 20.042153236913233,
+      "added_m": 20.042153236913226
+    },
+    {
+      "gap_m": 20.37299250305197,
+      "added_m": 20.37299250305197
+    },
+    {
+      "gap_m": 20.54483760511435,
+      "added_m": 20.544837605114402
+    },
+    {
+      "gap_m": 21.2602916254693,
+      "added_m": 21.2602916254693
+    },
+    {
+      "gap_m": 21.930335670972056,
+      "added_m": 21.930335670972056
+    },
+    {
+      "gap_m": 21.93549568644605,
+      "added_m": 21.935495686445993
+    },
+    {
+      "gap_m": 1.4142135623730951,
+      "added_m": 1.4142135623730951
+    },
+    {
+      "gap_m": 21.981812196630617,
+      "added_m": 21.981812196630614
+    },
+    {
+      "gap_m": 22.0,
+      "added_m": 22.0
+    },
+    {
+      "gap_m": 22.360679774997898,
+      "added_m": 22.360679774997898
+    },
+    {
+      "gap_m": 7.0710678118654755,
+      "added_m": 7.0710678118654755
+    },
+    {
+      "gap_m": 7.211102550927978,
+      "added_m": 7.211102550927978
+    },
+    {
+      "gap_m": 11.180339887498949,
+      "added_m": 11.180339887498949
+    },
+    {
+      "gap_m": 12.299745875644323,
+      "added_m": 12.29974587564427
+    },
+    {
+      "gap_m": 8.578343443351208,
+      "added_m": 8.578343443351221
+    },
+    {
+      "gap_m": 23.021728866442675,
+      "added_m": 23.021728866442675
+    },
+    {
+      "gap_m": 23.058728043605523,
+      "added_m": 32.2719668378981
+    },
+    {
+      "gap_m": 23.493798405875356,
+      "added_m": 23.49379840587536
+    },
+    {
+      "gap_m": 6.0,
+      "added_m": 6.0
+    },
+    {
+      "gap_m": 23.80614235429805,
+      "added_m": 23.806142354298057
+    },
+    {
+      "gap_m": 5.0990195135927845,
+      "added_m": 5.0990195135927845
+    },
+    {
+      "gap_m": 23.838303334808728,
+      "added_m": 23.838303334808717
+    },
+    {
+      "gap_m": 14.41905013466333,
+      "added_m": 14.419050134663399
+    },
+    {
+      "gap_m": 23.998086963449992,
+      "added_m": 23.99808696344996
+    },
+    {
+      "gap_m": 24.253855055345902,
+      "added_m": 315.75927117047684
+    },
+    {
+      "gap_m": 25.0,
+      "added_m": 25.0
+    },
+    {
+      "gap_m": 14.866068747318506,
+      "added_m": 14.866068747318506
+    },
+    {
+      "gap_m": 25.45584412271571,
+      "added_m": 34.10405340617887
+    },
+    {
+      "gap_m": 25.799224794555357,
+      "added_m": 25.799224794555343
+    },
+    {
+      "gap_m": 26.409662441429845,
+      "added_m": 26.40966244142985
+    },
+    {
+      "gap_m": 18.120444681737737,
+      "added_m": 18.120444681737744
+    },
+    {
+      "gap_m": 26.73295635379695,
+      "added_m": 26.73295635379697
+    },
+    {
+      "gap_m": 26.870057685088806,
+      "added_m": 26.870057685088806
+    },
+    {
+      "gap_m": 27.836432466770308,
+      "added_m": 27.836432466770436
+    },
+    {
+      "gap_m": 27.98856909525744,
+      "added_m": 27.988569095257418
+    },
+    {
+      "gap_m": 2.0,
+      "added_m": 2.0
+    },
+    {
+      "gap_m": 28.515397048830632,
+      "added_m": 28.51539704883069
+    },
+    {
+      "gap_m": 29.075673239785754,
+      "added_m": 86.15023035502895
+    },
+    {
+      "gap_m": 29.206163733020468,
+      "added_m": 29.206163733020468
+    },
+    {
+      "gap_m": 29.271501959286727,
+      "added_m": 29.271501959286667
+    },
+    {
+      "gap_m": 30.36436389247426,
+      "added_m": 30.36436389247421
+    },
+    {
+      "gap_m": 4.713319914389921,
+      "added_m": 4.713319914389921
+    },
+    {
+      "gap_m": 30.578211638796454,
+      "added_m": 30.578211638796365
+    },
+    {
+      "gap_m": 2.0,
+      "added_m": 2.0
+    },
+    {
+      "gap_m": 30.875047534134477,
+      "added_m": 30.875047534134453
+    },
+    {
+      "gap_m": 31.044560004650616,
+      "added_m": 31.04456000465051
+    },
+    {
+      "gap_m": 31.064449134018133,
+      "added_m": 31.064449134018133
+    },
+    {
+      "gap_m": 31.064449134018133,
+      "added_m": 33.21499261982344
+    },
+    {
+      "gap_m": 31.622776601683793,
+      "added_m": 31.622776601683793
+    },
+    {
+      "gap_m": 31.796365351365594,
+      "added_m": 31.796365351365566
+    },
+    {
+      "gap_m": 32.68529308847445,
+      "added_m": 32.68529308847447
+    },
+    {
+      "gap_m": 33.726713208954905,
+      "added_m": 33.72671320895489
+    },
+    {
+      "gap_m": 5.656854249492381,
+      "added_m": 9.59350182320052
+    },
+    {
+      "gap_m": 21.540659228538015,
+      "added_m": 22.69144324477506
+    },
+    {
+      "gap_m": 34.20526275297414,
+      "added_m": 34.20526275297414
+    },
+    {
+      "gap_m": 35.60761771060218,
+      "added_m": 43.79370086318484
+    },
+    {
+      "gap_m": 35.73513677041127,
+      "added_m": 35.73513677041127
+    },
+    {
+      "gap_m": 36.24853235044111,
+      "added_m": 36.248532350441
+    },
+    {
+      "gap_m": 39.66184786625307,
+      "added_m": 39.66184786625312
+    },
+    {
+      "gap_m": 4.351747340785399,
+      "added_m": 5.375872022286281
+    },
+    {
+      "gap_m": 38.11059224650426,
+      "added_m": 38.593134594212735
+    },
+    {
+      "gap_m": 39.79114063430722,
+      "added_m": 39.79114063430739
+    },
+    {
+      "gap_m": 43.57224054355481,
+      "added_m": 43.57224054355479
+    },
+    {
+      "gap_m": 15.013752245736702,
+      "added_m": 15.013752245736676
+    },
+    {
+      "gap_m": 44.91102314577124,
+      "added_m": 44.91102314577124
+    },
+    {
+      "gap_m": 45.14322827206235,
+      "added_m": 45.14322827206228
+    },
+    {
+      "gap_m": 45.2036117565522,
+      "added_m": 45.20361175655212
+    },
+    {
+      "gap_m": 45.313993642162906,
+      "added_m": 45.31399364216285
+    },
+    {
+      "gap_m": 46.010868281309364,
+      "added_m": 46.010868281309364
+    },
+    {
+      "gap_m": 47.50420956236148,
+      "added_m": 47.50420956236155
+    },
+    {
+      "gap_m": 27.294688127912362,
+      "added_m": 27.294688127912362
+    },
+    {
+      "gap_m": 47.53945729601885,
+      "added_m": 47.53945729601885
+    },
+    {
+      "gap_m": 48.607027107823946,
+      "added_m": 48.60702710782397
+    },
+    {
+      "gap_m": 49.4064773081425,
+      "added_m": 49.4064773081425
+    },
+    {
+      "gap_m": 50.44653069356101,
+      "added_m": 50.44653069356107
+    },
+    {
+      "gap_m": 14.925731073257907,
+      "added_m": 14.92573107325798
+    },
+    {
+      "gap_m": 51.42956348249516,
+      "added_m": 51.42956348249516
+    },
+    {
+      "gap_m": 29.068883707497267,
+      "added_m": 29.068883707497267
+    },
+    {
+      "gap_m": 51.545125860744584,
+      "added_m": 51.545125860744655
+    },
+    {
+      "gap_m": 51.766754922122516,
+      "added_m": 51.76675492212252
+    },
+    {
+      "gap_m": 54.90926175998933,
+      "added_m": 54.90926175998926
+    },
+    {
+      "gap_m": 54.964717516547104,
+      "added_m": 54.96471751654709
+    },
+    {
+      "gap_m": 59.77457653551382,
+      "added_m": 59.77457653551382
+    },
+    {
+      "gap_m": 10.04987562112089,
+      "added_m": 10.04987562112089
+    },
+    {
+      "gap_m": 29.352941176470587,
+      "added_m": 29.352941176470587
+    },
+    {
+      "gap_m": 64.81512169239521,
+      "added_m": 64.81512169239521
+    },
+    {
+      "gap_m": 66.60330322138685,
+      "added_m": 67.47592163134935
+    },
+    {
+      "gap_m": 68.94243122728857,
+      "added_m": 68.94243122728847
+    },
+    {
+      "gap_m": 70.03131671688686,
+      "added_m": 75.93656634507164
+    },
+    {
+      "gap_m": 74.60717639229331,
+      "added_m": 74.60717639229337
+    },
+    {
+      "gap_m": 79.0,
+      "added_m": 82.54823545092694
+    },
+    {
+      "gap_m": 90.07774419910837,
+      "added_m": 96.07665154027416
+    },
+    {
+      "gap_m": 94.71881113179403,
+      "added_m": 94.718811131794
+    },
+    {
+      "gap_m": 122.3315167894194,
+      "added_m": 122.3315167894194
+    },
+    {
+      "gap_m": 5.980808723968752,
+      "added_m": 5.980808723968738
+    },
+    {
+      "gap_m": 122.79298696203632,
+      "added_m": 122.7929869620363
+    },
+    {
+      "gap_m": 141.49719660614778,
+      "added_m": 141.49719660614775
+    },
+    {
+      "gap_m": 9.805806756909202,
+      "added_m": 9.805806756909336
+    },
+    {
+      "gap_m": 145.91093173576817,
+      "added_m": 145.91093173576817
+    },
+    {
+      "gap_m": 167.32304085211933,
+      "added_m": 167.32304085211933
+    },
+    {
+      "gap_m": 473.06764843941716,
+      "added_m": 473.06764843941716
+    },
+    {
+      "gap_m": 0.5268836833617129,
+      "added_m": 3.526883683361793,
+      "precision_repair": true
+    },
+    {
+      "gap_m": 0.4413089361281462,
+      "added_m": 3.4413089361282982,
+      "precision_repair": true
+    },
+    {
+      "gap_m": 0.5547001962253553,
+      "added_m": 3.55470019622507,
+      "precision_repair": true
     }
   ],
+  "repair": {
+    "connections_added": 215,
+    "designed_connectors_rerouted": [
+      "Valle / acceso central",
+      "Valle – Jalance",
+      "Saplaya – Alboraia",
+      "Mercavalència / puerto",
+      "Acceso a playa · Port Saplaya"
+    ],
+    "conflicting_design_connectors_trimmed": [
+      "Calpe – puerto – Ifac",
+      "Acceso Chelva",
+      "CV-400 · Sedaví / Alfafar / Catarroja",
+      "Castellar / huerta / Sedaví",
+      "Catarroja / puerto de la Albufera"
+    ],
+    "unresolved_components": 0,
+    "unresolved_length_m": 0,
+    "intact_buildings_removed": 0,
+    "scope": "Planar cartographic continuity, not lanes, grade separation or turn permissions."
+  },
   "note": "Planar noding at1m precision; does not validate grade separation, turn restrictions or driving navigation.",
   "landmark_distance_to_main_road_m": {
-    "Catedral de València": 89.8,
-    "Llotja de la Seda": 68.6,
-    "Mercat Central": 25.7,
-    "Torres dels Serrans": 9.1,
-    "Torres de Quart": 10.1,
-    "Ajuntament de València": 21.2,
-    "Estació del Nord": 11.0,
-    "Plaça de Bous de València": 36.1,
-    "Mercat de Russafa": 21.1,
-    "Palau de les Arts Reina Sofia": 37.2,
-    "L'Hemisfèric": 39.7,
-    "Museu de les Ciències «Príncep Felip»": 62.7,
-    "Oceanogràfic de València": 53.8,
-    "Mestalla": 36.2,
-    "Bioparc València": 131.9,
-    "Mercat Municipal del Cabanyal": 10.5,
-    "Veles e Vents": 103.0,
-    "Universitat de València - Campus dels Tarongers": 45.4,
-    "Universitat de València": 18.5,
-    "Hospital Universitari i Politècnic La Fe": 36.3,
-    "Plaça de Patraix": 1.6,
-    "Campanar · núcleo y plaza": 29.0,
-    "Torrefiel · mercado y residencial": 5.0,
-    "Benimaclet · plaza y estación": 17.1,
-    "UV · campus Blasco Ibáñez": 11.9,
-    "UPV · campus de Vera / Ágora": 63.5,
+    "Torres de Serranos": 78.3,
+    "Palau de les Arts Reina Sofía": 80.1,
+    "Torres de Quart": 49.1,
+    "Museu de les Ciències Príncipe Felipe": 65.5,
+    "L’Hemisfèric": 69.5,
+    "Palacio del Marqués de Dos Aguas": 51.9,
+    "Palau de la Generalitat": 30.0,
+    "Mercado de Colón": 61.8,
+    "Iglesia de Santa Catalina": 48.4,
+    "Estadio de Mestalla": 112.5,
+    "Museo de Bellas Artes · San Pío V": 78.8,
+    "Iglesia de San Nicolás": 56.3,
+    "Real Colegio del Patriarca": 81.3,
+    "L’Àgora": 53.0,
+    "Monasterio de San Miguel de los Reyes": 65.7,
+    "L’Oceanogràfic": 107.9,
+    "La Nau · Universitat": 20.5,
+    "Palau de Benicarló · Corts Valencianes": 55.0,
+    "Convento de Santo Domingo": 46.2,
+    "Teatro Principal": 53.9,
+    "Palau de la Música": 64.0,
+    "Baños del Almirante": 19.6,
+    "Almudín": 43.3,
+    "Atarazanas del Grao": 65.2,
+    "Palacio de Justicia · antigua Aduana": 46.7,
+    "Casa de los Dragones": 61.6,
+    "Palacio e Iglesia del Temple": 41.5,
+    "San Juan del Hospital": 26.7,
+    "Centre del Carme": 78.7,
+    "Escuelas Pías": 36.8,
+    "Colegio del Arte Mayor de la Seda": 62.3,
+    "IVAM": 69.7,
+    "Palacio de la Exposición": 33.4,
+    "Monasterio de la Trinidad": 93.7,
+    "Iglesia de San Esteban": 53.1,
+    "La Beneficencia": 73.8,
+    "Iglesia de San Martín": 46.9,
+    "Palacio de Valeriola · Hortensia Herrero": 31.2,
+    "Edificio del Reloj · puerto": 44.7,
+    "Veles e Vents": 107.3,
+    "Casas Chapa": 95.6,
+    "Fábrica de Tabacos": 96.1,
+    "Iglesia de San Agustín": 56.6,
+    "San Juan de la Cruz · San Andrés": 53.8,
+    "Palacio del Almirante": 21.2,
+    "Roig Arena": 85.8,
+    "Santo Tomás y San Felipe Neri": 19.0,
+    "Palacio del Marqués de Campo": 35.9,
+    "Finca Roja": 82.0,
+    "Iglesia del Salvador": 38.8,
+    "San Miguel y San Sebastián": 17.9,
+    "Palacio de la Baylía": 37.6,
+    "Palacio de Cervelló": 24.3,
+    "Banco de España": 58.0,
+    "L’Umbracle": 15.2,
+    "Iglesia del Pilar": 17.6,
+    "Iglesia de la Compañía": 47.7,
+    "Torre de San Bartolomé": 24.1,
+    "Palacio de los Escrivà": 55.5,
+    "Palacio del Marqués de la Scala": 64.6,
+    "Palacete de Ayora": 31.3,
+    "Banco de Valencia": 61.1,
+    "Estadio Ciutat de València": 21.8,
+    "Torre Hilton · Meliá": 1.1,
+    "Torre de Francia": 44.0,
+    "Palacio de Congresos": 48.4,
+    "Antiguo Hospital General · Biblioteca Pública": 50.8,
+    "San Vicente de la Roqueta": 46.9,
+    "Iglesia de la Misericordia · Campanar": 54.1,
+    "Casa del Punt de Ganxo": 34.3,
+    "Palacio de Boïl d’Arenós": 35.9,
+    "Edificio Telefónica": 39.8,
+    "Centro Cultural Bancaja": 60.1,
+    "Bombas Gens": 29.0,
+    "Alquería del Moro": 95.7,
+    "Basílica de San Vicente Ferrer": 41.8,
+    "Palacio de Pineda": 39.1,
+    "Edificio Ferrer": 32.9,
+    "Casa Ortega": 58.3,
+    "Mercado de Ruzafa": 97.2,
+    "Mercado de Abastos": 69.0,
+    "Portal de la Valldigna": 124.6,
+    "Lonja del Pescado del Cabanyal": 54.3,
+    "Estación Joaquín Sorolla": 40.0,
+    "Hospital La Fe": 81.8,
+    "Mercat Municipal del Cabanyal": 57.6,
+    "Catedral de Valencia": 67.2,
+    "Torre del Miguelete": 86.5,
+    "Basílica de la Virgen de los Desamparados": 69.0,
+    "Casa Vestuario": 116.6,
+    "Lonja de la Seda": 61.9,
+    "Mercado Central": 42.9,
+    "Iglesia de los Santos Juanes": 62.3,
+    "Estación del Norte": 75.3,
+    "Plaza de Toros": 98.8,
+    "La Unión y el Fénix": 86.9,
+    "Ayuntamiento de Valencia": 45.2,
+    "Edificio de Correos": 84.1,
+    "Ateneo Mercantil": 108.6,
+    "Edificio Rialto": 88.6,
+    "Hotel Reina Victoria": 79.1,
+    "Plaça de Patraix": 17.9,
+    "Campanar · núcleo y plaza": 0.3,
+    "Torrefiel · mercado y residencial": 0.5,
+    "Benimaclet · plaza y estación": 0.6,
+    "UV · campus Blasco Ibáñez": 0.1,
+    "UPV · campus de Vera / Ágora": 0.3,
     "Alboraia · núcleo y mercado": 1.0,
-    "Cabanyal · trama marítima": 7.7,
-    "Natzaret · barrio portuario": 137.8,
-    "Malilla · tejido residencial": 1.9,
+    "Cabanyal · trama marítima": 0.3,
+    "Natzaret · barrio portuario": 53.4,
+    "Malilla · tejido residencial": 0.0,
+    "Barracas de El Palmar": 3.9,
+    "Universitat de València · Campus dels Tarongers": 39.4,
+    "Universitat de València · campus educativo": 44.0,
+    "Bioparc València · parque recompuesto": 30.3,
     "Mercavalència · mercado y logística": 0.0,
     "Sedaví · núcleo y borde industrial": 0.0,
-    "Alfafar · núcleo compacto": 0.0,
+    "Alfafar · núcleo compacto": 7.0,
     "Catarroja · acceso a la marjal": 0.0,
     "Castellar · núcleo de huerta": 0.0,
     "Pinedo · fachada del parque": 0.0,
     "Chelva · iglesia de los Ángeles": 17.7,
     "Palacio vizcondal": 9.1,
-    "Castillo de Cofrentes": 28.1,
-    "Castillo de Jalance": 82.6,
-    "Port Saplaya · marina": 148.7,
-    "Central nuclear de Cofrentes": 66.7,
+    "Castillo de Cofrentes": 23.5,
+    "Castillo de Jalance": 42.5,
+    "Port Saplaya · marina": 91.3,
+    "Central nuclear de Cofrentes": 143.7,
     "Bonaire · edificio principal": 0.0,
-    "Aeropuerto · Terminal 1": 53.5,
+    "Aeropuerto · Terminal 1": 36.7,
     "Aeropuerto · Terminal Regional": 29.0,
     "Aeropuerto · Terminal 2": 44.8,
     "Pista 12/30 · aeropuerto": 211.3,
@@ -72,11 +1029,11 @@
     "Embarcadero del Palmar": 0.0,
     "Port de Catarroja": 0.0,
     "Gola de Pujol": 59.0,
-    "Jardí del Túria · corredor y puentes": 19.9,
+    "Jardí del Túria · corredor y puentes": 66.3,
     "Puerto de València · muelles y dársenas": 496.7,
-    "Antiguo circuito de Fórmula 1": 9.8,
-    "Playa · Patacona / Malvarrosa": 45.7,
-    "Playa · Cabanyal / Arenas": 312.0,
+    "Antiguo circuito de Fórmula 1": 112.3,
+    "Playa · Patacona / Malvarrosa": 115.8,
+    "Playa · Cabanyal / Arenas": 130.4,
     "Playa · Saler / Devesa": 424.2,
     "Acueducto de Peña Cortada": 41.0,
     "Ermita del Remedio": 218.3,
@@ -101,8 +1058,8 @@
     "Embalse de Benagéber": 563.4,
     "Presa de Benagéber": 58.9,
     "Paseo marítimo · Port Saplaya": 51.8,
-    "Paseo marítimo · Patacona / Malvarrosa": 20.3,
-    "Paseo marítimo · Cabanyal / Arenas": 191.1,
+    "Paseo marítimo · Patacona / Malvarrosa": 79.1,
+    "Paseo marítimo · Cabanyal / Arenas": 18.7,
     "Paseo marítimo · Saler / Devesa": 365.4,
     "Playa y paseo de Calpe": 489.1
   }

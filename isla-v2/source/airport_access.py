@@ -27,7 +27,7 @@ def add_airport_access(D,fs,landmarks,coast,runway,bed,routes,tr,add,record,curv
    g=curve([list(a.coords)[0],[(a.x+b.x)/2,(a.y+b.y)/2+min(20,a.distance(b)*.1)],list(b.coords)[0]])
    if not g.intersects(runway.buffer(100)):add(g,'new-road',name='Enlace V-11 / A-3',source='Costura corta entre calzadas OSM del mismo acceso')
  if north:
-  n=unary_union(north);a=nearest_points(n,Point(-600,1600))[0];urban=unary_union([shape(f['geometry']) for f in fs if f['properties']['kind']=='retained-road' and 'deformación continua' in f['properties'].get('source','')]);b=nearest_points(a,urban)[1]
+  n=unary_union(north);a=nearest_points(n,Point(-600,1600))[0];urban=unary_union([shape(f['geometry']) for f in fs if f['properties']['kind']=='retained-road' and f['properties'].get('city',False)]);b=nearest_points(a,urban)[1]
   source,ids,error=get_path('CV-370',(-.469,39.497),(-.452,39.490));g,m=compact(source,list(a.coords)[0],list(b.coords)[0]);add(g,'secondary-road',name='CV-370 · Manises / acceso norte',ref='CV-370',osm_ids=','.join(ids),source='Curvas OSM; empalme de diseño a N-220 y tejido metropolitano')
  # A-3 crosses the compact flood corridor by an explicit bridge, not a surface ford.
  cross=routes['A-3'].intersection(bed.buffer(25))

@@ -1,0 +1,510 @@
+{
+  "method": "Shared similarity of source street centrelines; preserves angles, shape and common junctions. Only centreline distances shorten; blocks and buildings remain 1:1.",
+  "length_factor": 0.4,
+  "offset": [
+    1100,
+    1100
+  ],
+  "streets": {
+    "Plaça d'Amèrica": {
+      "group": "gran-via",
+      "source_m": 863.9733652298113,
+      "design_m": 345.58934609192414,
+      "ways": 26
+    },
+    "Carrer de Guillem de Castro": {
+      "group": "historic",
+      "source_m": 2754.166068213591,
+      "design_m": 1101.6664272854366,
+      "ways": 26
+    },
+    "Gran Via de les Germanies": {
+      "group": "gran-via",
+      "source_m": 1260.8341612620875,
+      "design_m": 504.33366450483476,
+      "ways": 17
+    },
+    "Gran Via de Ramón y Cajal": {
+      "group": "gran-via",
+      "source_m": 2370.0867928379503,
+      "design_m": 948.0347171351802,
+      "ways": 34
+    },
+    "Gran Via de Ferran el Catòlic": {
+      "group": "gran-via",
+      "source_m": 2307.987706452639,
+      "design_m": 923.1950825810558,
+      "ways": 26
+    },
+    "Carrer de Sant Vicent Màrtir": {
+      "group": "radial",
+      "source_m": 4115.35325397059,
+      "design_m": 1646.1413015882374,
+      "ways": 73
+    },
+    "Carrer de Xàtiva": {
+      "group": "historic",
+      "source_m": 532.1587509645756,
+      "design_m": 212.86350038583046,
+      "ways": 13
+    },
+    "Carrer de Colón": {
+      "group": "historic",
+      "source_m": 760.2502592087459,
+      "design_m": 304.10010368349833,
+      "ways": 7
+    },
+    "Plaça de la Porta de la Mar": {
+      "group": "historic",
+      "source_m": 193.2590579908986,
+      "design_m": 77.30362319635948,
+      "ways": 7
+    },
+    "Passeig de la Ciutadella": {
+      "group": "historic",
+      "source_m": 606.0998937499251,
+      "design_m": 242.43995749997015,
+      "ways": 2
+    },
+    "Carrer del General Elío": {
+      "group": "radial",
+      "source_m": 278.2764833538944,
+      "design_m": 111.31059334155755,
+      "ways": 3
+    },
+    "Plaça de Tetuan": {
+      "group": "historic",
+      "source_m": 460.52652231613973,
+      "design_m": 184.2106089264558,
+      "ways": 9
+    },
+    "Plaça del Temple": {
+      "group": "historic",
+      "source_m": 227.14666629067074,
+      "design_m": 90.85866651626844,
+      "ways": 2
+    },
+    "Avinguda d'Antonio Ferrandis (Actor)": {
+      "group": "outer",
+      "source_m": 4708.33854232544,
+      "design_m": 1883.3354169301751,
+      "ways": 29
+    },
+    "Avinguda de Fernando Abril Martorell": {
+      "group": "outer",
+      "source_m": 4699.058658374473,
+      "design_m": 1879.6234633497902,
+      "ways": 30
+    },
+    "Avinguda de les Tres Creus": {
+      "group": "outer",
+      "source_m": 5476.06916871947,
+      "design_m": 2190.4276674877874,
+      "ways": 34
+    },
+    "Carrer del Pla de la Saïdia": {
+      "group": "radial",
+      "source_m": 1044.6695266839392,
+      "design_m": 417.8678106735757,
+      "ways": 13
+    },
+    "Avinguda de Blasco Ibáñez": {
+      "group": "radial",
+      "source_m": 7708.418685769079,
+      "design_m": 3083.3674743076326,
+      "ways": 86
+    },
+    "Avinguda de les Corts Valencianes": {
+      "group": "radial",
+      "source_m": 4791.56528471351,
+      "design_m": 1916.626113885404,
+      "ways": 21
+    },
+    "Avinguda del Primat Reig": {
+      "group": "ronda",
+      "source_m": 5545.71056371993,
+      "design_m": 2218.284225487972,
+      "ways": 82
+    },
+    "Carrer del Pla del Real": {
+      "group": "radial",
+      "source_m": 635.6260268006853,
+      "design_m": 254.25041072027426,
+      "ways": 13
+    },
+    "Passeig de l'Albereda": {
+      "group": "gran-via",
+      "source_m": 7864.620307164242,
+      "design_m": 3145.848122865694,
+      "ways": 50
+    },
+    "Carrer de la Trinitat": {
+      "group": "radial",
+      "source_m": 250.4607292753579,
+      "design_m": 100.1842917101432,
+      "ways": 3
+    },
+    "Carrer del Comte de Trénor": {
+      "group": "historic",
+      "source_m": 336.15697779819084,
+      "design_m": 134.46279111927646,
+      "ways": 4
+    },
+    "Plaça de Saragossa": {
+      "group": "ronda",
+      "source_m": 377.49292859706674,
+      "design_m": 150.9971714388266,
+      "ways": 8
+    },
+    "Pont del Real": {
+      "group": "junction",
+      "source_m": 330.07255626365645,
+      "design_m": 132.0290225054625,
+      "ways": 2
+    },
+    "Pont d'Aragó": {
+      "group": "junction",
+      "source_m": 336.59464202522736,
+      "design_m": 134.63785681009114,
+      "ways": 2
+    },
+    "Avinguda de Pius XII": {
+      "group": "ronda",
+      "source_m": 3881.2762092773314,
+      "design_m": 1552.5104837109332,
+      "ways": 45
+    },
+    "Carrer de la Blanqueria": {
+      "group": "historic",
+      "source_m": 790.3143190405806,
+      "design_m": 316.1257276162322,
+      "ways": 5
+    },
+    "Gran Via del Marqués del Túria": {
+      "group": "gran-via",
+      "source_m": 2280.617885034819,
+      "design_m": 912.2471540139278,
+      "ways": 30
+    },
+    "Avinguda d'Aragó": {
+      "group": "radial",
+      "source_m": 2108.63864354592,
+      "design_m": 843.4554574183677,
+      "ways": 10
+    },
+    "Passeig de la Petxina": {
+      "group": "radial",
+      "source_m": 4202.0838689185875,
+      "design_m": 1680.8335475674346,
+      "ways": 36
+    },
+    "Carrer del Pintor López": {
+      "group": "historic",
+      "source_m": 256.4494997628081,
+      "design_m": 102.57979990512311,
+      "ways": 2
+    },
+    "Avinguda del Cid": {
+      "group": "radial",
+      "source_m": 7582.12815391594,
+      "design_m": 3032.8512615663776,
+      "ways": 70
+    },
+    "Avinguda de Menéndez Pidal": {
+      "group": "radial",
+      "source_m": 2389.3562893919343,
+      "design_m": 955.742515756774,
+      "ways": 24
+    },
+    "Pont de Campanar": {
+      "group": "junction",
+      "source_m": 298.46784269888053,
+      "design_m": 119.38713707955219,
+      "ways": 2
+    },
+    "Plaça del Portal Nou": {
+      "group": "historic",
+      "source_m": 43.90419244226878,
+      "design_m": 17.56167697690762,
+      "ways": 1
+    },
+    "Avinguda del Port": {
+      "group": "radial",
+      "source_m": 2659.400685255669,
+      "design_m": 1063.7602741022683,
+      "ways": 12
+    },
+    "Pont de l'Àngel Custodi": {
+      "group": "junction",
+      "source_m": 250.90386891598502,
+      "design_m": 100.36154756639394,
+      "ways": 2
+    },
+    "Avinguda de Pérez Galdós": {
+      "group": "ronda",
+      "source_m": 4366.2541487204935,
+      "design_m": 1746.5016594881988,
+      "ways": 53
+    },
+    "Avinguda de Giorgeta": {
+      "group": "ronda",
+      "source_m": 2415.8233015102037,
+      "design_m": 966.3293206040815,
+      "ways": 28
+    },
+    "Avinguda Doctor Peset Aleixandre": {
+      "group": "ronda",
+      "source_m": 4672.866885597188,
+      "design_m": 1869.1467542388755,
+      "ways": 37
+    },
+    "Avinguda del General Avilés": {
+      "group": "ronda",
+      "source_m": 4246.334476472417,
+      "design_m": 1698.5337905889664,
+      "ways": 24
+    },
+    "Avinguda de la Constitució": {
+      "group": "radial",
+      "source_m": 4457.833725387642,
+      "design_m": 1783.133490155057,
+      "ways": 20
+    },
+    "Enlace urbano OSM": {
+      "group": "junction",
+      "source_m": 9328.289149013905,
+      "design_m": 3731.3156596055646,
+      "ways": 235
+    },
+    "Avinguda de Burjassot": {
+      "group": "ronda",
+      "source_m": 2778.1449733970103,
+      "design_m": 1111.257989358804,
+      "ways": 10
+    },
+    "Carrer del Doctor Nicasi Benlloch": {
+      "group": "junction",
+      "source_m": 121.51156000690801,
+      "design_m": 48.604624002763245,
+      "ways": 2
+    },
+    "Avinguda del Doctor Tomàs Sala": {
+      "group": "outer",
+      "source_m": 2820.4983236949474,
+      "design_m": 1128.1993294779802,
+      "ways": 22
+    },
+    "Avinguda d'Ausiàs March": {
+      "group": "radial",
+      "source_m": 5918.939667988101,
+      "design_m": 2367.5758671952403,
+      "ways": 55
+    },
+    "Avinguda del Regne de València": {
+      "group": "radial",
+      "source_m": 2638.093360551157,
+      "design_m": 1055.237344220463,
+      "ways": 37
+    },
+    "Avinguda dels Tarongers": {
+      "group": "radial",
+      "source_m": 3876.2888704378756,
+      "design_m": 1505.3737328538111,
+      "ways": 17
+    },
+    "Ronda Nord": {
+      "group": "outer",
+      "source_m": 1580.9764887105052,
+      "design_m": 632.3905954842023,
+      "ways": 5
+    },
+    "Avinguda del Cardenal Benlloch": {
+      "group": "ronda",
+      "source_m": 2102.8035667028803,
+      "design_m": 841.121426681152,
+      "ways": 23
+    },
+    "Avinguda de Peris i Valero": {
+      "group": "ronda",
+      "source_m": 4579.264642720207,
+      "design_m": 1831.705857088083,
+      "ways": 48
+    },
+    "Avinguda de França": {
+      "group": "radial",
+      "source_m": 3076.5917363273866,
+      "design_m": 1230.6366945309546,
+      "ways": 17
+    },
+    "Carrer de la Serradora": {
+      "group": "radial",
+      "source_m": 2041.6092100461865,
+      "design_m": 816.6436840184747,
+      "ways": 17
+    },
+    "Plaça de Manuel Sanchis Guarner": {
+      "group": "ronda",
+      "source_m": 249.59175816290633,
+      "design_m": 99.83670326516254,
+      "ways": 8
+    },
+    "Avinguda dels Germans Machado": {
+      "group": "outer",
+      "source_m": 11043.231567790692,
+      "design_m": 4417.292627116276,
+      "ways": 38
+    },
+    "Avinguda de Catalunya": {
+      "group": "radial",
+      "source_m": 3272.632428821607,
+      "design_m": 1309.0529715286434,
+      "ways": 30
+    },
+    "Avinguda de Campanar": {
+      "group": "ronda",
+      "source_m": 2601.3098233110723,
+      "design_m": 1040.5239293244288,
+      "ways": 18
+    },
+    "Carrer del Doctor Manuel Candela": {
+      "group": "ronda",
+      "source_m": 1994.4326624903324,
+      "design_m": 797.773064996133,
+      "ways": 21
+    },
+    "Carrer del Doctor Lluch": {
+      "group": "radial",
+      "source_m": 454.3191813585029,
+      "design_m": 170.4877185505284,
+      "ways": 2
+    },
+    "Pont de Montolivet": {
+      "group": "junction",
+      "source_m": 686.4916561263994,
+      "design_m": 274.59666245055985,
+      "ways": 2
+    },
+    "Pont de la Trinitat": {
+      "group": "junction",
+      "source_m": 156.9188897610626,
+      "design_m": 62.76755590442514,
+      "ways": 1
+    },
+    "Pont de les Arts": {
+      "group": "junction",
+      "source_m": 292.1178738247876,
+      "design_m": 116.84714952991482,
+      "ways": 2
+    },
+    "Pont de les Glòries Valencianes": {
+      "group": "junction",
+      "source_m": 301.39888882375215,
+      "design_m": 120.5595555295007,
+      "ways": 2
+    },
+    "Pont de les Flors Alcaldessa Rita Barberá": {
+      "group": "junction",
+      "source_m": 150.85156005458194,
+      "design_m": 60.34062402183282,
+      "ways": 1
+    },
+    "Ronda Est": {
+      "group": "outer",
+      "source_m": 1052.4919355756585,
+      "design_m": 420.99677423026435,
+      "ways": 10
+    },
+    "Plaça d'Espanya": {
+      "group": "gran-via",
+      "source_m": 607.4176181475251,
+      "design_m": 242.96704725901034,
+      "ways": 23
+    },
+    "Camí Vell de Picassent": {
+      "group": "junction",
+      "source_m": 97.18751337158707,
+      "design_m": 38.87500534863498,
+      "ways": 1
+    },
+    "Pont de Fusta": {
+      "group": "junction",
+      "source_m": 155.7604260995838,
+      "design_m": 62.3041704398334,
+      "ways": 1
+    },
+    "Pont del Regne de València": {
+      "group": "junction",
+      "source_m": 427.826701243935,
+      "design_m": 171.1306804975738,
+      "ways": 2
+    },
+    "Plaça de Sant Agustí": {
+      "group": "historic",
+      "source_m": 74.5329062005301,
+      "design_m": 29.81316248021205,
+      "ways": 2
+    },
+    "Carrer de la Reina": {
+      "group": "radial",
+      "source_m": 680.2754187379961,
+      "design_m": 232.2461917784964,
+      "ways": 2
+    },
+    "Pont de l'Exposició": {
+      "group": "junction",
+      "source_m": 159.35868366415048,
+      "design_m": 63.7434734656601,
+      "ways": 1
+    },
+    "Plaça de Cánovas del Castillo": {
+      "group": "junction",
+      "source_m": 62.06962749653228,
+      "design_m": 24.827850998613012,
+      "ways": 2
+    },
+    "Avinguda de Tirso de Molina": {
+      "group": "junction",
+      "source_m": 498.98882366160757,
+      "design_m": 199.59552946464322,
+      "ways": 2
+    },
+    "Pont de les Flors": {
+      "group": "junction",
+      "source_m": 11.542947988472271,
+      "design_m": 4.6171791953889905,
+      "ways": 1
+    },
+    "Avinguda de Joan XXIII": {
+      "group": "junction",
+      "source_m": 12.458152009278795,
+      "design_m": 4.983260803711494,
+      "ways": 1
+    },
+    "Carrer de Jaume Roig": {
+      "group": "junction",
+      "source_m": 29.25373576207312,
+      "design_m": 11.70149430482936,
+      "ways": 1
+    },
+    "Camí Nou de Picanya": {
+      "group": "junction",
+      "source_m": 131.54543363164439,
+      "design_m": 52.61817345265765,
+      "ways": 1
+    },
+    "Plaça d'Europa": {
+      "group": "junction",
+      "source_m": 345.6439626667569,
+      "design_m": 138.2575850667029,
+      "ways": 8
+    },
+    "Carrer de Quart": {
+      "group": "junction",
+      "source_m": 39.229437955900295,
+      "design_m": 15.691775182360232,
+      "ways": 1
+    }
+  },
+  "selected_ways": 1695,
+  "limitations": "These ring families are real connected street sequences, not invented circular loops. Full closed-ring traversal and grade-separated movements need review."
+}

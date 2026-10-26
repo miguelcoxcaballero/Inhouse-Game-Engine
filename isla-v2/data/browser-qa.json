@@ -3,15 +3,19 @@
   "checks": {
     "loaded": {
       "area": 49.00000000000004,
-      "landmarks": 222,
-      "rendered": 44823
+      "landmarks": 284,
+      "rendered": 18033
+    },
+    "architecture": {
+      "entries": 100,
+      "miguelete": true,
+      "avenues": 1695
     },
     "airportButton": "Aeropuerto · Terminal 1",
     "terrain": {
       "active": true,
       "pitch": 54,
-      "sampleHeight": 581.7193802315676,
-      "loadedElevationVerified": true
+      "sampleHeight": 581.7193802315676
     },
     "search": [
       "Alboraia · núcleo y mercado",
@@ -26,7 +30,7 @@
       "Serra de la Safor · montañas al sur de Gandia",
       "Antiguo circuito de Fórmula 1",
       "UPV · campus de Vera / Ágora",
-      "Universitat de València - Campus dels Tarongers",
+      "Universitat de València · Campus dels Tarongers",
       "Nuevo cauce del Turia / Plan Sur",
       "A-7 · corredor compacto",
       "V-21 · corredor compacto",
@@ -44,9 +48,11 @@
       "Pinedo · fachada del parque"
     ],
     "transportVisible": true,
-    "route": "Aeroport [M-A] → Manises / Quart [M-A] → Mislata [M-A] → Av. del Cid [M-A] → Àngel Guimerà [M-A] → Xàtiva / Nord [C-I2] → El Saler · estación de diseño [C-I2] → Safor · estación de diseño [C-I2] → Calpe · estación de diseño · 7.93 km entre estaciones (aprox.; no tiempo de viaje).",
+    "route": "Aeroport [M-A] → Manises / Quart [M-A] → Mislata [M-A] → Av. del Cid [M-A] → Àngel Guimerà [M-A] → Xàtiva / Nord [C-I2] → El Saler · estación de diseño [C-I2] → Safor · estación de diseño [C-I2] → Calpe · estación de diseño · 9.23 km entre estaciones (aprox.; no tiempo de viaje).",
     "blind": true,
     "sectors": "visible",
+    "blockLayer": true,
+    "avenueToggle": true,
     "grid": true,
     "clusterOff": true,
     "measure": "Distancia en línea: 2.635 km. No representa un recorrido por calles.",

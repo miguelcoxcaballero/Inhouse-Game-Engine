@@ -1,0 +1,5962 @@
+[
+  {
+    "index": 0,
+    "name": "Lonja de la Seda",
+    "candidates": [
+      {
+        "id": "w23377876",
+        "name": "Llotja de la Seda",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37826043223070027,
+          39.47443245
+        ],
+        "wikidata": "Q588009"
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "name": "Catedral de Valencia",
+    "candidates": [
+      {
+        "id": "w135630267",
+        "name": "Catedral de València",
+        "building": "cathedral",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37511257101625123,
+          39.475567999999996
+        ],
+        "wikidata": "Q1466926"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "name": "Torres de Serranos",
+    "candidates": [
+      {
+        "id": "w9281502",
+        "name": "Torres dels Serrans",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3761743404601968,
+          39.47928095
+        ],
+        "wikidata": "Q2455550"
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "name": "Mercado Central",
+    "candidates": [
+      {
+        "id": "n4816360523",
+        "name": "Falla Mercat Central",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3779096,
+          39.4734153
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7560956426",
+        "name": "Parking Centro Histórico Mercado Central",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3798885,
+          39.4728288
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7560956438",
+        "name": "Parking Centro Histórico Mercado Central",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.379886,
+          39.4734798
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w5007139",
+        "name": "Mercat Central",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3789053409466919,
+          39.473491749999994
+        ],
+        "wikidata": "Q2197068"
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "name": "Palau de les Arts Reina Sofía",
+    "candidates": [
+      {
+        "id": "w23433773",
+        "name": "Palau de les Arts Reina Sofia",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.355909355515472,
+          39.458032
+        ],
+        "wikidata": "Q747342"
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "name": "Estación del Norte",
+    "candidates": [
+      {
+        "id": "n1166961698",
+        "name": "Estación del Norte",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3780045,
+          39.4657616
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025540",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3773455,
+          39.4658872
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025541",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3773898,
+          39.4658974
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025542",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3774778,
+          39.4659211
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025543",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3775212,
+          39.4659312
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025544",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.377609,
+          39.4659521
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025545",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3776586,
+          39.4659606
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025546",
+        "name": "València - Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3777229,
+          39.4644954
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025547",
+        "name": "València - Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3776807,
+          39.4644894
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025548",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3782712,
+          39.4646677
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3973025549",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3783137,
+          39.4646787
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7246471728",
+        "name": "València - Estació del Nord",
+        "building": "train_station",
+        "type": "Point",
+        "xy": [
+          -0.3771908,
+          39.4669126
+        ],
+        "wikidata": "Q1102684"
+      },
+      {
+        "id": "n11366988469",
+        "name": "Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3772518,
+          39.467426
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n11881235076",
+        "name": "Eixida a Estació del Nord",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3767488,
+          39.4673255
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w10153012",
+        "name": "Estació del Nord",
+        "building": "train_station",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37777229059911954,
+          39.4661332
+        ],
+        "wikidata": "Q1102684"
+      },
+      {
+        "id": "w10157797",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3788031,
+          39.4618177
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w10157856",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3781411,
+          39.463578
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23417111",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3236941,
+          39.5264715
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23588397",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3412674,
+          39.4560648
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23588400",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3417579,
+          39.4533943
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23614114",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3865816,
+          39.4382319
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23614115",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3877996,
+          39.4343851
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w36966629",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3364932,
+          39.4638034
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w41044615",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3850842,
+          39.4436682
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w41051904",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3794871,
+          39.4598584
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w85683034",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3283457,
+          39.5024324
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w85683045",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3303065,
+          39.4923005
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w85683061",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3303225,
+          39.4919883
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w85683067",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3283035,
+          39.5024268
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91682292",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3365114,
+          39.4638183
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91682295",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3413121,
+          39.4560664
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91682298",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3418079,
+          39.4533992
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91684107",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3861404,
+          39.4394513
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91684114",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3872027,
+          39.4361243
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91928492",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3990096,
+          39.4000672
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128213275",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3860207,
+          39.4399759
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128213276",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3857792,
+          39.4407401
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128213288",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.383683,
+          39.4475803
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128213289",
+        "name": "310 - Aranjuez - València Nórd",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3885697,
+          39.4417961
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128213291",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3856935,
+          39.4408552
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128213302",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3977689,
+          39.4434378
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128213305",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4030256,
+          39.448512
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128279849",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3877996,
+          39.4343851
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128279851",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3934583,
+          39.4145581
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128279928",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3872027,
+          39.4361243
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128279932",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3878185,
+          39.4341799
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w140458177",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4038031,
+          39.449566
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w219436557",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3908605,
+          39.4268987
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w219436558",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3973545,
+          39.4040883
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w219436559",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3931175,
+          39.4180977
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w219436560",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3988835,
+          39.4000361
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w219436561",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4003019,
+          39.3969916
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w219436565",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3929936,
+          39.4214128
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w245837482",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4058041,
+          39.4522311
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w245837502",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4073428,
+          39.454408
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w343485505",
+        "name": "310 - Aranjuez - València Nórd",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.382621,
+          39.4426039
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385021558",
+        "name": "310 - Aranjuez - València Nórd",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3954608,
+          39.4422844
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385021566",
+        "name": "310 - Aranjuez - València Nórd",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3791548,
+          39.4421642
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385434362",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3426326,
+          39.4397277
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385565969",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3930991,
+          39.4178801
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385565970",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3971553,
+          39.4045688
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385565971",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4010208,
+          39.3953941
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385565972",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3971248,
+          39.404524
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385714479",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3989305,
+          39.4439773
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385714490",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4021815,
+          39.4473588
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385714491",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4010653,
+          39.4458397
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w389567492",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3790625,
+          39.4609495
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w389567493",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.380675,
+          39.4561365
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w389567494",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4069576,
+          39.4538812
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w394169067",
+        "name": "València - Estació del Nord",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3782984361908784,
+          39.46442045
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w429575627",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3837339,
+          39.4482841
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w457509340",
+        "name": "310 - Aranjuez - València Nórd",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4043189,
+          39.4502042
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w457509341",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4040202,
+          39.4498598
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w516687944",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3804305,
+          39.4574277
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w554575510",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3237366,
+          39.5264786
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w729370646",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4050976,
+          39.4513321
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w729370648",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4057749,
+          39.4522597
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w729370649",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4074088,
+          39.4545128
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w729370651",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4078694,
+          39.4551421
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w729376617",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3625622,
+          39.4406232
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w729376618",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3625798,
+          39.4405884
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w733741333",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3973118,
+          39.4040804
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w733741334",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.402378,
+          39.3920598
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w733744909",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3878622,
+          39.4341883
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w762515866",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3414428,
+          39.4504377
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w762515867",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3414166,
+          39.4499685
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w790400769",
+        "name": "310 - Aranjuez - València Nórd",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3968067,
+          39.442957
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003581",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3885342,
+          39.4321593
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003582",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3905825,
+          39.4276354
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003583",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3885769,
+          39.4321673
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003584",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3879721,
+          39.433676
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003586",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3850536,
+          39.4436346
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003587",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3829449,
+          39.451544
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003588",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3810667,
+          39.4544526
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003589",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3834358,
+          39.4436921
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003590",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3811521,
+          39.4544689
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w823003591",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3837415,
+          39.4476244
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w828410363",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3773078,
+          39.4420229
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w828410364",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3832509,
+          39.4435648
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w828410365",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3426045,
+          39.439698
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1028288217",
+        "name": "Aranjuez - València Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4040202,
+          39.4498598
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1028342655",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3773898,
+          39.4658974
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1028342656",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3773455,
+          39.4658872
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1164799779",
+        "name": "310 - Aranjuez - València Nórd",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3947374,
+          39.4420156
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1188958859",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3829079,
+          39.4513317
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1189006906",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3837985,
+          39.4486606
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1224744712",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3409402,
+          39.4456578
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1224744713",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3408363,
+          39.4441049
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1276566310",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3820119,
+          39.4513648
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1276566311",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3820523,
+          39.4513795
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1510464400",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3816475,
+          39.4532465
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1510464892",
+        "name": "300 - Madrid Chamartín - València Estació del Nord",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3834743,
+          39.4500731
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1510464893",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3836375,
+          39.4492986
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1555127452",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3285518,
+          39.501386
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1555127453",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3284999,
+          39.501395
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1555127454",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3318166,
+          39.4842491
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1555127455",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3318539,
+          39.4842792
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1555127456",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3328238,
+          39.4791988
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1555127457",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3343133,
+          39.4716966
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1563787614",
+        "name": "FFCC València - Sant Vicenç de Calders",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3776142,
+          39.4420529
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "name": "Torres de Quart",
+    "candidates": [
+      {
+        "id": "n1166373256",
+        "name": "082 Guillem de Castro - Torres de Quart",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3839858,
+          39.4760354
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n4268127689",
+        "name": "Valenciaflats Torres de Quart",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3821494,
+          39.4757002
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w13073736",
+        "name": "Torres de Quart",
+        "building": "tower",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.38392749478557775,
+          39.475899549999994
+        ],
+        "wikidata": "Q2343754"
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "name": "Ayuntamiento de Valencia",
+    "candidates": [
+      {
+        "id": "n9878502343",
+        "name": "Ajuntament de Valéncia",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.327054,
+          39.3872638
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n12335957118",
+        "name": "Ajuntament de València",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3771993,
+          39.4697977
+        ],
+        "wikidata": "Q26251945"
+      },
+      {
+        "id": "n13468374258",
+        "name": "LOCK & enjoy! - Consignas en Plaza del Ayuntamiento de Valencia",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3792997,
+          39.4704372
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w132151810",
+        "name": "Serveis Socials de l'Ajuntament de València",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3971451424413521,
+          39.48038605
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "name": "Torre del Miguelete",
+    "candidates": [
+      {
+        "id": "n5046970828",
+        "name": "El Micalet",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3756026,
+          39.4762697
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n5196071481",
+        "name": "El balcó del Micalet",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.376378,
+          39.4751001
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n9853609192",
+        "name": "Teatre Micalet",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3840358,
+          39.4713539
+        ],
+        "wikidata": "Q19368291"
+      },
+      {
+        "id": "w187025454",
+        "name": "Ca Micalet el de Montsó",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3512511833975852,
+          39.4917298
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w887857889",
+        "name": "Caseta de Micalet el Llaurador",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34768921148782195,
+          39.508665
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w625039852",
+        "name": "el Micalet",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37562248687242694,
+          39.475316500000005
+        ],
+        "wikidata": "Q2975344"
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "name": "Museu de les Ciències Príncipe Felipe",
+    "candidates": [
+      {
+        "id": "r14693200",
+        "name": "Museu de les Ciències «Príncep Felip»",
+        "building": "roof;yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.35130329450562336,
+          39.4556449
+        ],
+        "wikidata": "Q939288"
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "name": "L’Hemisfèric",
+    "candidates": [
+      {
+        "id": "w23433774",
+        "name": "L'Hemisfèric",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3538810494257922,
+          39.4566825
+        ],
+        "wikidata": "Q2712673"
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "name": "Palacio del Marqués de Dos Aguas",
+    "candidates": [
+      {
+        "id": "w515082661",
+        "name": "Palau del Marqués de Dosaigües",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37480260129181964,
+          39.4725
+        ],
+        "wikidata": "Q1993940"
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "name": "Plaza de Toros",
+    "candidates": [
+      {
+        "id": "w515256276",
+        "name": "Plaça de Bous de València",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3761002280314827,
+          39.46643775
+        ],
+        "wikidata": "Q6080287"
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "name": "Palau de la Generalitat",
+    "candidates": [
+      {
+        "id": "n11373171369",
+        "name": "Entorn del Palau de la Generalitat",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3758716,
+          39.4764568
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r11137438",
+        "name": "Palau de la Generalitat Valenciana",
+        "building": "government",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3763771217661392,
+          39.4766557
+        ],
+        "wikidata": "Q3393221"
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "name": "Basílica de la Virgen de los Desamparados",
+    "candidates": [
+      {
+        "id": "n4864466574",
+        "name": "Escolania Nuestra Señora de los Desamparados",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3715287,
+          39.4756624
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n6473523413",
+        "name": "Universidad Católica Valencia - Virgen de los Desamparados",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3823057,
+          39.4686715
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n14281879901",
+        "name": "Col·legi Nuestra Señora de los Desamparados",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3330593,
+          39.4493199
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w135630265",
+        "name": "Basílica de la Mare de Déu dels Desemparats",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3748208218890754,
+          39.4762312
+        ],
+        "wikidata": "Q978306"
+      },
+      {
+        "id": "w514307766",
+        "name": "Iglesia de Nuestra Señora de los Desamparados y San Isidro",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.40739933930567207,
+          39.4533412
+        ],
+        "wikidata": "Q42884548"
+      },
+      {
+        "id": "w514900721",
+        "name": "Parroquia de Nuestra Señora de los Desamparados - Nazaret",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3334266217855888,
+          39.449837
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w558224695",
+        "name": "Residencia de la tercera edad \"Hermanitas Ancianos Desamparados\"",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3738745091758652,
+          39.48269615
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w688589848",
+        "name": "Ermita del Fiscal",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3511720981383027,
+          39.446982950000006
+        ],
+        "wikidata": "Q94574284"
+      },
+      {
+        "id": "w715364140",
+        "name": "Ermita dels Desemparats",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3644786113828523,
+          39.511027350000006
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1016234266",
+        "name": "Col·legi d'Educació Infantil i Primària Nostra Senyora dels Desemparats",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.40364339279325334,
+          39.504655
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1229289351",
+        "name": "Motor de la Mare de Déu dels Desemparats",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.43820437214975816,
+          39.4491717
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r11156663",
+        "name": "Plaça de l'Escolania de la Mare de Déu del Desemparats",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3746220558922112,
+          39.47654985
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r13632671",
+        "name": "Congregación Madres Desamparados y San José de la Montaña",
+        "building": "school;church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3939021384578276,
+          39.4737674
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1256060441",
+        "name": "Ermita de la Mare de Déu dels Desemparats",
+        "building": "chapel",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4298071125827089,
+          39.28139345
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "name": "Mercado de Colón",
+    "candidates": [
+      {
+        "id": "n314767824",
+        "name": "Mercado de Colón",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3681602,
+          39.4693424
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w10120283",
+        "name": "Mercat de Colón",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.368355414568581,
+          39.46895125
+        ],
+        "wikidata": "Q3393246"
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "name": "Iglesia de Santa Catalina",
+    "candidates": [
+      {
+        "id": "n825235820",
+        "name": "Horchateria de Santa Catalina",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3762568,
+          39.4738263
+        ],
+        "wikidata": "Q68290696"
+      },
+      {
+        "id": "n9877493401",
+        "name": "Parroquia Santa Catalina Y San Agustín",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3774328,
+          39.4680289
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n9881809684",
+        "name": "Parroquia Santa Catalina y San Agustín",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3800031,
+          39.4685576
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n12236165380",
+        "name": "Farmacia Santa Catalina",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3764089,
+          39.4738634
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w135638445",
+        "name": "Església de Santa Caterina",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3764004699525199,
+          39.474118250000004
+        ],
+        "wikidata": "Q2839013"
+      },
+      {
+        "id": "w239784943",
+        "name": "Església de Sant Agustí i Santa Caterina",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3800851053126213,
+          39.4686713
+        ],
+        "wikidata": "Q9007399"
+      },
+      {
+        "id": "w311193945",
+        "name": "Monasterio de Santa Catalina de Siena",
+        "building": "temple",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.43784741546845896,
+          39.528288200000006
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w311193953",
+        "name": "Monasterio de Santa Catalina de Siena",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4380834247539477,
+          39.528448350000005
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w165580724",
+        "name": "Campanari de Santa Caterina",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37629556456043955,
+          39.47394345
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "name": "Estadio de Mestalla",
+    "candidates": [
+      {
+        "id": "n1479104481",
+        "name": "Farmacia Nou Mestalla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3963953,
+          39.4917639
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n2883842401",
+        "name": "Mestalla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.361852,
+          39.4753949
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n10128645271",
+        "name": "Mestalla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3585577,
+          39.4712184
+        ],
+        "wikidata": "Q5645611"
+      },
+      {
+        "id": "n10727413545",
+        "name": "Tintapea Nou Mestalla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3998942,
+          39.4932028
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w8082830",
+        "name": "Mestalla",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.35815663617491666,
+          39.4745279
+        ],
+        "wikidata": "Q202762"
+      },
+      {
+        "id": "w1024566725",
+        "name": "Séquia de Mestalla",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4303385,
+          39.4884859
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1239460433",
+        "name": "Centre d'Educació Infantil i Primària Mestalla",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3565487848705504,
+          39.471565
+        ],
+        "wikidata": "Q108136216"
+      },
+      {
+        "id": "r14731657",
+        "name": "Mestalla",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.359300662577844,
+          39.46996675
+        ],
+        "wikidata": "Q5645611"
+      },
+      {
+        "id": "r7893215",
+        "name": "Nou Mestalla",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3975606984779869,
+          39.4895058
+        ],
+        "wikidata": "Q1138274"
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "name": "Edificio de Correos",
+    "candidates": [
+      {
+        "id": "w513696236",
+        "name": "Edifici de Correus i Telègrafs",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37531700219059766,
+          39.4694655
+        ],
+        "wikidata": "Q21711039"
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "name": "Museo de Bellas Artes · San Pío V",
+    "candidates": [
+      {
+        "id": "r11026210",
+        "name": "Museu de Belles Arts de València",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3710264334737524,
+          39.479289
+        ],
+        "wikidata": "Q1748404"
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "name": "Iglesia de San Nicolás",
+    "candidates": [
+      {
+        "id": "n14023832432",
+        "name": "Bar San Nicolás",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4349032,
+          39.4648042
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n14134712401",
+        "name": "Parroquia San Nicolas, Valencia",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3787558,
+          39.4765907
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w514601809",
+        "name": "Església de Sant Nicolau",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3788103757594138,
+          39.47618985
+        ],
+        "wikidata": "Q9007252"
+      },
+      {
+        "id": "w636675034",
+        "name": "Plaça de Sant Nicolau",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37911613117408915,
+          39.4760742
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w636675038",
+        "name": "Plaça del Forn de Sant Nicolau",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37929238845450364,
+          39.475752650000004
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "name": "Iglesia de los Santos Juanes",
+    "candidates": [
+      {
+        "id": "w183237709",
+        "name": "Església dels Sants Joans",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3792469422512519,
+          39.4742797
+        ],
+        "wikidata": "Q3393224"
+      },
+      {
+        "id": "w887887422",
+        "name": "Església dels Sants Joans",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3484721552364178,
+          39.527760799999996
+        ],
+        "wikidata": "Q21858023"
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "name": "Real Colegio del Patriarca",
+    "candidates": [
+      {
+        "id": "n4870255195",
+        "name": "Església del Patriarca",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3733346,
+          39.4724749
+        ],
+        "wikidata": "Q4984364"
+      },
+      {
+        "id": "n11919577169",
+        "name": "Casa del Patriarca",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3730418,
+          39.4715916
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n12997141042",
+        "name": "Museu del Patriarca",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3730379,
+          39.4723672
+        ],
+        "wikidata": "Q5484867"
+      },
+      {
+        "id": "w158721099",
+        "name": "Parroquia de El Patriarca San José",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34451627953109665,
+          39.463843999999995
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r18681030",
+        "name": "Col·legi del Patriarca",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37328351856487063,
+          39.472554349999996
+        ],
+        "wikidata": "Q4984364"
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "name": "L’Àgora",
+    "candidates": [
+      {
+        "id": "n869452945",
+        "name": "Cafetería Ágora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3441213,
+          39.4811474
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n1392616543",
+        "name": "La Mandrágora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3780204,
+          39.4774825
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n4192280913",
+        "name": "Agora Salsa",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3909851,
+          39.4679755
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n11177646138",
+        "name": "Ágora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3436693,
+          39.481618
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w37523471",
+        "name": "Ágora",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34974016868934776,
+          39.45390545
+        ],
+        "wikidata": "Q2634180"
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "name": "Monasterio de San Miguel de los Reyes",
+    "candidates": [
+      {
+        "id": "n428967234",
+        "name": "Sant Miquel dels Reis",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3698942,
+          39.4976403
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3312381231",
+        "name": "Sant Miquel dels Reis",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3698819,
+          39.4976694
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3373408079",
+        "name": "Sant Miquel dels Reis",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3698922,
+          39.4976579
+        ],
+        "wikidata": "Q13583232"
+      },
+      {
+        "id": "w150244048",
+        "name": "Monestir de Sant Miquel dels Reis",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.36934031180808147,
+          39.49937975
+        ],
+        "wikidata": "Q4891102"
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "name": "L’Oceanogràfic",
+    "candidates": [
+      {
+        "id": "n3420403023",
+        "name": "Oceanogràfic",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3473811,
+          39.4519522
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3420403024",
+        "name": "Oceanogràfic",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3473791,
+          39.4519216
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n4348889298",
+        "name": "Museo Oceanografico parking",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3464166,
+          39.4519525
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n5809577847",
+        "name": "051 Eduardo Primo Yúfera - Oceanogràfic",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3475618,
+          39.4522207
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w444057671",
+        "name": "Torres Oceanográficas",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.35657253808828326,
+          39.45470535
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w454324312",
+        "name": "Arca del Mar i Fundació Oceanogràfic",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34567291322739635,
+          39.4533993
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23433776",
+        "name": "Oceanogràfic de València",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34718137321594034,
+          39.453049500000006
+        ],
+        "wikidata": "Q2447851"
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "name": "La Nau · Universitat",
+    "candidates": [
+      {
+        "id": "n1166373265",
+        "name": "013 Plaça Alfons el Magnànim - La Nau",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.370961,
+          39.4720767
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3349101555",
+        "name": "Font de la Nau de l'Aigua",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3241686,
+          39.4711669
+        ],
+        "wikidata": "Q19251655"
+      },
+      {
+        "id": "n4396025694",
+        "name": "Cafetería La Nau",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3725283,
+          39.4731439
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n5606949021",
+        "name": "Centre cultural La Nau de la Universitat de València",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3727077,
+          39.4719982
+        ],
+        "wikidata": "Q4985226"
+      },
+      {
+        "id": "n11371609269",
+        "name": "La Nau",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3731609,
+          39.4722302
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n12998792132",
+        "name": "Centre Cultural La Nau",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3725797,
+          39.4716719
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r11164787",
+        "name": "Universitat de València",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3731467670268633,
+          39.471885650000004
+        ],
+        "wikidata": "Q4985226"
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "name": "Palau de Benicarló · Corts Valencianes",
+    "candidates": [
+      {
+        "id": "n5881569009",
+        "name": "226 Safor - Corts Valencianes",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3989669,
+          39.4908151
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n5883230920",
+        "name": "240 Camp del Túria - Corts Valencianes",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.401612,
+          39.495005
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n13092900317",
+        "name": "Ficus de les Corts, del Palau de Benicarló o Palau dels Borja",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3743849,
+          39.4780807
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23377877",
+        "name": "Corts Valencianes",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3746239610857038,
+          39.4778236
+        ],
+        "wikidata": "Q2734573"
+      },
+      {
+        "id": "w188620692",
+        "name": "Plaça de les Corts Valencianes",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.398656582851915,
+          39.402963400000004
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1286369610",
+        "name": "Palau de Benicarló",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37462013653598236,
+          39.477896599999994
+        ],
+        "wikidata": "Q3068088"
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "name": "Convento de Santo Domingo",
+    "candidates": [
+      {
+        "id": "w515350925",
+        "name": "Convent de Sant Doménec",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.368979737725772,
+          39.4742157
+        ],
+        "wikidata": "Q8350474"
+      },
+      {
+        "id": "w627764868",
+        "name": "Acuartelamiento de Santo Domingo",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3689649128028349,
+          39.474333099999996
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w627764876",
+        "name": "Parroquia Castrense de Santo Domingo",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3691478635367179,
+          39.474179649999996
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "name": "Teatro Principal",
+    "candidates": [
+      {
+        "id": "w23377878",
+        "name": "Teatre Principal de València",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3744734278807535,
+          39.47074535
+        ],
+        "wikidata": "Q3329707"
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "name": "Palau de la Música",
+    "candidates": [
+      {
+        "id": "w23167750",
+        "name": "Palau de la Música",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3604414586965625,
+          39.466161
+        ],
+        "wikidata": "Q9054601"
+      },
+      {
+        "id": "w27130667",
+        "name": "Font del Palau de la Música",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.36126627384128385,
+          39.4659092
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w515088715",
+        "name": "Palau de la Musica",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.360453918832513,
+          39.4661802
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "name": "Baños del Almirante",
+    "candidates": [
+      {
+        "id": "w218841695",
+        "name": "Banys de l'Almirall",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3733978864809705,
+          39.4748737
+        ],
+        "wikidata": "Q511925"
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "name": "Almudín",
+    "candidates": [
+      {
+        "id": "n5457116362",
+        "name": "Bar d'Almudin",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3705314,
+          39.4604566
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w227916537",
+        "name": "Almodí",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3738651831535671,
+          39.476559449999996
+        ],
+        "wikidata": "Q8196158"
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "name": "Atarazanas del Grao",
+    "candidates": [
+      {
+        "id": "n3603499493",
+        "name": "Marina Atarazanas",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3333132,
+          39.4608028
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n12655720742",
+        "name": "Café Drassanes",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3329231,
+          39.4614871
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w512378878",
+        "name": "les Drassanes del Grau",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33355485597643825,
+          39.46132605
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w743819219",
+        "name": "Pont de les Drassanes",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33156892229967805,
+          39.4533581
+        ],
+        "wikidata": "Q11942331"
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "name": "Palacio de Justicia · antigua Aduana",
+    "candidates": [
+      {
+        "id": "w119559399",
+        "name": "Palau de Justícia",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.44966530205517774,
+          39.48467125
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w557917972",
+        "name": "Palau de Justícia de Catarroja",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3982528743926154,
+          39.4028843
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r18681032",
+        "name": "Palau de Justícia",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.36971555,
+          39.47179595
+        ],
+        "wikidata": "Q3392747"
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "name": "Casa de los Dragones",
+    "candidates": []
+  },
+  {
+    "index": 36,
+    "name": "Palacio e Iglesia del Temple",
+    "candidates": [
+      {
+        "id": "n1372318008",
+        "name": "El Temple Rock Bar",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4491008,
+          39.4827211
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n13922122002",
+        "name": "El temple",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3687122,
+          39.4646465
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w8102638",
+        "name": "Plaça del Temple",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37067886221635304,
+          39.47632805
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w813424045",
+        "name": "Església del Temple",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37128708305950986,
+          39.476634700000005
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r11177870",
+        "name": "Palau del Temple",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3710951482240645,
+          39.476273750000004
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "name": "San Juan del Hospital",
+    "candidates": [
+      {
+        "id": "w514000994",
+        "name": "Iglesia de San Juan del Hospital",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37301509580829906,
+          39.4743215
+        ],
+        "wikidata": "Q9007135"
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "name": "Centre del Carme",
+    "candidates": [
+      {
+        "id": "w264453281",
+        "name": "Església de la Santíssima Creu",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3784719897614306,
+          39.47946195
+        ],
+        "wikidata": "Q126111434"
+      },
+      {
+        "id": "r8082637",
+        "name": "Centre del Carme de Cultura Contemporània",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3787496346043153,
+          39.47991495
+        ],
+        "wikidata": "Q8200936"
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "name": "Escuelas Pías",
+    "candidates": [
+      {
+        "id": "n7193746298",
+        "name": "Iglesia de las Escuelas Pías",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.381659,
+          39.4738295
+        ],
+        "wikidata": "Q11682927"
+      },
+      {
+        "id": "w149167745",
+        "name": "Escuelas Pías - Malvarrosa",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3299574488627471,
+          39.482103550000005
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w770701568",
+        "name": "Colegio de las Escuelas Pías",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3820052756033572,
+          39.4741403
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w770701567",
+        "name": "Cúpula de la Iglesia de las Escuelas Pías",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3816570466096372,
+          39.47394855
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "name": "Colegio del Arte Mayor de la Seda",
+    "candidates": [
+      {
+        "id": "w514894836",
+        "name": "Col·legi de l'Art Major de la Seda",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3810829344488188,
+          39.470652099999995
+        ],
+        "wikidata": "Q8347734"
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "name": "IVAM",
+    "candidates": [
+      {
+        "id": "n13198848139",
+        "name": "Institut Valencià d'Art Modern",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3828694,
+          39.4796141
+        ],
+        "wikidata": "Q1600831"
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "name": "Palacio de la Exposición",
+    "candidates": [
+      {
+        "id": "n2441476749",
+        "name": "Biblioteca Municipal Palau de l'Exposició",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3624784,
+          39.4735879
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w150277194",
+        "name": "Palau de l'Exposició",
+        "building": "palace",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3625537280882589,
+          39.47347515
+        ],
+        "wikidata": "Q48975834"
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "name": "Monasterio de la Trinidad",
+    "candidates": [
+      {
+        "id": "r11289994",
+        "name": "Reial Monestir de la Santíssima Trinitat",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3722449565144571,
+          39.48035655
+        ],
+        "wikidata": "Q11702312"
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "name": "Iglesia de San Esteban",
+    "candidates": [
+      {
+        "id": "w279478350",
+        "name": "Iglesia de San Esteban",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37316691172694166,
+          39.4761124
+        ],
+        "wikidata": "Q9007046"
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "name": "La Beneficencia",
+    "candidates": [
+      {
+        "id": "n3476770567",
+        "name": "Guilem de Castro (Beneficencia)",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.383605,
+          39.4781641
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r3865968",
+        "name": "Centre Museístic la Beneficiència",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.38308588957430023,
+          39.47876855
+        ],
+        "wikidata": "Q8343592"
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "name": "Iglesia de San Martín",
+    "candidates": [
+      {
+        "id": "w661320825",
+        "name": "Església de Sant Martí",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3756909515830498,
+          39.473283800000004
+        ],
+        "wikidata": "Q9007196"
+      },
+      {
+        "id": "w611884342",
+        "name": "Iglesia de San Martín Obispo",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4448495851708324,
+          39.370309
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "name": "Palacio de Valeriola · Hortensia Herrero",
+    "candidates": [
+      {
+        "id": "n4511759590",
+        "name": "Palacio de Valeriola",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3729914,
+          39.4738758
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n12248484372",
+        "name": "Centro de Arte Hortensia Herrero",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.373282,
+          39.4739684
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r16754082",
+        "name": "Palau dels Català de Valeriola",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3751105638755119,
+          39.47758935
+        ],
+        "wikidata": "Q9054644"
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "name": "Edificio del Reloj · puerto",
+    "candidates": [
+      {
+        "id": "r21033515",
+        "name": "Edifici del Rellotge",
+        "building": "government",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3317284593446644,
+          39.460133850000005
+        ],
+        "wikidata": "Q50426705"
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "name": "Veles e Vents",
+    "candidates": [
+      {
+        "id": "n5238792200",
+        "name": "276 Veles e Vents",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3238535,
+          39.4619443
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23509879",
+        "name": "Veles e Vents",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.32420257874016045,
+          39.461102100000005
+        ],
+        "wikidata": "Q3038292"
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "name": "Casas Chapa",
+    "candidates": []
+  },
+  {
+    "index": 51,
+    "name": "Fábrica de Tabacos",
+    "candidates": [
+      {
+        "id": "r9603911",
+        "name": "Antiga Fàbrica de Tabacs",
+        "building": "industrial",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.36146399429417886,
+          39.47400639999999
+        ],
+        "wikidata": "Q50309302"
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "name": "Iglesia de San Agustín",
+    "candidates": [
+      {
+        "id": "n126738949",
+        "name": "C/ Xàtiva / Pl. San Agustín",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3776238,
+          39.4678139
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n4744724040",
+        "name": "Parking Parkia San Agustín Centro",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3793858,
+          39.4682275
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n9877493401",
+        "name": "Parroquia Santa Catalina Y San Agustín",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3774328,
+          39.4680289
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n9881809684",
+        "name": "Parroquia Santa Catalina y San Agustín",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3800031,
+          39.4685576
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n10903222527",
+        "name": "Parking Parkia – San Agustín",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3797614,
+          39.4703656
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w239784943",
+        "name": "Església de Sant Agustí i Santa Caterina",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3800851053126213,
+          39.4686713
+        ],
+        "wikidata": "Q9007399"
+      },
+      {
+        "id": "w1225269956",
+        "name": "Motor de Sant Agustí",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.43070342045300863,
+          39.42983495
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "name": "San Juan de la Cruz · San Andrés",
+    "candidates": [
+      {
+        "id": "w513977884",
+        "name": "Sant Joan de la Creu",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3746699157705868,
+          39.4720727
+        ],
+        "wikidata": "Q5657503"
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "name": "Palacio del Almirante",
+    "candidates": [
+      {
+        "id": "w218841696",
+        "name": "Palau de l'Almirall",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3735073106167848,
+          39.474983949999995
+        ],
+        "wikidata": "Q608414"
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "name": "Ateneo Mercantil",
+    "candidates": [
+      {
+        "id": "w416210407",
+        "name": "Ateneo Mercantil de Valencia",
+        "building": "civic",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37601297096777864,
+          39.4708448
+        ],
+        "wikidata": "Q8207995"
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "name": "Roig Arena",
+    "candidates": [
+      {
+        "id": "w1014385791",
+        "name": "Roig Arena",
+        "building": "stadium",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3643501168808812,
+          39.44910415
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "name": "Santo Tomás y San Felipe Neri",
+    "candidates": [
+      {
+        "id": "w495038787",
+        "name": "Iglesia de Santo Tomas Apostol y San Felipe Neri",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37245740919931847,
+          39.4741965
+        ],
+        "wikidata": "Q598219"
+      },
+      {
+        "id": "w686349119",
+        "name": "Centro Privado De Enseñanza Santo Tomás De Villanueva",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3826360990564497,
+          39.464710999999994
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348588",
+        "name": "Séquia de Sant Tomàs",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4025834,
+          39.5180156
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348589",
+        "name": "Séquia de Sant Tomàs",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4015729,
+          39.5208605
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348590",
+        "name": "Séquia de Sant Tomàs",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4015653,
+          39.5209568
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348591",
+        "name": "Séquia de Sant Tomàs",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4014013,
+          39.5131959
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348592",
+        "name": "Séquia de Sant Tomàs",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4021015,
+          39.5153362
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348594",
+        "name": "Séquia de Sant Tomàs",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.402152,
+          39.5154471
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "name": "Palacio del Marqués de Campo",
+    "candidates": [
+      {
+        "id": "n13012356017",
+        "name": "Palau del Marquès de Campo",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3740181,
+          39.4758635
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n13012356018",
+        "name": "Museu de la Ciutat de València",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3737384,
+          39.4760432
+        ],
+        "wikidata": "Q18005084"
+      },
+      {
+        "id": "r7286126",
+        "name": "Palau del Marqués de Campo",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3736438275001911,
+          39.47605145
+        ],
+        "wikidata": "Q5644720"
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "name": "Edificio Rialto",
+    "candidates": [
+      {
+        "id": "w416210393",
+        "name": "Rialto Teatre La Filmoteca",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3760650692439864,
+          39.47110525
+        ],
+        "wikidata": "Q8346282"
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "name": "Finca Roja",
+    "candidates": [
+      {
+        "id": "w1074266732",
+        "name": "Finca Roja",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3847743484971172,
+          39.46348105
+        ],
+        "wikidata": "Q8961711"
+      },
+      {
+        "id": "w899863465",
+        "name": "Finca roja",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4127130368271946,
+          39.3569515
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "name": "Iglesia del Salvador",
+    "candidates": []
+  },
+  {
+    "index": 62,
+    "name": "San Miguel y San Sebastián",
+    "candidates": [
+      {
+        "id": "w497514270",
+        "name": "Parroquia de San Miguel y San Sebastián",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.38700138282422036,
+          39.475110349999994
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "name": "Palacio de la Baylía",
+    "candidates": [
+      {
+        "id": "w1303164127",
+        "name": "Palau de la Batlia",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3766938174875335,
+          39.4771273
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "name": "Palacio de Cervelló",
+    "candidates": [
+      {
+        "id": "n1783289888",
+        "name": "Concha Espejo Cervello",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3686515,
+          39.4612447
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w495233207",
+        "name": "Palau de Cevelló",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37041452971411837,
+          39.474303
+        ],
+        "wikidata": "Q9054454"
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "name": "Banco de España",
+    "candidates": []
+  },
+  {
+    "index": 66,
+    "name": "L’Umbracle",
+    "candidates": [
+      {
+        "id": "n1707625258",
+        "name": "L'Umbracle Terraza",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3535623,
+          39.4552115
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n9878392144",
+        "name": "Parking Umbracle",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3547917,
+          39.4561115
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n9878392145",
+        "name": "Parking Umbracle Aforament",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3547398,
+          39.45609
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23433784",
+        "name": "L'Umbracle",
+        "building": "roof",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3541700382810072,
+          39.45560315
+        ],
+        "wikidata": "Q2437999"
+      },
+      {
+        "id": "w310468818",
+        "name": "Umbracle",
+        "building": "greenhouse",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3869121187553211,
+          39.477371250000004
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "name": "Iglesia del Pilar",
+    "candidates": [
+      {
+        "id": "w15218699",
+        "name": "Església del Pilar",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.38340996717827647,
+          39.4714856
+        ],
+        "wikidata": "Q9006935"
+      },
+      {
+        "id": "w899578616",
+        "name": "Col·legi d'Educació Infantil i Primària Mare de Déu del Pilar",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3641283973634024,
+          39.5207891
+        ],
+        "wikidata": "Q108134976"
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "name": "Iglesia de la Compañía",
+    "candidates": [
+      {
+        "id": "w216891044",
+        "name": "Església de la Companyia de Jesús",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37830975689591073,
+          39.47502105
+        ],
+        "wikidata": "Q42884300"
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "name": "Torre de San Bartolomé",
+    "candidates": [
+      {
+        "id": "w685065002",
+        "name": "Parroquia San Bartolomé",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.36611951353927497,
+          39.4630759
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w807759872",
+        "name": "Torre de Sant Bartomeu",
+        "building": "bell_tower",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37697179167289774,
+          39.477216350000006
+        ],
+        "wikidata": "Q6150461"
+      },
+      {
+        "id": "w842812245",
+        "name": "Col·legi San Bartolomé",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.40955942995121986,
+          39.51543735
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "name": "Casa Vestuario",
+    "candidates": [
+      {
+        "id": "w624143436",
+        "name": "Casa Vestuari",
+        "building": "historic",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3754527835365846,
+          39.4759327
+        ],
+        "wikidata": "Q10976270"
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "name": "Palacio de los Escrivà",
+    "candidates": [
+      {
+        "id": "w895948748",
+        "name": "Institut d'Educació Secundària Patraix, Vicenta Ferrer Escrivá",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3964961598164371,
+          39.4607393
+        ],
+        "wikidata": "Q107147741"
+      },
+      {
+        "id": "r8216452",
+        "name": "Palau dels Escrivà i Boïl",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3734963404706553,
+          39.47665685
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r14941896",
+        "name": "Parroquia de San Josemaria Escrivá de Valencia",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.40396115082644657,
+          39.4896015
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "name": "Palacio del Marqués de la Scala",
+    "candidates": [
+      {
+        "id": "n2508528732",
+        "name": "Biblioteca Municipal Eduard Escalant",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3880343,
+          39.4679589
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1274896945",
+        "name": "Bracet de l'Escala",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3468929,
+          39.4919258
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1274896946",
+        "name": "Bracet de l'Escala",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3447363,
+          39.4910647
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1274896947",
+        "name": "Bracet de l'Escala",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3456806,
+          39.4911861
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r11270791",
+        "name": "Palau del Marqués de la Scala",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3761401721260997,
+          39.47710575
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "name": "Palacete de Ayora",
+    "candidates": [
+      {
+        "id": "n260601647",
+        "name": "Ayora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3431675,
+          39.4678226
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n260601661",
+        "name": "Ayora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3429806,
+          39.4672689
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n2899978762",
+        "name": "Ayora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3428078,
+          39.4662757
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3290266999",
+        "name": "Ayora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.343044,
+          39.4672617
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3354222947",
+        "name": "Ayora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3431272,
+          39.4677747
+        ],
+        "wikidata": "Q5648634"
+      },
+      {
+        "id": "n10186542481",
+        "name": "Aiora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3433228,
+          39.4658183
+        ],
+        "wikidata": "Q3815985"
+      },
+      {
+        "id": "n13514950621",
+        "name": "Apartamentos Mon Suites Jardín de Ayora",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.344595,
+          39.464874
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w23413021",
+        "name": "Palauet d'Aiora",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3440054499999988,
+          39.4683696
+        ],
+        "wikidata": "Q9054302"
+      },
+      {
+        "id": "w23413023",
+        "name": "Jardins d'Aiora",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34417840326478655,
+          39.467459700000006
+        ],
+        "wikidata": "Q9054302"
+      },
+      {
+        "id": "w149186162",
+        "name": "Col·legi d'Educació Primària Aiora",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3392785977185059,
+          39.4664724
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w317171352",
+        "name": "Piscina de Ayora",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3434958916780084,
+          39.46674985
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w415889547",
+        "name": "Centre d'Educació Infantil Jardí d'Aiora",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3406265519435102,
+          39.46863715
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r14891698",
+        "name": "Aiora",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34333265448144645,
+          39.465726950000004
+        ],
+        "wikidata": "Q3815985"
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "name": "Banco de Valencia",
+    "candidates": [
+      {
+        "id": "w492626775",
+        "name": "Edifici Banc de València",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37346747145231884,
+          39.47057475
+        ],
+        "wikidata": "Q8772089"
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "name": "Estadio Ciutat de València",
+    "candidates": [
+      {
+        "id": "n428967235",
+        "name": "Estadi Ciutat de València",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3651851,
+          39.4950424
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3373408080",
+        "name": "Estadi Ciutat de València",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3651641,
+          39.4950154
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3373408089",
+        "name": "Estadi Ciutat de València",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3651713,
+          39.4950246
+        ],
+        "wikidata": "Q85869281"
+      },
+      {
+        "id": "w549557291",
+        "name": "Estadi Ciutat de València",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3638281366926173,
+          39.494678300000004
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w549557293",
+        "name": "Estadi Ciutat de València",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3638622397351148,
+          39.494642549999995
+        ],
+        "wikidata": "Q1122715"
+      },
+      {
+        "id": "r12211578",
+        "name": "Estadio Ciudad de Valencia - Levante UD",
+        "building": "stadium",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3645560878557539,
+          39.49465815
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "name": "Torre Hilton · Meliá",
+    "candidates": [
+      {
+        "id": "w23761819",
+        "name": "Meliá València",
+        "building": "hotel",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4009661993880494,
+          39.49457425
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "name": "Torre de Francia",
+    "candidates": [
+      {
+        "id": "w298794518",
+        "name": "Torre de Francia",
+        "building": "residential",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.35243656446256,
+          39.45992315
+        ],
+        "wikidata": "Q7826984"
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "name": "Palacio de Congresos",
+    "candidates": [
+      {
+        "id": "n136921464",
+        "name": "Palau de Congressos",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4000684,
+          39.4972359
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n2090407810",
+        "name": "239 Florista - Palau de Congressos",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.400116,
+          39.496996
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3310336616",
+        "name": "Palau de Congressos",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4000598,
+          39.4972837
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n3373193099",
+        "name": "Palau de Congressos",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4000644,
+          39.4972586
+        ],
+        "wikidata": "Q5846871"
+      },
+      {
+        "id": "w23761809",
+        "name": "Palau de Congressos",
+        "building": "civic",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4020570971416736,
+          39.49619935
+        ],
+        "wikidata": "Q9054458"
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "name": "Antiguo Hospital General · Biblioteca Pública",
+    "candidates": [
+      {
+        "id": "n475183458",
+        "name": "Avinguda del Cid - Hospital General",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4061578,
+          39.4704188
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n5883230926",
+        "name": "246 Tres Creus - Hospital General",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4066334,
+          39.468951
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w15218692",
+        "name": "Biblioteca Pública de València. Pilar Faus",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3818483151176457,
+          39.47037765
+        ],
+        "wikidata": "Q4687025"
+      },
+      {
+        "id": "w143261369",
+        "name": "Hospital General Universitari",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4084440619271108,
+          39.4685588
+        ],
+        "wikidata": "Q5555028"
+      },
+      {
+        "id": "r20187783",
+        "name": "Hospital General Básico",
+        "building": "hospital",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4255492300892323,
+          39.480318800000006
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "name": "San Vicente de la Roqueta",
+    "candidates": [
+      {
+        "id": "w686349139",
+        "name": "Iglesia Parroquial de Cristo Rey",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3821487055870919,
+          39.4643427
+        ],
+        "wikidata": "Q5560429"
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "name": "Iglesia de la Misericordia · Campanar",
+    "candidates": [
+      {
+        "id": "n5457556992",
+        "name": "263 Pare Esteban Pernet - Casa de la Misericòrdia",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.409747,
+          39.4670338
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w297787646",
+        "name": "Centre Integrat Públic de Formació Professional Misericòrdia",
+        "building": "college",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4109574817556112,
+          39.4643049
+        ],
+        "wikidata": "Q107184469"
+      },
+      {
+        "id": "w297791096",
+        "name": "Institut d'Educació Secundària 26 (Misericòrdia)",
+        "building": "school",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.411031659067809,
+          39.46500735
+        ],
+        "wikidata": "Q107147739"
+      },
+      {
+        "id": "w688224450",
+        "name": "Complex Educatiu Misericòrdia",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4112663648061079,
+          39.4644772
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w888001591",
+        "name": "Església de la Misericòrdia",
+        "building": "chapel",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.32460012818197503,
+          39.52569805
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "r7356910",
+        "name": "Parroquia De Nuestra Señora De La Misericordia",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3974247448971149,
+          39.482015399999995
+        ],
+        "wikidata": "Q5661486"
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "name": "Casa del Punt de Ganxo",
+    "candidates": [
+      {
+        "id": "w809242074",
+        "name": "Casa del Punt de Ganxo",
+        "building": "apartments",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3742096579338381,
+          39.4759246
+        ],
+        "wikidata": "Q48905572"
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "name": "Palacio de Boïl d’Arenós",
+    "candidates": [
+      {
+        "id": "w495741186",
+        "name": "Palau dels Boïl d'Arenós",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3739652786267178,
+          39.4725728
+        ],
+        "wikidata": "Q11697429"
+      },
+      {
+        "id": "w1288381081",
+        "name": "Torre de la Casa Palau dels Boïl",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4105085885448917,
+          39.519446349999996
+        ],
+        "wikidata": "Q474885"
+      },
+      {
+        "id": "r8216452",
+        "name": "Palau dels Escrivà i Boïl",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3734963404706553,
+          39.47665685
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "name": "Edificio Telefónica",
+    "candidates": [
+      {
+        "id": "w413044569",
+        "name": "Edifici Telefónica",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3759516394071914,
+          39.4689403
+        ],
+        "wikidata": "Q52833739"
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "name": "La Unión y el Fénix",
+    "candidates": []
+  },
+  {
+    "index": 86,
+    "name": "Centro Cultural Bancaja",
+    "candidates": [
+      {
+        "id": "n850179263",
+        "name": "Bancaja",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3788727,
+          39.4697562
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w627769637",
+        "name": "Centro Cultural Bancaja",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37019105130278873,
+          39.47346765
+        ],
+        "wikidata": "Q59139861"
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "name": "Hotel Reina Victoria",
+    "candidates": []
+  },
+  {
+    "index": 88,
+    "name": "Bombas Gens",
+    "candidates": [
+      {
+        "id": "w1550827165",
+        "name": "Bombas Gens Centre d'Art Digital",
+        "building": "no",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.38508843012732225,
+          39.485597
+        ],
+        "wikidata": "Q16911704"
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "name": "Alquería del Moro",
+    "candidates": [
+      {
+        "id": "w1115796656",
+        "name": "Alqueria dels Moros",
+        "building": "detached",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.39601459631096575,
+          39.49917095
+        ],
+        "wikidata": "Q5670595"
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "name": "Basílica de San Vicente Ferrer",
+    "candidates": [
+      {
+        "id": "n4858226721",
+        "name": "Facultad de Teología San Vicente Ferrer",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.373099,
+          39.4771679
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n4870102996",
+        "name": "Casa Natalicia de San Vicente Ferrer",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3706726,
+          39.4733396
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n13240648590",
+        "name": "Clavaris de Sant Vicent Ferrer",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.4352602,
+          39.4657773
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w397621472",
+        "name": "Església de Sant Vicent Ferrer",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.43426506245830476,
+          39.46573385
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w414889062",
+        "name": "Basílica San Vicente Ferrer",
+        "building": "church",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.36905828772026283,
+          39.46784535
+        ],
+        "wikidata": "Q42884348"
+      },
+      {
+        "id": "w414889064",
+        "name": "Colegio San Vicente Ferrer",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.36936023453637046,
+          39.46762575
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w512678603",
+        "name": "Casa Natalicia de San Vicente Ferrer",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37060776441128845,
+          39.47337375
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w685690542",
+        "name": "Institut d'Educació Secundària Sant Vicent Ferrer",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.368240845069585,
+          39.46496675
+        ],
+        "wikidata": "Q107144048"
+      },
+      {
+        "id": "w1020887111",
+        "name": "Centro Socioeducativo Colonia San Vicente Ferrer",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4157825012973076,
+          39.51916565
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w813513690",
+        "name": "Plaça de Sant Vicent Ferrer",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37249410465779875,
+          39.4738576
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "name": "Palacio de Pineda",
+    "candidates": [
+      {
+        "id": "n4779173955",
+        "name": "Palau de Pineda",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3787249,
+          39.4788451
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n13092901387",
+        "name": "Palmera del Palau de Pineda",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3788815,
+          39.4787588
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w493777443",
+        "name": "Palau de Pineda",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3787209032289117,
+          39.4788189
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "name": "Edificio Ferrer",
+    "candidates": []
+  },
+  {
+    "index": 93,
+    "name": "Casa Ortega",
+    "candidates": []
+  },
+  {
+    "index": 94,
+    "name": "Mercado de Ruzafa",
+    "candidates": [
+      {
+        "id": "w12403536",
+        "name": "Mercat de Russafa",
+        "building": "retail",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37139256693932426,
+          39.46203975
+        ],
+        "wikidata": "Q59429024"
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "name": "Mercado de Abastos",
+    "candidates": [
+      {
+        "id": "w243447549",
+        "name": "Complex Esportiu - Cultural Abastos",
+        "building": "public",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.38823994641468074,
+          39.4680073
+        ],
+        "wikidata": "Q8200942"
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "name": "Barracas de El Palmar",
+    "candidates": [
+      {
+        "id": "n1189714095",
+        "name": "La Barraca",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3899117,
+          39.4528829
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n1760395694",
+        "name": "Museo Etnológico de les Barracas",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3804041,
+          39.3937425
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n1785845269",
+        "name": "Hostal la Barraca",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3236248,
+          39.4645715
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n4422965589",
+        "name": "Barraca castillo",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3739969,
+          39.4555359
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n5012877449",
+        "name": "Farmacia La Barraca",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3293833,
+          39.466554
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n11670587926",
+        "name": "La Barraca del Palmar",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3195253,
+          39.3152299
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n13813319501",
+        "name": "Menjars La Barraca",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3293583,
+          39.4667698
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w187027127",
+        "name": "Barraca Cano",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34453640769234656,
+          39.486385850000005
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w187058429",
+        "name": "Ca Barraca",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3462443995974286,
+          39.488348200000004
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w187156501",
+        "name": "Ca Barraca",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34036203751929656,
+          39.491628500000004
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w187156522",
+        "name": "Barraca de Hueso",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33958523525640993,
+          39.4945846
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w187156575",
+        "name": "Barraca del Huere",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.34005059815628014,
+          39.4944917
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w491841988",
+        "name": "Barraca \"de les Arandes\"",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3175847050745084,
+          39.31158125
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w584029624",
+        "name": "La Barraca de Nelson",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4158050385574022,
+          39.46982885
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w688590086",
+        "name": "Barraca de l'Agüelet",
+        "building": "detached",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3616328647959183,
+          39.4473921
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w887679388",
+        "name": "Barraca de Donís",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.35735757993827155,
+          39.51620715
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w887685795",
+        "name": "Barraca de Fernando de la Font",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.346792718417815,
+          39.515166449999995
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w887996441",
+        "name": "Barraca del Romero",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33202306533420833,
+          39.528682599999996
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w888001622",
+        "name": "Barraca del Tio Gallo",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.32564313038906534,
+          39.52317345
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w888753519",
+        "name": "Barraca de Voro Simonet",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33546144998491684,
+          39.511021549999995
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w888928726",
+        "name": "Barraca de Rateta",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33948412540199036,
+          39.5062611
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w888928758",
+        "name": "Barraca de Cucalo",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3267721999112483,
+          39.50433535
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w889027835",
+        "name": "Barraca de Messeguer",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33590825524655976,
+          39.51437035
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w889027836",
+        "name": "Barraca de Puça",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33507067722290473,
+          39.5138254
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w939059115",
+        "name": "Barraca",
+        "building": "civic",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37184444559578334,
+          39.4451892
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1231454191",
+        "name": "Barraca",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.4224668473254104,
+          39.4227738
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1272898379",
+        "name": "Barraca del Roto",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.33827135199800373,
+          39.5031475
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1272904844",
+        "name": "Barraca del Coixo Navarro",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3363935402750491,
+          39.5021173
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348575",
+        "name": "Roll de la Barraca",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4056033,
+          39.5198145
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348576",
+        "name": "Roll de la Barraca",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4079294,
+          39.5186974
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1288348577",
+        "name": "Roll de la Barraca",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4074184,
+          39.5189292
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1349630638",
+        "name": "Motor de la Barraca",
+        "building": "yes",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.32992321008315995,
+          39.3043383
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w217878301",
+        "name": "Forn de Barraca",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.3378648690114976,
+          39.489934649999995
+        ],
+        "wikidata": "Q67891569"
+      }
+    ]
+  },
+  {
+    "index": 97,
+    "name": "Portal de la Valldigna",
+    "candidates": [
+      {
+        "id": "w515327993",
+        "name": "Portal de la Valldigna",
+        "building": null,
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37862015885496303,
+          39.477563
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w807324595",
+        "name": null,
+        "building": "apartments",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.37880667234147614,
+          39.4775616
+        ],
+        "wikidata": "Q594815"
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "name": "Lonja del Pescado del Cabanyal",
+    "candidates": [
+      {
+        "id": "n4989866782",
+        "name": "La lonja del pescado",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3257704,
+          39.4740152
+        ],
+        "wikidata": null
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "name": "Estación Joaquín Sorolla",
+    "candidates": [
+      {
+        "id": "n254021929",
+        "name": "Monument a Joaquim Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.329808,
+          39.4634664
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n1166961732",
+        "name": "Estación AVE Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3817899,
+          39.460657
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7246471727",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3812078,
+          39.4600472
+        ],
+        "wikidata": "Q801550"
+      },
+      {
+        "id": "n7490408576",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3810766,
+          39.4584128
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490408578",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3805586,
+          39.4598527
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490408579",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3806045,
+          39.4598616
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490408580",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3810575,
+          39.4594935
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490408581",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3812086,
+          39.4595152
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490408582",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3812622,
+          39.459525
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490408583",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3814129,
+          39.459548
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490408584",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3814617,
+          39.4595571
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "n7490421785",
+        "name": "València Joaquín Sorolla",
+        "building": null,
+        "type": "Point",
+        "xy": [
+          -0.3816116,
+          39.459583
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250655",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4170738,
+          39.4462935
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250659",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4242345,
+          39.4470343
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250661",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4202991,
+          39.4467207
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250662",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4417223,
+          39.4499877
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250665",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4203055,
+          39.4466741
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250667",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.424235,
+          39.4469936
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250669",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4026472,
+          39.4447091
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250674",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4026372,
+          39.444668
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250675",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4160143,
+          39.4460646
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250686",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4171283,
+          39.4462593
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250689",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4273104,
+          39.4475386
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91250692",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4114292,
+          39.4452684
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w91862669",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3817039,
+          39.4534363
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w96107550",
+        "name": "Línea de Alta Velocidad Madrid-Cuenca-València",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3860888,
+          39.4431262
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w118904092",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3816556,
+          39.4534282
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w118904101",
+        "name": "Línea de Alta Velocidad Madrid-Cuenca-València",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3861366,
+          39.4431595
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128279856",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4170738,
+          39.4462935
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w128279858",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4114363,
+          39.4452305
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w146387535",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3813164,
+          39.4553103
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w146387541",
+        "name": "614 - València aguja estación AV - València Joaquín Sorolla",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3811092,
+          39.4549729
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742038",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4336123,
+          39.4490224
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742039",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4417243,
+          39.4500286
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742042",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4296855,
+          39.4480987
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742044",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4335991,
+          39.4490611
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742052",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4352989,
+          39.4493854
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742055",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4298616,
+          39.4480917
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742056",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4273228,
+          39.4474976
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w154742060",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4354538,
+          39.4493693
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w384976262",
+        "name": "338 - Cambiador Valencia - València Joaquín Sorolla",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3813764,
+          39.4561955
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w384976267",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3813875,
+          39.4553826
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385021917",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3998387,
+          39.4443024
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385021928",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3998531,
+          39.4442646
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385453203",
+        "name": "40 - Bifurcación Torrejón de Velasco - València Joaquín Sorolla",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3837297,
+          39.4496773
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w385453204",
+        "name": "40 - Bifurcación Torrejón de Velasco - València Joaquín Sorolla",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3831433,
+          39.451317
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w554720470",
+        "name": "Estació de València - Joaquín Sorolla",
+        "building": "train_station",
+        "type": "MultiPolygon",
+        "xy": [
+          -0.38089005633431017,
+          39.45955545
+        ],
+        "wikidata": "Q801550"
+      },
+      {
+        "id": "w656099842",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4310706,
+          39.4484611
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656099843",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4310937,
+          39.4484217
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100121",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3932024,
+          39.441759
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100122",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3931963,
+          39.4417998
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100123",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3911156,
+          39.4415536
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100124",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3911258,
+          39.4416027
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100125",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3831433,
+          39.451317
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100126",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3834961,
+          39.4502003
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100127",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3954686,
+          39.4425209
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100128",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3962932,
+          39.4429423
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100129",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4078258,
+          39.4448584
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w656100130",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.4078243,
+          39.4448997
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w747923472",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3817689,
+          39.4570559
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w747923473",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3818671,
+          39.457027
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w800833068",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3814129,
+          39.459548
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w800833069",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3816678,
+          39.4579456
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1028294727",
+        "name": "338 - Cambiador Valencia - València Joaquín Sorolla",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3813388,
+          39.4558181
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1028295572",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3816058,
+          39.4559672
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1028295910",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.381496,
+          39.4559154
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1071149142",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3812622,
+          39.459525
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1277678149",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3839119,
+          39.4477785
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1277678150",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3838647,
+          39.4477815
+        ],
+        "wikidata": null
+      },
+      {
+        "id": "w1510464891",
+        "name": "Línea de Alta Velocidad Madrid - Cuenca - Valencia",
+        "building": null,
+        "type": "LineString",
+        "xy": [
+          -0.3830971,
+          39.4513078
+        ],
+        "wikidata": null
+      }
+    ]
+  }
+]

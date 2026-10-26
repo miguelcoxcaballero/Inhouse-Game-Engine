@@ -9,10 +9,10 @@ def components(features):
  roads=[]
  for f in features:
   p=f['properties']
-  if p['kind'] in ['retained-road','expressway','new-road','secondary-road'] and p.get('roadclass','residential') not in ['footway','path','steps','pedestrian','cycleway','track']:
+  if p['kind'] in ['retained-road','expressway','new-road','secondary-road','urban-arterial'] and p.get('roadclass','residential') not in ['footway','path','steps','pedestrian','cycleway','track','corridor','elevator','platform','bridleway','via_ferrata']:
    g=shape(f['geometry'])
    if g.geom_type in ['LineString','MultiLineString']:roads.append(g)
- u=union_all(roads,grid_size=1);parts=list(u.geoms);adj=collections.defaultdict(list)
+ u=union_all(roads,grid_size=1);parts=[u] if u.geom_type=='LineString' else list(u.geoms);adj=collections.defaultdict(list)
  for i,g in enumerate(parts):
   if g.geom_type!='LineString':continue
   a=tuple(round(v) for v in g.coords[0]);b=tuple(round(v) for v in g.coords[-1]);adj[a].append((b,i));adj[b].append((a,i))

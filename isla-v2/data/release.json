@@ -1,7 +1,7 @@
 {
   "date": "2026-10-26",
-  "html_sha256": "42dfa1fb981ff4acce832aa64712a6636b57e74b11849b3f28152f517ff677d2",
-  "zip_sha256": "0172f95c03f19cb37f35e05b5b47dd7d96d385fb5275eaefb87f52bd1fc5c776",
-  "zip_bytes": 19585641,
+  "html_sha256": "17cd212eeb69e8e01e2ff6f0e98dc03871662d14350a70db532a379fb40df64c",
+  "zip_sha256": "9cf46b411b6f0f9c098b2a4e4afe59898de8d516a7cd4ae70f387504232c60b4",
+  "zip_bytes": 21879512,
   "scope": "Reviewable prototype; not a playable world or a claim of parity with State of Leonida."
 }

@@ -14,3 +14,9 @@ isla-v2/data/*-base.npy
 isla-v2/data/*-base.json
 isla-v2/source/refine_ui.py
 isla-v2/source/quick_preview.cjs
+
+# Reproducible raw regional extraction; curated monument sources are versioned.
+isla-v2/data/landmark-source-areas.json
+isla-v2/data/address-nodes.json
+isla-v2/data/*-log.txt
+isla-v2/data/packing-failure.json

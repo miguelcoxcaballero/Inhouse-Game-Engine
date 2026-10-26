@@ -37,125 +37,16 @@ coast=Polygon([(-4100,1400),(-3400,3300),(-2800,4600),(-1300,5000),(0,4600),(110
 coast=coast.buffer(110,join_style=1).buffer(-110,join_style=1)
 coast=scale(coast,xfact=(49e6/coast.area)**.5,yfact=(49e6/coast.area)**.5,origin=(0,0))
 add(coast,'coast',name='Isla Levante · envolvente 49 km²')
-# Block deletion inventory retained; close the selected gaps with a smooth shared map, not axis-aligned collapse.
-from compaction import XS,YS,OFFSET,warp,diagnostics
+# Select whole OSM blocks; retain their real dimensions and internal street graph.
+from block_city import build_city
+blocks,keep,removed,warp=build_city(D,raw,lookup,rel,coast,add,lm,stats,retainedids)
+from compaction import XS,YS,OFFSET,diagnostics
+cityids=__import__('block_city').IDS
+from shapely import STRtree
+ktree=STRtree(keep)
 def xy(lon,lat):
  x,y=tr(lon,lat);a,b=warp(x-origin[0],y-origin[1]);return [float(a),float(b)]
-def wgeom(g):return make_valid(transform(warp,segmentize(g,30)))
-# Irregular metropolitan study boundary follows broad urban / coastal sectors, not disks.
-citymask=Polygon([(-3800,-1400),(-2800,-3200),(1000,-3400),(2800,-2750),(5000,-2600),(5300,-1500),(5050,600),(5200,2200),(5100,4700),(3600,4900),(1600,4100),(-100,2900),(-2500,2600),(-3800,1300)])
-citymask=citymask.intersection(box(-4500,-3500,5500,2550))
-seams=unary_union([box(a,-4000,b,5500) for a,b,c in XS]+[box(-4500,a,6000,b) for a,b,c in YS])
-cityrows=[];roads=[]
-for o in raw:
- g0=shape(o['geometry']);x,y=g0.representative_point().coords[0]
- if not(-.427<x<-.313 and 39.44<y<39.52):continue
- g=rel(o['geometry'])
- if not g.is_valid:g=make_valid(g)
- if not g.intersects(citymask):continue
- if g.representative_point().x>4400 and g.representative_point().y>3500:continue
- cityrows.append((o,g))
- if o['tags'].get('highway') in ['primary','secondary','tertiary','residential','unclassified','living_street','pedestrian'] and g.geom_type=='LineString':roads.append(g.intersection(citymask))
-print('CITY rows',len(cityrows),flush=True)
-blocks=[p for p in polygonize(unary_union(roads)) if 180<p.area<150000 and citymask.covers(p.representative_point())]
-btree=STRtree(blocks);keep=[];removed=[]
-# Keep whole blocks lying outside removed bands; mandatory anchor blocks are protected.
-cityids=['w135630267','w23377876','w5007139','w9281502','w13073736','n12335957118','w10153012','w515256276','w12403536','w23433773','w23433774','r14693200','w23433776','w8082830','w512393709','w23455760','w23509879','w143429087','w147062296','w142736208']
-anchors=[rel(lookup[i]['geometry']) for i in cityids if i in lookup]
-protected=unary_union([a.buffer(12) for a in anchors])
-for p in blocks:
- # Protect monument adjacency but not every block in the historic core.
- ok=not p.intersects(seams) or p.intersects(protected)
- (keep if ok else removed).append(p)
-# Stronger compaction: whole-block selection, with protected landmarks and ordinary district centres.
-ordinary_hubs=[(-.3961,39.4595),(-.4024,39.4877),(-.3769,39.4948),(-.3625,39.4857),(-.3608,39.4795),(-.3435,39.4814),(-.3316,39.4704),(-.3763,39.4518)]
-hubs=[Point(tr(*ll)[0]-origin[0],tr(*ll)[1]-origin[1]) for ll in ordinary_hubs]+[a.representative_point() for a in anchors]
-protected_blocks=[b for b in keep if b.intersects(protected)]
-ordinary_blocks=[b for b in keep if not b.intersects(protected)]
-ordinary_blocks.sort(key=lambda b:min(b.representative_point().distance(h) for h in hubs)+.002*b.area)
-selected=protected_blocks+ordinary_blocks[:max(0,440-len(protected_blocks))]
-removed.extend(b for b in keep if not any(b.equals(k) for k in selected));keep=selected
-keptunion=unary_union(keep);ktree=STRtree(keep);keptmargin=keptunion.buffer(16);keptbuilding=keptunion.buffer(3)
-print('BLOCKS',len(blocks),'kept',len(keep),'removed',len(removed),flush=True)
-# Preserve whole buildings by rigid translation; discard those in removed blocks.
-highwaymask=unary_union([g for o,g in cityrows if o['tags'].get('ref') in ['V-30','V-21','CV-500','CV-35'] and o['tags'].get('highway') in ['motorway','trunk']]).buffer(110)
-citybuildings=[];roadoutput=[]
-for o,g in cityrows:
- t=o['tags'];sid=o['id'];name=t.get('name','')
- if t.get('highway') and g.geom_type in ['LineString','MultiLineString']:
-  cls=t['highway'];major=cls in ['motorway','trunk','primary','secondary','tertiary','motorway_link','trunk_link','primary_link','secondary_link','tertiary_link']
-  # Retain a sparse high-speed skeleton. OSM ramps follow the same smooth field as their parent corridor.
-  if cls in ['motorway','trunk'] and t.get('ref') not in ['V-30','V-21','CV-500','CV-35']:continue
-  if cls in ['motorway_link','trunk_link'] and not g.intersects(highwaymask):continue
-  # Neighborhood roads survive only along retained block groups. Primary corridors bridge the cuts.
-  use=g.intersection(citymask)
-  if not major:use=use.intersection(keptmargin)
-  if use.is_empty:continue
-  ng=wgeom(use).intersection(coast)
-  if ng.is_empty or ng.length<7:continue
-  modified=True
-  add(ng,'expressway' if cls in ['motorway','trunk','motorway_link','trunk_link'] else 'retained-road',name=name,id=sid,roadclass=cls,bridge=t.get('bridge','no'),tunnel=t.get('tunnel','no'),source='OSM · vértices y cruces recompuestos con deformación continua' if modified else 'OSM · trasladado')
-  roadoutput.append(ng);retainedids.add(sid)
- elif t.get('building') and g.geom_type in ['Polygon','MultiPolygon']:
-  stats['city_buildings_before']+=1
-  center=g.representative_point();mandatory=sid in cityids
-  # Full footprint: a band touching an ordinary building removes it, never cuts it.
-  if not mandatory and (g.intersects(seams) or not keptbuilding.covers(center)):continue
-  cx,cy=warp(center.x,center.y);ng=translate(g,float(cx-center.x),float(cy-center.y))
-  if coast.covers(ng):citybuildings.append((o,ng));stats['city_buildings_selected']+=1
- elif (t.get('leisure') in ['park','garden','nature_reserve','sports_centre'] or t.get('landuse') in ['grass','forest','farmland','orchard','industrial']) and g.geom_type in ['Polygon','MultiPolygon']:
-  ng=wgeom(g.intersection(citymask)).intersection(coast)
-  add(ng,'industrial' if t.get('landuse')=='industrial' else 'green',name=name,source='Contorno OSM recompuesto')
- elif t.get('natural')=='water' and g.geom_type in ['Polygon','MultiPolygon']:
-  add(wgeom(g.intersection(citymask)).intersection(coast),'water',name=name,id=sid)
-# Use reconstructed road surface to keep shifted buildings from crossing streets.
-roadbuffer=unary_union(roadoutput).buffer(3.5)
-occupied=[];occupied_grid=collections.defaultdict(list)
-roadpieces=[g.buffer(3.5) for g in roadoutput];roadtree=STRtree(roadpieces)
-def cells(g):
- a,b,c,d=g.bounds
- return [(x,y) for x in range(math.floor(a/60),math.floor(c/60)+1) for y in range(math.floor(b/60),math.floor(d/60)+1)]
-def available(g):
- for idx in roadtree.query(g):
-  if g.intersection(roadpieces[idx]).area>max(2,g.area*.02):return False
- for k in cells(g):
-  for other in occupied_grid[k]:
-   if g.intersection(other).area>2:return False
- return coast.covers(g)
-def reserve(g):
- for k in cells(g):occupied_grid[k].append(g)
-
-for o,g in sorted(citybuildings,key=lambda v:v[0]['id'] not in cityids):
- mandatory=o['id'] in cityids
- shifted=0
- if not mandatory and not available(g):
-  found=None
-  for radius in [12,25,45,70,105,145]:
-   for angle in np.arange(0,2*math.pi,math.pi/6):
-    candidate=translate(g,radius*math.cos(angle),radius*math.sin(angle))
-    if available(candidate):found=candidate;shifted=radius;break
-   if found is not None:break
-  if found is None:stats['city_building_conflicts_removed']+=1;continue
-  g=found;stats['city_buildings_repositioned']+=1
- reserve(g)
- t=o['tags'];h=t.get('height','')
- try:h=float(h.replace('m','')) if h else float(t.get('building:levels',3))*3
- except:h=9
- add(g,'building',height=min(150,max(3,h)),name=t.get('name',''),osm=osmurl(o['id']),zone='valencia',source='OSM · huella íntegra; recolocación local para cerrar huecos',repositioned_m=shifted)
- stats['city_buildings_after']+=1
-for i in cityids:
- if i not in lookup:continue
- o=lookup[i];g=rel(o['geometry']);c=g.representative_point();x,y=warp(c.x,c.y)
- ng=wgeom(g) if o.get('tags',{}).get('amenity')=='university' and not o.get('tags',{}).get('building') else translate(g,float(x-c.x),float(y-c.y))
- name=o.get('name') or o['tags'].get('name',i)
- lm(name,[x,y],id=i,g=ng,note='Edificio o recinto de referencia trasladado; calles intermedias eliminadas. El recinto universitario se muestra como referencia, con menos tejido interior.')
-# Ordinary references are explicitly visible in search, not only monuments.
-for name,ll in [('Plaça de Patraix',(-.3961,39.4595)),('Campanar · núcleo y plaza',(-.4024,39.4877)),('Torrefiel · mercado y residencial',(-.3769,39.4948)),('Benimaclet · plaza y estación',(-.3625,39.4857)),('UV · campus Blasco Ibáñez',(-.3608,39.4795)),('UPV · campus de Vera / Ágora',(-.3435,39.4814)),('Alboraia · núcleo y mercado',(-.3500,39.5009)),('Cabanyal · trama marítima',(-.3316,39.4704)),('Natzaret · barrio portuario',(-.3324,39.4473)),('Malilla · tejido residencial',(-.3763,39.4518))]:lm(name,xy(*ll),note='Referencia de barrio o campus situada con la misma transformación que la red urbana; selección identitaria pendiente de validación local.')
-# Document block decisions in source coordinates and output footprints separately.
-blocklog=[]
-for action,bs in [('retener',keep),('eliminar',removed)]:
- for b in bs:blocklog.append({'type':'Feature','geometry':mapping(b),'properties':{'action':action,'source_area_m2':round(b.area,1)}})
-(D/'manzanas-decision.geojson').write_text(json.dumps({'type':'FeatureCollection','coordinate_system':'EPSG:25830 relativo al origen documentado','features':blocklog}))
+for name,ll in [('Plaça de Patraix',(-.3961,39.4595)),('Campanar · núcleo y plaza',(-.4024,39.4877)),('Torrefiel · mercado y residencial',(-.3769,39.4948)),('Benimaclet · plaza y estación',(-.3625,39.4857)),('UV · campus Blasco Ibáñez',(-.3608,39.4795)),('UPV · campus de Vera / Ágora',(-.3435,39.4814)),('Alboraia · núcleo y mercado',(-.3500,39.5009)),('Cabanyal · trama marítima',(-.3316,39.4704)),('Natzaret · barrio portuario',(-.3324,39.4473)),('Malilla · tejido residencial',(-.3763,39.4518))]:lm(name,xy(*ll),note='Referencia trasladada junto a su grupo de manzanas reales; las manzanas no se escalan.')
 # Town sectors are polygons enclosing street sequences, not radial monument buffers.
 sectors=[]
 def sector(id,name,zone,center,dest,outline,build=True):
@@ -188,6 +79,26 @@ calpe=sector('calpe','Calpe · pequeña muestra del casco','sur',(.0445,38.6444)
 # Saplaya retains its marina form and neighbouring residential waterfront.
 alb=sector('alboraia','Alboraia · núcleo compacto','valencia',(-.3500,39.501),(1500,2350),[(-220,-170),(-230,140),(-90,250),(200,210),(240,-150)])
 sap=sector('saplaya','Port Saplaya','valencia',(-.3205,39.5105),(2100,2650),[(-280,-370),(-350,100),(-160,330),(210,330),(310,-270)])
+# Palmar architecture requested at full size, using the same rigid town translation.
+required=json.load(open(D/'required-landmarks.json'));barracas=next(v for v in required if v['index']==96);source_areas={o['id']:o for o in json.load(open(D/'required-landmark-sources.json'))};placed=[];placement=json.load(open(D/'landmark-placement.json'))
+for id in barracas['source_ids']:
+ o=source_areas[id];lookup[id]=o;g=utm(o['geometry']);ng=palmar(g);placed.append(ng);src=rel(o['geometry']);delta=[ng.centroid.x-src.centroid.x,ng.centroid.y-src.centroid.y]
+ add(ng,'protected-landmark',source_id=id,source_area_m2=src.area,area_m2=ng.area,scale=1,delta=delta,city=False)
+ add(ng,'building',name=barracas['name'],osm=osmurl(id),height=6,height_source='Vista previa; altura sin verificar',source_area_m2=src.area,rigid_block=True,zone='albufera',source='OSM · barraca completa a escala 1:1')
+ placement.append({'id':id,'source_area_m2':src.area,'area_m2':ng.area,'delta':delta,'height_m':6,'height_source':'Preview only; height not documented'})
+if placed:
+ ng=unary_union(placed);l=lm(barracas['name'],ng.representative_point().coords[0],'albufera',id=barracas['source_ids'][0],g=ng,note='Conjunto de barracas OSM de El Palmar, trasladadas a tamaño real con el pueblo.');l.update({'required_index':96,'source_ids':barracas['source_ids'],'scale':1,'area_before_m2':ng.area})
+(D/'landmark-placement.json').write_text(json.dumps(placement,ensure_ascii=False,indent=2))
+# Campus boundaries group retained full-size blocks; no miniature campus buildings.
+for id,name in [('w143429087','Universitat de València · Campus dels Tarongers'),('w147062296','Universitat de València · campus educativo')]:
+ g=rel(lookup[id]['geometry']);pieces=[]
+ for f in json.load(open(D/'city-blocks.geojson'))['features']:
+  dst=shape(f['geometry']);dx,dy=f['properties']['delta'];src=translate(dst,-dx,-dy)
+  if src.intersects(g):pieces.append(dst)
+ ng=unary_union(pieces)
+ if not ng.is_empty:lm(name,ng.representative_point().coords[0],id=id,g=ng,note='Campus recompuesto con sus manzanas seleccionadas a escala real.')
+# Bioparc remains a landscape reference; unlike requested architecture, its park extent is reinterpreted.
+lm('Bioparc València · parque recompuesto',xy(-.407,39.478),note='Referencia del parque; recinto recompuesto, no huella arquitectónica certificada.')
 # Southern transition: industrial halls, compact town samples, then protected wetland.
 for sid,name,zone,src,dest,outline in [
  ('mercavalencia','Mercavalència · mercado y logística','valencia',(-.3509,39.4344),(1050,-820),[(-280,-200),(-300,150),(-100,260),(320,230),(330,-170)]),

@@ -1,8 +1,8 @@
 {
   "previous_city_envelope_km2": 5.406253563,
-  "current_city_envelope_km2": 6.754474322146992,
-  "city_area_ratio": 1.2493817101687785,
-  "selected_blocks": 440,
+  "current_city_envelope_km2": 6.379523352422451,
+  "city_area_ratio": 1.1800266632115515,
+  "selected_blocks": 231,
   "airport_elevation_min_m": 18.0,
   "airport_elevation_max_m": 18.0,
   "airport_runway_m": 2200.000007949875,
@@ -49,7 +49,7 @@
     {
       "name": "Alfafar · núcleo compacto",
       "whole_buildings_near_anchor": 43,
-      "nearest_main_network_m": 0.0
+      "nearest_main_network_m": 7.0
     },
     {
       "name": "Catarroja · acceso a la marjal",

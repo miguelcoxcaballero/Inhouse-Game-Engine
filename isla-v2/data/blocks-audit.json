@@ -1,0 +1,13 @@
+{
+  "blocks": 231,
+  "source_shape_max_error_m": 4.62671908852022e-13,
+  "block_overlap_pairs": 0,
+  "rigid_city_buildings": 1374,
+  "rigid_buildings_changed_after_packing": 0,
+  "repairs_crossing_block_interiors": 0,
+  "city_vehicle_streets_on_main_network_fraction": 1.0,
+  "global_planar_components": 1,
+  "global_main_fraction": 1.0,
+  "retained_real_street_ends": "Real cul-de-sacs, paths and pedestrian areas are retained. Car connectivity does not imply pedestrian areas allow cars.",
+  "scope": "1m planar road topology; source block/building preservation at floating-point tolerance, no lane/grade certification."
+}

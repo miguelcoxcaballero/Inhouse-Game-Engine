@@ -1,0 +1,1757 @@
+[
+  {
+    "index": 0,
+    "name": "Lonja de la Seda",
+    "source_ids": [
+      "w23377876"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37826043223070027,
+        39.47443245
+      ]
+    ]
+  },
+  {
+    "index": 1,
+    "name": "Catedral de Valencia",
+    "source_ids": [
+      "w135630267"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37511257101625123,
+        39.475567999999996
+      ]
+    ]
+  },
+  {
+    "index": 2,
+    "name": "Torres de Serranos",
+    "source_ids": [
+      "w9281502"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3761743404601968,
+        39.47928095
+      ]
+    ]
+  },
+  {
+    "index": 3,
+    "name": "Mercado Central",
+    "source_ids": [
+      "w5007139"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3789053409466919,
+        39.473491749999994
+      ]
+    ]
+  },
+  {
+    "index": 4,
+    "name": "Palau de les Arts Reina Sofía",
+    "source_ids": [
+      "w23433773"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.355909355515472,
+        39.458032
+      ]
+    ]
+  },
+  {
+    "index": 5,
+    "name": "Estación del Norte",
+    "source_ids": [
+      "w10153012"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37777229059911954,
+        39.4661332
+      ]
+    ]
+  },
+  {
+    "index": 6,
+    "name": "Torres de Quart",
+    "source_ids": [
+      "w13073736"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.38392749478557775,
+        39.475899549999994
+      ]
+    ]
+  },
+  {
+    "index": 7,
+    "name": "Ayuntamiento de Valencia",
+    "source_ids": [
+      "r11174923"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37714918809964126,
+        39.469891000000004
+      ]
+    ]
+  },
+  {
+    "index": 8,
+    "name": "Torre del Miguelete",
+    "source_ids": [
+      "w625039852"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37562248687242694,
+        39.475316500000005
+      ]
+    ]
+  },
+  {
+    "index": 9,
+    "name": "Museu de les Ciències Príncipe Felipe",
+    "source_ids": [
+      "r14693200"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.35130329450562336,
+        39.4556449
+      ]
+    ]
+  },
+  {
+    "index": 10,
+    "name": "L’Hemisfèric",
+    "source_ids": [
+      "w23433774"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3538810494257922,
+        39.4566825
+      ]
+    ]
+  },
+  {
+    "index": 11,
+    "name": "Palacio del Marqués de Dos Aguas",
+    "source_ids": [
+      "w515082661"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37480260129181964,
+        39.4725
+      ]
+    ]
+  },
+  {
+    "index": 12,
+    "name": "Plaza de Toros",
+    "source_ids": [
+      "w515256276"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3761002280314827,
+        39.46643775
+      ]
+    ]
+  },
+  {
+    "index": 13,
+    "name": "Palau de la Generalitat",
+    "source_ids": [
+      "r11137438"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3763771217661392,
+        39.4766557
+      ]
+    ]
+  },
+  {
+    "index": 14,
+    "name": "Basílica de la Virgen de los Desamparados",
+    "source_ids": [
+      "w135630265"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3748208218890754,
+        39.4762312
+      ]
+    ]
+  },
+  {
+    "index": 15,
+    "name": "Mercado de Colón",
+    "source_ids": [
+      "w10120283"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.368355414568581,
+        39.46895125
+      ]
+    ]
+  },
+  {
+    "index": 16,
+    "name": "Iglesia de Santa Catalina",
+    "source_ids": [
+      "w135638445",
+      "w165580724"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3764004699525199,
+        39.474118250000004
+      ],
+      [
+        -0.37629556456043955,
+        39.47394345
+      ]
+    ]
+  },
+  {
+    "index": 17,
+    "name": "Estadio de Mestalla",
+    "source_ids": [
+      "w8082830"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.35815663617491666,
+        39.4745279
+      ]
+    ]
+  },
+  {
+    "index": 18,
+    "name": "Edificio de Correos",
+    "source_ids": [
+      "w513696236"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37531700219059766,
+        39.4694655
+      ]
+    ]
+  },
+  {
+    "index": 19,
+    "name": "Museo de Bellas Artes · San Pío V",
+    "source_ids": [
+      "r11026210"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3710264334737524,
+        39.479289
+      ]
+    ]
+  },
+  {
+    "index": 20,
+    "name": "Iglesia de San Nicolás",
+    "source_ids": [
+      "w514601809"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3788103757594138,
+        39.47618985
+      ]
+    ]
+  },
+  {
+    "index": 21,
+    "name": "Iglesia de los Santos Juanes",
+    "source_ids": [
+      "w183237709"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3792469422512519,
+        39.4742797
+      ]
+    ]
+  },
+  {
+    "index": 22,
+    "name": "Real Colegio del Patriarca",
+    "source_ids": [
+      "r18681030"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37328351856487063,
+        39.472554349999996
+      ]
+    ]
+  },
+  {
+    "index": 23,
+    "name": "L’Àgora",
+    "source_ids": [
+      "w37523471"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.34974016868934776,
+        39.45390545
+      ]
+    ]
+  },
+  {
+    "index": 24,
+    "name": "Monasterio de San Miguel de los Reyes",
+    "source_ids": [
+      "w150244048"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.36934031180808147,
+        39.49937975
+      ]
+    ]
+  },
+  {
+    "index": 25,
+    "name": "L’Oceanogràfic",
+    "source_ids": [
+      "w23433776"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.34718137321594034,
+        39.453049500000006
+      ]
+    ]
+  },
+  {
+    "index": 26,
+    "name": "La Nau · Universitat",
+    "source_ids": [
+      "r11164787"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3731467670268633,
+        39.471885650000004
+      ]
+    ]
+  },
+  {
+    "index": 27,
+    "name": "Palau de Benicarló · Corts Valencianes",
+    "source_ids": [
+      "w1286369610",
+      "w23377877"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37462013653598236,
+        39.477896599999994
+      ],
+      [
+        -0.3746239610857038,
+        39.4778236
+      ]
+    ]
+  },
+  {
+    "index": 28,
+    "name": "Convento de Santo Domingo",
+    "source_ids": [
+      "w515350925"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.368979737725772,
+        39.4742157
+      ]
+    ]
+  },
+  {
+    "index": 29,
+    "name": "Teatro Principal",
+    "source_ids": [
+      "w23377878"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3744734278807535,
+        39.47074535
+      ]
+    ]
+  },
+  {
+    "index": 30,
+    "name": "Palau de la Música",
+    "source_ids": [
+      "w23167750"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3604414586965625,
+        39.466161
+      ]
+    ]
+  },
+  {
+    "index": 31,
+    "name": "Baños del Almirante",
+    "source_ids": [
+      "w218841695"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3733978864809705,
+        39.4748737
+      ]
+    ]
+  },
+  {
+    "index": 32,
+    "name": "Almudín",
+    "source_ids": [
+      "w227916537"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3738651831535671,
+        39.476559449999996
+      ]
+    ]
+  },
+  {
+    "index": 33,
+    "name": "Atarazanas del Grao",
+    "source_ids": [
+      "w512378878"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.33355485597643825,
+        39.46132605
+      ]
+    ]
+  },
+  {
+    "index": 34,
+    "name": "Palacio de Justicia · antigua Aduana",
+    "source_ids": [
+      "r18681032"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.36971555,
+        39.47179595
+      ]
+    ]
+  },
+  {
+    "index": 35,
+    "name": "Casa de los Dragones",
+    "source_ids": [
+      "w496338533"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.36973023025150786,
+        39.470050400000005
+      ]
+    ]
+  },
+  {
+    "index": 36,
+    "name": "Palacio e Iglesia del Temple",
+    "source_ids": [
+      "r11177870",
+      "w813424045"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3710951482240645,
+        39.476273750000004
+      ],
+      [
+        -0.37128708305950986,
+        39.476634700000005
+      ]
+    ]
+  },
+  {
+    "index": 37,
+    "name": "San Juan del Hospital",
+    "source_ids": [
+      "w514000994"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37301509580829906,
+        39.4743215
+      ]
+    ]
+  },
+  {
+    "index": 38,
+    "name": "Centre del Carme",
+    "source_ids": [
+      "r8082637"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3787496346043153,
+        39.47991495
+      ]
+    ]
+  },
+  {
+    "index": 39,
+    "name": "Escuelas Pías",
+    "source_ids": [
+      "w770701568",
+      "w770701567"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3820052756033572,
+        39.4741403
+      ],
+      [
+        -0.3816570466096372,
+        39.47394855
+      ]
+    ]
+  },
+  {
+    "index": 40,
+    "name": "Colegio del Arte Mayor de la Seda",
+    "source_ids": [
+      "w514894836"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3810829344488188,
+        39.470652099999995
+      ]
+    ]
+  },
+  {
+    "index": 41,
+    "name": "IVAM",
+    "source_ids": [
+      "w291006854"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3825562998665849,
+        39.47971575
+      ]
+    ]
+  },
+  {
+    "index": 42,
+    "name": "Palacio de la Exposición",
+    "source_ids": [
+      "w150277194"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3625537280882589,
+        39.47347515
+      ]
+    ]
+  },
+  {
+    "index": 43,
+    "name": "Monasterio de la Trinidad",
+    "source_ids": [
+      "r11289994"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3722449565144571,
+        39.48035655
+      ]
+    ]
+  },
+  {
+    "index": 44,
+    "name": "Iglesia de San Esteban",
+    "source_ids": [
+      "w279478350"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37316691172694166,
+        39.4761124
+      ]
+    ]
+  },
+  {
+    "index": 45,
+    "name": "La Beneficencia",
+    "source_ids": [
+      "r3865968"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.38308588957430023,
+        39.47876855
+      ]
+    ]
+  },
+  {
+    "index": 46,
+    "name": "Iglesia de San Martín",
+    "source_ids": [
+      "w661320825"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3756909515830498,
+        39.473283800000004
+      ]
+    ]
+  },
+  {
+    "index": 47,
+    "name": "Palacio de Valeriola · Hortensia Herrero",
+    "source_ids": [
+      "r11179029"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3731694673666766,
+        39.474071300000006
+      ]
+    ]
+  },
+  {
+    "index": 48,
+    "name": "Edificio del Reloj · puerto",
+    "source_ids": [
+      "r21033515"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3317284593446644,
+        39.460133850000005
+      ]
+    ]
+  },
+  {
+    "index": 49,
+    "name": "Veles e Vents",
+    "source_ids": [
+      "w23509879"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.32420257874016045,
+        39.461102100000005
+      ]
+    ]
+  },
+  {
+    "index": 50,
+    "name": "Casas Chapa",
+    "source_ids": [
+      "w457343276",
+      "w457343278",
+      "w457343280",
+      "w457343282",
+      "w477950786",
+      "w477950785",
+      "w496335457",
+      "w496335460"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3668944450961908,
+        39.468201300000004
+      ],
+      [
+        -0.3666691065307379,
+        39.4682863
+      ],
+      [
+        -0.36651506078450646,
+        39.46836425
+      ],
+      [
+        -0.3663361876518817,
+        39.468405849999996
+      ],
+      [
+        -0.3663833982688019,
+        39.4685722
+      ],
+      [
+        -0.3663216099999982,
+        39.4687186
+      ],
+      [
+        -0.36635864890042735,
+        39.468941900000004
+      ],
+      [
+        -0.36653085916459416,
+        39.469114450000006
+      ]
+    ]
+  },
+  {
+    "index": 51,
+    "name": "Fábrica de Tabacos",
+    "source_ids": [
+      "r9603911"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.36146399429417886,
+        39.47400639999999
+      ]
+    ]
+  },
+  {
+    "index": 52,
+    "name": "Iglesia de San Agustín",
+    "source_ids": [
+      "w239784943"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3800851053126213,
+        39.4686713
+      ]
+    ]
+  },
+  {
+    "index": 53,
+    "name": "San Juan de la Cruz · San Andrés",
+    "source_ids": [
+      "w513977884"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3746699157705868,
+        39.4720727
+      ]
+    ]
+  },
+  {
+    "index": 54,
+    "name": "Palacio del Almirante",
+    "source_ids": [
+      "w218841696"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3735073106167848,
+        39.474983949999995
+      ]
+    ]
+  },
+  {
+    "index": 55,
+    "name": "Ateneo Mercantil",
+    "source_ids": [
+      "w416210407"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37601297096777864,
+        39.4708448
+      ]
+    ]
+  },
+  {
+    "index": 56,
+    "name": "Roig Arena",
+    "source_ids": [
+      "w1014385791"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3643501168808812,
+        39.44910415
+      ]
+    ]
+  },
+  {
+    "index": 57,
+    "name": "Santo Tomás y San Felipe Neri",
+    "source_ids": [
+      "w495038787"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37245740919931847,
+        39.4741965
+      ]
+    ]
+  },
+  {
+    "index": 58,
+    "name": "Palacio del Marqués de Campo",
+    "source_ids": [
+      "r7286126"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3736438275001911,
+        39.47605145
+      ]
+    ]
+  },
+  {
+    "index": 59,
+    "name": "Edificio Rialto",
+    "source_ids": [
+      "w416210393"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3760650692439864,
+        39.47110525
+      ]
+    ]
+  },
+  {
+    "index": 60,
+    "name": "Finca Roja",
+    "source_ids": [
+      "w1074266732"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3847743484971172,
+        39.46348105
+      ]
+    ]
+  },
+  {
+    "index": 61,
+    "name": "Iglesia del Salvador",
+    "source_ids": [
+      "w493974568"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37384430284144654,
+        39.47720985
+      ]
+    ]
+  },
+  {
+    "index": 62,
+    "name": "San Miguel y San Sebastián",
+    "source_ids": [
+      "w497514270"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.38700138282422036,
+        39.475110349999994
+      ]
+    ]
+  },
+  {
+    "index": 63,
+    "name": "Palacio de la Baylía",
+    "source_ids": [
+      "w1303164127"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3766938174875335,
+        39.4771273
+      ]
+    ]
+  },
+  {
+    "index": 64,
+    "name": "Palacio de Cervelló",
+    "source_ids": [
+      "w495233207"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37041452971411837,
+        39.474303
+      ]
+    ]
+  },
+  {
+    "index": 65,
+    "name": "Banco de España",
+    "source_ids": [
+      "w416487480"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3746050220104974,
+        39.4700906
+      ]
+    ]
+  },
+  {
+    "index": 66,
+    "name": "L’Umbracle",
+    "source_ids": [
+      "w23433784"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3541700382810072,
+        39.45560315
+      ]
+    ]
+  },
+  {
+    "index": 67,
+    "name": "Iglesia del Pilar",
+    "source_ids": [
+      "w15218699"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.38340996717827647,
+        39.4714856
+      ]
+    ]
+  },
+  {
+    "index": 68,
+    "name": "Iglesia de la Compañía",
+    "source_ids": [
+      "w216891044"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37830975689591073,
+        39.47502105
+      ]
+    ]
+  },
+  {
+    "index": 69,
+    "name": "Torre de San Bartolomé",
+    "source_ids": [
+      "w807759872"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37697179167289774,
+        39.477216350000006
+      ]
+    ]
+  },
+  {
+    "index": 70,
+    "name": "Casa Vestuario",
+    "source_ids": [
+      "w624143436"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3754527835365846,
+        39.4759327
+      ]
+    ]
+  },
+  {
+    "index": 71,
+    "name": "Palacio de los Escrivà",
+    "source_ids": [
+      "r8216452"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3734963404706553,
+        39.47665685
+      ]
+    ]
+  },
+  {
+    "index": 72,
+    "name": "Palacio del Marqués de la Scala",
+    "source_ids": [
+      "r11270791"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3761401721260997,
+        39.47710575
+      ]
+    ]
+  },
+  {
+    "index": 73,
+    "name": "Palacete de Ayora",
+    "source_ids": [
+      "w23413021"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3440054499999988,
+        39.4683696
+      ]
+    ]
+  },
+  {
+    "index": 74,
+    "name": "Banco de Valencia",
+    "source_ids": [
+      "w492626775"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37346747145231884,
+        39.47057475
+      ]
+    ]
+  },
+  {
+    "index": 75,
+    "name": "Estadio Ciutat de València",
+    "source_ids": [
+      "r12211578"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3645560878557539,
+        39.49465815
+      ]
+    ]
+  },
+  {
+    "index": 76,
+    "name": "Torre Hilton · Meliá",
+    "source_ids": [
+      "w23761819"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.4009661993880494,
+        39.49457425
+      ]
+    ]
+  },
+  {
+    "index": 77,
+    "name": "Torre de Francia",
+    "source_ids": [
+      "w298794518"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.35243656446256,
+        39.45992315
+      ]
+    ]
+  },
+  {
+    "index": 78,
+    "name": "Palacio de Congresos",
+    "source_ids": [
+      "w23761809"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.4020570971416736,
+        39.49619935
+      ]
+    ]
+  },
+  {
+    "index": 79,
+    "name": "Antiguo Hospital General · Biblioteca Pública",
+    "source_ids": [
+      "w15218692"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3818483151176457,
+        39.47037765
+      ]
+    ]
+  },
+  {
+    "index": 80,
+    "name": "San Vicente de la Roqueta",
+    "source_ids": [
+      "w686349139"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3821487055870919,
+        39.4643427
+      ]
+    ]
+  },
+  {
+    "index": 81,
+    "name": "Iglesia de la Misericordia · Campanar",
+    "source_ids": [
+      "r7356910"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3974247448971149,
+        39.482015399999995
+      ]
+    ]
+  },
+  {
+    "index": 82,
+    "name": "Casa del Punt de Ganxo",
+    "source_ids": [
+      "w809242074"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3742096579338381,
+        39.4759246
+      ]
+    ]
+  },
+  {
+    "index": 83,
+    "name": "Palacio de Boïl d’Arenós",
+    "source_ids": [
+      "w495741186"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3739652786267178,
+        39.4725728
+      ]
+    ]
+  },
+  {
+    "index": 84,
+    "name": "Edificio Telefónica",
+    "source_ids": [
+      "w413044569"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3759516394071914,
+        39.4689403
+      ]
+    ]
+  },
+  {
+    "index": 85,
+    "name": "La Unión y el Fénix",
+    "source_ids": [
+      "w409877331"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3766782225311027,
+        39.46776005
+      ]
+    ]
+  },
+  {
+    "index": 86,
+    "name": "Centro Cultural Bancaja",
+    "source_ids": [
+      "w627769637"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37019105130278873,
+        39.47346765
+      ]
+    ]
+  },
+  {
+    "index": 87,
+    "name": "Hotel Reina Victoria",
+    "source_ids": [
+      "w416210411"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3752618032113938,
+        39.470086800000004
+      ]
+    ]
+  },
+  {
+    "index": 88,
+    "name": "Bombas Gens",
+    "source_ids": [
+      "w1550827165"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.38508843012732225,
+        39.485597
+      ]
+    ]
+  },
+  {
+    "index": 89,
+    "name": "Alquería del Moro",
+    "source_ids": [
+      "w1115796656"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.39601459631096575,
+        39.49917095
+      ]
+    ]
+  },
+  {
+    "index": 90,
+    "name": "Basílica de San Vicente Ferrer",
+    "source_ids": [
+      "w414889062"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.36905828772026283,
+        39.46784535
+      ]
+    ]
+  },
+  {
+    "index": 91,
+    "name": "Palacio de Pineda",
+    "source_ids": [
+      "w493777443"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3787209032289117,
+        39.4788189
+      ]
+    ]
+  },
+  {
+    "index": 92,
+    "name": "Edificio Ferrer",
+    "source_ids": [
+      "w496518123"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37219681588861564,
+        39.4671973
+      ]
+    ]
+  },
+  {
+    "index": 93,
+    "name": "Casa Ortega",
+    "source_ids": [
+      "w496729374"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3735341345486822,
+        39.46542385
+      ]
+    ]
+  },
+  {
+    "index": 94,
+    "name": "Mercado de Ruzafa",
+    "source_ids": [
+      "w12403536"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37139256693932426,
+        39.46203975
+      ]
+    ]
+  },
+  {
+    "index": 95,
+    "name": "Mercado de Abastos",
+    "source_ids": [
+      "w243447549"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.38823994641468074,
+        39.4680073
+      ]
+    ]
+  },
+  {
+    "index": 96,
+    "name": "Barracas de El Palmar",
+    "source_ids": [
+      "w491841988"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3175847050745084,
+        39.31158125
+      ]
+    ]
+  },
+  {
+    "index": 97,
+    "name": "Portal de la Valldigna",
+    "source_ids": [
+      "w515327993"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.37862015885496303,
+        39.477563
+      ]
+    ]
+  },
+  {
+    "index": 98,
+    "name": "Lonja del Pescado del Cabanyal",
+    "source_ids": [
+      "w796340076",
+      "w796340077",
+      "w796340078",
+      "w796340079",
+      "w796340080",
+      "w796340081",
+      "w796340082",
+      "w796340083",
+      "w796340084",
+      "w796340085",
+      "w796340086",
+      "w796340087",
+      "w796340088",
+      "w796340089",
+      "w796340090",
+      "w796340091",
+      "w796340092",
+      "w796340093",
+      "w796340094",
+      "w796340095",
+      "w796340096",
+      "w796340097",
+      "w796340098",
+      "w796340099",
+      "w796340100",
+      "w796340101",
+      "w796340102",
+      "w796340103",
+      "w796340104",
+      "w796340105",
+      "w796340108",
+      "w796340109",
+      "w796340110",
+      "w796340111",
+      "w796340112",
+      "w796340113",
+      "w796340114",
+      "w796340115",
+      "w796340116",
+      "w796340117",
+      "w796340118"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.3259545458737864,
+        39.4689405
+      ],
+      [
+        -0.3257578961995249,
+        39.46860035
+      ],
+      [
+        -0.3257563957325431,
+        39.4691111
+      ],
+      [
+        -0.325758146713615,
+        39.4685153
+      ],
+      [
+        -0.32575624621212124,
+        39.469153199999994
+      ],
+      [
+        -0.3257580454491726,
+        39.4685588
+      ],
+      [
+        -0.3257582447894737,
+        39.468472399999996
+      ],
+      [
+        -0.32595490082648393,
+        39.468604049999996
+      ],
+      [
+        -0.3259542154117647,
+        39.4687743
+      ],
+      [
+        -0.3259552167295814,
+        39.468520049999995
+      ],
+      [
+        -0.32595479078380335,
+        39.4688582
+      ],
+      [
+        -0.32585544032608693,
+        39.46889885
+      ],
+      [
+        -0.3259554045407098,
+        39.468477449999995
+      ],
+      [
+        -0.3259545412405763,
+        39.468689
+      ],
+      [
+        -0.3259535905737705,
+        39.4689888
+      ],
+      [
+        -0.3259550901066351,
+        39.46856335
+      ],
+      [
+        -0.3259540672807958,
+        39.468815
+      ],
+      [
+        -0.32595438125,
+        39.468731649999995
+      ],
+      [
+        -0.32595469215801887,
+        39.46864615
+      ],
+      [
+        -0.32595298123543126,
+        39.4692424
+      ],
+      [
+        -0.3259532178486998,
+        39.4691561
+      ],
+      [
+        -0.32575682154066454,
+        39.46898365
+      ],
+      [
+        -0.3259534861244019,
+        39.469028800000004
+      ],
+      [
+        -0.325953392030236,
+        39.469071799999995
+      ],
+      [
+        -0.3259533170560748,
+        39.4691143
+      ],
+      [
+        -0.32595308297362113,
+        39.46919915
+      ],
+      [
+        -0.3257575465321617,
+        39.4687266
+      ],
+      [
+        -0.3259528663301663,
+        39.46928415
+      ],
+      [
+        -0.32595275802055707,
+        39.469329099999996
+      ],
+      [
+        -0.3257557714285714,
+        39.469279900000004
+      ],
+      [
+        -0.32575610346889955,
+        39.4689356
+      ],
+      [
+        -0.3257565223995272,
+        39.46906715
+      ],
+      [
+        -0.32575643066825777,
+        39.4688457
+      ],
+      [
+        -0.32575774591834294,
+        39.46864275
+      ],
+      [
+        -0.32575764515366423,
+        39.46868535
+      ],
+      [
+        -0.325757446117647,
+        39.46876925
+      ],
+      [
+        -0.3257573469858156,
+        39.468810899999994
+      ],
+      [
+        -0.32575593974056605,
+        39.46923905
+      ],
+      [
+        -0.32575667190476193,
+        39.4690254
+      ],
+      [
+        -0.3257556445887446,
+        39.469325999999995
+      ],
+      [
+        -0.3257560965558195,
+        39.46919535
+      ]
+    ]
+  },
+  {
+    "index": 99,
+    "name": "Estación Joaquín Sorolla",
+    "source_ids": [
+      "w554720470"
+    ],
+    "status": "source-footprint-identified",
+    "evidence": "Named OSM area or documented address with point-in-building match; see research/edificios-escala-real.md.",
+    "source_centres": [
+      [
+        -0.38089005633431017,
+        39.45955545
+      ]
+    ]
+  }
+]

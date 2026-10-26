@@ -66,26 +66,15 @@ for side in [-77,77]:
  bankroad=cauce.offset_curve(side).intersection(coast)
  add(bankroad,'expressway',name='V-30 · margen '+('norte' if side>0 else 'sur'),ref='V-30',source='Márgenes del nuevo cauce recompuestas a partir del corredor OSM')
 record('Nuevo cauce del Turia / Plan Sur',cauce,note='Separa la ciudad compacta del paisaje meridional. Lecho, taludes, hilo de agua, puentes y V-30 en las márgenes. Anchos y caudales de diseño; no es una simulación hidráulica.')
-# Remove redundant southern urban fringe; relocate the hospital as a whole above the floodway.
-# This closes the urban composition by deletion, instead of squeezing all southern blocks vertically.
-south=Polygon(list(cauce.coords)+[(4000,-6000),(-4000,-6000),(-4000,-100),cauce.coords[0]])
-for l in landmarks:
- if l['id']=='w142736208':
-  hospital_shift=(1200-l['xy'][0],-250-l['xy'][1]);l['xy']=[1200,-250];l['retention']='Hospital OSM trasladado íntegro al borde meridional urbano, al norte del nuevo cauce.'
- if l['name']=='Malilla · tejido residencial':l['xy']=[920,7]
-filtered=[]
-for f in fs:
- p=f['properties'];g=shape(f['geometry'])
- if p.get('id')=='w142736208' or p.get('osm')=='way/142736208':f['geometry']=mapping(translate(g,*hospital_shift));filtered.append(f);continue
- urban_source=p.get('zone')=='valencia' and p['kind']=='building' or p['kind']=='retained-road' and 'deformación continua' in p.get('source','')
- if urban_source and g.representative_point().x>-1600 and south.covers(g.representative_point()):continue
- filtered.append(f)
-fs=[f for f in filtered if not (f['properties']['kind']=='water' and shape(f['geometry']).area>20000 and shape(f['geometry']).bounds[2]<-1100 and shape(f['geometry']).bounds[3]<0)]
+# Rigid city ensembles have already been packed clear of the floodway.
+# Never move an individual hospital/building away from its retained block.
 # Only designated crossings cross the bed at ground-level in this draft.
 removed_buildings=0
 for f in list(fs):
  p=f['properties'];g=shape(f['geometry'])
- if p['kind']=='building' and g.intersects(embankment):fs.remove(f);removed_buildings+=1
+ if p['kind']=='building' and g.intersects(embankment):
+  assert not p.get('rigid_block'), 'Rigid block conflicts with floodway'
+  fs.remove(f);removed_buildings+=1
  elif p['kind'] in ['retained-road','new-road'] and g.intersects(bed):f['geometry']=mapping(g.difference(bed.buffer(8)))
 for fraction,name in [(.21,'Acceso oeste'),(.41,'Patraix / Jesús'),(.62,'Malilla / sur'),(.82,'Arts / puerto')]:
  s=cauce.length*fraction;p=cauce.interpolate(s);a=cauce.interpolate(s-10);b=cauce.interpolate(s+10);v=np.array([b.x-a.x,b.y-a.y]);v/=np.linalg.norm(v);n=np.array([-v[1],v[0]]);g=LineString([np.array([p.x,p.y])-n*110,np.array([p.x,p.y])+n*110]);add(g,'new-road',name='Puente · '+name,source='Cruce de diseño');add(g,'bridge',name='Puente · '+name)
@@ -100,7 +89,7 @@ for f in list(fs):
  p=f['properties'];g=shape(f['geometry'])
  if p['kind']=='building' and not p.get('airport') and g.intersects(airport_footprint.buffer(12)):fs.remove(f)
  elif p['kind'] in ['water','green'] and g.intersects(airport_footprint):f['geometry']=mapping(g.difference(airport_footprint.buffer(16)))
- elif p['kind']=='new-road' or p['kind']=='retained-road' and 'deformación continua' in p.get('source',''):
+ elif p['kind']=='new-road' or p['kind']=='retained-road' and p.get('city',False):
   if g.intersects(airport_footprint):f['geometry']=mapping(g.difference(airport_footprint.buffer(16)))
 # A-7 is a western bypass; verify it does not cross the shortened runway.
 runway=next(shape(f['geometry']) for f in fs if f['properties']['kind']=='airway' and f['properties'].get('aeroway')=='runway')
@@ -153,7 +142,7 @@ for name,north,south,zone in [('Port Saplaya',3150,2700,'valencia'),('Patacona /
   if l['name']=='Playa · '+name:l['xy']=list(beach.representative_point().coords[0])
  # A small number of access streets connects retained urban streets to the promenade.
  if zone=='valencia':
-  urbanlines=[shape(f['geometry']) for f in fs if f['properties']['kind']=='retained-road' and 'deformación continua' in f['properties'].get('source','')]
+  urbanlines=[shape(f['geometry']) for f in fs if f['properties']['kind']=='retained-road' and f['properties'].get('city',False)]
   urbanline=unary_union(urbanlines)
   for fraction in [.25,.75]:
    b=prom.interpolate(fraction,normalized=True);a=nearest_points(urbanline,b)[0]
@@ -191,6 +180,10 @@ if marina is not None:
    cross=shape(f['geometry']).intersection(channel.buffer(5))
    if not cross.is_empty:add(cross,'bridge',name='Puente del paseo · Port Saplaya')
 (D/'beach-review.json').write_text(json.dumps(beach_report,indent=2,ensure_ascii=False))
+# Recompose park edges in the remaining open ground, retaining every block.
+block_interior=unary_union([shape(f['geometry']).buffer(-5) for f in fs if f['properties']['kind']=='city-block'])
+for f in fs:
+ if f['properties']['kind']=='designed-park':f['geometry']=mapping(shape(f['geometry']).difference(block_interior))
 # Urban texture is derived from the retained street/building fabric, not generic monument circles.
 urbanroads=[shape(f['geometry']) for f in fs if f['properties']['kind']=='retained-road' and f['properties'].get('roadclass') in ['residential','living_street','tertiary','secondary','primary']]
 urban=unary_union(urbanroads).buffer(28).buffer(10).difference(embankment).intersection(coast)
@@ -244,30 +237,21 @@ for poly in forest.get_paths():
   g=make_valid(Polygon(vertices)).intersection(coast)
   if g.area>8000:add(g,'forest',name='Cobertura forestal de diseño',source='Distribución propuesta; no inventario ecológico real')
 plt.close(fig)
-# Add connectors only for significant disconnected road components, bounded to short safe gaps.
-# This is a 2D connectivity check; it intentionally does not claim grade/bridge certification.
-fixes=[];blocked=set()
-for iteration in range(10):
- cs=components(fs);main=cs[0]['geometry'];candidates=[]
- for component in cs[1:]:
-  if component['length_m']<1000 or component['geometry'].bounds in blocked:continue
-  a,b=nearest_points(main,component['geometry']);gap=a.distance(b)
-  if 2<=gap<180:candidates.append((gap,a,b,component))
- if not candidates:break
- gap,a,b,c=min(candidates,key=lambda x:x[0]);p=np.array(a.coords[0]);q=np.array(b.coords[0]);v=q-p;n=np.array([-v[1],v[0]])/max(gap,1);mid=(p+q)/2+n*min(12,gap*.1);g=curve([p,mid,q])
- if not coast.covers(g) or g.intersects(bed) or g.intersects(runway.buffer(55)) or g.intersects(reservoir.buffer(8)):
-  blocked.add(c['geometry'].bounds);continue
- add(g,'new-road',name='Costura de conexión revisada',source='Enlace corto de diseño entre componentes OSM');fixes.append({'gap_m':gap,'added_m':g.length})
- # No unchanged footprint should straddle a newly added junction connector.
- fs=[f for f in fs if not(f['properties']['kind']=='building' and shape(f['geometry']).intersects(g.buffer(4)))]
+from circuit_layout import recompose_circuit
+metrics['f1_design_m']=recompose_circuit(D,fs,coast,landmarks)
+# Join retained components through free ground, without deleting intact buildings.
+from street_network import finish_network
+fixes, network_fixes = finish_network(D,fs,coast,add)
 cs=components(fs);main=cs[0]['geometry'];total=sum(c['length_m'] for c in cs)
-network={'planar_component_count':len(cs),'main_component_length_m':cs[0]['length_m'],'total_drivable_line_length_m':total,'main_component_fraction':cs[0]['length_m']/total,'short_connections_added':fixes,'note':'Planar noding at1m precision; does not validate grade separation, turn restrictions or driving navigation.','landmark_distance_to_main_road_m':{l['name']:round(main.distance(Point(l['xy'])),1) for l in landmarks}}
+network={'planar_component_count':len(cs),'main_component_length_m':cs[0]['length_m'],'total_drivable_line_length_m':total,'main_component_fraction':cs[0]['length_m']/total,'short_connections_added':fixes,'repair':network_fixes,'note':'Planar noding at1m precision; does not validate grade separation, turn restrictions or driving navigation.','landmark_distance_to_main_road_m':{l['name']:round(main.distance(Point(l['xy'])),1) for l in landmarks}}
 (D/'network-review.json').write_text(json.dumps(network,indent=2,ensure_ascii=False))
-cityroads=[shape(f['geometry']) for f in fs if f['properties']['kind']=='retained-road' and 'deformación continua' in f['properties'].get('source','')]
+cityroads=[shape(f['geometry']) for f in fs if f['properties']['kind']=='retained-road' and f['properties'].get('city',False)]
 cityground=unary_union(cityroads).buffer(25).intersection(coast)
 metrics['valencia_urban_footprint_km2']=cityground.area/1e6
 metrics['valencia_urban_envelope_km2']=unary_union(cityroads).convex_hull.area/1e6
-metrics.update({'reservoir_area_km2':interior_review['design_area_km2'],'secondary_routes':len(interior_review['secondary_routes']),'secondary_length_km':interior_review['secondary_length_km'],'chelva_coast_distance_m':interior_review['chelva_coast_distance_m'],'continuous_highway_corridors':len(configs),'corridor_details':corridorlog,'new_turia_cauce_m':cauce.length,'osm_everyday_pois':len(pois),'buildings_removed_for_floodway':removed_buildings,'a7_runway_clearance_m':routes['A-7'].distance(runway),'road_main_component_fraction':network['main_component_fraction'],'city_buildings_final':sum(f['properties']['kind']=='building' and 'huella íntegra' in f['properties'].get('source','') for f in fs)})
+metrics.update({'reservoir_area_km2':interior_review['design_area_km2'],'secondary_routes':len(interior_review['secondary_routes']),'secondary_length_km':interior_review['secondary_length_km'],'chelva_coast_distance_m':interior_review['chelva_coast_distance_m'],'continuous_highway_corridors':len(configs),'corridor_details':corridorlog,'new_turia_cauce_m':cauce.length,'osm_everyday_pois':len(pois),'buildings_removed_for_floodway':removed_buildings,'a7_runway_clearance_m':routes['A-7'].distance(runway),'road_main_component_fraction':network['main_component_fraction'],'city_buildings_final':sum(f['properties']['kind']=='building' and f['properties'].get('rigid_block',False) for f in fs)})
 fs=[f for f in fs if not shape(f['geometry']).is_empty]
+from street_labels import prepare_names
+prepare_names(fs)
 (D/'metrics.json').write_text(json.dumps(metrics,ensure_ascii=False,indent=2));(D/'landmarks.json').write_text(json.dumps(landmarks,ensure_ascii=False));(D/'isla-metros.geojson').write_text(json.dumps({'type':'FeatureCollection','coordinate_system':'LOCAL_METRES_FICTIONAL','features':fs},ensure_ascii=False,separators=(',',':')));(D/'continuous-corridors.geojson').write_text(json.dumps({'type':'FeatureCollection','features':comparisons}));(D/'corridor-review.json').write_text(json.dumps(corridorlog,indent=2))
 print('FEATURES',len(fs),'POIS',len(pois),'CAUCE',round(cauce.length),'A7/runway',round(routes['A-7'].distance(runway)),'MAIN NETWORK',network['main_component_fraction'])

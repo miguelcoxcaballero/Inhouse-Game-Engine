@@ -1,0 +1,1685 @@
+[
+  {
+    "id": "w9281502",
+    "source_area_m2": 1193.1961611936658,
+    "area_m2": 1193.1961611936658,
+    "delta": [
+      1146.1165988160224,
+      922.7560786024565
+    ],
+    "height_m": 33.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w23433773",
+    "source_area_m2": 9899.438784607457,
+    "area_m2": 9899.438784607457,
+    "delta": [
+      -170.0685065475284,
+      2185.078314803926
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w13073736",
+    "source_area_m2": 642.3932600968691,
+    "area_m2": 642.3932600968691,
+    "delta": [
+      1511.0243511131243,
+      954.5832473978305
+    ],
+    "height_m": 34.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "r14693200",
+    "source_area_m2": 18063.39938535506,
+    "area_m2": 18063.39938535506,
+    "delta": [
+      -440.49496545039756,
+      2244.3961221425734
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23433774",
+    "source_area_m2": 3277.7904688295107,
+    "area_m2": 3277.7904688295107,
+    "delta": [
+      -14.846382413405536,
+      2408.9799879171005
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w515082661",
+    "source_area_m2": 1668.181766265142,
+    "area_m2": 1668.181766265142,
+    "delta": [
+      1093.833886916301,
+      1098.595611735772
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11137438",
+    "source_area_m2": 991.8403137790008,
+    "area_m2": 991.8403137790008,
+    "delta": [
+      918.856668609994,
+      1337.6674981281044
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w10120283",
+    "source_area_m2": 2730.1463022515145,
+    "area_m2": 2730.1463022515145,
+    "delta": [
+      580.6098190547691,
+      1352.8747866189328
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w135638445",
+    "source_area_m2": 1636.960746878148,
+    "area_m2": 1636.960746878148,
+    "delta": [
+      1177.7647627667588,
+      725.3840586523373
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w165580724",
+    "source_area_m2": 38.43842064936283,
+    "area_m2": 38.43842064936283,
+    "delta": [
+      1177.7647627667588,
+      725.3840586523373
+    ],
+    "height_m": 45.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w8082830",
+    "source_area_m2": 28862.936302675396,
+    "area_m2": 28862.936302675396,
+    "delta": [
+      172.02591413604,
+      1422.3885271426939
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11026210",
+    "source_area_m2": 7360.841918492424,
+    "area_m2": 7360.841918492424,
+    "delta": [
+      836.785590742024,
+      676.8939970016482
+    ],
+    "height_m": 15.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w514601809",
+    "source_area_m2": 1207.0064549775282,
+    "area_m2": 1207.0064549775282,
+    "delta": [
+      1245.9140894966945,
+      1296.1182777525858
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r18681030",
+    "source_area_m2": 3176.2033319363118,
+    "area_m2": 3176.2033319363118,
+    "delta": [
+      851.3028090941871,
+      1346.994819022147
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w37523471",
+    "source_area_m2": 4877.286872459887,
+    "area_m2": 4877.286872459887,
+    "delta": [
+      -395.7510482700973,
+      2449.2344165411027
+    ],
+    "height_m": 86.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w150244048",
+    "source_area_m2": 19157.274680609455,
+    "area_m2": 19157.274680609455,
+    "delta": [
+      799.1700629277962,
+      -831.1797538349888
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23433776",
+    "source_area_m2": 71287.55978971174,
+    "area_m2": 71287.55978971174,
+    "delta": [
+      -421.36199170487953,
+      2381.3408255595004
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11164787",
+    "source_area_m2": 3611.6227102313355,
+    "area_m2": 3611.6227102313355,
+    "delta": [
+      699.1290944353586,
+      931.7348085564458
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w1286369610",
+    "source_area_m2": 733.4359174005305,
+    "area_m2": 733.4359174005305,
+    "delta": [
+      751.095146983968,
+      1083.3805858022652
+    ],
+    "height_m": 12.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w23377877",
+    "source_area_m2": 2233.6898027754564,
+    "area_m2": 2233.6898027754564,
+    "delta": [
+      751.095146983968,
+      1083.3805858022652
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w515350925",
+    "source_area_m2": 7550.011806260523,
+    "area_m2": 7550.011806260523,
+    "delta": [
+      504.1966693868602,
+      837.8504788155713
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23377878",
+    "source_area_m2": 1867.4621282974877,
+    "area_m2": 1867.4621282974877,
+    "delta": [
+      986.6405821350177,
+      926.3803771006282
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23167750",
+    "source_area_m2": 2616.246701776175,
+    "area_m2": 2616.246701776175,
+    "delta": [
+      181.17325878394286,
+      1564.7155735758492
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w218841695",
+    "source_area_m2": 275.01808891706344,
+    "area_m2": 275.01808891706344,
+    "delta": [
+      828.9872376402209,
+      852.1597911975662
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w227916537",
+    "source_area_m2": 841.8877793110341,
+    "area_m2": 841.8877793110341,
+    "delta": [
+      819.6731023343917,
+      734.5372451174658
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w512378878",
+    "source_area_m2": 3397.4981018794174,
+    "area_m2": 3397.4981018794174,
+    "delta": [
+      -1144.808638379529,
+      1857.9912716037586
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r18681032",
+    "source_area_m2": 2811.662648444119,
+    "area_m2": 2811.662648444119,
+    "delta": [
+      695.4141805374735,
+      1245.5582127054276
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w496338533",
+    "source_area_m2": 564.3625152789251,
+    "area_m2": 564.3625152789251,
+    "delta": [
+      842.9856567344599,
+      1160.7451195962167
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11177870",
+    "source_area_m2": 3016.8420073458055,
+    "area_m2": 3016.8420073458055,
+    "delta": [
+      966.4469309266908,
+      610.8404653164908
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w813424045",
+    "source_area_m2": 1208.307504576511,
+    "area_m2": 1208.307504576511,
+    "delta": [
+      966.4469309266908,
+      610.8404653164908
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w514000994",
+    "source_area_m2": 989.2569066140985,
+    "area_m2": 989.2569066140985,
+    "delta": [
+      1026.1082614694049,
+      633.6169967702976
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r8082637",
+    "source_area_m2": 4916.417536396388,
+    "area_m2": 4916.417536396388,
+    "delta": [
+      1317.4647675439744,
+      954.8408003469781
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w770701568",
+    "source_area_m2": 4810.146059399963,
+    "area_m2": 4810.146059399963,
+    "delta": [
+      1206.3753605980523,
+      1154.3160216016547
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w770701567",
+    "source_area_m2": 673.1262016227903,
+    "area_m2": 673.1262016227903,
+    "delta": [
+      1206.3753605980523,
+      1154.3160216016547
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w514894836",
+    "source_area_m2": 850.2576603489551,
+    "area_m2": 850.2576603489551,
+    "delta": [
+      1054.9355418504242,
+      1338.3676880085882
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w291006854",
+    "source_area_m2": 4667.225904123278,
+    "area_m2": 4667.225904123278,
+    "delta": [
+      1441.7010593274797,
+      670.1137558425445
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w150277194",
+    "source_area_m2": 1722.139059963165,
+    "area_m2": 1722.1390599631677,
+    "delta": [
+      384.934935132183,
+      1015.590509262452
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11289994",
+    "source_area_m2": 3449.8273720327766,
+    "area_m2": 3449.8273720327766,
+    "delta": [
+      973.5764833056735,
+      860.8215950871476
+    ],
+    "height_m": 15.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w279478350",
+    "source_area_m2": 1168.6935778628665,
+    "area_m2": 1168.6935778628665,
+    "delta": [
+      1282.8289219766978,
+      1170.5343411111717
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r3865968",
+    "source_area_m2": 5956.8067621925975,
+    "area_m2": 5956.8067621925975,
+    "delta": [
+      1262.1201457375291,
+      914.686892377867
+    ],
+    "height_m": 9.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w661320825",
+    "source_area_m2": 1294.0919965388998,
+    "area_m2": 1294.0919965388998,
+    "delta": [
+      670.4275108400147,
+      942.611253951224
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11179029",
+    "source_area_m2": 1069.421208836502,
+    "area_m2": 1069.421208836502,
+    "delta": [
+      1302.916558957107,
+      1312.8317527794436
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r21033515",
+    "source_area_m2": 931.2912473497735,
+    "area_m2": 931.2912473497735,
+    "delta": [
+      -1244.6528100325263,
+      1900.243467257578
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23509879",
+    "source_area_m2": 3366.4189116601115,
+    "area_m2": 3366.4189116601115,
+    "delta": [
+      -1849.79902588919,
+      1845.56622027012
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w457343276",
+    "source_area_m2": 607.7957283285332,
+    "area_m2": 607.7957283285332,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w457343278",
+    "source_area_m2": 398.641801306766,
+    "area_m2": 398.641801306766,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w457343280",
+    "source_area_m2": 362.14702083829457,
+    "area_m2": 362.14702083829457,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w457343282",
+    "source_area_m2": 386.47788542906443,
+    "area_m2": 386.47788542906443,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w477950786",
+    "source_area_m2": 379.67456214241395,
+    "area_m2": 379.67456214241395,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w477950785",
+    "source_area_m2": 478.7311874987636,
+    "area_m2": 478.7311874987636,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w496335457",
+    "source_area_m2": 629.1863778525974,
+    "area_m2": 629.1863778525974,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 15.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w496335460",
+    "source_area_m2": 826.2283017663563,
+    "area_m2": 826.2283017663563,
+    "delta": [
+      612.456372008583,
+      1299.685492035872
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r9603911",
+    "source_area_m2": 8753.269453562552,
+    "area_m2": 8753.269453562552,
+    "delta": [
+      321.38724313791863,
+      1034.161411435494
+    ],
+    "height_m": 12.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w239784943",
+    "source_area_m2": 1674.4645627034458,
+    "area_m2": 1674.4645627034458,
+    "delta": [
+      1099.9719592706106,
+      1333.4276559900009
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w513977884",
+    "source_area_m2": 1578.063144222297,
+    "area_m2": 1578.063144222297,
+    "delta": [
+      955.9414982342203,
+      919.0185292253891
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w218841696",
+    "source_area_m2": 1439.1515468547736,
+    "area_m2": 1439.1515468547736,
+    "delta": [
+      941.9687621688892,
+      1292.593724949119
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w1014385791",
+    "source_area_m2": 16030.318572128404,
+    "area_m2": 16030.318572128404,
+    "delta": [
+      374.8339836252803,
+      2749.2501337220797
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w495038787",
+    "source_area_m2": 1256.8701609174814,
+    "area_m2": 1256.8701609174814,
+    "delta": [
+      1114.1249528786564,
+      1360.426998068437
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r7286126",
+    "source_area_m2": 1343.0648865412309,
+    "area_m2": 1343.0648865412309,
+    "delta": [
+      1223.6582168208702,
+      1014.1858995360463
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w1074266732",
+    "source_area_m2": 10076.964467790709,
+    "area_m2": 10076.964467790709,
+    "delta": [
+      1481.7410612727645,
+      1779.6379769765142
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w493974568",
+    "source_area_m2": 827.2634588784717,
+    "area_m2": 827.2634588784717,
+    "delta": [
+      791.4168322846117,
+      1043.2151119343864
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w497514270",
+    "source_area_m2": 1413.637462864677,
+    "area_m2": 1413.637462864677,
+    "delta": [
+      1494.6069045584836,
+      1008.4308971805384
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w1303164127",
+    "source_area_m2": 814.032710392505,
+    "area_m2": 814.032710392505,
+    "delta": [
+      808.8746111750589,
+      649.4469152479705
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w495233207",
+    "source_area_m2": 1785.172780117804,
+    "area_m2": 1785.172780117808,
+    "delta": [
+      463.74505030103114,
+      904.7574412195594
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w416487480",
+    "source_area_m2": 1587.3773192922745,
+    "area_m2": 1587.3773192922745,
+    "delta": [
+      883.0026584550216,
+      1272.6886193366433
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23433784",
+    "source_area_m2": 9707.965335511743,
+    "area_m2": 9707.965335511743,
+    "delta": [
+      -406.5126236942724,
+      2229.734667937883
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w15218699",
+    "source_area_m2": 1202.902471143215,
+    "area_m2": 1202.902471143215,
+    "delta": [
+      1350.6393241407493,
+      1373.970601750976
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w216891044",
+    "source_area_m2": 1246.3320642732888,
+    "area_m2": 1246.3320642732888,
+    "delta": [
+      806.9788868135618,
+      910.760266201863
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w807759872",
+    "source_area_m2": 29.033858859808664,
+    "area_m2": 29.033858859808664,
+    "delta": [
+      1105.7489291688905,
+      927.9908368455449
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r8216452",
+    "source_area_m2": 534.4305757344323,
+    "area_m2": 534.4305757344323,
+    "delta": [
+      1252.053353548461,
+      1057.493536893832
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11270791",
+    "source_area_m2": 1348.1087701593672,
+    "area_m2": 1348.1087701593672,
+    "delta": [
+      1055.8052854095001,
+      880.8350448644153
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23413021",
+    "source_area_m2": 250.12221788405557,
+    "area_m2": 250.12221788405557,
+    "delta": [
+      -613.1756989791734,
+      1391.7812759221636
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w492626775",
+    "source_area_m2": 881.3959500697764,
+    "area_m2": 881.3959500697764,
+    "delta": [
+      1086.3363261427135,
+      932.068887123228
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r12211578",
+    "source_area_m2": 15141.24733904239,
+    "area_m2": 15141.24733904239,
+    "delta": [
+      462.41891700677957,
+      -406.417670740434
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w23761819",
+    "source_area_m2": 3775.360825547217,
+    "area_m2": 3775.3608255472222,
+    "delta": [
+      2455.890580311542,
+      -267.5223932752335
+    ],
+    "height_m": 117.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w298794518",
+    "source_area_m2": 1106.8078523685883,
+    "area_m2": 1106.8078523685883,
+    "delta": [
+      -248.74635507813082,
+      2052.878139901911
+    ],
+    "height_m": 115.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w23761809",
+    "source_area_m2": 8560.673573616179,
+    "area_m2": 8560.673573616179,
+    "delta": [
+      2350.325246839046,
+      -582.774726932327
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w15218692",
+    "source_area_m2": 1780.819943854538,
+    "area_m2": 1780.819943854538,
+    "delta": [
+      1363.3284160032717,
+      1317.12472988341
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w686349139",
+    "source_area_m2": 905.2756694744826,
+    "area_m2": 905.2756694744826,
+    "delta": [
+      1397.2668962789028,
+      1630.5069517289785
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "r7356910",
+    "source_area_m2": 1020.0632980187805,
+    "area_m2": 1020.0632980187805,
+    "delta": [
+      2171.4594968742913,
+      562.8213862051068
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w809242074",
+    "source_area_m2": 315.0477869318609,
+    "area_m2": 315.0477869318609,
+    "delta": [
+      1025.4761399746878,
+      972.178118723489
+    ],
+    "height_m": 15.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w495741186",
+    "source_area_m2": 769.465127041786,
+    "area_m2": 769.465127041786,
+    "delta": [
+      1174.8866945726343,
+      1248.308696141722
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w413044569",
+    "source_area_m2": 482.5409499799761,
+    "area_m2": 482.5409499799761,
+    "delta": [
+      951.2035539627402,
+      1192.9907273956796
+    ],
+    "height_m": 24.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w627769637",
+    "source_area_m2": 2059.7639505527327,
+    "area_m2": 2059.7639505527327,
+    "delta": [
+      981.708014486239,
+      1183.1187208562576
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w1550827165",
+    "source_area_m2": 6062.733712263216,
+    "area_m2": 6062.733712263216,
+    "delta": [
+      1579.3606805150043,
+      329.94702775586074
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w1115796656",
+    "source_area_m2": 430.3115329848452,
+    "area_m2": 430.3115329848452,
+    "delta": [
+      2118.451448439945,
+      -603.1353651742065
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w414889062",
+    "source_area_m2": 2202.5346380302108,
+    "area_m2": 2202.5346380302108,
+    "delta": [
+      729.5700610105596,
+      1378.6990543415286
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w493777443",
+    "source_area_m2": 615.7350156949857,
+    "area_m2": 615.7350156949857,
+    "delta": [
+      1199.5195942840626,
+      1145.8835107861337
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w496518123",
+    "source_area_m2": 309.43181541323884,
+    "area_m2": 309.43181541323884,
+    "delta": [
+      841.3258451161009,
+      1364.0226242479903
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w496729374",
+    "source_area_m2": 331.4795315198894,
+    "area_m2": 331.4795315198894,
+    "delta": [
+      955.5794215468778,
+      1718.753454051407
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w12403536",
+    "source_area_m2": 4748.86796322199,
+    "area_m2": 4748.86796322199,
+    "delta": [
+      789.7165578576455,
+      1854.4169155239754
+    ],
+    "height_m": 3.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w243447549",
+    "source_area_m2": 13964.449154189011,
+    "area_m2": 13964.449154189011,
+    "delta": [
+      1669.7707330327273,
+      1482.8499252686852
+    ],
+    "height_m": 12.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w515327993",
+    "source_area_m2": 17.326973478749448,
+    "area_m2": 17.326973478749448,
+    "delta": [
+      1166.4061123261101,
+      832.0914883324546
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w796340076",
+    "source_area_m2": 37.17143134079643,
+    "area_m2": 37.17143134079643,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340077",
+    "source_area_m2": 37.29822379826573,
+    "area_m2": 37.29822379826573,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340078",
+    "source_area_m2": 37.99530363733817,
+    "area_m2": 37.99530363733817,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340079",
+    "source_area_m2": 37.83690172936512,
+    "area_m2": 37.83690172936512,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340080",
+    "source_area_m2": 37.9444287966946,
+    "area_m2": 37.9444287966946,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340081",
+    "source_area_m2": 37.39330736513873,
+    "area_m2": 37.39330736513873,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340082",
+    "source_area_m2": 41.85732092054025,
+    "area_m2": 41.85732092054025,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340083",
+    "source_area_m2": 37.55152188300202,
+    "area_m2": 37.55152188300202,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340084",
+    "source_area_m2": 37.48079330920156,
+    "area_m2": 37.48079330920156,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340085",
+    "source_area_m2": 37.78159705581643,
+    "area_m2": 37.78159705581643,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340086",
+    "source_area_m2": 38.2116518181974,
+    "area_m2": 38.2116518181974,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340087",
+    "source_area_m2": 980.8992943321163,
+    "area_m2": 980.8992943321163,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 9.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340088",
+    "source_area_m2": 42.622822083309956,
+    "area_m2": 42.622822083309956,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340089",
+    "source_area_m2": 37.27011712978041,
+    "area_m2": 37.27011712978041,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340090",
+    "source_area_m2": 37.92520400576185,
+    "area_m2": 37.92520400576185,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340091",
+    "source_area_m2": 37.392917694416006,
+    "area_m2": 37.392917694416006,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340092",
+    "source_area_m2": 36.94328723029058,
+    "area_m2": 36.94328723029058,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340093",
+    "source_area_m2": 37.75161318512034,
+    "area_m2": 37.75161318512034,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340094",
+    "source_area_m2": 37.48654809308163,
+    "area_m2": 37.48654809308163,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340095",
+    "source_area_m2": 38.121735956873565,
+    "area_m2": 38.121735956873565,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340096",
+    "source_area_m2": 37.491103843937715,
+    "area_m2": 37.491103843937715,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340097",
+    "source_area_m2": 37.758030751127386,
+    "area_m2": 37.758030751127386,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340098",
+    "source_area_m2": 37.024757796266876,
+    "area_m2": 37.024757796266876,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340099",
+    "source_area_m2": 37.73866983903603,
+    "area_m2": 37.73866983903603,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340100",
+    "source_area_m2": 38.197652217053864,
+    "area_m2": 38.197652217053864,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340101",
+    "source_area_m2": 37.42321533889893,
+    "area_m2": 37.42321533889893,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340102",
+    "source_area_m2": 37.6077146909047,
+    "area_m2": 37.6077146909047,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340103",
+    "source_area_m2": 37.61290862877579,
+    "area_m2": 37.61290862877579,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340104",
+    "source_area_m2": 41.58868752166779,
+    "area_m2": 41.58868752166779,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340105",
+    "source_area_m2": 37.51522703223829,
+    "area_m2": 37.51522703223829,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340108",
+    "source_area_m2": 37.56974769322371,
+    "area_m2": 37.56974769322371,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340109",
+    "source_area_m2": 37.52967768743839,
+    "area_m2": 37.52967768743839,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340110",
+    "source_area_m2": 37.70571925354329,
+    "area_m2": 37.70571925354329,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340111",
+    "source_area_m2": 37.381983449577596,
+    "area_m2": 37.381983449577596,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340112",
+    "source_area_m2": 37.3850676582195,
+    "area_m2": 37.3850676582195,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340113",
+    "source_area_m2": 37.60754870360094,
+    "area_m2": 37.60754870360094,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340114",
+    "source_area_m2": 37.47518637299205,
+    "area_m2": 37.47518637299205,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340115",
+    "source_area_m2": 37.76018882669962,
+    "area_m2": 37.76018882669962,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340116",
+    "source_area_m2": 37.2221508754908,
+    "area_m2": 37.2221508754908,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340117",
+    "source_area_m2": 41.285974907759915,
+    "area_m2": 41.285974907759915,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w796340118",
+    "source_area_m2": 37.62916285751674,
+    "area_m2": 37.62916285751674,
+    "delta": [
+      -1699.0650006831738,
+      1329.1257111646296
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w554720470",
+    "source_area_m2": 9686.319744299806,
+    "area_m2": 9686.319744299806,
+    "delta": [
+      1337.9892453923435,
+      2010.5844104979953
+    ],
+    "height_m": 14.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w142736208",
+    "source_area_m2": 68146.54920490843,
+    "area_m2": 68146.54920490844,
+    "delta": [
+      957.583803216144,
+      3031.5747124948184
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23455760",
+    "source_area_m2": 3569.288696173705,
+    "area_m2": 3569.288696173705,
+    "delta": [
+      -1169.803526081988,
+      1410.8580039954354
+    ],
+    "height_m": 12.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w135630267",
+    "source_area_m2": 5945.246199352165,
+    "area_m2": 5945.246199352165,
+    "delta": [
+      1288.379100565733,
+      1265.1385941911333
+    ],
+    "height_m": 13.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w625039852",
+    "source_area_m2": 171.42251489522843,
+    "area_m2": 171.42251489522843,
+    "delta": [
+      1288.379100565733,
+      1265.1385941911333
+    ],
+    "height_m": 51.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w135630265",
+    "source_area_m2": 983.1388433977112,
+    "area_m2": 983.1388433977112,
+    "delta": [
+      1288.379100565733,
+      1265.1385941911333
+    ],
+    "height_m": 13.0,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w624143436",
+    "source_area_m2": 161.9406357239378,
+    "area_m2": 161.9406357239378,
+    "delta": [
+      1288.379100565733,
+      1265.1385941911333
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w23377876",
+    "source_area_m2": 1444.6925068683292,
+    "area_m2": 1444.6925068683292,
+    "delta": [
+      1375.3497661874303,
+      1084.2302500924063
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w5007139",
+    "source_area_m2": 8058.109064226126,
+    "area_m2": 8058.109064226126,
+    "delta": [
+      1375.3497661874303,
+      1084.2302500924063
+    ],
+    "height_m": 6.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w183237709",
+    "source_area_m2": 1806.698140852477,
+    "area_m2": 1806.698140852477,
+    "delta": [
+      1375.3497661874303,
+      1084.2302500924063
+    ],
+    "height_m": 15.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w10153012",
+    "source_area_m2": 5521.933184453235,
+    "area_m2": 5521.933184453235,
+    "delta": [
+      980.7412935800855,
+      1958.0547671724053
+    ],
+    "height_m": 15.15,
+    "height_source": "OSM height"
+  },
+  {
+    "id": "w515256276",
+    "source_area_m2": 10653.464127765657,
+    "area_m2": 10653.464127765657,
+    "delta": [
+      980.7412935800855,
+      1958.0547671724053
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w409877331",
+    "source_area_m2": 890.7682986515057,
+    "area_m2": 890.7682986515057,
+    "delta": [
+      980.7412935800855,
+      1958.0547671724053
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "r11174923",
+    "source_area_m2": 5664.568701859339,
+    "area_m2": 5664.568701859339,
+    "delta": [
+      1175.2025110124964,
+      1896.0748057683545
+    ],
+    "height_m": 15.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w513696236",
+    "source_area_m2": 2360.7447971540028,
+    "area_m2": 2360.7447971540028,
+    "delta": [
+      1175.2025110124964,
+      1896.0748057683545
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w416210407",
+    "source_area_m2": 1068.603320061964,
+    "area_m2": 1068.603320061964,
+    "delta": [
+      1175.2025110124964,
+      1896.0748057683545
+    ],
+    "height_m": 30.0,
+    "height_source": "Estimate from OSM levels; not verified metres"
+  },
+  {
+    "id": "w416210393",
+    "source_area_m2": 713.7346721117465,
+    "area_m2": 713.7346721117465,
+    "delta": [
+      1175.2025110124964,
+      1896.0748057683545
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w416210411",
+    "source_area_m2": 1045.8163528137002,
+    "area_m2": 1045.8163528137002,
+    "delta": [
+      1175.2025110124964,
+      1896.0748057683545
+    ],
+    "height_m": 9.0,
+    "height_source": "Preview only; height not documented"
+  },
+  {
+    "id": "w491841988",
+    "source_area_m2": 79.4619459284749,
+    "area_m2": 79.4619459284749,
+    "delta": [
+      -4244.8259057843825,
+      14561.884742672553
+    ],
+    "height_m": 6,
+    "height_source": "Preview only; height not documented"
+  }
+]

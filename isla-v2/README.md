@@ -13,13 +13,13 @@
 
 ## Qué cambia
 
-La revisión selecciona 440 de 4120 manzanas detectadas. La envolvente urbana de València es 6,75km², un 24,9 % mayor que el borrador anterior, recuperando bloques y profundidad occidental sin agrandar edificios. Mercavalència y cinco núcleos de l’Horta Sud forman la transición a huerta y marjal. Chelva pasa al interior, con Benagéber y 20 tramos secundarios/de montaña (31,7 km). Las playas están sobre la orilla. El aeropuerto recupera terminales y rodajes OSM, llanura y accesos V-11/N-220/A-3. [Control espacial](data/revision-review.json), [interior](data/interior-review.json) y [playas](data/beach-review.json).
+Valencia se recompone con **231 manzanas OSM y 100 elementos arquitectónicos a tamaño real en planta**, agrupadas y trasladadas junto con sus edificios y calles interiores. No se estiran ni se achatan; se eliminan otras manzanas y se reconstruyen las uniones por el terreno libre. La capa **Ajustes → Manzanas conservadas · escala 1:1** permite consultar la superficie original y final de cada bloque.
 
-Se retiran manzanas completas y edificios repetidos; se trasladan edificios seleccionados sin reducir sus huellas. Las curvas y cruces de la red urbana se recomponen conjuntamente con un campo continuo. Las autovías se reconstruyen desde corredores OSM continuos, contrayendo preferentemente sus rectas; se incorpora el nuevo cauce con la V-30 a ambos lados. Se ha eliminado el cierre en cuadrícula que aparecía en el primer borrador V02. El aeropuerto tiene pista de 2,20 km. Puerto, antiguo F1, laguna y relieve son interpretaciones compactadas.
+Las avenidas y anillos se fijan antes de colocar las piezas; Cid, Blasco Ibáñez y las rondas mantienen la geometría de sus trazados OSM acortados. [Tabla de medidas de los 100 elementos](ESCALA-EDIFICIOS.csv) y [comparación viaria](previews/avenidas-anillos-comparacion.png). Las alturas sin dato son aproximaciones explícitas de vista previa.
 
-**Limitaciones concretas:** no es un nivel jugable todavía. Faltan revisión de intersecciones/rasantes, conexión viaria navegable de cada acceso, fidelidad detallada del circuito histórico, ajuste del tejido urbano y validación con residentes. Metro/tranvía son servicios del juego inspirados en corredores reales; C-I1/C-I2 son inventados. No usar como información de transporte real.
+La revisión elimina la deformación elástica y la recolocación individual de edificios. Conserva aeropuerto, costa, puerto, universidades, pueblos, paisajes, metro y Cercanías. Los resultados exactos de conservación de geometrías y continuidad viaria están en [blocks-audit.json](data/blocks-audit.json), [network-review.json](data/network-review.json) y [la memoria actual](PROPUESTA-Y-AUDITORIA.md).
 
-La última revisión acerca València 300 m al mar, baja Chelva 200 m y la desplaza 100 m hacia el interior occidental. La CV-35 conecta directamente con el noroeste urbano; el nuevo cauce se aproxima hasta 450 m al borde sur de la ciudad, manteniendo sus extremos.
+**Limitaciones concretas:** prototipo cartográfico, todavía no nivel jugable. Quedan carriles, prioridades y cruces a distinto nivel, rasantes, ajuste fino del Turia y espacios entre conjuntos, fidelidad del antiguo F1 y validación con residentes. La conectividad medida es plana; no implica que cada giro sea practicable. Metro/tranvía son servicios de juego; Cercanías es ficticio.
 
 ## Coordenadas y terreno
 
@@ -31,8 +31,10 @@ Python3 con `osmium`, `shapely`, `pyproj`, `numpy`, `scipy`, `matplotlib` y `Pil
 
 1. Obtener el extracto de Geofabrik de Comunitat Valenciana. La instantánea utilizada es2026-10-25T21:21:21Z; un extracto posterior puede cambiar resultados. Revisar `data/provenance.json`.
 2. Ejecutar `python source/extract.py --pbf /ruta/valencia-region.osm.pbf` y `python source/extract_corridors.py --pbf /ruta/valencia-region.osm.pbf` y `python source/extract_benageber.py --pbf /ruta/valencia-region.osm.pbf`.
+La selección inicial de bloques y las reservas espaciales se versionan en `data/block-selection-source.geojson` y `data/city-constraints.geojson`. No se recalculan leyendo la salida de la ejecución anterior.
+
 3. Ejecutar `OPENBLAS_NUM_THREADS=1 python source/build_model.py` y después `OPENBLAS_NUM_THREADS=1 python source/enhance_model.py`.
-4. Ejecutar `python source/audit.py`, `python source/revision_audit.py`, `python source/road_review.py`, `python source/plot_corridors.py`, `python source/preview.py`, `python source/build_html.py`.
+4. Ejecutar `python source/audit.py`, `python source/revision_audit.py`, `python source/road_review.py`, `python source/blocks_audit.py`, `python source/architecture_audit.py`, `python source/plot_corridors.py`, `python source/preview.py`, `python source/build_html.py`.
 5. Servir esta carpeta por HTTP local para comprobarla en navegador. `source/qa.cjs` documenta las pruebas hechas en este entorno (requiere adaptar rutas de Chromium/Playwright si se ejecuta en otro equipo).
 
 Los datos brutos de 89 MB y el PBF de 135 MB se excluyen de Git; las selecciones compactadas sí se entregan. `source/viewer.html` es la plantilla actual; no regenerarla desde la plantilla obsoleta V1.
