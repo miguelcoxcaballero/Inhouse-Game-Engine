@@ -3,10 +3,16 @@
   "payload_sha256": "fc04a2fbaed3d2a3841d437f20334479fb1dd5a4061f2d3081c0c141b8760a42",
   "editor_version": 1,
   "coordinate_system": "LOCAL_METRES_FICTIONAL",
-  "html_sha256": "a200c477eba071aad0f2a686780f04704bca09060f3b6c03b6af775a99304e99",
-  "html_bytes": 15842315,
+  "html_sha256": "1746102388c64954d907712d4dfda3f55855768712dbf4b74df511f5eb10dd51",
+  "html_bytes": 15842372,
   "viewer_bytes": 15802365,
   "features": 71748,
-  "zip_sha256": "2ba656ec4812a49a48208a98fd6739014f54e042578d272763f5ee0c5e14f93c",
-  "zip_bytes": 11447243
+  "zip_sha256": "b7a86733918e4e64013016f48093ccb8964daa0af1b413321792944af720f2ca",
+  "zip_bytes": 11447302,
+  "editor_city_bounds_m": [
+    -2466.5938310030997,
+    -2437.561397590095,
+    4728.046856001369,
+    5532.752500103787
+  ]
 }

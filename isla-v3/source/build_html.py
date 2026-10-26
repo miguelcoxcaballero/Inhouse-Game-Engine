@@ -41,6 +41,9 @@ digest=hashlib.sha256(encoded.encode()).hexdigest();meta={'base_id':'isla-levant
 editor=s.replace('<title>Isla Levante · V03 · 100 km²</title>','<title>Levante · Editor · 100 km²</title>').replace('function showPlace(l,fly=true){if(!ready)return;','function showPlace(l,fly=true){if(!ready||window.levanteEditorActive)return;')
 editor=editor.replace('</head>','<style>'+(OLD/'source/editor.css').read_text()+'</style></head>')
 js=(OLD/'source/editor.js').read_text().replace('__EDITOR_META__',json.dumps(meta))
+city_shapes=[shape(f['geometry']) for f in json.load(open(D/'isla-metros.geojson'))['features'] if f['properties']['kind']=='building' and f['properties'].get('city')]
+city_bounds=[min(g.bounds[0] for g in city_shapes)-100,min(g.bounds[1] for g in city_shapes)-100,max(g.bounds[2] for g in city_shapes)+100,max(g.bounds[3] for g in city_shapes)+100]
+js=js.replace('toMap([-100,-750]),toMap([2850,2380])','toMap('+json.dumps(city_bounds[:2])+'),toMap('+json.dumps(city_bounds[2:])+')')
 js=js.replace('window.levanteEditorReady=true;',"status('Cargando las huellas de los edificios…');map.once('idle',()=>{window.levanteEditorReady=true;status('Mapa listo. Selecciona edificios o dibuja tus propuestas.');});")
 editor=editor.replace('</body>',(OLD/'source/editor.html').read_text()+'<script>'+js.replace('</script','<\\/script')+'</script></body>')
 (P/'isla-levante-editor-100.html').write_text(editor)
@@ -48,4 +51,5 @@ manifest={**meta,'html_sha256':hashlib.sha256(editor.encode()).hexdigest(),'html
 with zipfile.ZipFile(P.parent/'levante-editor-100km2.zip','w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  z.writestr('Levante-editor-100km2.html',editor)
  z.writestr('LEEME.txt','Abre Levante-editor-100km2.html en Chrome, Edge o Firefox. Todos los datos están incluidos.\nSelecciona y arrastra edificios; Shift+clic añade a la selección. Dibuja propuestas y exporta el JSON para adjuntarlo en el chat.\nMalla y avenidas: activa las relaciones y pulsa un edificio para ver la comparación con OSM.\nLos JSON del editor de 49 km² tienen otra base: consérvalos para una migración explícita; no se aplican automáticamente a este mapa.\n© OpenStreetMap contributors · ODbL. Relieve sintético. Prototipo en revisión.\n')
+archive=P.parent/'levante-editor-100km2.zip';manifest.update({'zip_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'zip_bytes':archive.stat().st_size,'editor_city_bounds_m':city_bounds});(D/'editor-manifest.json').write_text(json.dumps(manifest,indent=2))
 print(json.dumps(manifest,indent=2))
