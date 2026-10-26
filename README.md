@@ -56,3 +56,7 @@ Los recuadros indican las áreas de detalle descargadas, no límites administrat
 ## Validación
 
 Comprobados el cambio entre las cuatro zonas, la búsqueda, las capas, el enfoque de Cofrentes y la vista móvil. La prueba del navegador no registró errores ni solicitudes a servicios externos de mapas.
+
+## Motor Forja (Rust)
+
+La carpeta [`engine/`](engine/) contiene el motor de juego en Rust: física modular, render wgpu (DX12 en Windows) con GTAO, TAA, PCSS y SSR, animación con captura de movimiento CMU, personajes Rocketbox, ciudad procedural de Madrid y Valencia (`forja_city`) y el sistema de monumentos reales de València (`engine/data/landmarks/valencia/`: lista de los 100 edificios, huellas OSM, partes del Catastro y modelos `landmark.toml`). Los recursos descargados (texturas, HDRI, mocap, fotos) no se suben; se obtienen con `cargo run -p forja_fetch`. Ver [`engine/PLAN.md`](engine/PLAN.md).

@@ -1,0 +1,1201 @@
+# Test content for the sandbox, fetched with `cargo run -p forja_fetch -- fetch --all`.
+#
+# Every entry is openly licensed. CC0 needs no attribution; CC-BY and ODbL
+# entries are listed in the generated assets/downloaded/ATTRIBUTION.md, which
+# must ship with any build that includes them.
+#
+# Source kinds (exactly one per entry):
+#   zip        = archive URL; `include` keeps paths with these prefixes and
+#                `strip` removes a prefix when extracting. `page` is scraped for
+#                a fresh link if the archive URL ever changes (Kenney).
+#   files      = list of { url, path } single files.
+#   polyhaven  = { id, res, format } through the Poly Haven API
+#                (format: gltf model, hdr sky, texture = diffuse + normal + ARM).
+#   ambientcg  = { id, res } PBR material zip from ambientCG (CC0).
+#   osm        = { bbox = [min_lon, min_lat, max_lon, max_lat] } real map data.
+#   terrarium  = { z, x, y, tiles } elevation tiles (tiles x tiles grid).
+#   manual     = { url, note } the user downloads it; `forja_fetch import`.
+#
+# SHA-256 hashes are pinned in assets.lock.toml on first download and
+# verified afterwards.
+
+# --------------------------------------------------------------------- maps
+
+[[asset]]
+id = "map_miami_beach_osm"
+name = "Miami Beach (South Beach) from OpenStreetMap"
+kind = "map"
+license = "ODbL-1.0"
+author = "OpenStreetMap contributors"
+homepage = "https://www.openstreetmap.org/copyright"
+osm = { bbox = [-80.1400, 25.7740, -80.1290, 25.7880] }
+
+[[asset]]
+id = "map_hollywood_hills_terrain"
+name = "Hollywood Hills elevation (2x2 tiles, ~16 km)"
+kind = "terrain"
+license = "Terrain Tiles (SRTM/USGS, attribution)"
+author = "Mapzen / Tilezen joerd (SRTM, USGS NED, ETOPO1)"
+homepage = "https://github.com/tilezen/joerd/blob/master/docs/attribution.md"
+terrarium = { z = 12, x = 701, y = 1634, tiles = 2 }
+
+[[asset]]
+id = "kenney_city_roads"
+name = "Kenney City Kit: Roads"
+kind = "map"
+license = "CC0-1.0"
+author = "Kenney"
+homepage = "https://kenney.nl/assets/city-kit-roads"
+page = "https://kenney.nl/assets/city-kit-roads"
+zip = "https://kenney.nl/media/pages/assets/city-kit-roads/74288c9459-1791628607/kenney_city-kit-roads.zip"
+include = ["Models/GLB format/", "License.txt"]
+strip = "Models/GLB format/"
+
+[[asset]]
+id = "kenney_city_commercial"
+name = "Kenney City Kit: Commercial"
+kind = "map"
+license = "CC0-1.0"
+author = "Kenney"
+homepage = "https://kenney.nl/assets/city-kit-commercial"
+page = "https://kenney.nl/assets/city-kit-commercial"
+zip = "https://kenney.nl/media/pages/assets/city-kit-commercial/a742d900eb-1753115042/kenney_city-kit-commercial_2.1.zip"
+include = ["Models/GLB format/", "License.txt"]
+strip = "Models/GLB format/"
+
+[[asset]]
+id = "kenney_city_suburban"
+name = "Kenney City Kit: Suburban"
+kind = "map"
+license = "CC0-1.0"
+author = "Kenney"
+homepage = "https://kenney.nl/assets/city-kit-suburban"
+page = "https://kenney.nl/assets/city-kit-suburban"
+zip = "https://kenney.nl/media/pages/assets/city-kit-suburban/2c871b7af2-1745479373/kenney_city-kit-suburban_20.zip"
+include = ["Models/GLB format/", "License.txt"]
+strip = "Models/GLB format/"
+
+[[asset]]
+id = "kenney_city_industrial"
+name = "Kenney City Kit: Industrial"
+kind = "map"
+license = "CC0-1.0"
+author = "Kenney"
+homepage = "https://kenney.nl/assets/city-kit-industrial"
+page = "https://kenney.nl/assets/city-kit-industrial"
+zip = "https://kenney.nl/media/pages/assets/city-kit-industrial/0ec35b139d-1788171848/kenney_city-kit-industrial_2.0.zip"
+include = ["Models/GLB format/", "License.txt"]
+strip = "Models/GLB format/"
+
+# ----------------------------------------------------------------- vehicles
+
+[[asset]]
+id = "kenney_car_kit"
+name = "Kenney Car Kit (sedans, SUVs, police, taxi, trucks, wheels, debris)"
+kind = "vehicle"
+license = "CC0-1.0"
+author = "Kenney"
+homepage = "https://kenney.nl/assets/car-kit"
+page = "https://kenney.nl/assets/car-kit"
+zip = "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip"
+include = ["Models/GLB format/", "License.txt"]
+strip = "Models/GLB format/"
+
+[[asset]]
+id = "oga_fancy_motorcycle"
+name = "Fancy motorcycle (OBJ)"
+kind = "vehicle"
+license = "CC0-1.0"
+author = "OpenGameArt user (fancy-motorcycle)"
+homepage = "https://opengameart.org/content/fancy-motorcycle"
+files = [
+    { url = "https://opengameart.org/sites/default/files/bike.obj", path = "bike.obj" },
+    { url = "https://opengameart.org/sites/default/files/biken.png", path = "bike.png" },
+]
+
+[[asset]]
+id = "polyhaven_covered_car"
+name = "Covered car (photoscanned prop)"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/covered_car"
+polyhaven = { id = "covered_car", res = "1k", format = "gltf" }
+
+# ------------------------------------------------------------------ weapons
+
+[[asset]]
+id = "polyhaven_service_pistol"
+name = "Service pistol"
+kind = "weapon"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/service_pistol"
+polyhaven = { id = "service_pistol", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_bolt_action_rifle"
+name = "Bolt action rifle 7.62"
+kind = "weapon"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/bolt_action_rifle_7_62"
+polyhaven = { id = "bolt_action_rifle_7_62", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "kenney_blaster_kit"
+name = "Kenney Blaster Kit (stylised guns, scopes, ammo)"
+kind = "weapon"
+license = "CC0-1.0"
+author = "Kenney"
+homepage = "https://kenney.nl/assets/blaster-kit"
+page = "https://kenney.nl/assets/blaster-kit"
+zip = "https://kenney.nl/media/pages/assets/blaster-kit/261d80a716-1753959510/kenney_blaster-kit_2.1.zip"
+include = ["Models/GLB format/", "License.txt"]
+strip = "Models/GLB format/"
+
+# --------------------------------------------------- characters & animation
+
+[[asset]]
+id = "cmu_mocap"
+name = "CMU motion capture (BVH, cgspeed conversion): walk, run, idle, jump, talk, wait, draw gun, shoot, punch"
+kind = "animation"
+license = "CMU Graphics Lab Motion Capture Database: free for all uses (please credit mocap.cs.cmu.edu, NSF EIA-0196217)"
+author = "Carnegie Mellon University Graphics Lab; BVH conversion by Bruce Hahne (cgspeed)"
+homepage = "https://github.com/Shriinivas/cmubvh"
+files = [
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-001-009/07/Data/07_01.zip", path = "walk.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-001-009/09/Data/09_01.zip", path = "run.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-136-140/140/Data/140_07.zip", path = "idle.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-102-111/111/Data/111_28.zip", path = "idle_stand.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-015-019/16/Data/16_05.zip", path = "jump.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-015-019/18/Data/18_08.zip", path = "talk.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-040-045/40/Data/40_10.zip", path = "wait.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-136-140/139/Data/139_05.zip", path = "draw_gun.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-076-080/80/Data/80_03.zip", path = "shoot.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-001-009/02/Data/02_05.zip", path = "punch.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-001-009/08/Data/08_01.zip", path = "walk_casual.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-035-039/35/Data/35_01.zip", path = "walk_natural.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-001-009/07/Data/07_04.zip", path = "walk_slow.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-015-019/16/Data/16_15.zip", path = "walk_alt.bvh" },
+    { url = "https://raw.githubusercontent.com/Shriinivas/cmubvh/main/Sequence-081-085/82/Data/82_08.zip", path = "idle_natural.bvh" },
+]
+
+[[asset]]
+id = "quaternius_robot_expressive"
+name = "Robot Expressive: humanoid with 14 clips (idle, walk, run, jump, punch, death, ...)"
+kind = "animation"
+license = "CC0-1.0"
+author = "Tomás Laulhé (Quaternius), glTF by Don McCurdy"
+homepage = "https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive"
+files = [
+    { url = "https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/models/gltf/RobotExpressive/RobotExpressive.glb", path = "RobotExpressive.glb" },
+]
+
+[[asset]]
+id = "kenney_blocky_characters"
+name = "Kenney Blocky Characters: 18 rigged characters with animations"
+kind = "animation"
+license = "CC0-1.0"
+author = "Kenney"
+homepage = "https://kenney.nl/assets/blocky-characters"
+page = "https://kenney.nl/assets/blocky-characters"
+zip = "https://kenney.nl/media/pages/assets/blocky-characters/8369c0cf30-1749547469/kenney_blocky-characters_20.zip"
+include = ["Models/GLB format/", "License.txt"]
+strip = "Models/GLB format/"
+
+[[asset]]
+id = "khronos_fox"
+name = "Fox: quadruped with survey, walk and run clips"
+kind = "animation"
+license = "CC-BY-4.0 (rig and animation), CC0 (model)"
+author = "PixelMannen (model), tomkranis (rig, animation), @AsoboStudio and @scurest (glTF)"
+homepage = "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Fox"
+files = [
+    { url = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Fox/glTF-Binary/Fox.glb", path = "Fox.glb" },
+]
+
+[[asset]]
+id = "quaternius_universal_animation_library"
+name = "Quaternius Universal Animation Library (120+ humanoid clips)"
+kind = "animation"
+license = "CC0-1.0"
+author = "Quaternius"
+homepage = "https://quaternius.com/packs/universalanimationlibrary.html"
+manual = { url = "https://quaternius.itch.io/universal-animation-library", note = "itch.io only serves it through a browser. Download the glTF zip, then run: cargo run -p forja_fetch -- import quaternius_universal_animation_library <file.zip>" }
+
+# ---------------------------------------------------------------- lighting
+
+[[asset]]
+id = "polyhaven_sky_kloofendal"
+name = "Kloofendal partly cloudy pure sky (HDRI)"
+kind = "sky"
+license = "CC0-1.0"
+author = "Poly Haven (Greg Zaal)"
+homepage = "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky"
+polyhaven = { id = "kloofendal_48d_partly_cloudy_puresky", res = "2k", format = "hdr" }
+
+# ------------------------------------------------- photoreal PBR materials
+# Scanned CC0 materials used by the procedural worlds (roads, sidewalks,
+# facades, terrain). Each lands in its own folder; forja_assets::load_pbr_set
+# finds the color / normal / roughness / AO / metal maps by name.
+
+[[asset]]
+id = "pbr_asphalt"
+name = "Asphalt 02 (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/asphalt_02"
+polyhaven = { id = "asphalt_02", res = "2k", format = "texture" }
+
+[[asset]]
+id = "pbr_sidewalk"
+name = "Concrete pavement (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/concrete_pavement"
+polyhaven = { id = "concrete_pavement", res = "2k", format = "texture" }
+
+[[asset]]
+id = "pbr_sand"
+name = "Coast sand 01 (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/coast_sand_01"
+polyhaven = { id = "coast_sand_01", res = "2k", format = "texture" }
+
+[[asset]]
+id = "pbr_grass"
+name = "Aerial grass and rock (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/aerial_grass_rock"
+polyhaven = { id = "aerial_grass_rock", res = "2k", format = "texture" }
+
+[[asset]]
+id = "pbr_rock"
+name = "Aerial rocks 02 (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/aerial_rocks_02"
+polyhaven = { id = "aerial_rocks_02", res = "2k", format = "texture" }
+
+[[asset]]
+id = "pbr_roof"
+name = "Concrete tile facade used as flat roofs (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/concrete_tile_facade"
+polyhaven = { id = "concrete_tile_facade", res = "2k", format = "texture" }
+
+[[asset]]
+id = "pbr_facade_brick"
+name = "Facade 018A: brick with windows (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "ambientCG (Lennart Demes)"
+homepage = "https://ambientcg.com/view?id=Facade018A"
+ambientcg = { id = "Facade018A", res = "2K-JPG" }
+
+[[asset]]
+id = "pbr_facade_stone"
+name = "Facade 019A: stone office (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "ambientCG (Lennart Demes)"
+homepage = "https://ambientcg.com/view?id=Facade019A"
+ambientcg = { id = "Facade019A", res = "2K-JPG" }
+
+[[asset]]
+id = "pbr_facade_classic"
+name = "Facade 020A: classic apartments (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "ambientCG (Lennart Demes)"
+homepage = "https://ambientcg.com/view?id=Facade020A"
+ambientcg = { id = "Facade020A", res = "2K-JPG" }
+
+[[asset]]
+id = "pbr_facade_office"
+name = "Facade 006: white office grid (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "ambientCG (Lennart Demes)"
+homepage = "https://ambientcg.com/view?id=Facade006"
+ambientcg = { id = "Facade006", res = "2K-JPG" }
+
+[[asset]]
+id = "pbr_facade_glass"
+name = "Facade 001: glass tower (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "ambientCG (Lennart Demes)"
+homepage = "https://ambientcg.com/view?id=Facade001"
+ambientcg = { id = "Facade001", res = "2K-JPG" }
+
+# ------------------------------------------- Spanish architecture kit
+# Materials for the procedural Valencia / Madrid buildings and streets.
+
+[[asset]]
+id = "arch_stucco"
+name = "White stucco, tinted per building (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/white_stucco_02"
+polyhaven = { id = "white_stucco_02", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_plaster_ochre"
+name = "Painted lime plaster, tinted ochre (Madrid) (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/painted_plaster_wall"
+polyhaven = { id = "painted_plaster_wall", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_brick_red"
+name = "Red brick, Madrid neo-mudéjar (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/red_brick_03"
+polyhaven = { id = "red_brick_03", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_ashlar"
+name = "White sandstone ashlar for plinths and quoins (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/white_sandstone_bricks_03"
+polyhaven = { id = "white_sandstone_bricks_03", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_moulding"
+name = "Smooth limestone plaster for mouldings and surrounds (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/white_plaster_02"
+polyhaven = { id = "white_plaster_02", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_granite"
+name = "Granite for plinths and steps (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/granite_tile_03"
+polyhaven = { id = "granite_tile_03", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_roof_clay"
+name = "Clay roof tiles, Valencian teja árabe (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/clay_roof_tiles_02"
+polyhaven = { id = "clay_roof_tiles_02", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_roof_slate"
+name = "Slate roof tiles, Madrid mansards (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/roof_slates_03"
+polyhaven = { id = "roof_slates_03", res = "2k", format = "texture" }
+
+[[asset]]
+id = "arch_wood_shutter"
+name = "Wooden louvred shutters (1K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/wood_shutter"
+polyhaven = { id = "wood_shutter", res = "1k", format = "texture" }
+
+[[asset]]
+id = "arch_metal_shutter"
+name = "Painted metal roller shutter for shops (1K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/painted_metal_shutter"
+polyhaven = { id = "painted_metal_shutter", res = "1k", format = "texture" }
+
+[[asset]]
+id = "street_sidewalk_hex"
+name = "Hexagonal concrete paving, Valencia sidewalks (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/hexagonal_concrete_paving"
+polyhaven = { id = "hexagonal_concrete_paving", res = "2k", format = "texture" }
+
+[[asset]]
+id = "street_sidewalk_tiles"
+name = "Grey granite slabs, Madrid sidewalks (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/granite_tile_04"
+polyhaven = { id = "granite_tile_04", res = "2k", format = "texture" }
+
+[[asset]]
+id = "street_curb"
+name = "Granite curb stone (1K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/granite_tile"
+polyhaven = { id = "granite_tile", res = "1k", format = "texture" }
+
+[[asset]]
+id = "street_cobble"
+name = "Granite setts for plazas (2K PBR)"
+kind = "material"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/cobblestone_floor_08"
+polyhaven = { id = "cobblestone_floor_08", res = "2k", format = "texture" }
+
+# ------------------------------------------------------ photoreal skies
+
+[[asset]]
+id = "hdri_wide_street"
+name = "Wide street 01 (sunny city HDRI, unclipped sun)"
+kind = "sky"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/wide_street_01"
+polyhaven = { id = "wide_street_01", res = "2k", format = "hdr" }
+
+[[asset]]
+id = "hdri_pretville_street"
+name = "Pretville street (sunny suburb HDRI)"
+kind = "sky"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/pretville_street"
+polyhaven = { id = "pretville_street", res = "2k", format = "hdr" }
+
+# ------------------------------------------------- photoreal models
+
+[[asset]]
+id = "khronos_car_concept"
+name = "Car Concept: clearcoat paint, glass and tyre detail"
+kind = "vehicle"
+license = "CC-BY-4.0 (contains Khronos trademarks)"
+author = "Eric Chadwick / Darmstadt Graphics Group, from a CC0 model by Unity Fan"
+homepage = "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CarConcept"
+files = [
+    { url = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/glTF-Binary/CarConcept.glb", path = "CarConcept.glb" },
+]
+
+[[asset]]
+id = "polyhaven_island_tree"
+name = "Island tree 01 (scanned tropical tree)"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/island_tree_01"
+polyhaven = { id = "island_tree_01", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_fire_hydrant"
+name = "Fire hydrant"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/fire_hydrant"
+polyhaven = { id = "fire_hydrant", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_trash_can"
+name = "Metal trash can"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/metal_trash_can"
+polyhaven = { id = "metal_trash_can", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_road_barrier"
+name = "Concrete road barrier"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/concrete_road_barrier"
+polyhaven = { id = "concrete_road_barrier", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_street_bench"
+name = "Modular street seating"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/modular_street_seating"
+polyhaven = { id = "modular_street_seating", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_wooden_crate"
+name = "Wooden crate 02 (scanned)"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/wooden_crate_02"
+polyhaven = { id = "wooden_crate_02", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_weapon_case"
+name = "Wooden military crate (weapon pickups)"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/wooden_military_crate"
+polyhaven = { id = "wooden_military_crate", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "polyhaven_ammo_box"
+name = "Ammo box"
+kind = "prop"
+license = "CC0-1.0"
+author = "Poly Haven"
+homepage = "https://polyhaven.com/a/ammo_box"
+polyhaven = { id = "ammo_box", res = "1k", format = "gltf" }
+
+[[asset]]
+id = "makehuman_base"
+name = "MakeHuman base body, default skeleton (163 bones) and weights"
+kind = "character"
+license = "CC0-1.0"
+author = "Data Collection AB, Joel Palmius, Jonas Hauquier (MakeHuman)"
+homepage = "https://github.com/makehumancommunity/makehuman"
+files = [
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj", path = "base.obj" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/rigs/default.mhskel", path = "default.mhskel" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/rigs/default_weights.mhw", path = "default_weights.mhw" },
+]
+
+[[asset]]
+id = "makehuman_targets"
+name = "MakeHuman macro targets: gender, age, muscle, weight and ethnic shape for adults"
+kind = "character"
+license = "CC0-1.0"
+author = "Data Collection AB, Joel Palmius, Jonas Hauquier (MakeHuman)"
+homepage = "https://github.com/makehumancommunity/makehuman"
+files = [
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/african-female-young.target", path = "african-female-young.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/african-female-old.target", path = "african-female-old.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/african-male-young.target", path = "african-male-young.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/african-male-old.target", path = "african-male-old.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/asian-female-young.target", path = "asian-female-young.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/asian-female-old.target", path = "asian-female-old.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/asian-male-young.target", path = "asian-male-young.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/asian-male-old.target", path = "asian-male-old.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/caucasian-female-young.target", path = "caucasian-female-young.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/caucasian-female-old.target", path = "caucasian-female-old.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/caucasian-male-young.target", path = "caucasian-male-young.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/caucasian-male-old.target", path = "caucasian-male-old.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-minmuscle-minweight.target", path = "universal-female-young-minmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-minmuscle-averageweight.target", path = "universal-female-young-minmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-minmuscle-maxweight.target", path = "universal-female-young-minmuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-minweight.target", path = "universal-female-young-averagemuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target", path = "universal-female-young-averagemuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-maxweight.target", path = "universal-female-young-averagemuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-maxmuscle-minweight.target", path = "universal-female-young-maxmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-maxmuscle-averageweight.target", path = "universal-female-young-maxmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-young-maxmuscle-maxweight.target", path = "universal-female-young-maxmuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-minmuscle-minweight.target", path = "universal-female-old-minmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-minmuscle-averageweight.target", path = "universal-female-old-minmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-minmuscle-maxweight.target", path = "universal-female-old-minmuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-averagemuscle-minweight.target", path = "universal-female-old-averagemuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-averagemuscle-averageweight.target", path = "universal-female-old-averagemuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-averagemuscle-maxweight.target", path = "universal-female-old-averagemuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-maxmuscle-minweight.target", path = "universal-female-old-maxmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-maxmuscle-averageweight.target", path = "universal-female-old-maxmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-female-old-maxmuscle-maxweight.target", path = "universal-female-old-maxmuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-minweight.target", path = "universal-male-young-minmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-averageweight.target", path = "universal-male-young-minmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-maxweight.target", path = "universal-male-young-minmuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-minweight.target", path = "universal-male-young-averagemuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target", path = "universal-male-young-averagemuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-maxweight.target", path = "universal-male-young-averagemuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-minweight.target", path = "universal-male-young-maxmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-averageweight.target", path = "universal-male-young-maxmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-maxweight.target", path = "universal-male-young-maxmuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-minmuscle-minweight.target", path = "universal-male-old-minmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-minmuscle-averageweight.target", path = "universal-male-old-minmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-minmuscle-maxweight.target", path = "universal-male-old-minmuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-averagemuscle-minweight.target", path = "universal-male-old-averagemuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-averagemuscle-averageweight.target", path = "universal-male-old-averagemuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-averagemuscle-maxweight.target", path = "universal-male-old-averagemuscle-maxweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-maxmuscle-minweight.target", path = "universal-male-old-maxmuscle-minweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-maxmuscle-averageweight.target", path = "universal-male-old-maxmuscle-averageweight.target" },
+    { url = "https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/targets/macrodetails/universal-male-old-maxmuscle-maxweight.target", path = "universal-male-old-maxmuscle-maxweight.target" },
+]
+
+[[asset]]
+id = "makehuman_assets"
+name = "MakeHuman CC0 system assets: skins, clothes, shoes, hair, eyes, brows"
+kind = "character"
+license = "CC0-1.0"
+author = "Data Collection AB, Joel Palmius, Jonas Hauquier (MakeHuman)"
+homepage = "https://static.makehumancommunity.org/assets/assetpacks.html"
+zip = "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip"
+include = [
+    "skins/young_caucasian_male/", "skins/young_caucasian_female/", "skins/young_african_male/", "skins/middleage_asian_female/",
+    "clothes/male_casualsuit04/", "clothes/male_casualsuit02/", "clothes/female_casualsuit01/", "clothes/male_worksuit01/",
+    "clothes/shoes01/", "clothes/shoes02/", "clothes/shoes06/",
+    "hair/short02/", "hair/short04/", "hair/bob02/", "hair/ponytail01/",
+    "eyebrows/eyebrow001/", "eyebrows/eyebrow010/", "eyelashes/eyelashes01/",
+    "eyes/high-poly/", "eyes/materials/",
+]
+
+# ------------------------------------------- photoreal assets (Sketchfab)
+# Scanned people and high-detail vehicles under CC-BY. Downloading needs your
+# own API token: SKETCHFAB_TOKEN=... cargo run -p forja_fetch -- fetch --all
+# The license is re-checked through the public API before each download and
+# the credit is written next to the files (CREDIT.txt, ATTRIBUTION.md).
+
+[[asset]]
+id = "sf_car_porsche_930"
+name = "FREE 1975 Porsche 911 (930) Turbo"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "Lionsharp Studios"
+homepage = "https://sketchfab.com/3d-models/8568d9d14a994b9cae59499f0dbed21e"
+sketchfab = { uid = "8568d9d14a994b9cae59499f0dbed21e" }
+
+[[asset]]
+id = "sf_car_bmw_e30"
+name = "[FREE] BMW M3 E30"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "TinoD2"
+homepage = "https://sketchfab.com/3d-models/ac3c7013434e403e8faff87948caf422"
+sketchfab = { uid = "ac3c7013434e403e8faff87948caf422" }
+
+[[asset]]
+id = "sf_car_porsche_rwb"
+name = "Porsche 911 RAUH-Welt [FREE]"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "autoNgraphic"
+homepage = "https://sketchfab.com/3d-models/0e1f5e1c0ddc4c3f88b8484461146a79"
+sketchfab = { uid = "0e1f5e1c0ddc4c3f88b8484461146a79" }
+
+[[asset]]
+id = "sf_car_volvo_pv654"
+name = "Volvo PV654 Sedan Free v2"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "robinmikart"
+homepage = "https://sketchfab.com/3d-models/65f8f21ef0824e62b9fe36d17ebd8b99"
+sketchfab = { uid = "65f8f21ef0824e62b9fe36d17ebd8b99" }
+
+[[asset]]
+id = "sf_car_crown_vic_taxi"
+name = "2001 Crown Victoria Taxi"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "haoliu95"
+homepage = "https://sketchfab.com/3d-models/2429a825ff1646568e8e6e1453f9c501"
+sketchfab = { uid = "2429a825ff1646568e8e6e1453f9c501" }
+
+[[asset]]
+id = "sf_car_ford_police"
+name = "Ford Police Car"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "Blend_GUY"
+homepage = "https://sketchfab.com/3d-models/7dad4c43b222404daead1b9797b8d472"
+sketchfab = { uid = "7dad4c43b222404daead1b9797b8d472" }
+
+[[asset]]
+id = "sf_car_vw_polo"
+name = "2016 Volkswagen Polo"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "BHP3D"
+homepage = "https://sketchfab.com/3d-models/bab77902c638427bb85e68b6762a481f"
+sketchfab = { uid = "bab77902c638427bb85e68b6762a481f" }
+
+[[asset]]
+id = "sf_car_ford_everest"
+name = "2018 Ford Everest"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "BHP3D"
+homepage = "https://sketchfab.com/3d-models/a6681649d203483c95239c4b73157697"
+sketchfab = { uid = "a6681649d203483c95239c4b73157697" }
+
+[[asset]]
+id = "sf_bike_yamaha_r1"
+name = "Yamaha R1"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "ejsnowy"
+homepage = "https://sketchfab.com/3d-models/7b3343ad0c0f4cbe94238c734e1b731a"
+sketchfab = { uid = "7b3343ad0c0f4cbe94238c734e1b731a" }
+
+[[asset]]
+id = "sf_bike_aprilia_rs660"
+name = "Aprilia RS660"
+kind = "vehicle"
+license = "CC-BY-4.0"
+author = "ejsnowy"
+homepage = "https://sketchfab.com/3d-models/a4f255b6d53e46769f72f995a68bbc25"
+sketchfab = { uid = "a4f255b6d53e46769f72f995a68bbc25" }
+
+[[asset]]
+id = "sf_human_eric"
+name = "Eric Rigged 001 - scanned business man (rigged)"
+kind = "character"
+license = "CC-BY-4.0"
+author = "Renderpeople"
+homepage = "https://sketchfab.com/3d-models/a46bc9f67aaa415bb4f3241eef900e7f"
+sketchfab = { uid = "a46bc9f67aaa415bb4f3241eef900e7f" }
+
+[[asset]]
+id = "sf_human_nathan"
+name = "Nathan Animated 003 - scanned walking man"
+kind = "character"
+license = "CC-BY-4.0"
+author = "Renderpeople"
+homepage = "https://sketchfab.com/3d-models/143a2b1ea5eb4385ae90a73657aca3bc"
+sketchfab = { uid = "143a2b1ea5eb4385ae90a73657aca3bc" }
+
+[[asset]]
+id = "sf_human_manuel"
+name = "Manuel Animated 001 - scanned man"
+kind = "character"
+license = "CC-BY-4.0"
+author = "Renderpeople"
+homepage = "https://sketchfab.com/3d-models/e65e0fef4e0743868c8d5bff36d61116"
+sketchfab = { uid = "e65e0fef4e0743868c8d5bff36d61116" }
+
+[[asset]]
+id = "sf_human_alina"
+name = "Alina Ip, realistic woman (animated)"
+kind = "character"
+license = "CC-BY-4.0"
+author = "jungle_jim"
+homepage = "https://sketchfab.com/3d-models/600d4d4aa71c4181b2567a3605ce8c57"
+sketchfab = { uid = "600d4d4aa71c4181b2567a3605ce8c57" }
+
+[[asset]]
+id = "sf_gun_glock19"
+name = "G19 Pistol, game ready"
+kind = "weapon"
+license = "CC-BY-4.0"
+author = "Rotuma"
+homepage = "https://sketchfab.com/3d-models/e3412d9803f04bdaa97ad9b68ed665d7"
+sketchfab = { uid = "e3412d9803f04bdaa97ad9b68ed665d7" }
+
+[[asset]]
+id = "sf_gun_colt1911"
+name = "Modified Colt 1911 Pistol"
+kind = "weapon"
+license = "CC-BY-4.0"
+author = "OptiCube"
+homepage = "https://sketchfab.com/3d-models/320a8c76e88140e5ad8681e421b2f3d8"
+sketchfab = { uid = "320a8c76e88140e5ad8681e421b2f3d8" }
+
+[[asset]]
+id = "sketchfab_models"
+name = "Photoreal characters/cars from Sketchfab (needs your token)"
+kind = "character"
+license = "per model (CC-BY or CC0, checked on download)"
+author = "Sketchfab creators"
+homepage = "https://sketchfab.com/search?features=downloadable&licenses=322a749bcfa841b29dff1e8a1bb74b0b&type=models"
+manual = { url = "https://sketchfab.com/settings/password", note = "Photoreal rigged humans are not available as CC0 direct downloads. Get an API token on Sketchfab (Settings > Password & API), then: SKETCHFAB_TOKEN=... cargo run -p forja_fetch -- sketchfab <model uid>. Mixamo characters can be imported from a downloaded zip with `forja_fetch import`." }
+
+# --------------------------------------------- Microsoft Rocketbox avatars (MIT)
+
+[[asset]]
+id = "rocketbox_male_adult_01"
+name = "Rocketbox avatar Male_Adult_01 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Export/Male_Adult_01.fbx", path = "Export/Male_Adult_01.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Export/Male_Adult_01_facial.fbx", path = "Export/Male_Adult_01_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Textures/m002_body_color.tga", path = "Textures/m002_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Textures/m002_body_normal.tga", path = "Textures/m002_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Textures/m002_body_specular.tga", path = "Textures/m002_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Textures/m002_head_color.tga", path = "Textures/m002_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Textures/m002_head_normal.tga", path = "Textures/m002_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Textures/m002_head_specular.tga", path = "Textures/m002_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_01/Textures/m002_opacity_color.tga", path = "Textures/m002_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_02"
+name = "Rocketbox avatar Male_Adult_02 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Export/Male_Adult_02.fbx", path = "Export/Male_Adult_02.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Export/Male_Adult_02_facial.fbx", path = "Export/Male_Adult_02_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_body_color.tga", path = "Textures/m003_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_body_normal.tga", path = "Textures/m003_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_body_specular.tga", path = "Textures/m003_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_head_color.tga", path = "Textures/m003_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_head_normal - wr.tga", path = "Textures/m003_head_normal - wr.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_head_normal.tga", path = "Textures/m003_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_head_specular.tga", path = "Textures/m003_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_02/Textures/m003_opacity_color.tga", path = "Textures/m003_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_06"
+name = "Rocketbox avatar Male_Adult_06 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Export/Male_Adult_06.fbx", path = "Export/Male_Adult_06.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Export/Male_Adult_06_facial.fbx", path = "Export/Male_Adult_06_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Textures/m011_body_color.tga", path = "Textures/m011_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Textures/m011_body_normal.tga", path = "Textures/m011_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Textures/m011_body_specular.tga", path = "Textures/m011_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Textures/m011_head_color.tga", path = "Textures/m011_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Textures/m011_head_normal.tga", path = "Textures/m011_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Textures/m011_head_specular.tga", path = "Textures/m011_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_06/Textures/m011_opacity_color.tga", path = "Textures/m011_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_08"
+name = "Rocketbox avatar Male_Adult_08 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Export/Male_Adult_08.fbx", path = "Export/Male_Adult_08.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Export/Male_Adult_08_facial.fbx", path = "Export/Male_Adult_08_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_color.tga", path = "Textures/m014_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_normal.tga", path = "Textures/m014_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_specular.tga", path = "Textures/m014_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_head_color.tga", path = "Textures/m014_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_head_normal.tga", path = "Textures/m014_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_head_specular.tga", path = "Textures/m014_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_opacity_color.tga", path = "Textures/m014_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_09"
+name = "Rocketbox avatar Male_Adult_09 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Export/Male_Adult_09.fbx", path = "Export/Male_Adult_09.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Export/Male_Adult_09_facial.fbx", path = "Export/Male_Adult_09_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Textures/m017_body_color.tga", path = "Textures/m017_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Textures/m017_body_normal.tga", path = "Textures/m017_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Textures/m017_body_specular.tga", path = "Textures/m017_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Textures/m017_head_color.tga", path = "Textures/m017_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Textures/m017_head_normal.tga", path = "Textures/m017_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Textures/m017_head_specular.tga", path = "Textures/m017_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_09/Textures/m017_opacity_color.tga", path = "Textures/m017_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_11"
+name = "Rocketbox avatar Male_Adult_11 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Export/Male_Adult_11.fbx", path = "Export/Male_Adult_11.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Export/Male_Adult_11_facial.fbx", path = "Export/Male_Adult_11_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Textures/m001_body_color.tga", path = "Textures/m001_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Textures/m001_body_normal.tga", path = "Textures/m001_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Textures/m001_body_specular.tga", path = "Textures/m001_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Textures/m001_head_color.tga", path = "Textures/m001_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Textures/m001_head_normal.tga", path = "Textures/m001_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_11/Textures/m001_head_specular.tga", path = "Textures/m001_head_specular.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_14"
+name = "Rocketbox avatar Male_Adult_14 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Export/Male_Adult_14.fbx", path = "Export/Male_Adult_14.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Export/Male_Adult_14_facial.fbx", path = "Export/Male_Adult_14_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Textures/m012_body_color.tga", path = "Textures/m012_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Textures/m012_body_normal.tga", path = "Textures/m012_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Textures/m012_body_specular.tga", path = "Textures/m012_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Textures/m012_head_color.tga", path = "Textures/m012_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Textures/m012_head_normal.tga", path = "Textures/m012_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_14/Textures/m012_head_specular.tga", path = "Textures/m012_head_specular.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_16"
+name = "Rocketbox avatar Male_Adult_16 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Export/Male_Adult_16.fbx", path = "Export/Male_Adult_16.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Export/Male_Adult_16_facial.fbx", path = "Export/Male_Adult_16_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Textures/m019_body_color.tga", path = "Textures/m019_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Textures/m019_body_normal.tga", path = "Textures/m019_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Textures/m019_body_specular.tga", path = "Textures/m019_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Textures/m019_head_color.tga", path = "Textures/m019_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Textures/m019_head_normal.tga", path = "Textures/m019_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_16/Textures/m019_head_specular.tga", path = "Textures/m019_head_specular.tga" },
+]
+
+[[asset]]
+id = "rocketbox_male_adult_20"
+name = "Rocketbox avatar Male_Adult_20 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Export/Male_Adult_20.fbx", path = "Export/Male_Adult_20.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Export/Male_Adult_20_facial.fbx", path = "Export/Male_Adult_20_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Textures/m027_body_color.tga", path = "Textures/m027_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Textures/m027_body_normal.tga", path = "Textures/m027_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Textures/m027_body_specular.tga", path = "Textures/m027_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Textures/m027_head_color.tga", path = "Textures/m027_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Textures/m027_head_normal.tga", path = "Textures/m027_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_20/Textures/m027_head_specular.tga", path = "Textures/m027_head_specular.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_01"
+name = "Rocketbox avatar Female_Adult_01 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Export/Female_Adult_01.fbx", path = "Export/Female_Adult_01.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Export/Female_Adult_01_facial.fbx", path = "Export/Female_Adult_01_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_body_color.tga", path = "Textures/f001_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_body_normal.tga", path = "Textures/f001_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_body_specular.tga", path = "Textures/f001_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_head_color.tga", path = "Textures/f001_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_head_normal.tga", path = "Textures/f001_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_head_normal_wrinkle.tga", path = "Textures/f001_head_normal_wrinkle.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_head_specular.tga", path = "Textures/f001_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_01/Textures/f001_opacity_color.tga", path = "Textures/f001_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_05"
+name = "Rocketbox avatar Female_Adult_05 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Export/Female_Adult_05.fbx", path = "Export/Female_Adult_05.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Export/Female_Adult_05_facial.fbx", path = "Export/Female_Adult_05_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Textures/f005_body_color.tga", path = "Textures/f005_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Textures/f005_body_normal.tga", path = "Textures/f005_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Textures/f005_body_specular.tga", path = "Textures/f005_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Textures/f005_head_color.tga", path = "Textures/f005_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Textures/f005_head_normal.tga", path = "Textures/f005_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Textures/f005_head_specular.tga", path = "Textures/f005_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_05/Textures/f005_opacity_color.tga", path = "Textures/f005_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_07"
+name = "Rocketbox avatar Female_Adult_07 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Export/Female_Adult_07.fbx", path = "Export/Female_Adult_07.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Export/Female_Adult_07_facial.fbx", path = "Export/Female_Adult_07_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Textures/f007_body_color.tga", path = "Textures/f007_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Textures/f007_body_normal.tga", path = "Textures/f007_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Textures/f007_body_specular.tga", path = "Textures/f007_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Textures/f007_head_color.tga", path = "Textures/f007_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Textures/f007_head_normal.tga", path = "Textures/f007_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Textures/f007_head_specular.tga", path = "Textures/f007_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_07/Textures/f007_opacity_color.tga", path = "Textures/f007_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_08"
+name = "Rocketbox avatar Female_Adult_08 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Export/Female_Adult_08.fbx", path = "Export/Female_Adult_08.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Export/Female_Adult_08_facial.fbx", path = "Export/Female_Adult_08_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Textures/f008_body_color.tga", path = "Textures/f008_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Textures/f008_body_normal.tga", path = "Textures/f008_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Textures/f008_body_specular.tga", path = "Textures/f008_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Textures/f008_head_color.tga", path = "Textures/f008_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Textures/f008_head_normal.tga", path = "Textures/f008_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Textures/f008_head_specular.tga", path = "Textures/f008_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_08/Textures/f008_opacity_color.tga", path = "Textures/f008_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_09"
+name = "Rocketbox avatar Female_Adult_09 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Export/Female_Adult_09.fbx", path = "Export/Female_Adult_09.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Export/Female_Adult_09_facial.fbx", path = "Export/Female_Adult_09_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Textures/f009_body_color.tga", path = "Textures/f009_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Textures/f009_body_normal.tga", path = "Textures/f009_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Textures/f009_body_specular.tga", path = "Textures/f009_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Textures/f009_head_color.tga", path = "Textures/f009_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Textures/f009_head_normal.tga", path = "Textures/f009_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Textures/f009_head_specular.tga", path = "Textures/f009_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_09/Textures/f009_opacity_color.tga", path = "Textures/f009_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_11"
+name = "Rocketbox avatar Female_Adult_11 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Export/Female_Adult_11.fbx", path = "Export/Female_Adult_11.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Export/Female_Adult_11_facial.fbx", path = "Export/Female_Adult_11_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Textures/f011_body_color.tga", path = "Textures/f011_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Textures/f011_body_normal.tga", path = "Textures/f011_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Textures/f011_body_specular.tga", path = "Textures/f011_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Textures/f011_head_color.tga", path = "Textures/f011_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Textures/f011_head_normal.tga", path = "Textures/f011_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Textures/f011_head_specular.tga", path = "Textures/f011_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_11/Textures/f011_opacity_color.tga", path = "Textures/f011_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_13"
+name = "Rocketbox avatar Female_Adult_13 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Export/Female_Adult_13.fbx", path = "Export/Female_Adult_13.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Export/Female_Adult_13_facial.fbx", path = "Export/Female_Adult_13_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Textures/f019_body_color.tga", path = "Textures/f019_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Textures/f019_body_normal.tga", path = "Textures/f019_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Textures/f019_body_specular.tga", path = "Textures/f019_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Textures/f019_head_color.tga", path = "Textures/f019_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Textures/f019_head_normal.tga", path = "Textures/f019_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Textures/f019_head_specular.tga", path = "Textures/f019_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_13/Textures/f019_opacity_color.tga", path = "Textures/f019_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_15"
+name = "Rocketbox avatar Female_Adult_15 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Export/Female_Adult_15.fbx", path = "Export/Female_Adult_15.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Export/Female_Adult_15_facial.fbx", path = "Export/Female_Adult_15_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_color.tga", path = "Textures/f018_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_normal.tga", path = "Textures/f018_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_specular.tga", path = "Textures/f018_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_head_color.tga", path = "Textures/f018_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_head_normal.tga", path = "Textures/f018_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_head_specular.tga", path = "Textures/f018_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_opacity_color.tga", path = "Textures/f018_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_female_adult_17"
+name = "Rocketbox avatar Female_Adult_17 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Export/Female_Adult_17.fbx", path = "Export/Female_Adult_17.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Export/Female_Adult_17_facial.fbx", path = "Export/Female_Adult_17_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Textures/f006_body_color.tga", path = "Textures/f006_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Textures/f006_body_normal.tga", path = "Textures/f006_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Textures/f006_body_specular.tga", path = "Textures/f006_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Textures/f006_head_color.tga", path = "Textures/f006_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Textures/f006_head_normal.tga", path = "Textures/f006_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Textures/f006_head_specular.tga", path = "Textures/f006_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Female_Adult_17/Textures/f006_opacity_color.tga", path = "Textures/f006_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_business_male_01"
+name = "Rocketbox avatar Business_Male_01 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Export/Business_Male_01.fbx", path = "Export/Business_Male_01.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Export/Business_Male_01_facial.fbx", path = "Export/Business_Male_01_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Textures/m005_body_color.tga", path = "Textures/m005_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Textures/m005_body_normal.tga", path = "Textures/m005_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Textures/m005_body_specular.tga", path = "Textures/m005_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Textures/m005_head_color.tga", path = "Textures/m005_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Textures/m005_head_normal.tga", path = "Textures/m005_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Textures/m005_head_specular.tga", path = "Textures/m005_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Male_01/Textures/m005_opacity_color.tga", path = "Textures/m005_opacity_color.tga" },
+]
+
+[[asset]]
+id = "rocketbox_business_female_01"
+name = "Rocketbox avatar Business_Female_01 (rigged, color/normal/specular, facial blendshapes)"
+kind = "character"
+license = "MIT"
+author = "Microsoft Rocketbox (Mar Gonzalez-Franco et al.)"
+homepage = "https://github.com/microsoft/Microsoft-Rocketbox"
+files = [
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Export/Business_Female_01.fbx", path = "Export/Business_Female_01.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Export/Business_Female_01_facial.fbx", path = "Export/Business_Female_01_facial.fbx" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Textures/f014_body_color.tga", path = "Textures/f014_body_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Textures/f014_body_normal.tga", path = "Textures/f014_body_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Textures/f014_body_specular.tga", path = "Textures/f014_body_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Textures/f014_head_color.tga", path = "Textures/f014_head_color.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Textures/f014_head_normal.tga", path = "Textures/f014_head_normal.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Textures/f014_head_specular.tga", path = "Textures/f014_head_specular.tga" },
+    { url = "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Professions/Business_Female_01/Textures/f014_opacity_color.tga", path = "Textures/f014_opacity_color.tga" },
+]
