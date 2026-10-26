@@ -1,0 +1,103 @@
+{
+  "osm": "https://download.geofabrik.de/europe/spain/valencia-latest.osm.pbf",
+  "snapshot": "2026-10-25T21:21:21Z",
+  "barrios": "https://opendata.vlci.valencia.es/dataset/barris-barrios",
+  "counts": {
+    "road": 112872,
+    "rail": 787,
+    "river": 4452,
+    "water": 876,
+    "green": 16601,
+    "wetland": 273,
+    "municipality": 97,
+    "land": 1,
+    "barrio": 87,
+    "coverage": 4
+  },
+  "regions": [
+    {
+      "id": "valencia",
+      "name": "València",
+      "sub": "87 barrios · ciudad y huerta",
+      "bbox": [
+        -0.47,
+        39.4,
+        -0.275,
+        39.57
+      ],
+      "center": [
+        -0.3763,
+        39.4699
+      ],
+      "zoom": 12.4,
+      "color": "#ff91b7",
+      "roads": 71151
+    },
+    {
+      "id": "chelva",
+      "name": "Chelva",
+      "sub": "Los Serranos · entorno de 15 km",
+      "bbox": [
+        -1.14,
+        39.61,
+        -0.82,
+        39.87
+      ],
+      "center": [
+        -0.9972,
+        39.7477
+      ],
+      "zoom": 11.3,
+      "color": "#a5dac1",
+      "roads": 5640
+    },
+    {
+      "id": "cofrentes",
+      "name": "Cofrentes",
+      "sub": "Central nuclear · Júcar y Cabriel",
+      "bbox": [
+        -1.21,
+        39.09,
+        -0.89,
+        39.36
+      ],
+      "center": [
+        -1.061,
+        39.229
+      ],
+      "zoom": 11.3,
+      "color": "#c2a8ee",
+      "roads": 4240
+    },
+    {
+      "id": "albufera",
+      "name": "L’Albufera",
+      "sub": "Lago, marjal y pueblos costeros",
+      "bbox": [
+        -0.52,
+        39.19,
+        -0.22,
+        39.44
+      ],
+      "center": [
+        -0.35,
+        39.335
+      ],
+      "zoom": 11.3,
+      "color": "#76dcd7",
+      "roads": 37567
+    }
+  ],
+  "landmark": {
+    "name": "Central Nuclear de Cofrentes",
+    "coordinates": [
+      -1.0529298367455264,
+      39.21460625
+    ],
+    "osm_id": 126986991
+  },
+  "libraries": {
+    "MapLibre GL JS": "5.6.2, BSD-3-Clause"
+  },
+  "html": "Standalone, embedded data and library; no map network requests."
+}

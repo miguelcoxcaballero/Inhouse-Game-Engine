@@ -1,0 +1,30 @@
+ATLAS INTERACTIVO / VALÈNCIA, CHELVA, COFRENTES Y L'ALBUFERA
+
+Abre cualquiera de los archivos HTML en un navegador actual (Chrome, Edge o Firefox).
+Los datos y MapLibre están incluidos: no hace falta instalar nada ni conectarse a internet.
+
+- valencia-interactivo.html: vista de València, con sus 87 barrios oficiales.
+- atlas-valencia-chelva-cofrentes-albufera.html: vista conjunta y selector de las cuatro zonas.
+
+Controles: arrastra el mapa, usa la rueda o +/− para acercarte y pulsa sobre calles,
+barrios o municipios para identificarlos. Puedes buscar lugares y calles, activar
+capas y volver al encuadre de cada zona. En móvil usa el botón «Zonas».
+Cofrentes se abre centrado en la central nuclear. «Ver alrededores» muestra el área completa.
+
+DATOS
+OpenStreetMap, extracto regional de Geofabrik del 25 de octubre de 2026.
+https://download.geofabrik.de/europe/spain/valencia.html
+© OpenStreetMap contributors, ODbL: https://www.openstreetmap.org/copyright
+Barrios: Ajuntament de València, CC BY 4.0.
+https://opendata.vlci.valencia.es/dataset/barris-barrios
+La fuente municipal tiene 88 geometrías y 87 códigos de barrio; se agrupan por código.
+En el resto del atlas se usan municipios de OSM, no divisiones de barrio inventadas.
+Chelva y Cofrentes abarcan un entorno aproximado de 15 km. En l'Albufera se incluyen
+el lago, la marjal y las poblaciones próximas. Los recuadros indican cobertura de detalle,
+no límites administrativos. Entre las zonas se conservan carreteras principales.
+La central utiliza su ubicación y perímetro general cartografiados en OSM.
+
+VISUALIZACIÓN
+MapLibre GL JS 5.6.2, BSD-3-Clause (licencia incluida en la biblioteca).
+Estética conceptual inspirada en GTA VI. Cartografía general; no incluye navegación,
+tráfico en vivo ni un modelo 3D. Al acercarse, aparecen más calles, caminos y etiquetas.
