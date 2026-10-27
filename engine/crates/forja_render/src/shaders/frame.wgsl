@@ -24,7 +24,7 @@ struct Frame {
     params: vec4<f32>,          // x: unused, y: 1 / shadow size, z: bloom strength, w: unused
     screen: vec4<f32>,          // xy: size, zw: 1 / size
     sh: array<vec4<f32>, 9>,    // irradiance / pi (HDRI mode)
-    env_params: vec4<f32>,      // x: 1 = HDRI image lighting, y: max mip, z: intensity
+    env_params: vec4<f32>,      // x: 1 = HDRI image lighting, y: max mip, z: intensity, w: legacy bits (1 box env, 2 single scattering, 4 no specular AA, 8 no micro-shadowing, 16 ignore material specular factor)
     prev_view_proj: mat4x4<f32>,// previous frame, unjittered (TAA / SSR reprojection)
     proj_params: vec4<f32>,     // x: 1/P00, y: 1/P11, z: near, w: pixels per world unit at distance 1
     jitter: vec4<f32>,          // xy: sub-pixel jitter (NDC), z: frame index, w: 1 = history valid
