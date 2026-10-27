@@ -99,6 +99,9 @@ pub struct RenderScene {
     /// culling grid is built once from the others; these are submitted
     /// every frame like dynamic items.
     pub volatile_statics: Vec<usize>,
+    /// Far-distance groups of `statics`: `(group, is the HLOD)` by index
+    /// (missing or group 0: always drawn).
+    pub static_lod: Vec<(u32, bool)>,
     pub dynamic: Vec<RenderItem>,
     pub lights: Vec<PointLight>,
     /// Physical point and spot lights of this frame (the city at night).
@@ -248,8 +251,9 @@ pub fn build_at(map: MapKind, paths: Paths, hour: Option<f32>) -> App {
         // Dynamic bodies beyond 160 m of the player are frozen (the AI
         // cars get colliders within 45 m, the drawing range is 170 m).
         .add_plugin(forja_physics::PhysicsPlugin { config: forja_physics::PhysicsConfig { active_radius: 160.0, ..Default::default() } })
-        .add_plugin(world::WorldPlugin { map, hour: hour.and_then(env::content_hour) })
-        .add_plugin(env::EnvPlugin)
+        .add_plugin(world::WorldPlugin { map, hour: hour.and_then(env::content_hour) });
+    forja_assets::progress::stage("Cargando gente, coches y tráfico", 0.66);
+    app.add_plugin(env::EnvPlugin)
         .add_plugin(props::PropsPlugin)
         .add_plugin(vehicles::VehiclesPlugin)
         .add_plugin(player::PlayerPlugin)

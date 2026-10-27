@@ -59,6 +59,7 @@ pub mod env;
 pub mod profiler;
 pub mod quality;
 mod static_scene;
+mod texcomp;
 pub mod exposure;
 pub mod tonemap;
 pub mod look;
@@ -68,7 +69,7 @@ pub mod night;
 use std::sync::Arc;
 
 use bytemuck::{Pod, Zeroable};
-use forja_assets::{AlphaMode, MaterialData, SceneData, TextureData};
+use forja_assets::{AlphaMode, MaterialData, SceneData, ShadowRole, TextureData};
 use forja_math::{Aabb, Frustum, Mat4, Vec3, Vec4};
 use wgpu::util::DeviceExt;
 
@@ -229,6 +230,15 @@ pub struct PointLight {
     pub radius: f32,
     pub color: Vec3,
     pub intensity: f32,
+}
+
+/// Far-distance group of a static instance (see
+/// [`Renderer::set_static_instances_lod`]): group 0 is always drawn.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub struct StaticLod {
+    pub group: u32,
+    /// The group's stand-in (drawn far) rather than its detail (near).
+    pub hlod: bool,
 }
 
 /// One model placed in the world.
@@ -473,10 +483,23 @@ pub struct RenderSettings {
     /// Sun shadow casters smaller than this many cascade texels (radius)
     /// are skipped.
     pub shadow_caster_texels: f32,
+    /// First sun cascade drawn with shadow proxies instead of
+    /// [`forja_assets::ShadowRole::Near`] detail (4: never).
+    pub shadow_proxy_cascade: u32,
     /// Textures are uploaded from the first mip not larger than this.
     pub max_texture_size: u32,
     /// Camera stage of [`FrameDesc::look`] (`FORJA_FX=-look` skips it).
     pub look: bool,
+    /// Upload colour and data maps block-compressed (BC1/BC3, cached on
+    /// disk) when the adapter supports BC (`FORJA_FX=-bc` keeps RGBA8).
+    pub texture_compression: bool,
+    /// Temporally stable shadows: caster LOD from the cascade texel only,
+    /// thin detail ([`ShadowRole::Fine`]) in the first cascade only
+    /// (`FORJA_FX=-stableshadow` restores the old behaviour, for A/B).
+    pub stable_shadows: bool,
+    /// Distance (m) beyond which a city tile's detail is replaced by its
+    /// HLOD stand-in (0: never).
+    pub hlod_distance: f32,
     /// Depth of field of [`FrameDesc::look`] (`FORJA_FX=-dof`).
     pub dof: bool,
     /// Multiple-scattering energy compensation and the DFG LUT (`-ms`
@@ -528,8 +551,12 @@ impl Default for RenderSettings {
             shadow_distance_scale: 1.0,
             lod_detail: 1.0,
             shadow_caster_texels: 2.5,
+            shadow_proxy_cascade: 3,
             max_texture_size: 2048,
             look: true,
+            texture_compression: true,
+            stable_shadows: true,
+            hlod_distance: 250.0,
             dof: true,
             multiscatter: true,
             specular_aa: true,
@@ -609,6 +636,8 @@ impl RenderSettings {
         self.shadow_distance_scale = g.shadow_distance_scale;
         self.lod_detail = g.lod_detail;
         self.shadow_caster_texels = g.shadow_caster_texels;
+        self.shadow_proxy_cascade = g.shadow_proxy_cascade;
+        self.hlod_distance = g.hlod_distance;
         self.max_texture_size = g.max_texture_size;
         self.dof = g.dof;
         self.motion_blur = g.motion_blur;
@@ -637,6 +666,9 @@ impl RenderSettings {
                 "shadowcache" => self.far_cascade_interval = if on { 2 } else { 1 },
                 "bloom" => self.bloom = on,
                 "look" | "cinematic" => self.look = on,
+                "bc" => self.texture_compression = on,
+                "stableshadow" => self.stable_shadows = on,
+                "hlod" => self.hlod_distance = if on { self.hlod_distance.max(250.0) } else { 0.0 },
                 "dof" => self.dof = on,
                 "ms" => self.multiscatter = on,
                 "specaa" => self.specular_aa = on,
@@ -710,6 +742,8 @@ pub struct RenderStats {
     /// Static instances / grid cells uploaded with `set_static_instances`.
     pub static_instances: u32,
     pub static_cells: u32,
+    /// City tiles drawn as their HLOD stand-in this frame.
+    pub hlod_tiles: u32,
     /// Internal render resolution.
     pub width: u32,
     pub height: u32,
@@ -736,6 +770,7 @@ struct GpuMesh {
     lod_bounds: Aabb,
     /// Scene name (profiler reports).
     name: Arc<str>,
+    shadow: ShadowRole,
 }
 
 impl GpuMesh {
@@ -764,6 +799,10 @@ struct GpuModel {
     parts: Vec<ModelPart>,
     rest: Vec<Mat4>,
     bounds: Aabb,
+    /// GPU mesh of every primitive, in `SceneData::meshes` order.
+    prims: Vec<u32>,
+    /// Bytes of the mesh buffers while resident.
+    resident: Option<u64>,
 }
 
 struct Targets {
@@ -939,6 +978,10 @@ pub struct Renderer {
     pub cpu: profiler::CpuScopes,
     statics: StaticScene,
     cascade_cache: [CascadeCache; 4],
+    /// Sun direction the shadow maps are fitted to: follows the sun in
+    /// steps of 0.1° (stable shadows), so a moving sun does not make
+    /// every frame's shadow maps rasterise thin casters differently.
+    shadow_sun: Vec3,
     /// Bytes of uploaded textures and meshes (VRAM estimate).
     texture_bytes: u64,
     mesh_bytes: u64,
@@ -1681,6 +1724,7 @@ impl Renderer {
             cpu: Default::default(),
             statics: StaticScene::default(),
             cascade_cache: Default::default(),
+            shadow_sun: Vec3::Y,
             texture_bytes: 0,
             mesh_bytes: 0,
             target_bytes: 0,
@@ -2072,6 +2116,106 @@ impl Renderer {
         view
     }
 
+    /// Whether textures are uploaded block-compressed.
+    fn use_bc(&self) -> bool {
+        self.settings.texture_compression && self.device.features().contains(wgpu::Features::TEXTURE_COMPRESSION_BC)
+    }
+
+    /// The CPU side of a texture upload (mip chain, BC encoding or the
+    /// cached chain): pure, so a scene's textures are prepared in parallel.
+    fn prepare_texture(t: &TextureData, alpha_cutoff: Option<f32>, max_size: u32, bc: bool, normal_map: bool) -> (wgpu::TextureFormat, Option<texcomp::Kind>, texcomp::Mips) {
+        let cap = texture_cap(max_size, t.srgb).max(1);
+        let rgba = if t.srgb { wgpu::TextureFormat::Rgba8UnormSrgb } else { wgpu::TextureFormat::Rgba8Unorm };
+        let mut first = (t.width.max(1), t.height.max(1));
+        while first.0.max(first.1) > cap && (first.0 > 1 || first.1 > 1) {
+            first = ((first.0 / 2).max(1), (first.1 / 2).max(1));
+        }
+        let kind = if bc { texcomp::kind_for(t, normal_map, first) } else { None };
+        if let Some(k) = kind
+            && let Some(m) = texcomp::load(t, k, alpha_cutoff, cap)
+        {
+            return (k.format(t.srgb), Some(k), m);
+        }
+        let mut mips = generate_mips(t, alpha_cutoff);
+        while mips.len() > 1 && mips[0].0.max(mips[0].1) > cap {
+            mips.remove(0);
+        }
+        match kind {
+            Some(k) => {
+                let m = texcomp::encode(t, k, alpha_cutoff, cap, &mips);
+                (k.format(t.srgb), Some(k), m)
+            }
+            None => (rgba, None, mips),
+        }
+    }
+
+    /// Creates the GPU texture of a prepared chain; returns the view and
+    /// its bytes.
+    fn create_prepared(device: &wgpu::Device, queue: &wgpu::Queue, name: &str, format: wgpu::TextureFormat, kind: Option<texcomp::Kind>, mips: &texcomp::Mips) -> (wgpu::TextureView, u64) {
+        let bytes = mips.iter().map(|m| m.2.len() as u64).sum();
+        let tex = device.create_texture(&wgpu::TextureDescriptor {
+            label: Some(name),
+            size: wgpu::Extent3d { width: mips[0].0, height: mips[0].1, depth_or_array_layers: 1 },
+            mip_level_count: mips.len() as u32,
+            sample_count: 1,
+            dimension: wgpu::TextureDimension::D2,
+            format,
+            usage: wgpu::TextureUsages::TEXTURE_BINDING | wgpu::TextureUsages::COPY_DST,
+            view_formats: &[],
+        });
+        for (level, (w, h, data)) in mips.iter().enumerate() {
+            let (row, rows, extent) = match kind {
+                // Compressed levels are copied at their physical size
+                // (whole 4x4 blocks, also below 4 texels).
+                Some(k) => (w.div_ceil(4) * k.block_bytes(), h.div_ceil(4), wgpu::Extent3d { width: w.div_ceil(4) * 4, height: h.div_ceil(4) * 4, depth_or_array_layers: 1 }),
+                None => (4 * w, *h, wgpu::Extent3d { width: *w, height: *h, depth_or_array_layers: 1 }),
+            };
+            queue.write_texture(
+                wgpu::TexelCopyTextureInfo { texture: &tex, mip_level: level as u32, origin: wgpu::Origin3d::ZERO, aspect: wgpu::TextureAspect::All },
+                data,
+                wgpu::TexelCopyBufferLayout { offset: 0, bytes_per_row: Some(row), rows_per_image: Some(rows) },
+                extent,
+            );
+        }
+        (tex.create_view(&Default::default()), bytes)
+    }
+
+    /// Uploads the textures of `scene` that are not on the GPU yet,
+    /// preparing them (mips, BC encoding or cached chains) in parallel.
+    fn upload_scene_textures(&mut self, scene: &SceneData, cutoffs: &[Option<f32>]) {
+        use rayon::prelude::*;
+        let mut normal = vec![false; scene.textures.len()];
+        for m in &scene.materials {
+            if let Some(i) = m.normal_tex
+                && i < normal.len()
+            {
+                normal[i] = true;
+            }
+        }
+        let mut todo: Vec<usize> = Vec::new();
+        for (i, t) in scene.textures.iter().enumerate() {
+            let key = (t.rgba8.as_ptr() as usize, t.srgb);
+            if !self.texture_cache.contains_key(&key) && !todo.iter().any(|&j| (scene.textures[j].rgba8.as_ptr() as usize, scene.textures[j].srgb) == key) {
+                todo.push(i);
+            }
+        }
+        if todo.is_empty() {
+            return;
+        }
+        let (bc, max) = (self.use_bc(), self.settings.max_texture_size);
+        // A few at a time: a full RGBA mip chain of a 2048² map is 21 MB.
+        for chunk in todo.chunks(rayon::current_num_threads().clamp(2, 8)) {
+            let prepared: Vec<_> = chunk.par_iter().map(|&i| Self::prepare_texture(&scene.textures[i], cutoffs[i], max, bc, normal[i])).collect();
+            for (&i, (format, kind, mips)) in chunk.iter().zip(prepared) {
+                let t = &scene.textures[i];
+                let (view, bytes) = Self::create_prepared(&self.device, &self.queue, &t.name, format, kind, &mips);
+                self.texture_bytes += bytes;
+                self.note_upload(bytes);
+                self.texture_cache.insert((t.rgba8.as_ptr() as usize, t.srgb), (t.rgba8.clone(), view));
+            }
+        }
+    }
+
     /// Uploads `t` with its mip chain (alpha coverage preserved when
     /// `alpha_cutoff` is set), starting at the first level not larger than
     /// `max_size` (the quality preset's texture cap). Returns the view and
@@ -2168,6 +2312,7 @@ impl Renderer {
                 cutoffs[i] = Some(c as f32 / 255.0);
             }
         }
+        self.upload_scene_textures(scene, &cutoffs);
         let textures: Vec<wgpu::TextureView> = scene.textures.iter().zip(cutoffs).map(|(t, c)| self.cached_texture(t, c)).collect();
         let defaults = self.default_textures.get_or_insert_with(|| [Self::solid_view(&self.device, &self.queue, [255; 4], true), Self::solid_view(&self.device, &self.queue, [255; 4], false), Self::solid_view(&self.device, &self.queue, [128, 128, 255, 255], false)]).clone();
         let mat_base = self.materials.len() as u32;
@@ -2210,7 +2355,7 @@ impl Renderer {
                     .map(|l| (self.device.create_buffer_init(&wgpu::util::BufferInitDescriptor { label: Some("lod"), contents: bytemuck::cast_slice(l), usage: wgpu::BufferUsages::INDEX }), l.len() as u32))
                     .collect();
                 ids.push(self.meshes.len() as u32);
-                self.meshes.push(GpuMesh { vertex, skin, index, index_count: p.indices.len() as u32, lods, material, aabb: p.aabb, lod_tris: None, lod_bounds: p.aabb, name: name.clone() });
+                self.meshes.push(GpuMesh { vertex, skin, index, index_count: p.indices.len() as u32, lods, material, aabb: p.aabb, lod_tris: None, lod_bounds: p.aabb, name: name.clone(), shadow: p.shadow });
             }
             // LOD groups: primitives with `lod_sync` and the same number of
             // levels share one triangle table and one bounding box.
@@ -2240,8 +2385,101 @@ impl Renderer {
             }
         }
         let handle = ModelHandle(self.models.len() as u32);
-        self.models.push(GpuModel { parts, rest, bounds: scene.bounds() });
+        let prims: Vec<u32> = mesh_ids.iter().flatten().copied().collect();
+        let bytes = prims.iter().map(|&m| self.mesh_buffer_bytes(m)).sum();
+        self.models.push(GpuModel { parts, rest, bounds: scene.bounds(), prims, resident: Some(bytes) });
         handle
+    }
+
+    fn mesh_buffer_bytes(&self, m: u32) -> u64 {
+        let g = &self.meshes[m as usize];
+        g.vertex.size() + g.index.size() + g.skin.as_ref().map_or(0, |b| b.size()) + g.lods.iter().map(|l| l.0.size()).sum::<u64>()
+    }
+
+    /// Frees the vertex and index buffers of a model (streaming: a city
+    /// tile far away draws its HLOD instead). Materials and textures stay;
+    /// the model must not be drawn until [`Renderer::reload_model`].
+    /// Returns the bytes released.
+    pub fn release_model(&mut self, h: ModelHandle) -> u64 {
+        let Some(model) = self.models.get_mut(h.0 as usize) else { return 0 };
+        let Some(bytes) = model.resident.take() else { return 0 };
+        let prims = model.prims.clone();
+        let empty = |usage| self.device.create_buffer(&wgpu::BufferDescriptor { label: Some("released"), size: 4, usage, mapped_at_creation: false });
+        for m in prims {
+            let (v, i) = (empty(wgpu::BufferUsages::VERTEX), empty(wgpu::BufferUsages::INDEX));
+            let g = &mut self.meshes[m as usize];
+            g.vertex = v;
+            g.index = i;
+            g.index_count = 0;
+            g.skin = None;
+            g.lods.clear();
+        }
+        self.mesh_bytes = self.mesh_bytes.saturating_sub(bytes);
+        bytes
+    }
+
+    /// Uploads the meshes of a released model again from `scene` (the
+    /// scene it was uploaded from). Returns the bytes uploaded.
+    pub fn reload_model(&mut self, h: ModelHandle, scene: &SceneData) -> u64 {
+        let Some(model) = self.models.get(h.0 as usize) else { return 0 };
+        if model.resident.is_some() {
+            return 0;
+        }
+        let prims = model.prims.clone();
+        let mut bytes = 0;
+        for (&m, p) in prims.iter().zip(scene.meshes.iter().flatten()) {
+            if p.is_skinned() || p.positions.len() != p.normals.len() {
+                continue;
+            }
+            let verts: Vec<Vertex> = (0..p.positions.len())
+                .map(|i| Vertex { pos: p.positions[i].to_array(), normal: p.normals[i].to_array(), uv: p.uvs.get(i).copied().unwrap_or_default().to_array(), tangent: p.tangents.get(i).copied().unwrap_or(Vec4::X).to_array() })
+                .collect();
+            let vertex = self.device.create_buffer_init(&wgpu::util::BufferInitDescriptor { label: Some("vb"), contents: bytemuck::cast_slice(&verts), usage: wgpu::BufferUsages::VERTEX });
+            let index = self.device.create_buffer_init(&wgpu::util::BufferInitDescriptor { label: Some("ib"), contents: bytemuck::cast_slice(&p.indices), usage: wgpu::BufferUsages::INDEX });
+            let lods = p.lods.iter().map(|l| (self.device.create_buffer_init(&wgpu::util::BufferInitDescriptor { label: Some("lod"), contents: bytemuck::cast_slice(l), usage: wgpu::BufferUsages::INDEX }), l.len() as u32)).collect();
+            let g = &mut self.meshes[m as usize];
+            g.vertex = vertex;
+            g.index = index;
+            g.index_count = p.indices.len() as u32;
+            g.lods = lods;
+            bytes += self.mesh_buffer_bytes(m);
+        }
+        self.mesh_bytes += bytes;
+        self.note_upload(bytes);
+        self.models[h.0 as usize].resident = Some(bytes);
+        bytes
+    }
+
+    /// Whether a far-distance group's detail can be drawn (its streamed
+    /// meshes are resident); a group that is not ready keeps its HLOD.
+    pub fn set_static_group_ready(&mut self, group: u32, ready: bool) {
+        self.statics.set_ready(group, ready);
+    }
+
+    /// Distance from `eye` to a far-distance group's bounds.
+    pub fn static_group_distance(&self, group: u32, eye: Vec3) -> Option<f32> {
+        self.statics.group_distance(group, eye)
+    }
+
+    /// Far-distance groups currently showing their detail.
+    pub fn static_groups_near(&self) -> Vec<u32> {
+        self.statics.near_groups()
+    }
+
+    /// Whether shadow view `c` (sun cascades 0-3, then spots) draws the
+    /// far-cascade proxies instead of the near-only detail.
+    fn proxy_view(c: usize, first: u32) -> bool {
+        c < 4 && c as u32 >= first
+    }
+
+    /// Roles shadow view `c` does not draw ([`static_scene::role_bit`]).
+    fn shadow_skip(c: usize, s: &RenderSettings) -> u8 {
+        use static_scene::role_bit;
+        let mut skip = role_bit(if Self::proxy_view(c, s.shadow_proxy_cascade) { ShadowRole::Near } else { ShadowRole::Proxy });
+        if c >= 1 && c < 4 && (s.stable_shadows || Self::proxy_view(c, s.shadow_proxy_cascade)) {
+            skip |= role_bit(ShadowRole::Fine);
+        }
+        skip
     }
 
     pub fn model_bounds(&self, m: ModelHandle) -> Aabb {
@@ -2256,10 +2494,19 @@ impl Renderer {
     /// then only holds what moves. Replaces the previous static set
     /// (an empty slice clears it). Skinned instances are not allowed here.
     pub fn set_static_instances(&mut self, instances: &[DrawInstance]) {
+        self.set_static_instances_lod(instances, &[]);
+    }
+
+    /// [`Self::set_static_instances`] with a far-distance group per
+    /// instance (parallel to `instances`; missing entries: no group). A
+    /// group draws its detail instances near the camera and its HLOD
+    /// instances beyond [`RenderSettings::hlod_distance`].
+    pub fn set_static_instances_lod(&mut self, instances: &[DrawInstance], lod: &[StaticLod]) {
         let t = std::time::Instant::now();
         let mut items = Vec::new();
-        for inst in instances {
+        for (ii, inst) in instances.iter().enumerate() {
             let Some(model) = self.models.get(inst.model.0 as usize) else { continue };
+            let tag = lod.get(ii).copied().unwrap_or_default();
             for part in &model.parts {
                 let mesh = &self.meshes[part.mesh as usize];
                 let node_m = inst.nodes.as_ref().and_then(|n| n.get(part.node).copied()).unwrap_or(model.rest[part.node]);
@@ -2277,6 +2524,9 @@ impl Renderer {
                     raw: InstanceRaw { model: world.to_cols_array_2d(), tint: inst.tint.to_array(), extra: [0, 0, 0, 0] },
                     bounds,
                     no_shadow: mat.blend || !inst.cast_shadows,
+                    role: mesh.shadow,
+                    group: tag.group,
+                    hlod: tag.hlod,
                 });
             }
         }
@@ -2552,6 +2802,11 @@ impl Renderer {
         // matrix they were rendered with. Their fit is padded by 4% so the
         // stale map still covers the moving slice.
         let interval = s.far_cascade_interval.max(1);
+        if !s.stable_shadows || self.shadow_sun.dot(sun) < 0.1f32.to_radians().cos() {
+            self.shadow_sun = sun;
+        }
+        let sun_exact = sun;
+        let sun = self.shadow_sun;
         let mut refresh = [true; 4];
         for (i, split) in splits.iter().enumerate() {
             let cached = self.cascade_cache[i];
@@ -2584,6 +2839,8 @@ impl Renderer {
                 self.targets.as_mut().expect("resized").screen_bind = b;
             }
         }
+        // Lighting uses the exact sun (only the shadow maps are stepped).
+        let sun = sun_exact;
         // Low dawn/dusk haze: zero above ~20 degrees of sun and with the
         // night camera, 6e-4 1/m at the horizon (80 m scale height).
         let haze = env.haze.unwrap_or_else(|| if daylight { 6.0e-4 * (1.0 - ((sun.y - 0.05) / 0.3).clamp(0.0, 1.0)).powi(2) } else { 0.0 });
@@ -2660,10 +2917,11 @@ impl Renderer {
         // pixels; covered pixels = PI * (radius / distance * focal)^2.
         let focal = height as f32 * 0.5 / tan_half_fov;
         let lod_scale = std::f32::consts::PI * focal * focal * 0.5 * s.lod_detail;
+        self.statics.update_groups(cam.position, s.hlod_distance);
         {
             let meshes = &self.meshes;
             let statics = &mut self.statics;
-            let main_view = static_scene::View { planes: &frustum.planes, eye: cam.position, min_radius_per_m: 0.6 / focal, min_radius: 0.0, lod_scale, texel_lod_scale: 0.0, shadow: false };
+            let main_view = static_scene::View { planes: &frustum.planes, eye: cam.position, min_radius_per_m: 0.6 / focal, min_radius: 0.0, lod_scale, texel_lod_scale: 0.0, shadow: false, skip: static_scene::role_bit(ShadowRole::Proxy), stable_lod: false };
             statics.gather(&main_view, &|m, b| Self::lod_for(meshes, m, b, 0), &mut all, &mut main_batches);
             for (c, (planes, min_r)) in cascade_planes.iter().enumerate() {
                 if !drawn(c) {
@@ -2676,7 +2934,8 @@ impl Renderer {
                 // nor than one triangle per two shadow texels covered.
                 let texel = if c < 4 { cascade_texel[c] } else { 0.0 };
                 let texel_lod_scale = if texel > 0.0 { std::f32::consts::PI * 0.5 * s.lod_detail / (texel * texel) } else { 0.0 };
-                let v = static_scene::View { planes, eye: cam.position, min_radius_per_m: 0.0, min_radius: *min_r, lod_scale, texel_lod_scale, shadow: true };
+                let skip = Self::shadow_skip(c, &s);
+                let v = static_scene::View { planes, eye: cam.position, min_radius_per_m: 0.0, min_radius: *min_r, lod_scale, texel_lod_scale, shadow: true, skip, stable_lod: s.stable_shadows };
                 // Shadow maps hide silhouette detail: one LOD coarser than
                 // the camera in the near cascades and spots, two in the far
                 // cascades.
@@ -2758,7 +3017,8 @@ impl Renderer {
                     _ => 0,
                 };
                 let raw = InstanceRaw { model: world.to_cols_array_2d(), tint: inst.tint.to_array(), extra: [joint_offset, skinned as u32, lod, prev_slot] };
-                if visible {
+                let role = mesh.shadow;
+                if visible && role != ShadowRole::Proxy {
                     main.push((part.mesh, raw));
                 } else {
                     culled += 1;
@@ -2775,9 +3035,10 @@ impl Renderer {
                     } else {
                         0
                     };
-                    sraw.extra[2] = (lod + 1).max(texel_lod).min(mesh.lods.len() as u32);
+                    sraw.extra[2] = if s.stable_shadows && c0 < 4 { texel_lod } else { (lod + 1).max(texel_lod) }.min(mesh.lods.len() as u32);
                     for (c, (planes, _)) in cascade_planes.iter().enumerate() {
-                        if cmask & (1 << c) != 0 && wb.as_ref().is_none_or(|wb| aabb_in_planes(wb, planes)) {
+                        let wanted = Self::shadow_skip(c, &s) & static_scene::role_bit(role) == 0;
+                        if wanted && cmask & (1 << c) != 0 && wb.as_ref().is_none_or(|wb| aabb_in_planes(wb, planes)) {
                             shadow[c].push((part.mesh, sraw));
                         }
                     }
@@ -2954,6 +3215,7 @@ impl Renderer {
             height,
             static_instances: self.statics.items as u32,
             static_cells: self.statics.cell_count() as u32,
+            hlod_tiles: self.statics.far_groups() as u32,
             ..Default::default()
         };
         let compute = |enc: &mut wgpu::CommandEncoder, pipe: &wgpu::ComputePipeline, bind: &wgpu::BindGroup, groups: (u32, u32), name: &'static str| {

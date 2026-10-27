@@ -305,6 +305,216 @@ most), and the load is CPU-bound (city meshing and tree generation are
 single-threaded per stage; a disk cache of the kit and trees would cut
 ~20 s).
 
+## Shadow proxies, load caches, BC textures (after v0.1.2)
+
+Measured headless on the default map (plaza spawn, High, 960x540,
+lavapipe) on the shared 4-core VM; other agents were building and
+rendering at the same time, so wall-clock times vary by up to 2x between
+runs (each figure is one run; the *before* column is the v0.1.2 binary).
+
+| | v0.1.2 | Now |
+|---|---|---|
+| Shadow triangles, all 4 cascades (plaza) | 8.22 M | 1.80 M |
+| Shadow triangles, all 4 cascades (aerial over the old town) | 8.46 M | 1.41 M |
+| Shadow draws (plaza / aerial) | 6 656 / 6 609 | 2 253 / 2 228 |
+| lavapipe `shadow c3` (plaza / aerial) | 637 / 469 ms | 95-127 / 112 ms |
+| Heaviest shadow caster | `window` x60 596, 4.90 M | `block` x279, 0.46 M |
+| Scanned materials + procedural kit textures | 11.5-27.4 s | 3.1-5.8 s (cache) |
+| Trees (18 models) | 11.4-12.7 s | 0.3-0.6 s (cache) |
+| Fabric: blocks and parcels / fillets / surfaces | 4.25 / 2.56 / 4.13 s | 0.47 / 0.23 / 1.35 s |
+| City built (`city: built`) | 37-54 s | 18-21 s (warm cache) |
+| World built incl. people, cars, traffic | 44-69 s | 26-27 s (warm cache) |
+| GPU upload of the city | 11.3-13.9 s | 5.6-6.7 s (warm), 16 s (first run: BC encoding) |
+| Textures in GPU memory (High) | 1 450 MB | 542 MB |
+| VRAM estimate (F11, High, 960x540) | 2 243 MB | 1 333 MB |
+| Resident after upload (lavapipe keeps "VRAM" in RAM) | 3.75-3.80 GB | 2.7-2.8 GB |
+| Peak of a headless run | 4.5-4.6 GB | 3.7 GB |
+| Window during the load | none (console only) | loading screen at once |
+| F3 at dusk/dawn | full freeze: build + upload (~45-80 s here) | game keeps running; stall = upload (~6 s here) |
+
+Images: day and aerial views are unchanged apart from BC1 block noise
+(mean absolute difference 1.1-1.5 of 255 against v0.1.2). Screenshots in
+`engine/screenshots/agents/perf2/`: plaza by day and night, the whole
+city by day and night (HLOD tiles with lit windows), detail vs HLOD from
+650 m, the aerial before/after the shadow proxies, a facade RGBA8 vs
+BC1, and the Carmen map after a dusk switch.
+
+What changed:
+
+1. **Shadow proxies.** `forja_assets::ShadowRole` marks a primitive
+   `All`, `Near` (camera and near cascades) or `Proxy` (far cascades only,
+   never in the camera). The city marks every facade module (windows,
+   shutters, balconies, shops, portals, lanterns: whatever `ModuleLib`
+   makes inside `build_into`/`medianeras`) and the block walls, mouldings,
+   plinths and party walls `Near`; roofs stay `All`; and each 64 m tile
+   gets a `block_shadow` scene: per building a closed prism of its
+   footprint from below the plinth to the eave (plus the ático's setback
+   block), ~20-60 triangles instead of thousands. The renderer skips
+   `Near` runs from the first proxy cascade on and `Proxy` runs before it
+   (static grid: one flag per run, so no per-instance work; dynamic
+   instances per part). `GraphicsConfig::shadow_proxy_cascade`: Low and
+   Medium from c2, High and Ultra from c3 (F9: "Building shadow proxies
+   from c1/c2/c3/off"). Small casters were already skipped by size in
+   texels; the proxies remove the rest of the facade detail where it is
+   sub-texel.
+2. **Versioned disk cache** (`forja_assets::cache`, folder `cache/` next to
+   `data/`, `FORJA_CACHE_DIR`, `FORJA_NO_CACHE=1`). Keys are SHA-256 of the
+   generating code itself (`include_str!` of the sources), the parameters
+   and the name/size/mtime of every input file, so a code or asset change
+   regenerates the entry; files carry a format version, their key, length
+   and a checksum, are written to a temporary file and renamed, and
+   anything that does not match is ignored (a damaged file is deleted).
+   Kinds: `kit` (all scanned sets after decoding and weathering plus the
+   procedural kit textures, 430 MB: pixel buffers delta-filtered and
+   deflated in parallel), `trees` (the 18 generated tree models with
+   impostors, 76 MB), `textures` (BC mip chains, ~170 MB). Shared pixel
+   buffers stay shared after loading. City meshes are not cached (the
+   layout, traffic, colliders and spawns would all need a format); their
+   build was parallelised instead.
+3. **Parallel city build.** Fabric: blocks are parcelled in parallel
+   (numbered afterwards in the same order), setbacks and lot clipping per
+   lot, kerb fillets per junction, ground surfaces per class and street
+   group; a repeated region difference is computed once. Realize: block
+   scenes are assembled and module LOD chains simplified in parallel at
+   the end of the city (same results, same order). Texture upload
+   prepares a scene's textures (mips, BC) in parallel, a few at a time.
+4. **Loading screen.** `forja_core::App` is now `Send` (resources and
+   systems must be `Send`), so the game builds the world on a worker
+   thread while the window shows the stage and a progress bar
+   (`forja_assets::progress`); the GPU upload then runs in 40 ms slices
+   under the same screen.
+5. **Dusk and dawn without a freeze.** The night content still changes the
+   geometry (lit flats, closed shutters, lamps), so the other city is
+   built on the worker thread while the current one keeps running; when it
+   is ready the old world is freed, the new one uploaded under the loading
+   screen, and the clock, the camera and the player's position carry over.
+   Peak RAM during that build is the running world plus one build (~1.5 +
+   2.7 GB on a real GPU; on lavapipe the default map does not fit this
+   shared VM, `--night-switch` measures it on smaller maps). The build
+   runs in a rayon pool of `cores - 2` threads so the game keeps cores.
+   Measured on the Carmen map (lavapipe, 640x360): the night city was
+   built in the background in 31 s while the day city kept running (on
+   lavapipe the 4-core VM shared the CPU between the build and the
+   software rasteriser, so only one frame finished meanwhile; with a GPU
+   the frame loop does not rasterise on the CPU); the main-thread stall
+   at the swap was the upload, 6.9 s here (BC chains from the cache), plus
+   the first frame. Before, the same crossing froze the game for the whole
+   build plus upload (45-80 s on the default map here).
+6. **BC textures.** Colour maps and packed ORM/occlusion maps are uploaded
+   BC1 (BC3 when they have alpha) when the adapter has
+   `TEXTURE_COMPRESSION_BC` (requested at device creation; DX12/Vulkan
+   desktop GPUs and lavapipe do); normal maps stay RGBA8 (the shader's
+   specular anti-aliasing reads the unnormalised filtered length). Encoder:
+   `texpresso` (pure Rust, range fit), cached on disk, so later loads also
+   skip the CPU mip generation. `FORJA_FX=-bc` keeps RGBA8.
+
+Tools: `sandbox --night-switch` (headless: after the screenshot, cross
+dusk as the game does and report the background build, the frames
+rendered meanwhile and the main-thread stall; saves `<shot>_switched.png`),
+`FORJA_TIMING=1` (fabric stage laps).
+
+## Shadow stability, city HLOD and streaming (integrated GPUs)
+
+Target: the user's Galaxy Book4 Pro (Meteor Lake, integrated Arc, shared
+memory) ran v0.1.2 at ~10 FPS, and the shadows of the iron window grilles
+flickered. Render scale and upscaling are handled separately (gfx3); this
+part cuts what the city costs and makes the shadows stable.
+
+### Shadow flicker
+
+Causes found in the code (the cascades themselves were already
+texel-snapped, with rotation-invariant bounding spheres, receiver-plane
+bias, normal offset and a rotated Poisson PCF resolved by TAA):
+
+1. **Shadow LOD followed the camera.** Casters picked their shadow LOD from
+   the camera distance of their grid cell (one level coarser than the
+   camera), so while walking, facade modules switched LOD *inside* the
+   same cascade and their shadows popped (grilles and railings lose bars
+   at coarse levels). Now the shadow LOD comes only from the cascade's
+   texel size (one triangle per two texels), which does not change while
+   the camera moves (`View::stable_lod`; dynamic instances the same).
+2. **Thin casters in coarse cascades.** Grille and railing bars (2-3 cm)
+   are thinner than a texel beyond the first cascade (c1 ~1.2 cm, c2
+   ~3.5 cm, c3 ~7 cm on High), where they only alias. The facade's iron
+   (`Mat::Iron` inside `build_into`) is now `ShadowRole::Fine`: camera,
+   first cascade and spot shadows only (the GTA V approach of simplified
+   casters). Beyond ~10 m their shadow is a sub-texel pattern anyway; the
+   balcony slabs, the walls and the building masses still cast.
+3. Far cascades use the building masses (above), so window modules no
+   longer rasterise at 7 cm texels.
+
+`FORJA_FX=-stableshadow` restores the old behaviour for A/B comparisons.
+Measurement: `sandbox --stability N` (8-frame means remove the TAA,
+GTAO and PCF noise; then N steps of the sun creeping 0.03° per step, and
+the camera walking 3 m away and back). Plaza spawn, High, 480x270:
+
+| 960x540, 4 steps | Noise floor (changed px) | Sun creep: mean / p99.9 / changed px | Walk 3 m away and back: changed px |
+|---|---|---|---|
+| Before (`-stableshadow`) | 0.14 % | 0.96 / 23 / 0.64 % | 0.16 % |
+| After | 0.14 % | 0.92 / 16 / 0.39 % | 0.15 % |
+| 480x270, 6 steps, before / after | 0.16 % | 0.43 % / 0.41 % changed | 0.07 % / 0.07 % |
+
+The sun-creep flicker (pixels that change by more than 8/255 between
+steps beyond the noise floor) drops by ~40 % at 960x540; at 480x270 the
+grille bars are sub-pixel and both builds read the same. Walking away
+and back already returned to the same image at this pose (texel-snapped
+cascades); the LOD fix matters where casters change level within a
+cascade while walking (street-level runs of facade modules). After these
+runs the shadow maps also follow the sun in 0.1° steps (`shadow_sun`):
+with a moving clock the maps stay identical for several frames instead of
+re-rasterising every frame (the lighting keeps the exact sun).
+
+### HLOD per city tile
+
+Every 64 m city tile gets an HLOD scene (`forja_city::hlod`): each
+building as one box (footprint to the eave, plus its ático), one mesh,
+one material and a 512² atlas baked at build time with each street
+facade's wall colour (mean of the scanned material x tint) and its real
+grid of storeys and bays, shop fronts on the ground floor, roof colours,
+and at night an emissive copy with lit windows. The renderer draws the
+tile's detail (its block scene, window/shop/portal modules, shadow
+masses) near the camera and the HLOD beyond `hlod_distance` (Low 150 m,
+Medium 200, High 250, Ultra 400; F9 "City detail distance"), per tile with
+10 % hysteresis, in the camera and in every shadow cascade
+(`Renderer::set_static_instances_lod`, `StaticLod`; one flag per run, so
+no per-instance cost). 70 tiles on the default map, 9 MB of HLOD meshes
+and 70 atlases.
+
+### Streaming
+
+`sandbox::stream`: at the first upload every tile's block scene (walls,
+mouldings, roofs: 313 MB of the 710 MB of meshes) is written to
+`cache/stream/<process>/` by a writer thread; beyond 1.4x the HLOD
+distance a tile's blocks leave the GPU (`Renderer::release_model`) and
+the tile is held at its HLOD (`set_static_group_ready`); within 1.2x a
+worker reads and decodes them and the main thread re-uploads at most two
+tiles per frame, so a tile is resident before the 1.0x / 0.9x switch and
+nothing pops or stalls. Window and shop modules are shared by all tiles
+(223 MB) and stay resident. `FORJA_NO_STREAM=1` keeps everything.
+
+Measured (lavapipe, 960x540, High, same build with `FORJA_FX=-hlod`):
+
+| View | | Detail everywhere | HLOD + streaming |
+|---|---|---|---|
+| Plaza spawn | camera draws / tris | 2 074 / 1.22 M | 2 074 / 1.22 M |
+| | shadow draws / tris | 2 130 / 1.85 M | 2 130 / 1.85 M |
+| | tiles at HLOD / blocks streamed out | 0 / 0 | 32 / 29 (153 MB) |
+| | resident meshes, VRAM estimate | 710 MB, ~1.37 GB | 556 MB, ~1.21 GB |
+| Old-town aerial (60 m up) | camera draws / tris | 4 943 / 4.69 M | 4 828 / 4.53 M |
+| | resident meshes, VRAM estimate | 710 MB, ~1.37 GB | 569 MB, ~1.23 GB |
+| Whole city (650 m away, 180 m up) | camera draws / tris | 12 226 / 14.88 M | 1 357 / 1.07 M |
+| | shadow draws / tris | 10 576 / 9.62 M | 3 062 / 1.84 M |
+| | lavapipe GPU per frame (proportion) | 7.1 s | 1.5 s |
+| | resident meshes, VRAM estimate | 710 MB, ~1.40 GB | 406 MB, ~1.07 GB |
+
+Budget for the integrated GPU (draws < 1.5 k, < 2 M triangles camera +
+shadows): met by the far views; near the ground the detail within the
+HLOD distance (window modules: 3 491 unique meshes, one draw each when
+visible) keeps ~2 k camera draws. Next steps there: fewer module
+variants (paint colours as instance tints instead of materials), merged
+per-tile batches of the modules at mid distance, and a shorter HLOD
+distance plus proxies from c2 in the integrated-GPU preset.
+
 ## Moving and changing things
 
 The static culling grid holds only what never changes. Traffic AI cars,
@@ -340,13 +550,13 @@ the default map 122 s, ~2.4 s per WARP frame.
 - Shader compilation: pipelines are created at startup (no hitches during
   play), but DX12 compiles them on first load (FXC/DXC); a pipeline cache
   is not wired in yet.
-- No BC7/BC5 texture compression yet (see above).
+- Textures are BC1/BC3 (range fit); normal maps are still RGBA8 (BC5 would
+  need the specular AA to work from the two-channel normal). A BC7 encoder
+  would improve the colour maps' quality.
+- The near cascades still draw the block walls without LOD (`block`,
+  ~0.46 M shadow triangles at the plaza).
 - DX12 compiles every pipeline with FXC at startup (14 s on WARP in CI,
   a few seconds on a real driver); DXC (`Dx12Compiler::DynamicDxc`) or a
   pipeline cache would shorten it.
 - Upscaling is spatial (FSR 1 EASU after TAA); a TAAU resolve at output
   resolution would be sharper at 50% scale (research list item 16).
-- Facade windows are now the largest shadow cost (75 k instances,
-  5.6 M triangles on High). Medium and Low cut them with the small-caster
-  threshold; on High a merged per-building facade proxy for the far
-  cascades (HLOD) would be the next step.

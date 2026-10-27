@@ -21,6 +21,7 @@
 //!
 //! The work is proportional to the visible cells and runs, not to the city.
 
+use forja_assets::ShadowRole;
 use forja_math::{Aabb, Vec3, Vec4};
 
 use crate::InstanceRaw;
@@ -61,6 +62,23 @@ pub(crate) struct StaticItem {
     pub bounds: Aabb,
     /// Not drawn into shadow maps (blended, or `cast_shadows: false`).
     pub no_shadow: bool,
+    /// Camera / near-cascade detail or far-cascade proxy (per mesh, so
+    /// every item of a run shares it).
+    pub role: ShadowRole,
+    /// Far-distance group (0: none) and whether this is the group's HLOD
+    /// (drawn far) or its detail (drawn near).
+    pub group: u32,
+    pub hlod: bool,
+}
+
+/// Bit of `role` in [`View::skip`].
+pub(crate) fn role_bit(role: ShadowRole) -> u8 {
+    match role {
+        ShadowRole::All => 1,
+        ShadowRole::Near => 2,
+        ShadowRole::Proxy => 4,
+        ShadowRole::Fine => 8,
+    }
 }
 
 struct Run {
@@ -70,6 +88,9 @@ struct Run {
     /// Largest bounding radius in the run (items sorted descending).
     max_radius: f32,
     casts: bool,
+    role: u8,
+    group: u32,
+    hlod: bool,
 }
 
 struct Cell {
@@ -92,6 +113,12 @@ pub(crate) struct View<'a> {
     /// (0: unused). The coarser of the two budgets wins.
     pub texel_lod_scale: f32,
     pub shadow: bool,
+    /// Roles not drawn in this view ([`role_bit`] mask): proxies in the
+    /// camera and near cascades, near-only detail in the far cascades.
+    pub skip: u8,
+    /// Shadow LOD from the cascade's texel size only (not from the camera
+    /// distance), so casters keep their level while the camera moves.
+    pub stable_lod: bool,
 }
 
 enum Source {
@@ -116,6 +143,13 @@ pub(crate) struct StaticScene {
     pub items: usize,
     segments: Vec<Segment>,
     picked: Vec<u32>,
+    /// Bounds of each far-distance group (index = group - 1) and whether
+    /// it currently shows its HLOD.
+    groups: Vec<(Aabb, bool)>,
+    /// Groups whose detail is not resident (streamed out): kept at HLOD.
+    not_ready: std::collections::HashSet<u32>,
+    /// Groups switched in the last [`StaticScene::update_groups`].
+    pub switched: u32,
 }
 
 /// Grid cell edge (m): about a city block side, so a street view touches
@@ -161,7 +195,7 @@ impl StaticScene {
         // Cell of each item: grid by center; items larger than a cell get
         // a cell of their own (a ground plane must not make a whole block
         // of modules always visible).
-        let mut tagged: Vec<(u64, u32, f32, usize)> = items
+        let mut tagged: Vec<(u64, u32, f32, usize, (u32, bool))> = items
             .iter()
             .enumerate()
             .map(|(i, it)| {
@@ -174,10 +208,10 @@ impl StaticScene {
                     let gz = ((c.z / CELL_SIZE).floor() as i64 + (1 << 20)) as u64;
                     (gx << 21) | gz
                 };
-                (cell, key_of(&it.key), -r, i)
+                (cell, key_of(&it.key), -r, i, (it.group, it.hlod))
             })
             .collect();
-        tagged.sort_by(|a, b| (a.0, a.1).cmp(&(b.0, b.1)).then(a.2.total_cmp(&b.2)));
+        tagged.sort_by(|a, b| (a.0, a.1, a.4).cmp(&(b.0, b.1, b.4)).then(a.2.total_cmp(&b.2)));
         let mut s = StaticScene { items: items.len(), ..Default::default() };
         let mut i = 0;
         while i < tagged.len() {
@@ -186,10 +220,12 @@ impl StaticScene {
             let mut bounds = Aabb::EMPTY;
             while i < tagged.len() && tagged[i].0 == cell_id {
                 let key = tagged[i].1;
+                let grp = tagged[i].4;
                 let start = s.raws.len() as u32;
                 let mut casts = false;
                 let mut max_radius = 0.0f32;
-                while i < tagged.len() && tagged[i].0 == cell_id && tagged[i].1 == key {
+                let role = role_bit(items[tagged[i].3].role);
+                while i < tagged.len() && tagged[i].0 == cell_id && tagged[i].1 == key && tagged[i].4 == grp {
                     let it = &items[tagged[i].3];
                     let r = it.bounds.half_extents().length();
                     max_radius = max_radius.max(r);
@@ -201,12 +237,59 @@ impl StaticScene {
                     s.spheres.push(it.bounds.center().extend(if it.no_shadow { -r } else { r }));
                     i += 1;
                 }
-                s.runs.push(Run { key, start, count: s.raws.len() as u32 - start, max_radius, casts });
+                s.runs.push(Run { key, start, count: s.raws.len() as u32 - start, max_radius, casts, role, group: grp.0, hlod: grp.1 });
             }
             s.cells.push(Cell { bounds, runs: run_start..s.runs.len() as u32 });
         }
         s.keys = keys;
+        let ngroups = items.iter().map(|it| it.group).max().unwrap_or(0) as usize;
+        s.groups = vec![(Aabb::EMPTY, false); ngroups];
+        for it in &items {
+            if it.group > 0 {
+                let g = &mut s.groups[it.group as usize - 1];
+                g.0 = g.0.union(&it.bounds);
+            }
+        }
         s
+    }
+
+    /// Picks detail or HLOD per group from the distance between `eye` and
+    /// the group's bounds: HLOD beyond `distance`, detail again under 90 %
+    /// of it (hysteresis, so a camera on the border never flips every
+    /// frame). `distance <= 0` keeps every group at full detail.
+    pub fn update_groups(&mut self, eye: Vec3, distance: f32) {
+        self.switched = 0;
+        for (gi, (b, far)) in self.groups.iter_mut().enumerate() {
+            let d = dist_to_aabb(eye, b);
+            let want = (distance > 0.0 && if *far { d > distance * 0.9 } else { d > distance }) || self.not_ready.contains(&(gi as u32 + 1));
+            if want != *far {
+                *far = want;
+                self.switched += 1;
+            }
+        }
+    }
+
+    pub fn set_ready(&mut self, group: u32, ready: bool) {
+        if ready {
+            self.not_ready.remove(&group);
+        } else {
+            self.not_ready.insert(group);
+        }
+    }
+
+    /// Groups currently drawn with their detail.
+    pub fn near_groups(&self) -> Vec<u32> {
+        self.groups.iter().enumerate().filter(|(_, g)| !g.1).map(|(i, _)| i as u32 + 1).collect()
+    }
+
+    /// Distance from `eye` to a group's bounds.
+    pub fn group_distance(&self, group: u32, eye: Vec3) -> Option<f32> {
+        self.groups.get(group.checked_sub(1)? as usize).map(|g| dist_to_aabb(eye, &g.0))
+    }
+
+    /// Groups currently drawn as HLOD.
+    pub fn far_groups(&self) -> usize {
+        self.groups.iter().filter(|g| g.1).count()
     }
 
     pub fn cell_count(&self) -> usize {
@@ -244,19 +327,20 @@ impl StaticScene {
             let d = dist_to_aabb(view.eye, &cell.bounds).max(0.1);
             let min_r = (view.min_radius_per_m * d).max(view.min_radius);
             for run in &self.runs[cell.runs.start as usize..cell.runs.end as usize] {
-                if run.max_radius < min_r || (view.shadow && !run.casts) {
+                if run.max_radius < min_r || (view.shadow && !run.casts) || run.role & view.skip != 0 || (run.group > 0 && self.groups.get(run.group as usize - 1).is_some_and(|g| g.1 != run.hlod)) {
                     continue;
                 }
-                let lod = if view.lod_scale > 0.0 {
-                    let px = run.max_radius / d;
-                    let mut budget = view.lod_scale * px * px;
-                    if view.texel_lod_scale > 0.0 {
-                        budget = budget.min(view.texel_lod_scale * run.max_radius * run.max_radius);
+                let budget = |r: f32, d: f32| {
+                    if view.stable_lod && view.texel_lod_scale > 0.0 {
+                        return view.texel_lod_scale * r * r;
                     }
-                    lod_for(self.keys[run.key as usize].mesh, budget)
-                } else {
-                    lod_for(self.keys[run.key as usize].mesh, f32::INFINITY)
+                    let mut b = if view.lod_scale > 0.0 { view.lod_scale * (r / d) * (r / d) } else { f32::INFINITY };
+                    if view.texel_lod_scale > 0.0 {
+                        b = b.min(view.texel_lod_scale * r * r);
+                    }
+                    b
                 };
+                let lod = lod_for(self.keys[run.key as usize].mesh, budget(run.max_radius, d));
                 let range = &self.spheres[run.start as usize..(run.start + run.count) as usize];
                 // Radius-sorted: keep the prefix that is large enough.
                 let n = range.partition_point(|s| s.w.abs() >= min_r) as u32;
@@ -275,13 +359,9 @@ impl StaticScene {
                         let r = s.w.abs();
                         if class == 2 || sphere_in(view.planes, s.truncate(), r) {
                             let di = ((s.truncate() - view.eye).length() - r).max(0.1);
-                            let mut budget = view.lod_scale * (r / di) * (r / di);
-                            if view.texel_lod_scale > 0.0 {
-                                budget = budget.min(view.texel_lod_scale * r * r);
-                            }
                             let p0 = self.picked.len() as u32;
                             self.picked.push(run.start + k as u32);
-                            self.segments.push(Segment { key: run.key, lod: lod_for(mesh, budget), src: Source::Picked(p0, 1) });
+                            self.segments.push(Segment { key: run.key, lod: lod_for(mesh, budget(r, di)), src: Source::Picked(p0, 1) });
                         }
                     }
                     continue;
@@ -336,7 +416,7 @@ mod tests {
     fn item(mesh: u32, x: f32, z: f32, r: f32) -> StaticItem {
         let mut raw = InstanceRaw::zeroed();
         raw.model = Mat4::from_translation(Vec3::new(x, 0.0, z)).to_cols_array_2d();
-        StaticItem { key: DrawKey { pipe: 0, material: 0, mesh }, raw, bounds: Aabb::from_center_half(Vec3::new(x, 0.0, z), Vec3::splat(r / 3f32.sqrt())), no_shadow: false }
+        StaticItem { key: DrawKey { pipe: 0, material: 0, mesh }, raw, bounds: Aabb::from_center_half(Vec3::new(x, 0.0, z), Vec3::splat(r / 3f32.sqrt())), no_shadow: false, role: ShadowRole::All, group: 0, hlod: false }
     }
 
     /// Planes of an axis-aligned box region x in [x0, x1] (all y, z < 1000).
@@ -360,7 +440,7 @@ mod tests {
         let mut s = StaticScene::build(items);
         assert!(s.cell_count() >= 12);
         let planes = slab(-1.0, 99.0);
-        let view = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 0.0, texel_lod_scale: 0.0, shadow: false };
+        let view = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 0.0, texel_lod_scale: 0.0, shadow: false, skip: 0, stable_lod: false };
         let mut out = Vec::new();
         let mut batches = Vec::new();
         let n = s.gather(&view, &|_, _| 0, &mut out, &mut batches);
@@ -385,7 +465,7 @@ mod tests {
         let planes = slab(-100.0, 100.0);
         let mut out = Vec::new();
         let mut batches = Vec::new();
-        let view = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.5, lod_scale: 0.0, texel_lod_scale: 0.0, shadow: true };
+        let view = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.5, lod_scale: 0.0, texel_lod_scale: 0.0, shadow: true, skip: 0, stable_lod: false };
         let n = s.gather(&view, &|_, _| 1, &mut out, &mut batches);
         // Only the large caster survives: the small one is under the
         // threshold, the third does not cast.
@@ -401,7 +481,7 @@ mod tests {
         let lod = |_: u32, budget: f32| (6.0 - budget.max(1.0).log10()).clamp(0.0, 6.0) as u32;
         let mut run = |texel_lod_scale: f32| {
             let (mut out, mut batches) = (Vec::new(), Vec::new());
-            let v = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 1e8, texel_lod_scale, shadow: true };
+            let v = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 1e8, texel_lod_scale, shadow: true, skip: 0, stable_lod: false };
             s.gather(&v, &lod, &mut out, &mut batches);
             batches[0].lod
         };
@@ -411,13 +491,57 @@ mod tests {
     }
 
     #[test]
+    fn stable_shadow_lod_ignores_the_camera_distance() {
+        let mut s = StaticScene::build(vec![item(0, 0.0, 10.0, 2.0)]);
+        let planes = slab(-100.0, 100.0);
+        let lod = |_: u32, budget: f32| (6.0 - budget.max(1.0).log10()).clamp(0.0, 6.0) as u32;
+        let mut at = |eye: Vec3| {
+            let (mut out, mut batches) = (Vec::new(), Vec::new());
+            let v = View { planes: &planes, eye, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 1e6, texel_lod_scale: 1e4, shadow: true, skip: 0, stable_lod: true };
+            s.gather(&v, &lod, &mut out, &mut batches);
+            batches[0].lod
+        };
+        assert_eq!(at(Vec3::ZERO), at(Vec3::new(0.0, 0.0, 80.0)));
+    }
+
+    #[test]
+    fn far_groups_swap_detail_for_hlod_with_hysteresis() {
+        // Group 1: two detail items and its HLOD, 100 m away; one ungrouped item.
+        let mut items = vec![item(0, 100.0, 0.0, 1.0), item(1, 102.0, 0.0, 1.0), item(2, 101.0, 0.0, 5.0), item(3, 0.0, 0.0, 1.0)];
+        for it in &mut items[..3] {
+            it.group = 1;
+        }
+        items[2].hlod = true;
+        let mut s = StaticScene::build(items);
+        let planes = slab(-1000.0, 1000.0);
+        let meshes = |s: &mut StaticScene| {
+            let (mut out, mut batches) = (Vec::new(), Vec::new());
+            let v = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 0.0, texel_lod_scale: 0.0, shadow: false, skip: 0, stable_lod: false };
+            s.gather(&v, &|_, _| 0, &mut out, &mut batches);
+            let mut m: Vec<u32> = batches.iter().map(|b| b.mesh).collect();
+            m.sort();
+            m
+        };
+        s.update_groups(Vec3::ZERO, 200.0);
+        assert_eq!(meshes(&mut s), vec![0, 1, 3]);
+        s.update_groups(Vec3::ZERO, 50.0);
+        assert_eq!(meshes(&mut s), vec![2, 3]);
+        // Inside the hysteresis band (90..100 % of the distance): stays far.
+        s.update_groups(Vec3::ZERO, 104.0);
+        assert_eq!(meshes(&mut s), vec![2, 3]);
+        s.update_groups(Vec3::ZERO, 120.0);
+        assert_eq!(meshes(&mut s), vec![0, 1, 3]);
+        assert_eq!(s.switched, 1);
+    }
+
+    #[test]
     fn large_items_pick_their_own_lod() {
         // Two big items in one cell, 2 m and 25 m from the camera.
         let mut s = StaticScene::build(vec![item(0, 3.0, 0.0, 2.0), item(0, 26.0, 0.0, 2.0)]);
         let planes = slab(-100.0, 100.0);
         let lod = |_: u32, budget: f32| (6.0 - budget.max(1.0).log10()).clamp(0.0, 6.0) as u32;
         let (mut out, mut batches) = (Vec::new(), Vec::new());
-        let v = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 1e6, texel_lod_scale: 0.0, shadow: false };
+        let v = View { planes: &planes, eye: Vec3::ZERO, min_radius_per_m: 0.0, min_radius: 0.0, lod_scale: 1e6, texel_lod_scale: 0.0, shadow: false, skip: 0, stable_lod: false };
         s.gather(&v, &lod, &mut out, &mut batches);
         let mut lods: Vec<u32> = batches.iter().map(|b| b.lod).collect();
         lods.sort();

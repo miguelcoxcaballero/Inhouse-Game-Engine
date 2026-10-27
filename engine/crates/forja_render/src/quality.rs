@@ -105,6 +105,12 @@ pub struct GraphicsConfig {
     /// Sun shadow casters with a bounding radius under this many cascade
     /// texels are skipped (small facade details in the far cascades).
     pub shadow_caster_texels: f32,
+    /// First sun cascade (0-3) where facade detail is replaced by the
+    /// city's shadow proxies (building masses); 4 never uses them.
+    pub shadow_proxy_cascade: u32,
+    /// Distance (m) beyond which city tiles draw their HLOD stand-in
+    /// instead of their facade detail (0: never).
+    pub hlod_distance: f32,
     /// Camera and object motion blur (McGuire reconstruction filter).
     pub motion_blur: bool,
     /// Gather samples per moving pixel (4-24).
@@ -154,6 +160,8 @@ impl Default for GraphicsConfig {
             max_texture_size: 4096,
             lod_detail: 1.0,
             shadow_caster_texels: 2.5,
+            shadow_proxy_cascade: 3,
+            hlod_distance: 250.0,
             motion_blur: true,
             motion_blur_samples: 10,
             volumetric_fog: 2,
@@ -224,6 +232,19 @@ impl GraphicsConfig {
             Preset::High => 2.5,
             _ => 1.5,
         };
+        // Facade detail (window modules, walls with openings) in the far
+        // cascades costs most of the shadow triangles; the building masses
+        // cast the same shadow there.
+        self.shadow_proxy_cascade = match p {
+            Preset::Low | Preset::Medium => 2,
+            _ => 3,
+        };
+        self.hlod_distance = match p {
+            Preset::Low => 150.0,
+            Preset::Medium => 200.0,
+            Preset::High => 250.0,
+            _ => 400.0,
+        };
         // Research pass 2 (docs/rendering_research.md 9-12): motion blur off
         // on Low, volumetric fog off on Low (analytic fog), bent normals from
         // Medium, FSR 1 upscaling wherever the render scale drops below 1.
@@ -254,6 +275,8 @@ impl GraphicsConfig {
         self.max_texture_size = self.max_texture_size.clamp(256, 16384);
         self.lod_detail = self.lod_detail.clamp(0.1, 4.0);
         self.shadow_caster_texels = self.shadow_caster_texels.clamp(0.5, 16.0);
+        self.shadow_proxy_cascade = self.shadow_proxy_cascade.min(4);
+        self.hlod_distance = if self.hlod_distance <= 0.0 { 0.0 } else { self.hlod_distance.clamp(60.0, 2000.0) };
         self.motion_blur_samples = self.motion_blur_samples.clamp(4, 24);
         self.volumetric_fog = self.volumetric_fog.min(3);
         self

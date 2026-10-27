@@ -108,6 +108,7 @@ impl SpanishCity {
             &self.config,
         );
         log::info!("city: kit and city in {:.1}s", t0.elapsed().as_secs_f32());
+        forja_assets::progress::stage("Plantando los árboles", 0.56);
         let mut world = WorldDescription::new("Ciudad española");
         let out = city.out;
         for s in out.scenes {
@@ -115,6 +116,7 @@ impl SpanishCity {
         }
         // Placements first: the traffic lights index them.
         world.placements = out.placements;
+        world.hlod_tiles = out.hlod_tiles;
         world.traffic = Some(city.traffic.clone());
         let groups = CollisionGroups::new(layers::WORLD, u32::MAX);
         let ext = city.extent;

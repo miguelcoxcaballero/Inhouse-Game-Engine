@@ -149,7 +149,7 @@ pub fn open(instance: &wgpu::Instance, surface: Option<&wgpu::Surface<'_>>, choi
         let info = adapter.get_info();
         let desc = wgpu::DeviceDescriptor {
             label: Some("forja"),
-            required_features: crate::profiler::GpuProfiler::wanted_features(&adapter),
+            required_features: crate::profiler::GpuProfiler::wanted_features(&adapter) | (adapter.features() & wgpu::Features::TEXTURE_COMPRESSION_BC),
             required_limits: required_limits(&adapter),
             experimental_features: wgpu::ExperimentalFeatures::disabled(),
             memory_hints: wgpu::MemoryHints::Performance,
