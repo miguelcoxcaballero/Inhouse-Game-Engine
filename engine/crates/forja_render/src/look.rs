@@ -343,7 +343,7 @@ impl CameraFx {
             let v: Vec<Option<&wgpu::BindGroupLayout>> = bgls.iter().map(|b| Some(*b)).collect();
             device.create_pipeline_layout(&wgpu::PipelineLayoutDescriptor { label: None, bind_group_layouts: &v, immediate_size: 0 })
         };
-        let pipe = |module: &wgpu::ShaderModule, layout: &wgpu::PipelineLayout, entry: &str, format: wgpu::TextureFormat| {
+        let pipe = |module: &wgpu::ShaderModule, layout: &wgpu::PipelineLayout, entry: &str, format: wgpu::TextureFormat, constants: &[(&str, f64)]| {
             device.create_render_pipeline(&wgpu::RenderPipelineDescriptor {
                 label: Some(entry),
                 layout: Some(layout),
@@ -351,15 +351,16 @@ impl CameraFx {
                 primitive: Default::default(),
                 depth_stencil: None,
                 multisample: Default::default(),
-                fragment: Some(wgpu::FragmentState { module, entry_point: Some(entry), compilation_options: Default::default(), targets: &[Some(format.into())] }),
+                fragment: Some(wgpu::FragmentState { module, entry_point: Some(entry), compilation_options: wgpu::PipelineCompilationOptions { constants, ..Default::default() }, targets: &[Some(format.into())] }),
                 multiview_mask: None,
                 cache: None,
             })
         };
         let camera = crate::shader(device, "cinematic", include_str!("shaders/cinematic.wgsl"), false);
         let dof = crate::shader(device, "dof", include_str!("shaders/dof.wgsl"), true);
-        let camera_pipe = pipe(&camera, &layout(&[&look_bgl]), "fs_camera", output_format);
-        let dof_pipe = pipe(&dof, &layout(&[frame_bgl, taa_bgl]), "fs_dof", crate::HDR_FORMAT);
+        // A plain UNORM surface gets the sRGB encoding in this last pass.
+        let camera_pipe = pipe(&camera, &layout(&[&look_bgl]), "fs_camera", output_format, &[("encode_srgb", (!output_format.is_srgb()) as u32 as f64)]);
+        let dof_pipe = pipe(&dof, &layout(&[frame_bgl, taa_bgl]), "fs_dof", crate::HDR_FORMAT, &[]);
         let n = LUT_SIZE as u32;
         let lut_tex = device.create_texture(&wgpu::TextureDescriptor {
             label: Some("grade_lut"),

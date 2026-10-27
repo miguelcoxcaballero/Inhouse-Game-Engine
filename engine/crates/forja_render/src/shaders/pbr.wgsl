@@ -503,7 +503,13 @@ fn fs_main(in: VertexOut, @builtin(front_facing) front: bool) -> @location(0) ve
     let base = base_s * material.base_color * in.tint;
     if (base.a < material.params.z) { discard; }
     if (material.params.w > 0.5) {
-        // Unlit: constant on screen (auto exposure: exposure / pre ~ 1).
+        if (frame.params.w > 0.5) {
+            // Daylight camera: unlit (KHR_materials_unlit) colours are
+            // display referred, so divide by the exposure the post pass
+            // applies: they show as authored at any EV.
+            return vec4<f32>(height_fog(base.rgb / max(frame.sun_color.w, 1e-6), in.world_pos, normalize(in.world_pos - frame.camera_pos.xyz)), base.a);
+        }
+        // Night camera: constant on screen (auto exposure: exposure / pre ~ 1).
         let k = select(frame.sun_color.w, 1.0, frame.lighting.y > 0.5);
         return vec4<f32>(height_fog(base.rgb * k * 3.0, in.world_pos, normalize(in.world_pos - frame.camera_pos.xyz)), base.a);
     }

@@ -9,6 +9,10 @@ struct LookParams {
     b: vec4<f32>,  // x: aberration (px at the corners), y: frame index, zw: 1 / size
 };
 
+// 1 when the output is a plain UNORM surface: this pass, the last one, then
+// writes sRGB-encoded values itself.
+override encode_srgb: f32 = 0.0;
+
 @group(0) @binding(0) var src: texture_2d<f32>;
 @group(0) @binding(1) var samp: sampler;
 @group(0) @binding(2) var<uniform> look: LookParams;
@@ -111,6 +115,9 @@ fn fs_camera(in: FsIn) -> @location(0) vec4<f32> {
         let l = dot(e, vec3<f32>(0.2126, 0.7152, 0.0722));
         let w = look.a.y * (0.25 + 3.0 * l * (1.0 - l));
         e = clamp(e + (vec3<f32>(gl) + gc * 0.15) * w, vec3<f32>(0.0), vec3<f32>(1.0));
+    }
+    if (encode_srgb > 0.5) {
+        return vec4<f32>(e, 1.0);
     }
     return vec4<f32>(from_srgb(e), 1.0);
 }
