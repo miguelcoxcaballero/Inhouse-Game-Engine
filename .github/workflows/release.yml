@@ -14,6 +14,15 @@ on:
         description: "Tag to create and publish as a Release (e.g. v0.1.0); empty = artifact only"
         required: false
         default: ""
+      smoke_only:
+        description: "Only build and run the Windows smoke test (no package, no release)"
+        type: boolean
+        required: false
+        default: false
+      smoke_frames:
+        description: "Frames the smoke test renders"
+        required: false
+        default: "100"
 
 permissions:
   contents: write
@@ -37,7 +46,58 @@ jobs:
       - name: Build
         run: cargo build --release --locked -p sandbox -p forja_fetch
 
+      # ---- Smoke test: the real game on the D3D12 WARP software adapter
+      # (GitHub runners have no GPU). Renders the default map with the Low
+      # preset for N frames through the normal game loop and fails on a
+      # panic, a wgpu validation error, a lost device or a blank image.
+      - name: Cache content packs
+        uses: actions/cache@v4
+        with:
+          path: engine/assets/downloaded
+          key: forja-assets-${{ hashFiles('engine/data/assets.toml', 'engine/data/assets.lock.toml') }}
+          restore-keys: forja-assets-
+
+      - name: Fetch content packs (play set)
+        continue-on-error: true
+        timeout-minutes: 20
+        run: target/release/forja_fetch.exe fetch --play --missing --root .
+
+      - name: Smoke test (headless, WARP)
+        shell: bash
+        timeout-minutes: 40
+        env:
+          FORJA_NO_FETCH: "1"
+          RUST_LOG: info,wgpu_core=warn,wgpu_hal=warn,naga=warn
+          RUST_BACKTRACE: "1"
+        run: |
+          mkdir -p smoke
+          set -o pipefail
+          ./target/release/sandbox.exe --smoke "${{ inputs.smoke_frames || '100' }}" --adapter warp --preset low --size 960x540 --screenshot smoke/warp-headless.png 2>&1 | tee smoke/warp-headless.log
+          grep -q "SMOKE OK" smoke/warp-headless.log
+
+      - name: Smoke test (window + swapchain, WARP)
+        shell: bash
+        timeout-minutes: 30
+        env:
+          FORJA_NO_FETCH: "1"
+          RUST_LOG: info,wgpu_core=warn,wgpu_hal=warn,naga=warn
+          RUST_BACKTRACE: "1"
+        run: |
+          mkdir -p smoke
+          set -o pipefail
+          ./target/release/sandbox.exe --smoke 30 --window --adapter warp --preset low --size 960x540 --screenshot smoke/warp-window.png 2>&1 | tee smoke/warp-window.log
+          grep -q "SMOKE OK" smoke/warp-window.log
+
+      - name: Upload smoke logs and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Forja-Windows-smoke
+          path: engine/smoke/
+          if-no-files-found: warn
+
       - name: Package Forja-Windows.zip
+        if: ${{ !inputs.smoke_only }}
         shell: pwsh
         run: |
           $out = "$env:GITHUB_WORKSPACE/dist/Forja"
@@ -52,13 +112,14 @@ jobs:
           Get-Item "$env:GITHUB_WORKSPACE/dist/Forja-Windows.zip" | Select-Object Name, Length
 
       - uses: actions/upload-artifact@v4
+        if: ${{ !inputs.smoke_only }}
         with:
           name: Forja-Windows
           path: dist/Forja-Windows.zip
           if-no-files-found: error
 
       - name: GitHub Release
-        if: startsWith(github.ref, 'refs/tags/') || inputs.tag != ''
+        if: ${{ !inputs.smoke_only && (startsWith(github.ref, 'refs/tags/') || inputs.tag != '') }}
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ inputs.tag || github.ref_name }}
