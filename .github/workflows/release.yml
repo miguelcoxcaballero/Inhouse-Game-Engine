@@ -1,35 +1,36 @@
 name: Release (versión jugable)
 
-# Builds whatever engine/ holds at the tagged commit and ships the sandbox's
-# default map. When a new map lands (e.g. the organic, sloped old town from
-# organic-layout) re-sync engine/ and tag/dispatch a new v* version: nothing
-# here names a map, so the release picks it up automatically.
+# fps-debug branch only: frame-trace experiments on WARP (no package, no
+# release). Each matrix job builds the sandbox and runs one set of
+# configurations of .github/scripts/fps_trace.sh.
 
 on:
-  push:
-    tags: ["v*"]
   workflow_dispatch:
     inputs:
       tag:
-        description: "Tag to create and publish as a Release (e.g. v0.1.0); empty = artifact only"
+        description: "unused on fps-debug"
         required: false
         default: ""
       smoke_only:
-        description: "Only build and run the Windows smoke test (no package, no release)"
+        description: "unused on fps-debug (always smoke only)"
         type: boolean
         required: false
-        default: false
+        default: true
       smoke_frames:
-        description: "Frames the smoke test renders"
+        description: "unused on fps-debug"
         required: false
         default: "100"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  windows:
+  trace:
     runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        set: [headless, window, variants]
     defaults:
       run:
         working-directory: engine
@@ -46,10 +47,6 @@ jobs:
       - name: Build
         run: cargo build --release --locked -p sandbox -p forja_fetch
 
-      # ---- Smoke test: the real game on the D3D12 WARP software adapter
-      # (GitHub runners have no GPU). Renders the default map with the Low
-      # preset for N frames through the normal game loop and fails on a
-      # panic, a wgpu validation error, a lost device or a blank image.
       - name: Cache content packs
         uses: actions/cache@v4
         with:
@@ -62,75 +59,23 @@ jobs:
         timeout-minutes: 20
         run: target/release/forja_fetch.exe fetch --play --missing --root .
 
-      - name: Smoke test (headless, WARP)
-        shell: bash
-        timeout-minutes: 40
-        env:
-          FORJA_NO_FETCH: "1"
-          RUST_LOG: info,wgpu_core=warn,wgpu_hal=warn,naga=warn
-          RUST_BACKTRACE: "1"
+      - name: CPU info
+        shell: pwsh
         run: |
-          mkdir -p smoke
-          set -o pipefail
-          ./target/release/sandbox.exe --smoke "${{ inputs.smoke_frames || '100' }}" --adapter warp --preset low --size 960x540 --screenshot smoke/warp-headless.png 2>&1 | tee smoke/warp-headless.log
-          grep -q "SMOKE OK" smoke/warp-headless.log
+          Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed | Format-List
+          [System.Environment]::OSVersion.VersionString
 
-      - name: Smoke test (window + swapchain, WARP)
+      - name: Frame traces (${{ matrix.set }})
         shell: bash
-        timeout-minutes: 30
-        env:
-          FORJA_NO_FETCH: "1"
-          RUST_LOG: info,wgpu_core=warn,wgpu_hal=warn,naga=warn
-          RUST_BACKTRACE: "1"
-        run: |
-          mkdir -p smoke
-          set -o pipefail
-          ./target/release/sandbox.exe --smoke 30 --window --adapter warp --preset low --size 960x540 --screenshot smoke/warp-window.png 2>&1 | tee smoke/warp-window.log
-          grep -q "SMOKE OK" smoke/warp-window.log
+        timeout-minutes: 150
+        run: bash ../.github/scripts/fps_trace.sh ${{ matrix.set }}
 
-      - name: Upload smoke logs and screenshots
+      - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Forja-Windows-smoke
-          path: engine/smoke/
+          name: Forja-Windows-smoke-${{ matrix.set }}
+          path: |
+            engine/smoke/*.log
+            engine/smoke/*.trace
           if-no-files-found: warn
-
-      - name: Package Forja-Windows.zip
-        if: ${{ !inputs.smoke_only }}
-        shell: pwsh
-        run: |
-          $out = "$env:GITHUB_WORKSPACE/dist/Forja"
-          New-Item -ItemType Directory -Force $out | Out-Null
-          Copy-Item target/release/sandbox.exe "$out/Forja.exe"
-          Copy-Item target/release/forja_fetch.exe "$out/forja_fetch.exe"
-          Copy-Item -Recurse data "$out/data"
-          Copy-Item apps/sandbox/release/Jugar.bat "$out/Jugar.bat"
-          Copy-Item apps/sandbox/release/LEEME.txt "$out/LEEME.txt"
-          python ../.github/scripts/licencias.py data/assets.toml "$out/LICENCIAS.txt"
-          Compress-Archive -Path "$out" -DestinationPath "$env:GITHUB_WORKSPACE/dist/Forja-Windows.zip"
-          Get-Item "$env:GITHUB_WORKSPACE/dist/Forja-Windows.zip" | Select-Object Name, Length
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ !inputs.smoke_only }}
-        with:
-          name: Forja-Windows
-          path: dist/Forja-Windows.zip
-          if-no-files-found: error
-
-      - name: GitHub Release
-        if: ${{ !inputs.smoke_only && (startsWith(github.ref, 'refs/tags/') || inputs.tag != '') }}
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ inputs.tag || github.ref_name }}
-          target_commitish: ${{ github.sha }}
-          make_latest: true
-          files: dist/Forja-Windows.zip
-          name: Forja ${{ inputs.tag || github.ref_name }} (versión jugable)
-          body: |
-            Versión jugable de Forja para Windows 10/11 (64 bits, GPU con DirectX 12).
-
-            1. Descarga **Forja-Windows.zip** y descomprímelo en cualquier carpeta.
-            2. Abre **Jugar.bat**. El primer arranque descarga el contenido libre (~0,8-1 GB); después arranca directamente.
-
-            Controles, requisitos y licencias en `LEEME.txt` y `LICENCIAS.txt` dentro del ZIP.
