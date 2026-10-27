@@ -24,6 +24,31 @@ pub enum PropKind {
     Bench,
 }
 
+/// What kind of place a prop stands in, so a tree generator can choose
+/// fitting species (plane trees on boulevards, orange trees in plazas and
+/// narrow streets, palms on avenues and the port).
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Hash)]
+pub enum Setting {
+    #[default]
+    Street,
+    NarrowStreet,
+    Boulevard,
+    /// Median of a grand avenue.
+    Avenue,
+    Plaza,
+    Park,
+    Port,
+}
+
+/// Context of one entry of [`CityLayout::props`].
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PropSite {
+    pub setting: Setting,
+    pub valencia: bool,
+    /// Street width between building lines (m; 0 off-street).
+    pub street_width: f32,
+}
+
 #[derive(Clone, Copy, Debug)]
 pub struct Spawn {
     pub vehicle: bool,
@@ -35,6 +60,8 @@ pub struct Spawn {
 pub struct CityLayout {
     pub out: CityOut,
     pub props: Vec<(PropKind, Mat4)>,
+    /// Where each prop stands (parallel to `props`).
+    pub prop_sites: Vec<PropSite>,
     pub spawns: Vec<Spawn>,
     /// Half size of the playable area.
     pub extent: Vec2,
@@ -45,6 +72,14 @@ pub struct CityLayout {
     pub plazas: Vec<(Vec2, Vec2, usize)>,
     /// Lanes, signs and traffic lights for the traffic AI.
     pub traffic: TrafficInfo,
+}
+
+impl CityLayout {
+    /// Adds a library prop with its site.
+    pub fn add_prop(&mut self, kind: PropKind, m: Mat4, site: PropSite) {
+        self.props.push((kind, m));
+        self.prop_sites.push(site);
+    }
 }
 
 #[derive(Clone, Debug)]
@@ -345,10 +380,11 @@ pub fn build_city(kit: &Kit, styles: &StyleLibrary, cfg: &CityConfig) -> CityLay
         }
         let mut z = z0 + 6.0;
         while z < z1 - 4.0 {
+            let site = PropSite { setting: Setting::Avenue, valencia: true, street_width: cfg.avenue };
             if !in_gap(z, 3.0) {
-                lay.props.push((PropKind::Palm, Mat4::from_rotation_translation(Quat::from_rotation_y(z * 0.37), Vec3::new(0.0, 0.17, z))));
+                lay.add_prop(PropKind::Palm, Mat4::from_rotation_translation(Quat::from_rotation_y(z * 0.37), Vec3::new(0.0, 0.17, z)), site);
                 if (z as i32 / 9) % 3 == 0 && !in_gap(z + 4.0, 2.0) {
-                    lay.props.push((PropKind::Bench, Mat4::from_rotation_translation(Quat::from_rotation_y(std::f32::consts::FRAC_PI_2), Vec3::new(-3.2, 0.15, z + 4.0))));
+                    lay.add_prop(PropKind::Bench, Mat4::from_rotation_translation(Quat::from_rotation_y(std::f32::consts::FRAC_PI_2), Vec3::new(-3.2, 0.15, z + 4.0)), site);
                 }
             }
             z += 11.0;
@@ -697,7 +733,14 @@ fn plaza(lib: &mut ModuleLib, lay: &mut CityLayout, b: &Block, d: &District, rng
             let bed: Vec<Vec2> = (0..16).map(|i| c + Vec2::from_angle(std::f32::consts::TAU * i as f32 / 16.0) * 3.2).collect();
             p.get(Mat::Soil).polygon(&bed, 0.2, true, 2.0);
             flower_bed(&mut p, c, 3.0, rng);
-            lay.props.push((PropKind::Palm, Mat4::from_translation(Vec3::new(c.x, 0.2, c.y))));
+            let site = PropSite { setting: Setting::Plaza, valencia: true, street_width: 0.0 };
+            lay.add_prop(PropKind::Palm, Mat4::from_translation(Vec3::new(c.x, 0.2, c.y)), site);
+            // Orange trees in tree pits between the palm beds.
+            let a2 = std::f32::consts::FRAC_PI_2 * k as f32;
+            let o = ctr + Vec2::from_angle(a2) * (r + 8.0);
+            let pit: Vec<Vec2> = (0..12).map(|i| o + Vec2::from_angle(std::f32::consts::TAU * i as f32 / 12.0) * 0.9).collect();
+            p.get(Mat::Soil).polygon(&pit, 0.18, true, 2.0);
+            lay.add_prop(PropKind::Tree, Mat4::from_rotation_translation(Quat::from_rotation_y(a2 * 1.7), Vec3::new(o.x, 0.18, o.y)), site);
         }
     } else {
         // Austrias square: a formal garden parterre with a statue plinth.
@@ -733,7 +776,7 @@ fn plaza(lib: &mut ModuleLib, lay: &mut CityLayout, b: &Block, d: &District, rng
             lay.out.lights.push((Vec3::new(q.x, 4.0, q.y), Vec3::new(1.0, 0.8, 0.55)));
             let bq = a + dir * (t + 6.0) + inward * 3.5;
             let yaw = (-inward).x.atan2(-inward.y) + std::f32::consts::PI;
-            lay.props.push((PropKind::Bench, Mat4::from_rotation_translation(Quat::from_rotation_y(yaw), Vec3::new(bq.x, 0.155, bq.y))));
+            lay.add_prop(PropKind::Bench, Mat4::from_rotation_translation(Quat::from_rotation_y(yaw), Vec3::new(bq.x, 0.155, bq.y)), PropSite { setting: Setting::Plaza, valencia: d.valencia, street_width: 0.0 });
             // A drum on its post at the end of every bench.
             let bin = lib.named(&mut lay.out, "papelera_single", || sw::papelera(BinModel::PostSingle, 0));
             let pq = bq + dir * 1.3;
@@ -966,7 +1009,9 @@ fn street_furniture(lib: &mut ModuleLib, lay: &mut CityLayout, s: &Segment, d: &
                 } else {
                     let qt = at(t, side * (road + 1.0));
                     place(lay, grate, qt, 0.15, dir);
-                    lay.props.push((PropKind::Tree, Mat4::from_rotation_translation(Quat::from_rotation_y(rng.range(0.0, std::f32::consts::TAU)), Vec3::new(qt.x, 0.14, qt.y))));
+                    let setting = if s.width >= 18.0 { Setting::Boulevard } else if s.width >= 12.0 { Setting::Street } else { Setting::NarrowStreet };
+                    let site = PropSite { setting, valencia: d.valencia, street_width: s.width };
+                    lay.add_prop(PropKind::Tree, Mat4::from_rotation_translation(Quat::from_rotation_y(rng.range(0.0, std::f32::consts::TAU)), Vec3::new(qt.x, 0.14, qt.y)), site);
                 }
                 t += 9.0;
                 k += 1;
@@ -1254,6 +1299,8 @@ mod tests {
         assert!(city.spawns.iter().any(|s| s.vehicle) && city.spawns.iter().any(|s| !s.vehicle));
         assert!(!city.out.lights.is_empty());
         assert!(city.props.iter().any(|p| p.0 == PropKind::Tree));
+        assert_eq!(city.props.len(), city.prop_sites.len());
+        assert!(city.prop_sites.iter().any(|s| s.setting == Setting::Avenue));
         // Every placement sits inside the map.
         for (_, m) in &city.out.placements {
             let p = m.w_axis.truncate();
