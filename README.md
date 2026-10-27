@@ -8,10 +8,12 @@ Atlas interactivo con cartografía real de OpenStreetMap y una estética inspira
 
 Juego en mundo abierto con el motor Forja: ciudad procedural de Madrid y Valencia, personajes, coches, armas e inventario. Requiere Windows 10/11 de 64 bits y una GPU con DirectX 12.
 
+**Novedades de la v0.1.2:** nuevo mapa por defecto con cascos antiguos orgánicos (Madrid de los Austrias en una colina y el Barrio del Carmen) —callejones irregulares en cuesta, calles de escaleras, plazas— cruzados por grandes avenidas, junto a una cuadrícula madrileña, un Ensanche valenciano y un bulevar; tráfico con IA, peatones, mobiliario urbano valenciano y árboles procedurales; cámara diurna física y noche real (F3). Presupuestado para una GTX 1660 / RX 580 a 1080p en Alto (~2,3 GB de VRAM, ~3 GB de RAM). **F9** abre las opciones gráficas con presets Bajo/Medio/Alto/Ultra (Auto según la GPU) y **F11** el perfilador (FPS, tiempos CPU/GPU, VRAM).
+
 1. Descomprime `Forja-Windows.zip` en cualquier carpeta.
 2. Abre `Jugar.bat`. La primera vez descarga el contenido libre (unos 0,8-1 GB, con progreso en la consola); después arranca directamente.
 
-Controles: WASD mover · ratón mirar · Shift correr · Espacio saltar/freno de mano · F subir/bajar del coche · clic derecho apuntar · clic izquierdo disparar · R recargar · 1-6 armas · Tab inventario · V cámara · F10 ayuda · Esc soltar ratón/salir. Detalles en `LEEME.txt` dentro del ZIP. Cada etiqueta `v*` compila el ZIP con [GitHub Actions](.github/workflows/release.yml).
+Controles: WASD mover · ratón mirar · Shift correr · Espacio saltar/freno de mano · F subir/bajar del coche · clic derecho apuntar · clic izquierdo disparar · R recargar · 1-6 armas · Tab inventario · V cámara · F3 hora del día · F9 gráficos · F11 perfilador · F10 ayuda · Esc soltar ratón/salir. Detalles en `LEEME.txt` dentro del ZIP. Cada etiqueta `v*` compila el ZIP con [GitHub Actions](.github/workflows/release.yml).
 
 ## Isla de 500 km² · editor actual
 
