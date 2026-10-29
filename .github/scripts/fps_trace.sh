@@ -59,6 +59,17 @@ case "$1" in
     run w-spain-64-low-novsync 1800 --smoke 200 --window --adapter warp --preset low --size 64x36
     mv data/graphics.toml.bak data/graphics.toml
     ;;
+  after-h)
+    run h-track-64-low 900 --smoke 200 --map track --adapter warp --preset low --size 64x36
+    run h-spain-64-low 1800 --smoke 200 --adapter warp --preset low --size 64x36
+    run h-spain-64-high 1800 --smoke 200 --adapter warp --preset high --size 64x36
+    FORJA_NO_MULTI_DRAW=1 run h-spain-64-low-nomdi 1800 --smoke 200 --adapter warp --preset low --size 64x36
+    ;;
+  after-w)
+    run w-track-64-low 900 --smoke 200 --window --map track --adapter warp --preset low --size 64x36
+    run w-spain-64-low 1800 --smoke 200 --window --adapter warp --preset low --size 64x36
+    run w-spain-64-high 1800 --smoke 200 --window --adapter warp --preset high --size 64x36
+    ;;
   profile)
     # Sampling profiles (samply, ETW) of the main configurations, to split
     # CPU time between the game, wgpu-core/hal and the D3D12/WARP driver.

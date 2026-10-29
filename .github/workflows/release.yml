@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        set: [profile]
+        set: [after-h, after-w]
     defaults:
       run:
         working-directory: engine
