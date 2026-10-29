@@ -79,8 +79,8 @@ case "$1" in
     ;;
   ab-w)
     for v in before after; do
-      BIN=./target/release/sandbox_$v.exe run $v-w-spain-64-high 1800 --smoke 200 --window --adapter warp --preset high --size 64x36
       BIN=./target/release/sandbox_$v.exe run $v-w-track-64-low 900 --smoke 200 --window --map track --adapter warp --preset low --size 64x36
+      BIN=./target/release/sandbox_$v.exe run $v-w-spain-64-low 1500 --smoke 120 --window --adapter warp --preset low --size 64x36
     done
     ;;
   profile)
