@@ -82,4 +82,5 @@ jobs:
             engine/smoke/*.trace
             engine/smoke/*.json.gz
             engine/smoke/*.syms.json
+            engine/smoke/*.sym.gz
           if-no-files-found: warn

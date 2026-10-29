@@ -85,6 +85,16 @@ case "$1" in
       python ../.github/scripts/prof_summary.py "smoke/$name.json.gz" "$fr" 20 2>&1 | cut -c1-400
       echo "::endgroup::"
     }
+    # Breakpad symbols of this exact binary, to symbolicate the profiles offline.
+    mkdir -p ../dumpsyms
+    if gh release download -R mozilla/dump_syms --pattern '*x86_64-pc-windows-msvc.zip' -D ../dumpsyms; then
+      (cd ../dumpsyms && unzip -o -q ./*.zip)
+    else
+      cargo install dump_syms --locked --root ../dumpsyms
+    fi
+    DS=$(find ../dumpsyms -name dump_syms.exe | head -1)
+    echo "dump_syms: $DS"
+    "$DS" target/release/sandbox.pdb > smoke/sandbox.sym && gzip -f smoke/sandbox.sym; ls -la smoke/sandbox.sym*
     prof p-w-spain-64-low 200 --window --adapter warp --preset low --size 64x36
     prof p-h-spain-64-low 200 --adapter warp --preset low --size 64x36
     prof p-w-track-64-low 200 --window --map track --adapter warp --preset low --size 64x36
