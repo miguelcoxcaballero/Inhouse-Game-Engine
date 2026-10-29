@@ -30,12 +30,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        set: [after-h, after-w]
+        set: [ab-h, ab-w]
     defaults:
       run:
         working-directory: engine
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
 
       - name: Rust toolchain (rust-toolchain.toml)
         run: rustup show active-toolchain || rustup toolchain install
@@ -46,6 +48,16 @@ jobs:
 
       - name: Build
         run: cargo build --release --locked -p sandbox -p forja_fetch
+
+      - name: Build the previous engine (A/B in the same runner)
+        shell: bash
+        run: |
+          T="$PWD/target"
+          cp target/release/sandbox.exe target/release/sandbox_after.exe
+          git worktree add ../before "$(cat ../.github/before-commit)"
+          (cd ../before/engine && CARGO_TARGET_DIR="$T" cargo build --release --locked -p sandbox) && cp target/release/sandbox.exe target/release/sandbox_before.exe
+          cp target/release/sandbox_after.exe target/release/sandbox.exe
+          ls -la target/release/*.exe
 
       - name: Cache content packs
         uses: actions/cache@v4

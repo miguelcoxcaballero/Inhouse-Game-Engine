@@ -12,7 +12,7 @@ run() { # name timeout-seconds args...
   local name=$1 t=$2; shift 2
   echo "::group::$name: $*"
   local t0=$(date +%s)
-  timeout "$t" "$EXE" "$@" --frame-trace $TR --screenshot "smoke/$name.png" 2>&1 | tee "smoke/$name.log" | grep -E "trace |SMOKE|surface:|frame trace|world built|uploaded|world ready|static set|graphics:|panicked|error" | cut -c1-3000
+  timeout "$t" "${BIN:-$EXE}" "$@" --frame-trace $TR --screenshot "smoke/$name.png" 2>&1 | tee "smoke/$name.log" | grep -E "trace |SMOKE|surface:|frame trace|world built|uploaded|world ready|static set|graphics:|panicked|error" | cut -c1-3000
   echo "exit ${PIPESTATUS[0]} after $(( $(date +%s) - t0 )) s" | tee -a "smoke/$name.log"
   echo "::endgroup::"
 }
@@ -69,6 +69,19 @@ case "$1" in
     run w-track-64-low 900 --smoke 200 --window --map track --adapter warp --preset low --size 64x36
     run w-spain-64-low 1800 --smoke 200 --window --adapter warp --preset low --size 64x36
     run w-spain-64-high 1800 --smoke 200 --window --adapter warp --preset high --size 64x36
+    ;;
+  ab-h)
+    # Before (previous engine) and after, alternating, same runner.
+    for v in before after; do
+      BIN=./target/release/sandbox_$v.exe run $v-h-spain-64-high 1800 --smoke 200 --adapter warp --preset high --size 64x36
+      BIN=./target/release/sandbox_$v.exe run $v-h-spain-64-low 1800 --smoke 200 --adapter warp --preset low --size 64x36
+    done
+    ;;
+  ab-w)
+    for v in before after; do
+      BIN=./target/release/sandbox_$v.exe run $v-w-spain-64-high 1800 --smoke 200 --window --adapter warp --preset high --size 64x36
+      BIN=./target/release/sandbox_$v.exe run $v-w-track-64-low 900 --smoke 200 --window --map track --adapter warp --preset low --size 64x36
+    done
     ;;
   profile)
     # Sampling profiles (samply, ETW) of the main configurations, to split
