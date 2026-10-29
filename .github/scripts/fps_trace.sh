@@ -73,17 +73,21 @@ case "$1" in
       local name=$1 fr=$2; shift 2
       echo "::group::$name: $*"
       local t0=$(date +%s)
-      timeout 1800 "$SAMPLY" record --save-only --unstable-presymbolicate -o "smoke/$name.json.gz" -- "$EXE" --smoke "$fr" "$@" --frame-trace $TR > "smoke/$name.log" 2>&1
+      timeout 1800 "$SAMPLY" record --save-only --unstable-presymbolicate --symbol-dir "$(pwd)/target/release" --windows-symbol-server https://msdl.microsoft.com/download/symbols --windows-symbol-cache "$(pwd)/../symcache" -o "smoke/$name.json.gz" -- "$EXE" --smoke "$fr" "$@" --frame-trace $TR > "smoke/$name.log" 2>&1
       echo "exit $? after $(( $(date +%s) - t0 )) s"
+      if [ ! -f "smoke/$name.json.gz" ]; then
+        head -20 "smoke/$name.log"
+        timeout 1800 "$SAMPLY" record --save-only --unstable-presymbolicate -o "smoke/$name.json.gz" -- "$EXE" --smoke "$fr" "$@" --frame-trace $TR > "smoke/$name.log" 2>&1
+        echo "retry without symbol flags: exit $?"
+      fi
       grep -E "trace .*f(80|160)-|SMOKE|surface:|samply|rror" "smoke/$name.log" | cut -c1-2500
       ls -la smoke/ | grep "$name"
-      python ../.github/scripts/prof_summary.py "smoke/$name.json.gz" "$fr" 2>&1 | cut -c1-400
+      python ../.github/scripts/prof_summary.py "smoke/$name.json.gz" "$fr" 20 2>&1 | cut -c1-400
       echo "::endgroup::"
     }
     prof p-w-spain-64-low 200 --window --adapter warp --preset low --size 64x36
     prof p-h-spain-64-low 200 --adapter warp --preset low --size 64x36
     prof p-w-track-64-low 200 --window --map track --adapter warp --preset low --size 64x36
-    prof p-w-spain-64-high 120 --window --adapter warp --preset high --size 64x36
     ;;
 esac
 exit 0

@@ -7,6 +7,8 @@ import bisect, collections, gzip, json, os, sys
 
 path = sys.argv[1]
 frames = float(sys.argv[2]) if len(sys.argv) > 2 else 0
+# Optional: only the last LAST seconds of each thread (steady state).
+last = float(sys.argv[3]) if len(sys.argv) > 3 else 0
 op = gzip.open if path.endswith('.gz') else open
 with op(path, 'rt', encoding='utf-8') as f:
     prof = json.load(f)
@@ -57,6 +59,11 @@ for n, th in info[:8]:
         strings = strings.get('_array', [])
     smp, stk, frm, fun, res = th['samples'], th['stackTable'], th['frameTable'], th['funcTable'], th.get('resourceTable', {})
     s_stack = col(smp, 'stack'); s_w = smp.get('weight') or [1] * len(s_stack)
+    s_t = col(smp, 'time'); s_cpu = smp.get('threadCPUDelta') or [None] * len(s_stack)
+    if last and s_t:
+        t_end = max(t for t in s_t if t is not None) - 1000.0  # drop the exit second
+        keep = [i for i, t in enumerate(s_t) if t is not None and t_end - last * 1000 <= t <= t_end]
+        s_stack = [s_stack[i] for i in keep]; s_w = [s_w[i] for i in keep]; s_cpu = [s_cpu[i] for i in keep]
     st_frame, st_prefix = col(stk, 'frame'), col(stk, 'prefix')
     fr_func, fr_addr = col(frm, 'func'), col(frm, 'address')
     fn_name, fn_res = col(fun, 'name'), col(fun, 'resource')
@@ -74,7 +81,7 @@ for n, th in info[:8]:
         fi = fr_func[fr]
         lib = libof(fi)
         nm = strings[fn_name[fi]] if fn_name[fi] < len(strings) else '?'
-        if nm.startswith('0x') or nm == '?':
+        if nm.startswith(('0x', 'fun_')) or nm == '?':
             s = sym(lib, fr_addr[fr] if fr < len(fr_addr) else None)
             if s:
                 nm = s
@@ -82,11 +89,12 @@ for n, th in info[:8]:
         cache[fr] = (lib, nm)
         return cache[fr]
     self_lib = collections.Counter(); self_fn = collections.Counter(); incl_fn = collections.Counter(); incl_lib = collections.Counter()
-    tot = 0
-    for s, w in zip(s_stack, s_w):
+    tot = 0; cpu_tot = 0.0
+    for s, w, cd in zip(s_stack, s_w, s_cpu):
         if s is None:
             continue
         tot += w
+        cpu_tot += cd or 0
         lib, nm = fname(st_frame[s])
         self_lib[lib] += w; self_fn[(lib, nm)] += w
         seen = set(); seenl = set(); x = s; depth = 0
@@ -98,7 +106,8 @@ for n, th in info[:8]:
                 seenl.add(l2); incl_lib[l2] += w
             x = st_prefix[x]; depth += 1
     nm = th.get('name', '?'); tid = th.get('tid', '?')
-    per = f", {tot * interval / frames:.1f} ms/frame" if frames else ''
+    per = f", {tot * interval / frames:.1f} ms/frame" if frames and not last else ''
+    per += f", cpu delta sum {cpu_tot:.0f}" 
     print(f"\n=== thread {nm} tid {tid}: {tot} samples ({tot * interval / 1000:.1f} s){per}")
     print('  self by lib: ' + ', '.join(f"{l} {100*c/tot:.1f}%" for l, c in self_lib.most_common(10)))
     print('  incl by lib: ' + ', '.join(f"{l} {100*c/tot:.1f}%" for l, c in incl_lib.most_common(12)))
