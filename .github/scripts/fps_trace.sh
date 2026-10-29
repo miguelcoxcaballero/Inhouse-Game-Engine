@@ -59,5 +59,31 @@ case "$1" in
     run w-spain-64-low-novsync 1800 --smoke 200 --window --adapter warp --preset low --size 64x36
     mv data/graphics.toml.bak data/graphics.toml
     ;;
+  profile)
+    # Sampling profiles (samply, ETW) of the main configurations, to split
+    # CPU time between the game, wgpu-core/hal and the D3D12/WARP driver.
+    mkdir -p ../samply
+    if ! gh release download -R mstange/samply --pattern '*x86_64-pc-windows-msvc.zip' -D ../samply; then
+      cargo install samply --locked --root ../samply
+    fi
+    (cd ../samply && ls && for z in *.zip; do [ -f "$z" ] && unzip -o -q "$z"; done; ls -R | head -20)
+    SAMPLY=$(find ../samply -name samply.exe | head -1)
+    echo "samply: $SAMPLY"; "$SAMPLY" --version
+    prof() { # name frames args...
+      local name=$1 fr=$2; shift 2
+      echo "::group::$name: $*"
+      local t0=$(date +%s)
+      timeout 1800 "$SAMPLY" record --save-only --unstable-presymbolicate -o "smoke/$name.json.gz" -- "$EXE" --smoke "$fr" "$@" --frame-trace $TR > "smoke/$name.log" 2>&1
+      echo "exit $? after $(( $(date +%s) - t0 )) s"
+      grep -E "trace .*f(80|160)-|SMOKE|surface:|samply|rror" "smoke/$name.log" | cut -c1-2500
+      ls -la smoke/ | grep "$name"
+      python ../.github/scripts/prof_summary.py "smoke/$name.json.gz" "$fr" 2>&1 | cut -c1-400
+      echo "::endgroup::"
+    }
+    prof p-w-spain-64-low 200 --window --adapter warp --preset low --size 64x36
+    prof p-h-spain-64-low 200 --adapter warp --preset low --size 64x36
+    prof p-w-track-64-low 200 --window --map track --adapter warp --preset low --size 64x36
+    prof p-w-spain-64-high 120 --window --adapter warp --preset high --size 64x36
+    ;;
 esac
 exit 0
