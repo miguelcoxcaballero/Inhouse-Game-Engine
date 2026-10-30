@@ -20,6 +20,13 @@ use std::sync::Arc;
 use std::time::Instant;
 
 use forja_core::App;
+
+/// mimalloc instead of the system heap: after loading a city (GBs of
+/// short-lived buffers) the libc heaps are fragmented and every small
+/// allocation of the frame (physics contact lists, render lists, wgpu
+/// command recording) got slow; mimalloc's per-thread pages are not.
+#[global_allocator]
+static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 use forja_input::{ActionMap, Input};
 use forja_math::{Vec2, Vec3};
 use forja_render::{DisplayMode, DrawInstance, FrameDesc, ModelHandle, Renderer};
@@ -61,6 +68,9 @@ struct Args {
     smoke: usize,
     /// `--window`: run the smoke test in a window (swapchain path).
     window: bool,
+    /// `--frame-trace N` (or `FORJA_FRAME_TRACE=N`): log a per-frame CPU
+    /// timeline every N frames (see `sandbox::trace`).
+    frame_trace: usize,
     /// `--windowed`: a window instead of the saved display mode.
     windowed: bool,
     /// Headless: menu drawn over the screenshot (`--ui pause|options|
@@ -83,7 +93,7 @@ fn parse_vec3(s: &str) -> Option<Vec3> {
 }
 
 fn parse_args() -> Args {
-    let mut a = Args { map: MapKind::Spain, screenshot: None, script: "idle".into(), frames: 90, width: 1600, height: 900, hours: None, camera: None, preset: None, bench: 0, csv: None, night_switch: false, stability: 0, adapter: forja_render::gpu::AdapterChoice::from_env(), smoke: 0, window: false, windowed: false, ui: None, ppp: 1.0, burst: None, car_cam: None, car: 0 };
+    let mut a = Args { map: MapKind::Spain, screenshot: None, script: "idle".into(), frames: 90, width: 1600, height: 900, hours: None, camera: None, preset: None, bench: 0, csv: None, night_switch: false, stability: 0, adapter: forja_render::gpu::AdapterChoice::from_env(), smoke: 0, window: false, windowed: false, ui: None, ppp: 1.0, burst: None, car_cam: None, car: 0, frame_trace: 0 };
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;
     let mut eye = None;
@@ -116,6 +126,7 @@ fn parse_args() -> Args {
             }
             "--adapter" => a.adapter = forja_render::gpu::AdapterChoice::parse(&v),
             "--smoke" => a.smoke = v.parse().expect("smoke frames"),
+            "--frame-trace" => a.frame_trace = v.parse().expect("frame trace interval"),
             "--window" => {
                 a.window = true;
                 i += 1;
@@ -191,11 +202,13 @@ struct Extract {
     freed: usize,
     /// Streaming of the city tiles' block meshes (see `sandbox::stream`).
     stream: Option<sandbox::stream::Streamer>,
+    /// CPU ms of the last [`Extract::frame`] by stage (frame trace).
+    pub timings: [(&'static str, f32); 4],
 }
 
 impl Extract {
     fn new() -> Self {
-        Self { handles: Vec::new(), env_loaded: false, statics_uploaded: None, legacy: std::env::var_os("FORJA_LEGACY_STATICS").is_some(), upload_ms: 0.0, freed: 0, stream: None }
+        Self { handles: Vec::new(), env_loaded: false, statics_uploaded: None, legacy: std::env::var_os("FORJA_LEGACY_STATICS").is_some(), upload_ms: 0.0, freed: 0, stream: None, timings: [("uploads", 0.0), ("statics", 0.0), ("stream", 0.0), ("instances", 0.0)] }
     }
 
     /// Uploads the models added since the last frame. The world's scenes
@@ -265,7 +278,13 @@ impl Extract {
         } else {
             upload(app.world.res_mut::<RenderScene>(), None);
         }
-        renderer.flush_uploads();
+        // The loading screen waits for each slice (bounded staging memory);
+        // during play an upload never waits (the frame's submit takes it).
+        if budget.is_some() {
+            renderer.flush_uploads();
+        } else {
+            renderer.submit_uploads();
+        }
         forja_assets::progress::advance(0.85 + 0.15 * self.handles.len() as f32 / n.max(1) as f32);
         self.freed += freed;
         if self.handles.len() < n {
@@ -293,22 +312,40 @@ impl Extract {
         true
     }
 
-    fn frame(&mut self, renderer: &mut Renderer, app: &mut App) -> FrameDesc {
-        self.upload(renderer, app);
-        let rs = app.world.res::<RenderScene>();
-        if !self.env_loaded {
-            self.env_loaded = true;
-            if let Some(p) = &rs.hdri {
-                match forja_assets::load_hdr(p) {
-                    Ok(img) => renderer.set_environment(Some(&forja_render::env::EnvMap::from_hdr(&img, 14.0))),
-                    Err(e) => log::warn!("{e}"),
-                }
-            }
+    /// Gives the renderer the world's HDR environment. Decoding and
+    /// converting the photo costs ~300 ms, so the windowed game does it
+    /// under the loading screen, and the converted map is kept for the
+    /// process: a dusk/dawn swap to the same photo only uploads it again.
+    fn load_env(&mut self, renderer: &mut Renderer, app: &App) {
+        use std::sync::{Arc, Mutex};
+        static CACHE: Mutex<Option<(std::path::PathBuf, Arc<forja_render::env::EnvMap>)>> = Mutex::new(None);
+        if std::mem::replace(&mut self.env_loaded, true) {
+            return;
         }
-        // The world never moves: it is uploaded once into the renderer's
-        // static culling grid; only dynamic items are resubmitted per frame.
-        // Items listed in `volatile_statics` (signal heads) change at run
-        // time and are submitted per frame instead.
+        let Some(p) = app.world.res::<RenderScene>().hdri.clone() else { return };
+        let mut cache = CACHE.lock().unwrap_or_else(|e| e.into_inner());
+        let env = match cache.as_ref() {
+            Some((q, env)) if *q == p => env.clone(),
+            _ => match forja_assets::load_hdr(&p) {
+                Ok(img) => {
+                    let env = Arc::new(forja_render::env::EnvMap::from_hdr(&img, 14.0));
+                    *cache = Some((p, env.clone()));
+                    env
+                }
+                Err(e) => {
+                    log::warn!("{e}");
+                    return;
+                }
+            },
+        };
+        renderer.set_environment(Some(&env));
+    }
+
+    /// Builds the renderer's static grid when the world's static set
+    /// changed (hundreds of ms for a city: the loading screen does it
+    /// before the first frame of play).
+    fn upload_statics(&mut self, renderer: &mut Renderer, app: &App) {
+        let rs = app.world.res::<RenderScene>();
         let key = (rs.statics.len(), rs.volatile_statics.len());
         if !self.legacy && self.statics_uploaded != Some(key) {
             let kept = || rs.statics.iter().enumerate().filter(|(i, _)| rs.volatile_statics.binary_search(i).is_err());
@@ -317,9 +354,29 @@ impl Extract {
             renderer.set_static_instances_lod(&statics, &lod);
             self.statics_uploaded = Some(key);
         }
+    }
+
+    fn frame(&mut self, renderer: &mut Renderer, app: &mut App) -> FrameDesc {
+        let t0 = Instant::now();
+        self.upload(renderer, app);
+        let t1 = Instant::now();
+        self.timings[0].1 = (t1 - t0).as_secs_f32() * 1000.0;
+        // Done under the loading screen in the windowed game; here for the
+        // headless paths.
+        self.load_env(renderer, app);
+        // The world never moves: it is uploaded once into the renderer's
+        // static culling grid; only dynamic items are resubmitted per frame.
+        // Items listed in `volatile_statics` (signal heads) change at run
+        // time and are submitted per frame instead.
+        self.upload_statics(renderer, app);
+        let rs = app.world.res::<RenderScene>();
+        let t2 = Instant::now();
+        self.timings[1].1 = (t2 - t1).as_secs_f32() * 1000.0;
         if let Some(st) = &mut self.stream {
             st.update(renderer, &self.handles, rs.camera.position);
         }
+        let t3 = Instant::now();
+        self.timings[2].1 = (t3 - t2).as_secs_f32() * 1000.0;
         let mut frame = FrameDesc { camera: rs.camera, env: rs.env.clone(), lights: rs.lights.clone(), local_lights: rs.local_lights.clone(), lines: rs.lines.clone(), time: app.world.res::<forja_core::Time>().elapsed as f32, ..Default::default() };
         if frame.env.camera == forja_render::CameraModel::Night {
             // Gameplay lights (headlights, brake lights, signals, muzzle
@@ -338,7 +395,16 @@ impl Extract {
         for item in legacy_statics.iter().chain(volatile.iter().filter_map(|&i| rs.statics.get(i))).chain(rs.dynamic.iter()) {
             frame.instances.push(DrawInstance { model: self.handles[item.model], transform: item.transform, nodes: item.nodes.clone(), joints: item.joints.clone(), tint: item.tint, cast_shadows: true, motion_id: item.id });
         }
+        self.timings[3].1 = t3.elapsed().as_secs_f32() * 1000.0;
         frame
+    }
+
+    /// Streaming state for the frame trace.
+    fn stream_note(&self) -> String {
+        match &self.stream {
+            Some(st) => format!("stream: {} tiles released, {} reloads", st.released_tiles, st.loads),
+            None => "stream: off".into(),
+        }
     }
 }
 
@@ -523,6 +589,7 @@ fn run_headless(args: &Args) {
     let mut perf_state = PerfState::load(&paths().data.join("graphics.toml"), &renderer);
     if let Some(p) = args.preset {
         perf_state.cfg.apply_preset(p);
+        log::info!("graphics: --preset {} applied", p.label());
     }
     if args.preset.is_some() || std::env::var_os("FORJA_PRESET").is_some() {
         // Headless captures keep the High defaults unless a preset is asked.
@@ -862,10 +929,11 @@ fn night_switch(args: &Args, mut app: App, mut renderer: Renderer, mut extract: 
     let max = frames.last().copied().unwrap_or(0.0);
     let mean = frames.iter().sum::<f32>() / frames.len().max(1) as f32;
     println!(
-        "night switch ({}): built in the background in {built:.1}s while {} frames rendered (mean {mean:.0} ms, max {max:.0} ms); main-thread stall: upload {upload:.2}s, swap + first frame {swap:.2}s; resident {:.0} MB -> {}",
+        "night switch ({}): built in the background in {built:.1}s while {} frames rendered (mean {mean:.0} ms, max {max:.0} ms); main-thread stall: upload {upload:.2}s, swap + first frame {swap:.2}s; resident {:.0} MB (peak {:.0} MB) -> {}",
         if night { "dusk" } else { "dawn" },
         frames.len(),
         perf::resident_mb(),
+        perf::peak_resident_mb(),
         path.display()
     );
 }
@@ -934,6 +1002,7 @@ fn run_smoke(args: &Args) {
     }
     let mut perf_state = PerfState::load(&paths().data.join("graphics.toml"), &renderer);
     perf_state.cfg.apply_preset(args.preset.unwrap_or(forja_render::Preset::Low));
+    log::info!("graphics: smoke preset {} applied (replaces the graphics.toml/auto preset logged above)", perf_state.cfg.preset.label());
     renderer.apply_graphics(&perf_state.cfg);
     if let Ok(fx) = std::env::var("FORJA_FX") {
         renderer.settings.apply_fx(&fx);
@@ -953,23 +1022,47 @@ fn run_smoke(args: &Args) {
     });
     let view = tex.create_view(&Default::default());
     let mut ms = Vec::with_capacity(args.smoke);
+    let mut trace = sandbox::trace::FrameTrace::from_args(args.frame_trace, "headless");
     for f in 0..args.smoke {
         let t = Instant::now();
+        if let Some(tr) = &mut trace {
+            tr.begin(renderer.upload_waits);
+        }
         script_intent(&args.script, f, app.world.res_mut::<Intent>());
         app.update_with_dt(1.0 / 60.0);
         if let Some(cam) = args.camera {
             app.world.res_mut::<game::camera::CameraRig>().fixed = Some(cam);
         }
+        if let Some(tr) = &mut trace {
+            tr.mark("sim");
+            let timings = app.world.res::<forja_core::SystemTimings>();
+            tr.details("sim", &timings.last);
+            tr.fixed_steps(timings.fixed_steps);
+        }
         let frame = extract.frame(&mut renderer, &mut app);
+        if let Some(tr) = &mut trace {
+            tr.mark("extract");
+            tr.details("extract", &extract.timings);
+        }
         renderer.render(&frame, &view);
+        if let Some(tr) = &mut trace {
+            tr.mark("render");
+            tr.details("render", &renderer.cpu.scopes);
+        }
         let _ = renderer.device.poll(forja_render::wgpu::PollType::wait_indefinitely());
+        if let Some(tr) = &mut trace {
+            tr.mark("gpu wait");
+            // GPU pass times (timestamp queries, a few frames late).
+            tr.details("gpu wait", &renderer.profiler.last);
+            tr.note(extract.stream_note());
+        }
         let dt = t.elapsed().as_secs_f32() * 1000.0;
         if f > 0 {
             ms.push(dt);
         }
         if f % 10 == 0 || f + 1 == args.smoke {
             let st = renderer.stats;
-            log::info!("smoke frame {f}: {dt:.1} ms, gpu {:.1} ms, {} draws, {:.2} M tris, {} shadow draws, {} lights, GPU errors {}", renderer.profiler.total_ms, st.draw_calls, st.triangles as f64 / 1e6, st.shadow_draws, st.lights, forja_render::gpu::GPU_ERRORS.load(std::sync::atomic::Ordering::Relaxed));
+            log::info!("smoke frame {f}: {dt:.1} ms, gpu {:.1} ms, {} draws, {:.2} M tris, {} shadow draws, {} draw calls, {} lights, GPU errors {}", renderer.profiler.total_ms, st.draw_calls, st.triangles as f64 / 1e6, st.shadow_draws, st.api_draws, st.lights, forja_render::gpu::GPU_ERRORS.load(std::sync::atomic::Ordering::Relaxed));
         }
     }
     println!("smoke: gpu passes: {}", renderer.profiler.last.iter().map(|(k, v)| format!("{k} {v:.2}")).collect::<Vec<_>>().join(", "));
@@ -1013,10 +1106,36 @@ struct Sandbox {
     loading: Option<String>,
     /// Clock and player carried into a world rebuilt at dusk or dawn.
     carry: Option<Carry>,
+    /// `--frame-trace`: per-frame CPU timeline.
+    trace: Option<sandbox::trace::FrameTrace>,
     /// Esc menu; the game is paused while it is open.
     pause: PauseMenu,
     /// Frame cap: when the next frame may start.
     next_frame: Instant,
+}
+
+/// CPU time the fixed steps (physics, movement, combat) of one windowed
+/// frame may take; the rest of a backlog is dropped.
+const FIXED_STEP_BUDGET: std::time::Duration = std::time::Duration::from_millis(10);
+
+/// Frame cap: waits until `t`. Sleeps until about a millisecond before
+/// (std's sleep is a high-resolution waitable timer on Windows, ~1.5 ms
+/// late at worst), then yields the rest, so the cap holds its rate instead
+/// of rounding to the 15.6 ms system tick.
+fn wait_until(t: Instant) {
+    const SPIN: std::time::Duration = std::time::Duration::from_micros(1500);
+    loop {
+        let now = Instant::now();
+        if now >= t {
+            return;
+        }
+        let left = t - now;
+        if left > SPIN {
+            std::thread::sleep(left - SPIN);
+        } else {
+            std::thread::yield_now();
+        }
+    }
 }
 
 /// A world built on a worker thread ([`App`] is `Send`).
@@ -1048,11 +1167,15 @@ fn spawn_build(map: MapKind, hour: Option<f32>, background: bool) -> Pending {
                 }
                 app
             };
-            // A dusk/dawn build leaves cores to the running game (its
-            // parallel stages use this pool; at the first load the
-            // whole machine is the loader's).
-            let cores = std::thread::available_parallelism().map_or(4, |n| n.get());
-            match background.then(|| rayon::ThreadPoolBuilder::new().num_threads(cores.saturating_sub(2).max(1)).build().ok()).flatten() {
+            // A dusk/dawn build leaves cores to the running game: its
+            // parallel stages use a pool of all cores but two, and it and
+            // its workers run below normal priority, so the main thread
+            // always gets a core. At the first load the whole machine is
+            // the loader's.
+            if background {
+                sandbox::threads::lower_priority();
+            }
+            match background.then(|| sandbox::threads::background_pool("world build")).flatten() {
                 Some(pool) => pool.install(build),
                 None => build(),
             }
@@ -1073,6 +1196,7 @@ impl Sandbox {
         // is built on a worker thread.
         forja_assets::progress::reset("Preparando el mapa");
         let pending = Some(spawn_build(map, args.hours, false));
+        let trace = args.frame_trace;
         Self {
             args,
             gpu: None,
@@ -1091,6 +1215,7 @@ impl Sandbox {
             carry: None,
             frames: 0,
             smoke_ms: Vec::new(),
+            trace: sandbox::trace::FrameTrace::from_args(trace, "window"),
             pause,
             next_frame: Instant::now(),
         }
@@ -1148,8 +1273,9 @@ impl Sandbox {
         self.app = App::new();
         self.extract = Extract::new();
         if let Some(gpu) = &mut self.gpu {
-            let renderer = Renderer::with_device(gpu.renderer.device.clone(), gpu.renderer.queue.clone(), gpu.renderer.adapter_info.clone(), gpu.renderer.output_format);
-            gpu.renderer = renderer;
+            // Same renderer, new content: the pipelines are not compiled
+            // again (seconds of FXC on Windows).
+            gpu.renderer.clear_scene();
             gpu.renderer.resize(gpu.config.width, gpu.config.height);
             if let Some(p) = &mut self.perf {
                 // New renderer: apply the graphics options (texture cap too).
@@ -1242,8 +1368,11 @@ impl Sandbox {
         self.app = App::new();
         self.extract = Extract::new();
         if let Some(gpu) = &mut self.gpu {
-            gpu.renderer = Renderer::with_device(gpu.renderer.device.clone(), gpu.renderer.queue.clone(), gpu.renderer.adapter_info.clone(), gpu.renderer.output_format);
+            gpu.renderer.clear_scene();
             gpu.renderer.resize(gpu.config.width, gpu.config.height);
+            if let Some(p) = &mut self.perf {
+                p.dirty = true;
+            }
         }
         perf::trim_heap();
         forja_assets::progress::reset("Preparando el mapa");
@@ -1318,6 +1447,10 @@ impl Sandbox {
             }
             let done = self.extract.upload_for(&mut gpu.renderer, &mut self.app, Some(std::time::Duration::from_millis(40)));
             if done {
+                // The static grid too, so the first frame of play is not a
+                // half-second hitch.
+                self.extract.upload_statics(&mut gpu.renderer, &self.app);
+                self.extract.load_env(&mut gpu.renderer, &self.app);
                 self.loading = None;
                 self.last = Instant::now();
                 return false;
@@ -1360,6 +1493,9 @@ impl Sandbox {
             }
             return;
         }
+        if let Some(tr) = &mut self.trace {
+            tr.begin(self.gpu.as_ref().map_or((0, 0.0), |g| g.renderer.upload_waits));
+        }
         let now = Instant::now();
         let dt = (now - self.last).as_secs_f32();
         self.last = now;
@@ -1401,20 +1537,32 @@ impl Sandbox {
         // The procedural city bakes lit windows and lamps for the hour it was
         // built at: crossing dusk or dawn rebuilds it for the new time, in
         // the background (the game keeps running until it is ready).
-        if !paused && self.map == MapKind::Spain {
+        if !paused && self.map == MapKind::Spain && std::env::var_os("FORJA_NO_TIME_REBUILD").is_none() {
             let want = self.app.world.res::<game::env::TimeOfDay>().night_content();
             let built = self.app.world.res::<game::world::GameWorld>().night_content;
             if want != built {
                 self.rebuild_for_time(want);
             }
         }
+        if let Some(tr) = &mut self.trace {
+            tr.mark("input");
+        }
         let t = Instant::now();
         if !paused {
             self.sample_input();
             self.input.end_frame();
+            // Real time: a slow frame must not ask for ever more fixed
+            // steps (see `Time::set_fixed_budget`).
+            self.app.world.res_mut::<forja_core::Time>().set_fixed_budget(Some(FIXED_STEP_BUDGET));
             self.app.update_with_dt(dt);
         }
         let sim_ms = t.elapsed().as_secs_f32() * 1000.0;
+        if let Some(tr) = &mut self.trace {
+            tr.mark("sim");
+            let timings = self.app.world.res::<forja_core::SystemTimings>();
+            tr.details("sim", &timings.last);
+            tr.fixed_steps(timings.fixed_steps);
+        }
         {
             let bodies = self.app.world.res::<forja_physics::PhysicsWorld>().body_count();
             let hud = self.app.world.res_mut::<Hud>();
@@ -1444,9 +1592,16 @@ impl Sandbox {
         let ih = ((gpu.config.height as f32 * scale) as u32).max(64);
         perf_state.note_internal(iw, ih, gpu.config.width, gpu.config.height);
         gpu.renderer.resize(iw, ih);
+        if let Some(tr) = &mut self.trace {
+            tr.mark("setup");
+        }
         let te = Instant::now();
         let frame = self.extract.frame(&mut gpu.renderer, &mut self.app);
         let extract_ms = te.elapsed().as_secs_f32() * 1000.0;
+        if let Some(tr) = &mut self.trace {
+            tr.mark("extract");
+            tr.details("extract", &self.extract.timings);
+        }
         let surface_tex = match gpu.surface.get_current_texture() {
             forja_render::wgpu::CurrentSurfaceTexture::Success(t) | forja_render::wgpu::CurrentSurfaceTexture::Suboptimal(t) => t,
             forja_render::wgpu::CurrentSurfaceTexture::Outdated | forja_render::wgpu::CurrentSurfaceTexture::Lost => {
@@ -1456,9 +1611,19 @@ impl Sandbox {
             _ => return,
         };
         let view = surface_tex.texture.create_view(&Default::default());
+        if let Some(tr) = &mut self.trace {
+            tr.mark("acquire");
+            // The acquire waits for the GPU: its pass times (timestamp
+            // queries, a few frames late) show what it waits for.
+            tr.details("acquire", &gpu.renderer.profiler.last);
+        }
         let tr = Instant::now();
         gpu.renderer.render(&frame, &view);
         let render_cpu_ms = tr.elapsed().as_secs_f32() * 1000.0;
+        if let Some(tr) = &mut self.trace {
+            tr.mark("render");
+            tr.details("render", &gpu.renderer.cpu.scopes);
+        }
         let tu = Instant::now();
         self.ui.render_stats = gpu.renderer.stats;
         self.ui.adapter = format!("{} ({:?})", gpu.renderer.adapter_info.name, gpu.renderer.adapter_info.backend);
@@ -1478,6 +1643,9 @@ impl Sandbox {
         });
         gpu.egui_state.handle_platform_output(&gpu.window, out.platform_output);
         let jobs = ctx.tessellate(out.shapes, out.pixels_per_point);
+        if let Some(tr) = &mut self.trace {
+            tr.mark("ui build");
+        }
         let screen = egui_wgpu::ScreenDescriptor { size_in_pixels: [gpu.config.width, gpu.config.height], pixels_per_point: out.pixels_per_point };
         for (id, deltas) in &out.textures_delta.set {
             for delta in deltas {
@@ -1507,8 +1675,25 @@ impl Sandbox {
             gpu.egui_renderer.free_texture(id);
         }
         let ui_ms = tu.elapsed().as_secs_f32() * 1000.0;
+        if let Some(tr) = &mut self.trace {
+            tr.mark("ui submit");
+        }
         gpu.window.pre_present_notify();
         gpu.renderer.queue.present(surface_tex);
+        if let Some(tr) = &mut self.trace {
+            tr.mark("present");
+            if tr.frame_in_window() + 1 >= tr.every {
+                let bg = match &self.pending {
+                    Some(p) => format!("world build running {:.0}s{}", p.started.elapsed().as_secs_f32(), if p.background { " (background)" } else { "" }),
+                    None => "world build idle".into(),
+                };
+                tr.note(format!("present {:?} latency {} surface {}x{} internal {}x{} scale {:.2}", gpu.config.present_mode, gpu.config.desired_maximum_frame_latency, gpu.config.width, gpu.config.height, iw, ih, scale));
+                tr.note(bg);
+                let st = gpu.renderer.stats;
+                tr.note(format!("draws {} shadow draws {} draw calls {} tris {:.2} M shadow {:.2} M | gpu {:.1} ms ({})", st.draw_calls, st.shadow_draws, st.api_draws, st.triangles as f64 / 1e6, st.shadow_triangles as f64 / 1e6, gpu.renderer.profiler.total_ms, gpu.renderer.adapter_info.name));
+                tr.note(self.extract.stream_note());
+            }
+        }
         {
             let timings = self.app.world.res::<forja_core::SystemTimings>();
             perf_state.record(FrameSample {
@@ -1554,6 +1739,9 @@ impl Sandbox {
         }
         let cap = perf_state.cfg.fps_cap;
         gpu.window.request_redraw();
+        if let Some(tr) = &mut self.trace {
+            tr.mark("tail");
+        }
         match menu_action {
             pause::Action::Resume => self.set_paused(false),
             pause::Action::Quit => {
@@ -1567,7 +1755,7 @@ impl Sandbox {
             let slot = std::time::Duration::from_secs_f64(1.0 / cap as f64);
             let now = Instant::now();
             if self.next_frame > now {
-                std::thread::sleep(self.next_frame - now);
+                wait_until(self.next_frame);
             }
             self.next_frame = self.next_frame.max(now - slot) + slot;
         }
@@ -1648,6 +1836,8 @@ impl ApplicationHandler for Sandbox {
         let egui_state = egui_winit::State::new(egui_ctx, egui::ViewportId::ROOT, &window, Some(window.scale_factor() as f32), None, None);
         let egui_renderer = egui_wgpu::Renderer::new(&renderer.device, renderer.output_format, Default::default());
         log::info!("{} on {:?}", renderer.adapter_info.name, renderer.adapter_info.backend);
+        let caps = surface.get_capabilities(&adapter);
+        log::info!("surface: present {:?} (available {:?}), latency {}, format {:?}, alpha {:?}, {}x{}", config.present_mode, caps.present_modes, config.desired_maximum_frame_latency, config.format, config.alpha_mode, config.width, config.height);
         self.gpu = Some(Gpu { window, surface, config, renderer, egui_state, egui_renderer, present_modes, display });
         self.capture(true);
         self.last = Instant::now();
@@ -1655,6 +1845,11 @@ impl ApplicationHandler for Sandbox {
     }
 
     fn window_event(&mut self, event_loop: &ActiveEventLoop, _: WindowId, event: WindowEvent) {
+        if let Some(tr) = &mut self.trace
+            && !matches!(event, WindowEvent::RedrawRequested)
+        {
+            tr.event();
+        }
         // Esc before egui (which would take it to unfocus a widget): the
         // pause menu. Old bindings files call it `quit`; nothing quits on
         // Esc any more.
@@ -1803,8 +1998,12 @@ fn present_mode(modes: &[forja_render::wgpu::PresentMode], vsync: bool) -> forja
 }
 
 fn main() {
-    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info,wgpu_core=warn,wgpu_hal=warn,naga=warn")).init();
+    sandbox::trace::init_logger("info,wgpu_core=warn,wgpu_hal=warn,naga=warn");
     let args = parse_args();
+    // Rayon's global pool runs loads and builds only (the frame has its
+    // own pool, see forja_assets::threads): below normal priority, so a
+    // dusk/dawn build never competes with the main thread for a core.
+    let _ = rayon::ThreadPoolBuilder::new().thread_name(|i| format!("rayon {i}")).start_handler(|_| sandbox::threads::lower_priority()).build_global();
     if args.smoke > 0 && !args.window {
         run_smoke(&args);
         return;

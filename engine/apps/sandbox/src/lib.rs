@@ -6,4 +6,6 @@ pub mod game;
 pub mod pause;
 pub mod perf;
 pub mod stream;
+pub mod threads;
+pub mod trace;
 pub mod ui;

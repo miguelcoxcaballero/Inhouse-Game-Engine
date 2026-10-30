@@ -106,6 +106,7 @@ jobs:
           Copy-Item target/release/forja_fetch.exe "$out/forja_fetch.exe"
           Copy-Item -Recurse data "$out/data"
           Copy-Item apps/sandbox/release/Jugar.bat "$out/Jugar.bat"
+          Copy-Item apps/sandbox/release/Medir.bat "$out/Medir.bat"
           Copy-Item apps/sandbox/release/LEEME.txt "$out/LEEME.txt"
           python ../.github/scripts/licencias.py data/assets.toml "$out/LICENCIAS.txt"
           Compress-Archive -Path "$out" -DestinationPath "$env:GITHUB_WORKSPACE/dist/Forja-Windows.zip"
