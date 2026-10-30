@@ -83,6 +83,18 @@ case "$1" in
       BIN=./target/release/sandbox_$v.exe run $v-w-spain-64-low 1500 --smoke 120 --window --adapter warp --preset low --size 64x36
     done
     ;;
+  ns)
+    # Dusk switch: frames rendered while the second city builds in the
+    # background, the swap stall and the peak working set.
+    for v in before after; do
+      echo "::group::$v-night-switch"
+      t0=$(date +%s)
+      timeout 2400 ./target/release/sandbox_$v.exe --night-switch --adapter warp --preset low --size 64x36 --screenshot smoke/$v-night-switch.png > smoke/$v-night-switch.log 2>&1
+      echo "exit $? after $(( $(date +%s) - t0 )) s" | tee -a smoke/$v-night-switch.log
+      grep -E "night switch|world built|uploaded|panicked|rror" smoke/$v-night-switch.log | cut -c1-1500
+      echo "::endgroup::"
+    done
+    ;;
   profile)
     # Sampling profiles (samply, ETW) of the main configurations, to split
     # CPU time between the game, wgpu-core/hal and the D3D12/WARP driver.

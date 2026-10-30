@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        set: [ab-h, ab-w]
+        set: [ab-h, ab-w, ns]
     defaults:
       run:
         working-directory: engine
