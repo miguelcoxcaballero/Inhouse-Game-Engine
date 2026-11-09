@@ -109,7 +109,12 @@ jobs:
           Copy-Item apps/sandbox/release/Medir.bat "$out/Medir.bat"
           Copy-Item apps/sandbox/release/LEEME.txt "$out/LEEME.txt"
           python ../.github/scripts/licencias.py data/assets.toml "$out/LICENCIAS.txt"
-          Compress-Archive -Path "$out" -DestinationPath "$env:GITHUB_WORKSPACE/dist/Forja-Windows.zip"
+          # The content packs ship inside the ZIP (third-party servers fail
+          # or hang for players); the marker makes Jugar.bat skip the fetch.
+          New-Item -ItemType Directory -Force "$out/assets" | Out-Null
+          Copy-Item -Recurse assets/downloaded "$out/assets/downloaded"
+          Set-Content "$out/assets/downloaded/.completo" "contenido incluido"
+          7z a -tzip -mx=5 "$env:GITHUB_WORKSPACE/dist/Forja-Windows.zip" "$out" | Select-Object -Last 4
           Get-Item "$env:GITHUB_WORKSPACE/dist/Forja-Windows.zip" | Select-Object Name, Length
 
       - uses: actions/upload-artifact@v4
