@@ -8,6 +8,8 @@ Atlas interactivo con cartografía real de OpenStreetMap y una estética inspira
 
 Juego en mundo abierto con el motor Forja: ciudad procedural de Madrid y Valencia, personajes, coches, armas e inventario. Requiere Windows 10/11 de 64 bits y una GPU con DirectX 12.
 
+**Novedades de la v0.1.5:** el mapa por defecto es el centro de Valencia de la Isla Levante (huellas y calles reales del mapa de la isla); arreglado el cierre al cambiar de mapa (F2); informe `forja_crash.txt` si el juego falla.
+
 **Novedades de la v0.1.4:** resolución nativa completa por defecto, menú de pausa con Esc (Opciones, Controles, Salir), ruedas corregidas y un procesador por fotograma ~10 veces más rápido. Para medir el rendimiento en tu equipo abre **Medir.bat** y pega el contenido de `forja_trace.txt`.
 
 **Novedades de la v0.1.3:** perfil para portátiles y gráficos integrados (Intel Arc / Iris Xe): aspecto de Medio a ~1,2 MP internos reescalados con FSR 1 y resolución dinámica para sostener 60 FPS; ciudad lejana simplificada (HLOD) con carga por zonas en segundo plano; sombras estables (las rejas ya no parpadean) y más baratas; texturas comprimidas BC, caché en disco, pantalla de carga y cambio día/noche (F3) sin congelarse; bent normals, desenfoque de movimiento, niebla volumétrica y cielo precalculado; físicas nuevas (neumáticos Pacejka, ABS, moto que se inclina, colisión continua, personaje en escaleras); más de 60 edificios emblemáticos de Valencia medidos. Probado en Windows con DirectX 12 en cada compilación (prueba automática).
