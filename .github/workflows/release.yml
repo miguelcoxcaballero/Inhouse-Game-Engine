@@ -54,13 +54,28 @@ jobs:
         uses: actions/cache@v4
         with:
           path: engine/assets/downloaded
-          key: forja-assets-${{ hashFiles('engine/data/assets.toml', 'engine/data/assets.lock.toml') }}
+          key: forja-assets-v2-${{ hashFiles('engine/data/assets.toml', 'engine/data/assets.lock.toml') }}
           restore-keys: forja-assets-
 
       - name: Fetch content packs (play set)
         continue-on-error: true
         timeout-minutes: 20
         run: target/release/forja_fetch.exe fetch --play --missing --root .
+
+      # Kenney's server answers 403 to CI runners now and then; a failed
+      # fetch must not ship a game without cars. The CC0 Kenney packs are
+      # kept in the repository (content/) and fill in whatever is missing.
+      - name: Bundled CC0 packs (fallback)
+        shell: bash
+        run: |
+          for d in ../content/*/; do
+            id=$(basename "$d")
+            if [ ! -d "assets/downloaded/$id" ] || [ -z "$(ls -A "assets/downloaded/$id")" ]; then
+              echo "bundled: $id"
+              rm -rf "assets/downloaded/$id"
+              cp -r "$d" "assets/downloaded/$id"
+            fi
+          done
 
       - name: Smoke test (headless, WARP)
         shell: bash
@@ -74,6 +89,8 @@ jobs:
           set -o pipefail
           ./target/release/sandbox.exe --smoke "${{ inputs.smoke_frames || '100' }}" --adapter warp --preset low --size 960x540 --screenshot smoke/warp-headless.png 2>&1 | tee smoke/warp-headless.log
           grep -q "SMOKE OK" smoke/warp-headless.log
+          # A model the game wants but the package lacks fails the release.
+          if grep -E "gltf: .*(cannot find|No such file)" smoke/warp-headless.log; then echo "missing models"; exit 1; fi
 
       - name: Smoke test (window + swapchain, WARP)
         shell: bash
