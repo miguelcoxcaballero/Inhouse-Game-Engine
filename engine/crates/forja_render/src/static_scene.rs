@@ -127,8 +127,12 @@ enum Source {
 }
 
 struct Segment {
-    key: u32,
+    /// The draw key itself (not its index): segments of several scenes are
+    /// merged into one draw per key and LOD.
+    key: DrawKey,
     lod: u32,
+    /// Index of the scene the source indices refer to.
+    scene: u32,
     src: Source,
 }
 
@@ -144,6 +148,10 @@ pub(crate) struct GatherScratch {
 pub(crate) struct StaticScene {
     keys: Vec<DrawKey>,
     cells: Vec<Cell>,
+    /// Cells grouped by [`BLOCK_SIZE`] squares (bounds, cell range): a
+    /// block outside a view is skipped without looking at its cells, so a
+    /// large world costs by what is in view, not by its size.
+    blocks: Vec<(Aabb, std::ops::Range<u32>)>,
     runs: Vec<Run>,
     raws: Vec<InstanceRaw>,
     /// center xyz, radius (same order as `raws`).
@@ -154,6 +162,11 @@ pub(crate) struct StaticScene {
     groups: Vec<(Aabb, bool)>,
     /// Groups whose detail is not resident (streamed out): kept at HLOD.
     not_ready: std::collections::HashSet<u32>,
+    /// Groups that switch at a multiple of the HLOD distance.
+    scale: std::collections::HashMap<u32, f32>,
+    /// Groups not drawn at all (their content is shown by a streamed
+    /// layer instead, see `Renderer::add_static_layer`).
+    hidden: std::collections::HashSet<u32>,
     /// Groups switched in the last [`StaticScene::update_groups`].
     pub switched: u32,
 }
@@ -161,6 +174,9 @@ pub(crate) struct StaticScene {
 /// Grid cell edge (m): about a city block side, so a street view touches
 /// a few dozen cells.
 pub(crate) const CELL_SIZE: f32 = 32.0;
+
+/// Edge of the squares the cells are grouped in for culling (m).
+pub(crate) const BLOCK_SIZE: f32 = 512.0;
 
 /// Runs with at most this many items pick a LOD per instance.
 const PER_ITEM_LOD_RUN: u32 = 32;
@@ -247,6 +263,22 @@ impl StaticScene {
             }
             s.cells.push(Cell { bounds, runs: run_start..s.runs.len() as u32 });
         }
+        // Blocks: the cells sorted by the 512 m square of their centre.
+        let block_of = |c: &Cell| {
+            let p = c.bounds.center();
+            (((p.x / BLOCK_SIZE).floor() as i64) << 32) ^ ((p.z / BLOCK_SIZE).floor() as i64 & 0xffff_ffff)
+        };
+        s.cells.sort_by_key(block_of);
+        let mut i = 0;
+        while i < s.cells.len() {
+            let (b, start) = (block_of(&s.cells[i]), i);
+            let mut bounds = Aabb::EMPTY;
+            while i < s.cells.len() && block_of(&s.cells[i]) == b {
+                bounds = bounds.union(&s.cells[i].bounds);
+                i += 1;
+            }
+            s.blocks.push((bounds, start as u32..i as u32));
+        }
         s.keys = keys;
         let ngroups = items.iter().map(|it| it.group).max().unwrap_or(0) as usize;
         s.groups = vec![(Aabb::EMPTY, false); ngroups];
@@ -266,6 +298,7 @@ impl StaticScene {
     pub fn update_groups(&mut self, eye: Vec3, distance: f32) {
         self.switched = 0;
         for (gi, (b, far)) in self.groups.iter_mut().enumerate() {
+            let distance = distance * self.scale.get(&(gi as u32 + 1)).copied().unwrap_or(1.0);
             let d = dist_to_aabb(eye, b);
             let want = (distance > 0.0 && if *far { d > distance * 0.9 } else { d > distance }) || self.not_ready.contains(&(gi as u32 + 1));
             if want != *far {
@@ -281,6 +314,33 @@ impl StaticScene {
         } else {
             self.not_ready.insert(group);
         }
+    }
+
+    /// Hides or shows every item of `group`, whatever its distance.
+    pub fn set_hidden(&mut self, group: u32, hidden: bool) {
+        if hidden {
+            self.hidden.insert(group);
+        } else {
+            self.hidden.remove(&group);
+        }
+    }
+
+    pub fn take_hidden(&mut self) -> std::collections::HashSet<u32> {
+        std::mem::take(&mut self.hidden)
+    }
+
+    pub fn put_hidden(&mut self, hidden: std::collections::HashSet<u32>) {
+        self.hidden = hidden;
+    }
+
+    /// Makes `group` switch at `scale` times the HLOD distance.
+    pub fn set_scale(&mut self, group: u32, scale: f32) {
+        self.scale.insert(group, scale);
+    }
+
+    /// Whether `group` currently shows its far state.
+    pub fn is_far(&self, group: u32) -> bool {
+        group.checked_sub(1).and_then(|g| self.groups.get(g as usize)).is_some_and(|g| g.1)
     }
 
     /// Groups currently drawn with their detail.
@@ -306,12 +366,17 @@ impl StaticScene {
     /// (cell bounds); stops early once under `stop`.
     pub fn nearest_visible(&self, planes: &[Vec4], eye: Vec3, stop: f32) -> f32 {
         let mut nearest = f32::INFINITY;
-        for cell in &self.cells {
-            let d = dist_to_aabb(eye, &cell.bounds);
-            if d < nearest && classify(planes, &cell.bounds) != 0 {
-                nearest = d;
-                if nearest <= stop {
-                    break;
+        'blocks: for (bounds, range) in &self.blocks {
+            if dist_to_aabb(eye, bounds) >= nearest || classify(planes, bounds) == 0 {
+                continue;
+            }
+            for cell in &self.cells[range.start as usize..range.end as usize] {
+                let d = dist_to_aabb(eye, &cell.bounds);
+                if d < nearest && classify(planes, &cell.bounds) != 0 {
+                    nearest = d;
+                    if nearest <= stop {
+                        break 'blocks;
+                    }
                 }
             }
         }
@@ -324,24 +389,59 @@ impl StaticScene {
     /// applies any bias and clamps to the mesh's levels). Returns the number of instances emitted.
     #[cfg(test)]
     pub fn gather(&mut self, view: &View, lod_for: &(dyn Fn(u32, f32) -> u32 + Sync), out: &mut Vec<InstanceRaw>, batches: &mut Vec<Batch>) -> u32 {
-        self.gather_into(&mut GatherScratch::default(), view, lod_for, out, batches)
+        Self::gather_all(&[self], &mut GatherScratch::default(), view, lod_for, out, batches)
     }
 
-    /// [`StaticScene::gather`] with caller-owned working memory, so
-    /// several views can be gathered at once (the scene is only read).
-    pub fn gather_into(&self, sc: &mut GatherScratch, view: &View, lod_for: &(dyn Fn(u32, f32) -> u32 + Sync), out: &mut Vec<InstanceRaw>, batches: &mut Vec<Batch>) -> u32 {
+    /// Culls several scenes (the world's static set and its streamed
+    /// layers) for one view as if they were one: instances of the same
+    /// mesh and LOD from different scenes share a draw. The working memory is
+    /// the caller's, so several views can be gathered at once (the scenes
+    /// are only read).
+    pub fn gather_all(scenes: &[&StaticScene], sc: &mut GatherScratch, view: &View, lod_for: &(dyn Fn(u32, f32) -> u32 + Sync), out: &mut Vec<InstanceRaw>, batches: &mut Vec<Batch>) -> u32 {
+        sc.segments.clear();
+        sc.picked.clear();
+        for (i, s) in scenes.iter().enumerate() {
+            s.collect(i as u32, sc, view, lod_for);
+        }
         let GatherScratch { segments, picked } = sc;
-        segments.clear();
-        picked.clear();
-        for cell in &self.cells {
-            let class = classify(view.planes, &cell.bounds);
+        segments.sort_unstable_by_key(|s| (s.key, s.lod));
+        let mut emitted = 0;
+        let mut i = 0;
+        while i < segments.len() {
+            let (key, lod) = (segments[i].key, segments[i].lod);
+            let first = out.len() as u32;
+            while i < segments.len() && segments[i].key == key && segments[i].lod == lod {
+                let raws = &scenes[segments[i].scene as usize].raws;
+                match segments[i].src {
+                    Source::Range(s, n) => out.extend_from_slice(&raws[s as usize..(s + n) as usize]),
+                    Source::Picked(s, n) => out.extend(picked[s as usize..(s + n) as usize].iter().map(|&k| raws[k as usize])),
+                }
+                i += 1;
+            }
+            let count = out.len() as u32 - first;
+            emitted += count;
+            batches.push(Batch { pipe: key.pipe, material: key.material, mesh: key.mesh, lod, skinned: false, first, count });
+        }
+        emitted
+    }
+
+    /// The visible runs of this scene for `view`, appended to `sc` as
+    /// segments tagged with `scene`.
+    fn collect(&self, scene: u32, sc: &mut GatherScratch, view: &View, lod_for: &(dyn Fn(u32, f32) -> u32 + Sync)) {
+        let GatherScratch { segments, picked } = sc;
+        for (cell, inside) in self.blocks.iter().flat_map(|(bounds, range)| {
+            let class = classify(view.planes, bounds);
+            let cells = if class == 0 { &[][..] } else { &self.cells[range.start as usize..range.end as usize] };
+            cells.iter().map(move |c| (c, class == 2))
+        }) {
+            let class = if inside { 2 } else { classify(view.planes, &cell.bounds) };
             if class == 0 {
                 continue;
             }
             let d = dist_to_aabb(view.eye, &cell.bounds).max(0.1);
             let min_r = (view.min_radius_per_m * d).max(view.min_radius);
             for run in &self.runs[cell.runs.start as usize..cell.runs.end as usize] {
-                if run.max_radius < min_r || (view.shadow && !run.casts) || run.role & view.skip != 0 || (run.group > 0 && self.groups.get(run.group as usize - 1).is_some_and(|g| g.1 != run.hlod)) {
+                if run.max_radius < min_r || (view.shadow && !run.casts) || run.role & view.skip != 0 || (run.group > 0 && (self.groups.get(run.group as usize - 1).is_some_and(|g| g.1 != run.hlod) || self.hidden.contains(&run.group))) {
                     continue;
                 }
                 let budget = |r: f32, d: f32| {
@@ -375,13 +475,13 @@ impl StaticScene {
                             let di = ((s.truncate() - view.eye).length() - r).max(0.1);
                             let p0 = picked.len() as u32;
                             picked.push(run.start + k as u32);
-                            segments.push(Segment { key: run.key, lod: lod_for(mesh, budget(r, di)), src: Source::Picked(p0, 1) });
+                            segments.push(Segment { key: self.keys[run.key as usize], lod: lod_for(mesh, budget(r, di)), scene, src: Source::Picked(p0, 1) });
                         }
                     }
                     continue;
                 }
                 if class == 2 && (!view.shadow || range[..n as usize].iter().all(|s| s.w >= 0.0)) {
-                    segments.push(Segment { key: run.key, lod, src: Source::Range(run.start, n) });
+                    segments.push(Segment { key: self.keys[run.key as usize], lod, scene, src: Source::Range(run.start, n) });
                 } else {
                     let p0 = picked.len() as u32;
                     for (k, s) in range[..n as usize].iter().enumerate() {
@@ -394,30 +494,11 @@ impl StaticScene {
                     }
                     let pn = picked.len() as u32 - p0;
                     if pn > 0 {
-                        segments.push(Segment { key: run.key, lod, src: Source::Picked(p0, pn) });
+                        segments.push(Segment { key: self.keys[run.key as usize], lod, scene, src: Source::Picked(p0, pn) });
                     }
                 }
             }
         }
-        segments.sort_unstable_by_key(|s| (s.key, s.lod));
-        let mut emitted = 0;
-        let mut i = 0;
-        while i < segments.len() {
-            let (key, lod) = (segments[i].key, segments[i].lod);
-            let first = out.len() as u32;
-            while i < segments.len() && segments[i].key == key && segments[i].lod == lod {
-                match segments[i].src {
-                    Source::Range(s, n) => out.extend_from_slice(&self.raws[s as usize..(s + n) as usize]),
-                    Source::Picked(s, n) => out.extend(picked[s as usize..(s + n) as usize].iter().map(|&k| self.raws[k as usize])),
-                }
-                i += 1;
-            }
-            let count = out.len() as u32 - first;
-            emitted += count;
-            let k = self.keys[key as usize];
-            batches.push(Batch { pipe: k.pipe, material: k.material, mesh: k.mesh, lod, skinned: false, first, count });
-        }
-        emitted
     }
 }
 

@@ -49,6 +49,10 @@ struct Args {
     height: u32,
     hours: Option<f32>,
     camera: Option<(Vec3, Vec3)>,
+    /// `--street-cam x,z,heading[,height[,pitch]]`: a fixed camera standing
+    /// on the island's ground (`--smoke`): heading in degrees clockwise
+    /// from north, height above the ground (1.7 m), pitch in degrees.
+    street_cam: Option<Vec<f32>>,
     preset: Option<forja_render::Preset>,
     bench: usize,
     csv: Option<PathBuf>,
@@ -74,8 +78,16 @@ struct Args {
     /// `--windowed`: a window instead of the saved display mode.
     windowed: bool,
     /// Headless: menu drawn over the screenshot (`--ui pause|options|
-    /// controls|help|quit|f9|f11`).
+    /// controls|interface|help|quit|f9|f11|map`, or the radar's states
+    /// `radar-zoom` and `radar-big`).
     ui: Option<String>,
+    /// Headless: GPS waypoint (`--waypoint x,z`, world metres), mission
+    /// destination (`--mission x,z`) and wanted level (`--wanted N`).
+    waypoint: Option<Vec2>,
+    mission: Option<Vec2>,
+    wanted: u8,
+    /// Headless: zoom of the `--ui map` page in points per metre.
+    map_zoom: Option<f32>,
     /// Headless: UI scale (the OS DPI scaling, e.g. 2 for 200%).
     ppp: f32,
     /// Headless: after the screenshot, `N:K` more frames saving every K-th
@@ -124,8 +136,13 @@ fn parse_vec3(s: &str) -> Option<Vec3> {
     (v.len() == 3).then(|| Vec3::new(v[0], v[1], v[2]))
 }
 
+fn parse_vec2(s: &str) -> Option<Vec2> {
+    let v: Vec<f32> = s.split(',').filter_map(|x| x.trim().parse().ok()).collect();
+    (v.len() == 2).then(|| Vec2::new(v[0], v[1]))
+}
+
 fn parse_args() -> Args {
-    let mut a = Args { map: MapKind::Isla, screenshot: None, script: "idle".into(), frames: 90, width: 1600, height: 900, hours: None, camera: None, preset: None, bench: 0, csv: None, night_switch: false, stability: 0, adapter: forja_render::gpu::AdapterChoice::from_env(), smoke: 0, window: false, windowed: false, ui: None, ppp: 1.0, burst: None, car_cam: None, car: 0, frame_trace: 0, switches: Vec::new() };
+    let mut a = Args { map: MapKind::Isla, screenshot: None, script: "idle".into(), frames: 90, width: 1600, height: 900, hours: None, camera: None, street_cam: None, preset: None, bench: 0, csv: None, night_switch: false, stability: 0, adapter: forja_render::gpu::AdapterChoice::from_env(), smoke: 0, window: false, windowed: false, ui: None, waypoint: None, mission: None, wanted: 0, map_zoom: None, ppp: 1.0, burst: None, car_cam: None, car: 0, frame_trace: 0, switches: Vec::new() };
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;
     let mut eye = None;
@@ -147,6 +164,7 @@ fn parse_args() -> Args {
             "--time" => a.hours = v.parse().ok(),
             "--eye" => eye = parse_vec3(&v),
             "--look" => look = parse_vec3(&v),
+            "--street-cam" => a.street_cam = Some(v.split(',').filter_map(|x| x.trim().parse().ok()).collect::<Vec<f32>>()).filter(|c| c.len() >= 3),
             "--preset" => a.preset = Some(perf::parse_preset(&v).unwrap_or_else(|| panic!("unknown preset {v}"))),
             "--bench" => a.bench = v.parse().expect("bench frames"),
             "--csv" => a.csv = Some(v.into()),
@@ -170,6 +188,10 @@ fn parse_args() -> Args {
                 continue;
             }
             "--ui" => a.ui = Some(v),
+            "--waypoint" => a.waypoint = Some(parse_vec2(&v).expect("waypoint x,z")),
+            "--mission" => a.mission = Some(parse_vec2(&v).expect("mission x,z")),
+            "--wanted" => a.wanted = v.parse().expect("wanted level"),
+            "--map-zoom" => a.map_zoom = Some(v.parse().expect("map zoom")),
             "--ppp" => a.ppp = v.parse().expect("ppp"),
             "--burst" => {
                 let (n, k) = v.split_once(':').unwrap_or((v.as_str(), "1"));
@@ -222,6 +244,9 @@ fn fetch_missing_assets() {
 }
 
 /// Uploads new models and converts the scene into a render frame.
+/// Mesh bytes uploaded per frame while playing.
+const PLAY_UPLOAD_BYTES: usize = 6 << 20;
+
 struct Extract {
     handles: Vec<ModelHandle>,
     env_loaded: bool,
@@ -235,13 +260,15 @@ struct Extract {
     freed: usize,
     /// Streaming of the city tiles' block meshes (see `sandbox::stream`).
     stream: Option<sandbox::stream::Streamer>,
+    /// The island's streamed detail layers (see `game::island_detail`).
+    layers: game::island_detail::LayerSync,
     /// CPU ms of the last [`Extract::frame`] by stage (frame trace).
     pub timings: [(&'static str, f32); 4],
 }
 
 impl Extract {
     fn new() -> Self {
-        Self { handles: Vec::new(), env_loaded: false, statics_uploaded: None, legacy: std::env::var_os("FORJA_LEGACY_STATICS").is_some(), upload_ms: 0.0, freed: 0, stream: None, timings: [("uploads", 0.0), ("statics", 0.0), ("stream", 0.0), ("instances", 0.0)] }
+        Self { handles: Vec::new(), env_loaded: false, statics_uploaded: None, legacy: std::env::var_os("FORJA_LEGACY_STATICS").is_some(), upload_ms: 0.0, freed: 0, stream: None, layers: Default::default(), timings: [("uploads", 0.0), ("statics", 0.0), ("stream", 0.0), ("instances", 0.0)] }
     }
 
     /// Uploads the models added since the last frame. The world's scenes
@@ -277,12 +304,25 @@ impl Extract {
         let mut freed = 0usize;
         let handles = &mut self.handles;
         let mut upload = |rs: &mut RenderScene, mut world: Option<(&mut game::world::GameWorld, usize)>| {
+            let mut sent = 0usize;
             while handles.len() < n {
                 if deadline.is_some_and(|d| Instant::now() >= d) {
                     break;
                 }
+                // During play: a few megabytes of meshes per frame (content
+                // streamed in must not stall a frame).
+                if deadline.is_none() && world.is_none() && sent > PLAY_UPLOAD_BYTES {
+                    break;
+                }
                 let i = handles.len();
+                sent += rs.models[i].meshes.iter().flatten().map(|m| m.positions.len() * 48 + m.indices.len() * 4).sum::<usize>();
                 handles.push(renderer.upload_scene(&rs.models[i]));
+                if rs.texture_aliases.as_ref().is_some_and(|a| a.0 == i)
+                    && let Some((_, pairs)) = rs.texture_aliases.take()
+                {
+                    let ok = pairs.iter().filter(|(original, placeholder)| renderer.alias_texture(original, placeholder)).count();
+                    log::info!("{ok} of {} kit textures aliased to placeholders", pairs.len());
+                }
                 if let Some((gw, base)) = world.as_mut()
                     && let Some(d) = i.checked_sub(*base).and_then(|j| gw.desc.scenes.get_mut(j))
                 {
@@ -385,6 +425,14 @@ impl Extract {
             let statics: Vec<DrawInstance> = kept().map(|(_, item)| DrawInstance { model: self.handles[item.model], transform: item.transform, nodes: item.nodes.clone(), joints: None, tint: item.tint, cast_shadows: true, motion_id: 0 }).collect();
             let lod: Vec<forja_render::StaticLod> = kept().map(|(i, _)| rs.static_lod.get(i).map_or(forja_render::StaticLod::default(), |&(group, hlod)| forja_render::StaticLod { group, hlod })).collect();
             renderer.set_static_instances_lod(&statics, &lod);
+            for &(g, k) in &rs.static_lod_scale {
+                renderer.set_static_group_scale(g, k);
+            }
+            for &g in &rs.static_not_ready {
+                renderer.set_static_group_ready(g, false);
+            }
+            // An island's distant trees are left to the ground colour.
+            renderer.settings.detail_cull_px = if app.world.resources.get::<game::island::IslandColliders>().is_some() { 1.6 } else { 0.6 };
             self.statics_uploaded = Some(key);
         }
     }
@@ -402,6 +450,7 @@ impl Extract {
         // Items listed in `volatile_statics` (signal heads) change at run
         // time and are submitted per frame instead.
         self.upload_statics(renderer, app);
+        game::island_detail::sync(&mut self.layers, renderer, &self.handles, app.world.res_mut::<RenderScene>());
         let rs = app.world.res::<RenderScene>();
         let t2 = Instant::now();
         self.timings[1].1 = (t2 - t1).as_secs_f32() * 1000.0;
@@ -771,11 +820,26 @@ fn headless_ui(
             menu.screen = pause::Screen::Options;
             menu.tab = pause::OptionsTab::Controls;
         }
+        Some("interface") => {
+            menu.open();
+            menu.screen = pause::Screen::Options;
+            menu.tab = pause::OptionsTab::Interface;
+        }
+        Some("map") => menu.open_map(),
         Some("f9") => perf_state.options = true,
         Some("f11") => perf_state.overlay = true,
         _ => {}
     }
     let mut map = forja_input::ActionMap::default();
+    if let Some(mm) = app.world.resources.get_mut::<sandbox::minimap::Minimap>() {
+        // No later frame would pick up tiles or a route from the workers.
+        mm.set_sync(true);
+        mm.waypoint = args.waypoint;
+        mm.mission = args.mission;
+        mm.wanted = args.wanted;
+        mm.preset(args.ui.as_deref() == Some("radar-big"), args.ui.as_deref() == Some("radar-zoom"), args.map_zoom);
+    }
+    ui_state.radar = menu.radar(args.ui.as_deref() == Some("radar-big"));
     ctx.set_zoom_factor(ppp);
     // egui lays windows out over a couple of passes and fades windows in
     // (~0.1 s): run half a second of 60 Hz UI frames and keep the last
@@ -793,12 +857,16 @@ fn headless_ui(
             ui::draw(ui.ctx(), &mut app.world, ui_state);
             perf::draw_overlay(ui.ctx(), perf_state);
             perf::draw_options(ui.ctx(), perf_state);
-            pause::draw(ui.ctx(), menu, perf_state, &mut map);
+            pause::draw(ui.ctx(), menu, perf_state, &mut map, &mut app.world);
         });
         sets.extend(out.textures_delta.set.clone());
         last = Some(out);
     }
     let out = last.expect("ran");
+    if let Some(mm) = app.world.resources.get::<sandbox::minimap::Minimap>() {
+        let (tiles, _) = mm.tiles_loaded();
+        log::info!("radar: {:.3} ms CPU for the last frame, {tiles} tiles painted, route {}", mm.last_ms, mm.route().map_or("none".into(), |r| format!("{:.0} m, {} points", r.length(), r.pts.len())));
+    }
     let jobs = ctx.tessellate(out.shapes, out.pixels_per_point);
     let screen = egui_wgpu::ScreenDescriptor { size_in_pixels: [args.width, args.height], pixels_per_point: out.pixels_per_point };
     for (id, deltas) in &sets {
@@ -1098,9 +1166,23 @@ fn run_smoke(args: &Args) {
     smoke_verdict(total, &img, &out, &ms);
 }
 
+/// The camera of `--street-cam`: on the island's ground.
+fn street_cam(args: &Args, app: &App) -> Option<(Vec3, Vec3)> {
+    let c = args.street_cam.as_ref()?;
+    let island = app.world.resources.get::<game::world::GameWorld>()?.desc.island.clone()?;
+    let (yaw, pitch) = (c[2].to_radians(), c.get(4).copied().unwrap_or(0.0).to_radians());
+    let eye = Vec3::new(c[0], island.ground.height(c[0], c[1]) + c.get(3).copied().unwrap_or(1.7), c[1]);
+    Some((eye, eye + Vec3::new(yaw.sin() * pitch.cos(), pitch.sin(), -yaw.cos() * pitch.cos()) * 10.0))
+}
+
 /// The `--smoke` frames of one world (headless).
 #[allow(clippy::too_many_arguments)]
 fn smoke_stage(args: &Args, app: &mut App, renderer: &mut Renderer, extract: &mut Extract, view: &forja_render::wgpu::TextureView, trace: &mut Option<sandbox::trace::FrameTrace>, ms: &mut Vec<f32>, total: &mut usize) {
+    // A fixed camera is known to the first update (what streams by the
+    // camera then starts where the camera is).
+    if let Some(cam) = args.camera.or_else(|| street_cam(args, app)) {
+        app.world.res_mut::<game::camera::CameraRig>().fixed = Some(cam);
+    }
     for f in 0..args.smoke {
         *total += 1;
         let t = Instant::now();
@@ -1109,7 +1191,7 @@ fn smoke_stage(args: &Args, app: &mut App, renderer: &mut Renderer, extract: &mu
         }
         script_intent(&args.script, f, app.world.res_mut::<Intent>());
         app.update_with_dt(1.0 / 60.0);
-        if let Some(cam) = args.camera {
+        if let Some(cam) = args.camera.or_else(|| street_cam(args, app)) {
             app.world.res_mut::<game::camera::CameraRig>().fixed = Some(cam);
         }
         if let Some(tr) = trace {
@@ -1289,6 +1371,10 @@ impl Sandbox {
         let paths = paths();
         let map_text = std::fs::read_to_string(paths.data.join("input.toml")).unwrap_or_default();
         let mut input = Input::new(ActionMap::from_toml(&map_text).unwrap_or_default());
+        // Bindings files from before the radar get its keys.
+        for (action, key) in [("radar_zoom", "KeyZ"), ("map", "KeyM")] {
+            input.map.actions.entry(action.into()).or_insert_with(|| vec![key.into()]);
+        }
         let pause = PauseMenu::new(paths.data.join("controls.toml"), &input.map);
         pause.controls.apply(&mut input.map);
         let map = args.map;
@@ -1649,6 +1735,11 @@ impl Sandbox {
             self.ui.inventory_open = !self.ui.inventory_open;
             self.capture(!self.ui.inventory_open);
         }
+        if !paused && self.input.pressed("map") && !self.ui.inventory_open {
+            self.set_paused(true);
+            self.pause.open_map();
+        }
+        self.ui.radar = self.pause.radar(!paused && self.captured && self.input.held("radar_zoom"));
         if !paused && self.input.pressed("debug_physics") {
             self.ui.debug = !self.ui.debug;
         }
@@ -1796,7 +1887,7 @@ impl Sandbox {
             ui::draw(ui.ctx(), world, ui_state);
             perf::draw_overlay(ui.ctx(), perf_state);
             perf::draw_options(ui.ctx(), perf_state);
-            menu_action = pause::draw(ui.ctx(), menu, perf_state, map);
+            menu_action = pause::draw(ui.ctx(), menu, perf_state, map, world);
         });
         gpu.egui_state.handle_platform_output(&gpu.window, out.platform_output);
         let jobs = ctx.tessellate(out.shapes, out.pixels_per_point);

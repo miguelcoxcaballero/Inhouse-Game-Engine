@@ -1118,6 +1118,7 @@ dependencies = [
 name = "forja_world"
 version = "0.1.0"
 dependencies = [
+ "flate2",
  "forja_assets",
  "forja_city",
  "forja_flora",
@@ -1126,7 +1127,9 @@ dependencies = [
  "image",
  "log",
  "quick-xml 0.38.4",
+ "rayon",
  "serde_json",
+ "toml",
 ]
 
 [[package]]
@@ -2944,9 +2947,11 @@ dependencies = [
  "egui-wgpu",
  "egui-winit",
  "env_logger",
+ "flate2",
  "forja_ai",
  "forja_anim",
  "forja_assets",
+ "forja_city",
  "forja_core",
  "forja_gameplay",
  "forja_input",

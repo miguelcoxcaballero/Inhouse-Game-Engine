@@ -7,6 +7,8 @@ pub mod combat;
 pub mod crowd;
 pub mod env;
 pub mod humans;
+pub mod island;
+pub mod island_detail;
 pub mod people;
 pub mod player;
 pub mod props;
@@ -102,6 +104,12 @@ pub struct RenderScene {
     /// Far-distance groups of `statics`: `(group, is the HLOD)` by index
     /// (missing or group 0: always drawn).
     pub static_lod: Vec<(u32, bool)>,
+    /// Groups that switch at a multiple of the HLOD distance: `(group,
+    /// scale)`.
+    pub static_lod_scale: Vec<(u32, f32)>,
+    /// Far-distance groups kept at their stand-in whatever the distance
+    /// (their detail is not there yet).
+    pub static_not_ready: Vec<u32>,
     pub dynamic: Vec<RenderItem>,
     pub lights: Vec<PointLight>,
     /// Physical point and spot lights of this frame (the city at night).
@@ -111,6 +119,18 @@ pub struct RenderScene {
     pub env: Environment,
     /// Equirectangular HDR photo used for image-based lighting.
     pub hdri: Option<PathBuf>,
+    /// Commands for the renderer's streamed static layers, applied in
+    /// order after the frame's uploads (see [`island_detail::sync`]).
+    pub layer_cmds: Vec<island_detail::LayerCmd>,
+    /// Radius (m) of the island's streamed detail for the renderer's
+    /// graphics settings (set by the frame extraction).
+    pub detail_radius: Option<f32>,
+    /// Models whose CPU copy is dropped once they are on the GPU.
+    pub strip_after_upload: Vec<usize>,
+    /// Textures that stand for the textures of a model once it is
+    /// uploaded: `(model, (original, placeholder) pairs)`, see
+    /// `forja_render::Renderer::alias_texture`.
+    pub texture_aliases: Option<(usize, Vec<(forja_assets::TextureData, forja_assets::TextureData)>)>,
 }
 
 impl RenderScene {
@@ -166,6 +186,8 @@ pub struct Hud {
     pub physics_ms: f32,
     pub bodies: usize,
     pub attribution: Vec<String>,
+    /// A cutscene is playing: the radar and the bars are hidden.
+    pub cutscene: bool,
 }
 
 impl Hud {
@@ -176,8 +198,10 @@ impl Hud {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MapKind {
-    /// Valencia's centre from the Isla Levante map (real footprints and streets).
+    /// The whole Isla Levante: 500 km² with Valencia at real scale.
     Isla,
+    /// Valencia's centre from the Isla Levante map, all detailed (a 460 m window).
+    IslaCentre,
     Spain,
     /// The classic grids-and-boulevard map.
     SpainClassic,
@@ -196,11 +220,12 @@ pub enum MapKind {
 }
 
 impl MapKind {
-    pub const ALL: [MapKind; 11] = [MapKind::Isla, MapKind::Spain, MapKind::Carmen, MapKind::Austrias, MapKind::CarmenOsm, MapKind::AustriasOsm, MapKind::SpainClassic, MapKind::Osm, MapKind::Terrain, MapKind::Track, MapKind::Kit];
+    pub const ALL: [MapKind; 12] = [MapKind::Isla, MapKind::IslaCentre, MapKind::Spain, MapKind::Carmen, MapKind::Austrias, MapKind::CarmenOsm, MapKind::AustriasOsm, MapKind::SpainClassic, MapKind::Osm, MapKind::Terrain, MapKind::Track, MapKind::Kit];
 
     pub fn parse(s: &str) -> Option<Self> {
         Some(match s {
             "isla" | "valencia" | "levante" => Self::Isla,
+            "isla-centre" | "isla-centro" | "centro" => Self::IslaCentre,
             "spain" | "espana" | "madrid" => Self::Spain,
             "classic" | "spain-classic" => Self::SpainClassic,
             "carmen" => Self::Carmen,
@@ -217,7 +242,8 @@ impl MapKind {
 
     pub fn label(&self) -> &'static str {
         match self {
-            Self::Isla => "Valencia (Isla Levante)",
+            Self::Isla => "Isla Levante",
+            Self::IslaCentre => "Valencia, centro (Isla Levante)",
             Self::Spain => "Madrid y Valencia (procedural)",
             Self::SpainClassic => "Madrid y Valencia, ensanches (procedural)",
             Self::Carmen => "Barrio del Carmen (procedural)",
@@ -264,7 +290,8 @@ pub fn build_at(map: MapKind, paths: Paths, hour: Option<f32>) -> App {
         .add_plugin(combat::CombatPlugin)
         .add_plugin(traffic::TrafficPlugin)
         .add_plugin(crowd::CrowdPlugin)
-        .add_plugin(camera::CameraPlugin);
+        .add_plugin(camera::CameraPlugin)
+        .add_plugin(crate::minimap::MinimapPlugin);
     crate::perf::trim_heap();
     app.add_system(Stage::PreUpdate, "clear_frame", |w| {
         let rs = w.res_mut::<RenderScene>();
@@ -280,6 +307,11 @@ pub fn build_at(map: MapKind, paths: Paths, hour: Option<f32>) -> App {
         hud.messages.retain(|m| m.1 > 0.0);
         hud.hit_marker = (hud.hit_marker - dt * 4.0).max(0.0);
     });
+    if hour.is_none() && map == MapKind::Isla {
+        // An open landscape to the horizon: the physical sky, not the
+        // street photo (its buildings would stand behind the island).
+        app.world.res_mut::<env::TimeOfDay>().photo_sky = false;
+    }
     if let Some(h) = hour {
         let t = app.world.res_mut::<env::TimeOfDay>();
         t.hours = h;
